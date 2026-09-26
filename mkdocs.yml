@@ -1,0 +1,66 @@
+site_name: Extensão de Fact-Checking para YouTube
+site_description: Documentação técnica e de produto — checagem de fatos em vídeos via transcrição + IA
+site_url: https://evidencia-grupo.github.io/documentation/
+repo_url: https://github.com/evidencia-grupo/documentation
+repo_name: evidencia-grupo/documentation
+docs_dir: docs
+
+theme:
+  name: material
+  language: pt
+  palette:
+    - scheme: default
+      primary: red
+      accent: amber
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - toc.integrate
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Início: index.md
+  - Visão:
+      - Alinhamento Estratégico: visao/alinhamento-estrategico.md
+  - Design e Experiência:
+      - Personas e Jornadas: design/personas-e-jornadas.md
+      - Design System e Interface: design/design-system.md
+  - Engenharia de Requisitos:
+      - Processo e Técnicas de Elicitação: requisitos/elicitacao.md
+      - Catálogo de Requisitos (RF e RNF): requisitos/catalogo-requisitos.md
+      - Casos de Uso: requisitos/casos-de-uso.md
+      - Cenários de Uso e Operação: requisitos/cenarios.md
+      - Backlog e Histórias de Usuário: requisitos/backlog-e-historias.md
+      - Matriz de Rastreabilidade: requisitos/matriz-rastreabilidade.md
+  - Arquitetura e Engenharia:
+      - Arquitetura do Sistema: tecnico/arquitetura.md
+      - Contrato de Dados e API: tecnico/contrato-api.md
+      - Threat Model e LGPD: tecnico/threat-model.md
+      - Estratégia de Testes e DoD: tecnico/estrategia-testes.md
+      - Guia de Contribuição e Setup: tecnico/guia-contribuicao.md
+      - Decisões Arquiteturais (ADRs):
+          - ADR-001 — Manifest V3: tecnico/decisoes/ADR-001-manifest-v3.md
+          - ADR-002 — Backend Proxy Dedicado: tecnico/decisoes/ADR-002-backend-proxy.md
+          - ADR-003 — Estratégia de Cache Local: tecnico/decisoes/ADR-003-estrategia-cache-local.md
+  - Planejamento e Governança:
+      - Priorização e MVP: planejamento/priorizacao-e-mvp.md
+      - Gestão de Riscos Técnicos: planejamento/gestao-riscos.md
+      - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
+  - Referência:
+      - Glossário Técnico: referencia/glossario.md
