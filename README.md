@@ -42,6 +42,7 @@ Desenvolvida para **usuários leigos, estudantes e educadores**, permitindo vali
 
 ```
 documentation/
+├── .github/                 → Workflows de automação e CI/CD para GitHub Pages
 ├── .gitignore               → Regras de exclusao do Git (venv, site/, caches, OS)
 ├── .python-version          → Versao do Python fixada (3.13)
 ├── pyproject.toml           → Especificacao do projeto e dependencias via uv
@@ -52,6 +53,7 @@ documentation/
 └── docs/
     ├── assets/              → Mockups, diagramas e recursos visuais
     ├── index.md             → Landing page da documentacao
+    ├── stylesheets/         → Estilos customizados, transicoes e acessibilidade (extra.css)
     ├── visao/               → Alinhamento estrategico e visao do produto
     ├── design/              → Personas, jornadas e design system
     ├── requisitos/          → Catalogo de requisitos, backlog, casos de uso e matriz

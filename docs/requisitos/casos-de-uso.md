@@ -14,6 +14,11 @@
 
 ## Diagrama de Casos de Uso
 
+![Diagrama de Casos de Uso do Sistema](../assets/diagrama-casos-de-uso.png)
+*Figura: Diagrama UML formal de Casos de Uso da extensão, detalhando os atores, limites do sistema e integrações com o Player do YouTube e o Backend de IA.*
+
+### Mapeamento Estrutural e Atores
+
 ```mermaid
 flowchart LR
     DonaLurdes((Dona Lurdes))

@@ -64,6 +64,9 @@
 
 A definição formal de antipersonas orienta os limites de escopo do produto e impede o desvio para funcionalidades não prioritárias:
 
+![Painel de Critérios de Exclusão e Antipersonas](../assets/criterios-exclusao.png)
+*Figura: Mapeamento de critérios de exclusão, diretrizes de antipersonas e salvaguardas de integridade do produto.*
+
 ### Lucas Ferreira (38 anos, Criador de Conteúdo Sensacionalista)
 - **Perfil:** Opera em ecossistema de engajamento acelerado, focado em monetização orgânica através de pânico moral e visualizações.
 - **Risco de Mau Uso:** Buscaria utilizar o produto para encontrar brechas editoriais ou obter validações unilaterais.

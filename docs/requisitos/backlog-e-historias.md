@@ -20,6 +20,9 @@
 
 ## Backlog do Produto por Épico {: #backlog-do-produto-por-epico }
 
+![Mapeamento Visual de Épicos, Features e Histórias de Usuário](../assets/epicos-e-features.png)
+*Figura: Mapeamento visual e estrutural entre Épicos, Features e Histórias de Usuário associadas às personas mapeadas.*
+
 | Épico | Módulo | Histórias | Prioridade MoSCoW | Rastreabilidade a Cenários |
 |:---|:---|:---|:---|:---|
 | **E1 — Gatilho e Ativação** | Acionamento da extensão | HU01, HU03 | Must Have \| IN | [Cenário 01](cenarios.md#cenario-01), [Cenário 03](cenarios.md#cenario-03) |
@@ -28,6 +31,13 @@
 | **E4 — Confiança e Fontes** | Credibilidade e contexto | HU07, HU08 | Must Have (HU07) / Should Have (HU08) \| IN | [Cenário 04](cenarios.md#cenario-04), [Cenário 09](cenarios.md#cenario-09) |
 | **E5 — Performance e Cache** | Otimização e reuso local | HU06 | Should Have \| IN | [Cenário 07](cenarios.md#cenario-07) |
 | **E6 — Engajamento Reflexivo** | Pensamento crítico e feedback | HU11, HU12 | Could Have \| OUT (Pós-MVP) | [Cenário 05](cenarios.md#cenario-05), [Cenário 11](cenarios.md#cenario-11) |
+
+### Funil de Priorização do Backlog
+
+A alocação de esforço e cadência de entrega de cada história segue o funil estratégico do produto:
+
+![Funil de Priorização do Backlog](../assets/funil-backlog.png)
+*Figura: Funil de refinamento progressivo do backlog de produto (Now, Next, Soon, Later).*
 
 ---
 

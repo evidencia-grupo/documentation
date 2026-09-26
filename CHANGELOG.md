@@ -9,6 +9,16 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Added
 
+- **Navegação, Acessibilidade e Experiência do Usuário (UX/UI):**
+  - `docs/stylesheets/extra.css`: estilização personalizada contemplando transições sutis entre páginas (`subtleFadeIn`), suporte a `prefers-reduced-motion`, anéis de foco de alto contraste para navegação por teclado (`:focus-visible` - WCAG 2.1 AA), bordas suaves e sombras volumétricas para mockups e tabelas responsivas.
+  - Chaveador de tema dinâmico Claro/Escuro (Light/Slate) no cabeçalho com detecção automática da preferência do sistema operacional (`prefers-color-scheme`).
+  - Navegação instantânea assíncrona (`navigation.instant`) com barra de progresso sutil no topo (`navigation.instant.progress`) e pré-visualização de links (`navigation.instant.preview`).
+  - Trilha de navegação estrutural em breadcrumbs (`navigation.path`), abas superiores fixas com rolagem (`navigation.tabs.sticky`) e sumário lateral direito sincronizado dinamicamente com a rolagem (`toc.follow`).
+- **Alinhamento e Distribuição de Recursos Visuais:**
+  - `docs/planejamento/priorizacao-e-mvp.md`: correção e posicionamento fidedigno do Sequenciador Lean Inception (`sequenciador-lean-inception.png`), criação da seção dedicada ao Funil de Priorização do Backlog (`funil-backlog.png`) e seção de Critérios de Exclusão e Limites de Escopo (`criterios-exclusao.png`).
+  - `docs/requisitos/casos-de-uso.md`: integração do diagrama UML formal de casos de uso (`diagrama-casos-de-uso.png`) articulado com o diagrama interativo Mermaid.
+  - `docs/requisitos/backlog-e-historias.md`: integração do mapa estrutural de épicos, features e personas (`epicos-e-features.png`) e do funil de refinamento progressivo do backlog.
+  - `docs/design/personas-e-jornadas.md`: integração do painel visual de critérios de exclusão, antipersonas e salvaguardas de produto (`criterios-exclusao.png`).
 - **Engenharia de Requisitos:**
   - `docs/requisitos/elicitacao.md`: documentação aprofundada do processo empírico de descoberta e elicitação em 5 etapas (entrevistas qualitativas com múltiplos perfis, análise de concorrentes, prototipagem ergonômica, dinâmica da Técnica dos 100 Dólares para alocação orçamentária de RFs e RNFs, e matrizes MoSCoW e IN/OUT).
   - `docs/requisitos/cenarios.md`: especificação formal dos Cenários 01 a 11 com objetivos, contexto, atores, recursos, episódios operacionais, restrições e exceções.
@@ -29,6 +39,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   - `docs/planejamento/metricas-telemetria.md`: plano de instrumentação e coleta ética de KPIs de negócio em conformidade com a privacidade.
 - **Infraestrutura e Tooling:**
   - Suporte ao gerenciador **uv** com `.python-version` (3.13) e `pyproject.toml`.
+  - Pipeline de CI/CD para GitHub Pages (`.github/workflows/ci-docs.yml`) com 4 etapas: lint, test, build e deploy.
   - Arquivo `.gitignore` abrangente para Python, uv, MkDocs e ambientes de desenvolvimento.
   - Integração de imagens e mockups do desafio na pasta `docs/assets/`.
 
@@ -36,7 +47,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 - Removidos integralmente todos os emojis da documentação para adotar um tom estritamente profissional e corporativo.
 - Reformulação da landing page `docs/index.md` e do `README.md` com matriz interativa de módulos e parâmetros técnicos consolidados.
-- Atualização do menu de navegação do `mkdocs.yml` para comportar a hierarquia completa de engenharia.
+- Atualização do menu de navegação do `mkdocs.yml` para comportar a hierarquia completa de engenharia com abas dedicadas e sumário direito.
 - Validação contínua com `uv run mkdocs build --strict` passando com zero erros e zero avisos.
 
 ---
