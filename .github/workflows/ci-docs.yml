@@ -1,0 +1,129 @@
+name: CI/CD Documentation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  lint:
+    name: Lint & Validação Estática
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Configurar Python
+        run: uv python install 3.13
+
+      - name: Validar Ausência de Emojis e Padrão Corporativo
+        run: |
+          uv run python -c "
+          import os, re, sys
+          emoji_pattern = re.compile(
+              '[\U00010000-\U0010ffff]|[\u2600-\u27bf]|[\u2300-\u23ff]|[\u2b50-\u2b55]|[\u3030\u303d]|[\ud83c\ud000-\ud83e\uddff]'
+          )
+          errors = []
+          for root, dirs, files in os.walk('docs'):
+              for f in files:
+                  if f.endswith('.md'):
+                      p = os.path.join(root, f)
+                      with open(p, 'r', encoding='utf-8') as fp:
+                          for line_no, line in enumerate(fp, 1):
+                              if emoji_pattern.search(line):
+                                  errors.append(f'{p}:{line_no} -> {line.strip()[:60]}')
+          if errors:
+              print(f'Erro de conformidade: {len(errors)} linhas com emojis encontradas:')
+              for err in errors:
+                  print(err)
+              sys.exit(1)
+          print('Conformidade corporativa aprovada: 0 emojis encontrados na documentacao.')
+          "
+
+  test:
+    name: Testes e Validação de Links
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Configurar Python
+        run: uv python install 3.13
+
+      - name: Instalar Dependências
+        run: uv sync --frozen
+
+      - name: Executar MkDocs Build em Modo Estrito
+        run: uv run mkdocs build --strict
+
+  build:
+    name: Build para GitHub Pages
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Configurar Python
+        run: uv python install 3.13
+
+      - name: Instalar Dependências
+        run: uv sync --frozen
+
+      - name: Compilar Site Estático
+        run: uv run mkdocs build --strict
+
+      - name: Configurar GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Empacotar Artefatos do Site
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    name: Deploy no GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
