@@ -41,6 +41,7 @@ site/
 # IDE & Editor files
 .vscode/
 .idea/
+.playwright-mcp/
 *.swp
 *.swo
 *~

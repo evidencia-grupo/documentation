@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Estilos Personalizados - Documentação Extensão Fact-Checking YouTube
+   Acessibilidade (WCAG 2.1 AA), Transições Sutis e Qualidade Visual
+   ========================================================================== */
+
+/* 1. Transição Suave e Sutil entre Páginas (navigation.instant) */
+.md-main__inner {
+  animation: subtleFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes subtleFadeIn {
+  0% {
+    opacity: 0.85;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Barra de progresso sutil no topo durante carregamento instantâneo */
+.md-progress {
+  background-color: var(--md-accent-fg-color) !important;
+  height: 2.5px !important;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Transições suaves para links, abas e botões */
+a, 
+button, 
+.md-nav__link, 
+.md-tabs__link,
+.md-top {
+  transition: color 0.18s ease, background-color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Respeito a usuários com preferência de movimento reduzido (A11y) */
+@media (prefers-reduced-motion: reduce) {
+  *, 
+  *::before, 
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 2. Acessibilidade e Foco Visível (WCAG 2.1 AA - Critério 2.4.7) */
+:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color, #c00) !important;
+  outline-offset: 3px !important;
+  border-radius: 3px;
+}
+
+/* Melhoria no contraste de seleção de texto */
+::selection {
+  background-color: rgba(229, 9, 20, 0.25);
+  color: inherit;
+}
+
+/* 3. Aprimoramento Visual das Imagens e Mockups */
+.md-content figure,
+.md-content p > img {
+  border-radius: 8px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease;
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  height: auto;
+}
+
+[data-md-color-scheme="slate"] .md-content figure,
+[data-md-color-scheme="slate"] .md-content p > img {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+.md-content figure:hover,
+.md-content p > img:hover {
+  transform: scale(1.008);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+[data-md-color-scheme="slate"] .md-content figure:hover,
+[data-md-color-scheme="slate"] .md-content p > img:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+}
+
+/* Legendas de figuras com tipografia refinada e semântica */
+.md-content em,
+.md-content figcaption {
+  display: block;
+  text-align: center;
+  font-size: 0.83rem;
+  font-style: italic;
+  color: var(--md-default-fg-color--light);
+  margin-top: -0.85rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* 4. Tabelas Elegantes e Responsivas */
+.md-typeset table:not([class]) {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--md-default-bg-color--lighter, rgba(0, 0, 0, 0.03));
+  font-weight: 600;
+  border-bottom: 2px solid var(--md-default-fg-color--lightest);
+  letter-spacing: 0.01em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* 5. Cartões e Badges de Requisitos */
+.badge-must {
+  background-color: rgba(211, 47, 47, 0.12);
+  color: #c62828;
+  border: 1px solid rgba(211, 47, 47, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .badge-must {
+  background-color: rgba(239, 83, 80, 0.2);
+  color: #ef9a9a;
+  border-color: rgba(239, 83, 80, 0.4);
+}
+
+.badge-should {
+  background-color: rgba(245, 124, 0, 0.12);
+  color: #e65100;
+  border: 1px solid rgba(245, 124, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .badge-should {
+  background-color: rgba(255, 167, 38, 0.2);
+  color: #ffcc80;
+  border-color: rgba(255, 167, 38, 0.4);
+}
+
+.badge-in {
+  background-color: rgba(46, 125, 50, 0.12);
+  color: #2e7d32;
+  border: 1px solid rgba(46, 125, 50, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .badge-in {
+  background-color: rgba(102, 187, 106, 0.2);
+  color: #a5d6a7;
+  border-color: rgba(102, 187, 106, 0.4);
+}
+
+/* 6. Navegação Superior por Abas (Tabs) */
+.md-tabs {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-tabs__link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  opacity: 1;
+}
+
+/* 7. Breadcrumbs (navigation.path) */
+.md-path {
+  font-size: 0.76rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.5rem;
+}
+
+/* 8. Botão Voltar ao Topo Suave */
+.md-top {
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.md-top:hover {
+  transform: translateY(-2px);
+}

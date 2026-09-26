@@ -9,17 +9,46 @@ theme:
   name: material
   language: pt
   palette:
-    - scheme: default
+    # Esquema Claro (detectado automaticamente quando o SO estiver no modo claro)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       primary: red
       accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Alternar para tema escuro
+    # Esquema Escuro (detectado automaticamente quando o SO estiver no modo escuro)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: red
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Alternar para tema claro
+  font:
+    text: Roboto
+    code: Roboto Mono
   features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.preview
+    - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
+    - navigation.path
     - navigation.top
+    - navigation.footer
     - content.code.copy
-    - toc.integrate
+    - content.code.annotate
+    - toc.follow
+    - search.suggest
     - search.highlight
+    - search.share
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - admonition
@@ -33,6 +62,17 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.mark
+  - pymdownx.keys
 
 nav:
   - Início: index.md
