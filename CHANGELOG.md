@@ -41,7 +41,8 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   - `docs/planejamento/gestao-riscos.md`: matriz de riscos técnicos e de projeto com planos de contingência detalhados.
   - `docs/planejamento/metricas-telemetria.md`: plano de instrumentação e coleta ética de KPIs de negócio em conformidade com a privacidade.
 - **Infraestrutura e Tooling:**
-  - Suporte ao gerenciador **uv** com `.python-version` (3.13) e `pyproject.toml`.
+  - Suporte ao gerenciador **uv** com `.python-version` (3.13) e `pyproject.toml` na documentação.
+  - Suporte dual ao gerenciador **uv** e **pip** no Backend Proxy (`backend/`), contemplando `.python-version` (3.12), `pyproject.toml` com grupos de dependências PEP 735, `requirements.txt` sincronizado e esteira de CI/CD acelerada com `astral-sh/setup-uv@v5` e cache nativo.
   - Pipeline de CI/CD para GitHub Pages (`.github/workflows/ci-docs.yml`) com 4 etapas: lint, test, build e deploy.
   - Arquivo `.gitignore` abrangente para Python, uv, MkDocs e ambientes de desenvolvimento.
   - Integração de imagens e mockups do desafio na pasta `docs/assets/`.

@@ -83,22 +83,23 @@ No repositório de código `evidencia/`, a extensão localiza-se no diretório `
 O Backend Proxy em FastAPI reside no diretório `backend/` do repositório `evidencia/`:
 
 ```bash
-# 1. Acessar o diretorio do backend e criar ambiente virtual isolado:
+# Opção A (Recomendada via uv):
+cd backend
+uv sync                     # Cria venv e instala dependencias e ferramentas dev
+cp .env.example .env        # Configura variaveis locais
+uv run uvicorn app.main:app --reload --port 8000  # Inicia servidor local
+uv run pytest               # Executa testes automatizados
+uv run ruff check .         # Executa linter
+
+# Opção B (Tradicional via pip):
 cd backend
 python3 -m venv .venv
-source .venv/bin/activate  # No Windows: .venv\Scripts\activate
-
-# 2. Instalar dependencias requeridas (FastAPI, Pydantic v2, Uvicorn, SlowAPI):
+source .venv/bin/activate   # No Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-
-# 3. Configurar variaveis de ambiente a partir do modelo:
 cp .env.example .env
-
-# 4. Iniciar o servidor FastAPI com hot-reload:
 uvicorn app.main:app --reload --port 8000
-
-# 5. Executar os testes automatizados da esteira:
 pytest
+ruff check .
 ```
 
 Variáveis mínimas requeridas no arquivo `.env`:
@@ -137,6 +138,7 @@ evidencia/
 ├── backend/                 → Backend Proxy seguro (Python 3.12+ FastAPI)
 │   ├── pyproject.toml
 │   ├── requirements.txt
+│   ├── .python-version
 │   ├── .env.example
 │   ├── app/
 │   │   ├── main.py          → Ponto de entrada FastAPI, CORS e Rate Limiting

@@ -171,6 +171,7 @@ evidencia/
 ├── backend/               # Backend Proxy de seguranca e orquestracao
 │   ├── pyproject.toml     # Dependencias e configuracao de testes
 │   ├── requirements.txt   # FastAPI, Pydantic v2, Uvicorn, SlowAPI
+│   ├── .python-version    # Declaracao de versao Python para uv
 │   ├── app/
 │   │   ├── main.py        # Ponto de entrada FastAPI, CORS e Rate Limiting
 │   │   ├── config.py      # Gestao segura de variaveis de ambiente
