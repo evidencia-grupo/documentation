@@ -86,37 +86,63 @@ A definição formal de antipersonas orienta os limites de escopo do produto e i
 
 ### Jornada AS-IS (Sem a Extensão) — Dona Lurdes {: #as-is-jornada-atual-sem-a-extensao }
 
+A jornada atual evidencia a vulnerabilidade do usuário comum diante de vídeos apelativos de saúde ou notícias falsas, resultando em sobrecarga cognitiva, abandono da checagem e eventual compartilhamento de boatos por cautela mal orientada.
+
 ```mermaid
 journey
-    title Jornada Atual (Sem a Extensao) - Dona Lurdes
+    title Jornada AS-IS (Sem a Extensao) - Dona Lurdes
     section Consumo do Video
-      Assiste video apelativo sobre receita caseira: 3: Dona Lurdes
-      Fica em duvida sobre a veracidade: 2: Dona Lurdes
-    section Tentativa de Verificacao
-      Tenta ler comentarios contraditorios: 2: Dona Lurdes
-      Abre nova aba para pesquisar no Google: 2: Dona Lurdes
-      Encontra artigos tecnicos incompreensiveis: 1: Dona Lurdes
-      Desiste por cansaco e excesso de termos: 1: Dona Lurdes
+      Assiste ao video: 3: Dona Lurdes
+      Duvida da veracidade: 2: Dona Lurdes
+    section Tentativa de Checagem
+      Le comentarios: 2: Dona Lurdes
+      Pesquisa no Google: 2: Dona Lurdes
+      Artigos confusos: 1: Dona Lurdes
+      Desiste por cansaco: 1: Dona Lurdes
     section Decisao
-      Compartilha o video com familiares por cautela: 2: Dona Lurdes
+      Compartilha por duvida: 2: Dona Lurdes
 ```
 
-### Jornada TO-BE (Com a Extensão) — Dona Lurdes {: #to-be-jornada-proposta-com-a-extensao }
+#### Mapeamento Detalhado da Experiência AS-IS
+
+| Estágio da Jornada | Ação do Usuário | Pensamento e Emoção | Ponto de Fricção (Dor do Usuário) | Consequência no Mundo Real |
+|:---|:---|:---|:---|:---|
+| **1. Descoberta e Consumo** | Assiste a um vídeo com título apelativo prometendo tratamento caseiro rápido para problema crônico. | *"Será que isso funciona de verdade? Parece bom demais..."* Curiosidade inicial e leve esperança. | Título sensacionalista manipula a vulnerabilidade e a carência informacional do usuário. | Exposição a orientações sem respaldo médico. |
+| **2. Leitura de Comentários** | Rola a página para baixo em busca de validação na seção de comentários do YouTube. | *"Deixa ver o que as outras pessoas estão falando..."* Sensação de desorientação. | Comentários contraditórios, testemunhos falsos e ausência de moderação especializada. | Incerteza amplificada sem qualquer critério técnico. |
+| **3. Busca Manual Externa** | Abre nova aba do navegador para pesquisar termos da receita no Google. | *"Vou pesquisar no Google, mas tenho medo de me perder ou fechar o vídeo."* Tensão cognitiva. | Troca forçada de contexto, múltiplos resultados pagos e fragmentação de abas. | Desvio de foco e aumento substancial do esforço operacional. |
+| **4. Confronto com Linguagem Técnica** | Encontra artigos acadêmicos longos, termos em inglês e jargões laboratoriais herméticos. | *"Não estou entendendo nada dessas palavras difíceis... isso não é para mim."* Frustração e cansaço. | Conteúdo jornalístico ou científico inacessível para quem possui baixa literacia digital ou visual. | **Abandono compulsório da checagem:** desiste por exaustão. |
+| **5. Compartilhamento Involuntário** | Sem confirmação conclusiva, encaminha o link no WhatsApp da família com a legenda *"Não custa tentar"*. | *"Se for verdade pode ajudar alguém; se não for, mal não faz."* Ansiedade residual. | Falta de uma resposta imediata e sintetizada antes da decisão de compartilhar. | Disseminação involuntária de desinformação em redes interpessoais. |
+
+---
+
+### Jornada TO-BE (Com a Extensão EvidencIA) — Dona Lurdes {: #to-be-jornada-proposta-com-a-extensao }
+
+A jornada proposta introduz checagem contextual direta no player do YouTube, simplificação visual instantânea (velocímetro) e entrega em linguagem clara, empoderando o usuário a tomar decisões conscientes sem atrito.
 
 ```mermaid
 journey
-    title Jornada Proposta (Com a Extensao) - Dona Lurdes
+    title Jornada TO-BE (Com a Extensao) - Dona Lurdes
     section Consumo do Video
-      Assiste video apelativo sobre receita caseira: 3: Dona Lurdes
-      Visualiza botao integrado de veracidade: 4: Dona Lurdes
-    section Analise Automatizada
-      Aciona checagem com um unico clique: 5: Dona Lurdes
-      Aguarda sintese visual em ate 10 segundos: 4: Dona Lurdes
-      Observa indicador de veracidade e resumo claro: 5: Dona Lurdes
+      Assiste ao video: 3: Dona Lurdes
+      Ve botao de checagem: 4: Dona Lurdes
+    section Analise no Player
+      Clica no botao: 5: Dona Lurdes
+      Aguarda sintese (<=10s): 4: Dona Lurdes
+      Consulta velocimetro: 5: Dona Lurdes
     section Decisao Confiante
-      Identifica ausencia de comprovacao cientifica: 5: Dona Lurdes
-      Abstem-se de compartilhar informacao duvidosa: 5: Dona Lurdes
+      Constata sem respaldo: 5: Dona Lurdes
+      Nao compartilha boato: 5: Dona Lurdes
 ```
+
+#### Mapeamento Detalhado da Experiência TO-BE
+
+| Estágio da Jornada | Ação do Usuário | Pensamento e Emoção | Valor Entregue pela Solução | Resposta do Sistema (EvidencIA) |
+|:---|:---|:---|:---|:---|
+| **1. Identificação Integrada** | Assiste ao vídeo e nota o botão discreto *"Verificar Fatos"* posicionado logo abaixo do player. | *"Olha, tem um botão aqui para ver se é verdade ou mentira."* Curiosidade segura. | Sem necessidade de abrir abas adicionais ou copiar links; elemento totalmente integrado à página. | Botão injetado via Shadow DOM com ícone claro e alto contraste (WCAG 2.1 AA). |
+| **2. Acionamento em 1 Clique** | Clica no botão de checagem enquanto o vídeo segue reproduzindo normalmente. | *"Vou clicar para ver. Que bom que não pausou meu vídeo!"* Sensação de controle e autonomia. | Respeito à preferência do usuário: sem interrupções forçadas ou congelamento da mídia ([RNF-06](../requisitos/catalogo-requisitos.md#rnf-06)). | Feedback visual imediato (< 1s) com indicador de carregamento sutil no botão. |
+| **3. Processamento Rápido** | Aguarda poucos segundos enquanto o orquestrador analisa as alegações da fala. | *"Já está terminando, foi bem rapidinho."* Percepção de eficiência e agilidade. | SLA rigoroso de resposta útil em até 10 segundos ([RNF-01](../requisitos/catalogo-requisitos.md#rnf-01)). | Backend Proxy extrai a transcrição e consulta fontes com timeout assíncrono de 8,0s. |
+| **4. Leitura do Painel Lateral** | Painel abre suavemente exibindo o velocímetro (ex.: 18% - Falso) e uma síntese de 2 linhas. | *"Entendi na hora: está no vermelho e diz que o chá não cura a doença."* Clareza cognitiva absoluta. | Comunicação imediata por cores e síntese em português claro, sem jargões científicos indecifráveis. | Velocímetro semafórico intuitivo + card analítico com contraste testado ($\ge$ 4.5:1). |
+| **5. Decisão Emancipada** | Consulta as fontes oficiais (Fiocruz / Ministério da Saúde) e decide não repassar o vídeo. | *"Que alívio ter verificado antes de mandar no grupo da família!"* Segurança e empoderamento. | Quebra definitiva do ciclo de desinformação através de evidências confiáveis e links auditáveis. | Links diretos para agências e instituições abrindo em aba separada (`target="_blank"`). |
 
 ---
 

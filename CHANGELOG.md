@@ -46,6 +46,14 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   - Arquivo `.gitignore` abrangente para Python, uv, MkDocs e ambientes de desenvolvimento.
   - Integração de imagens e mockups do desafio na pasta `docs/assets/`.
 
+### Fixed
+
+- **Tipografia e Correção de Sobreposição de Texto (UX/UI):**
+  - `docs/stylesheets/extra.css`: remoção da regra genérica e destrutiva `.md-content em` que transformava qualquer itálico em bloco centralizado com margem superior negativa (`-0.85rem`), restaurando a renderização correta de citações, falas de usuários em entrevistas qualitativas (`requisitos/elicitacao.md`) e trechos em ênfase no fluxo textual.
+  - `docs/stylesheets/extra.css`: correção do containing block de ancestral que aprisionava o botão flutuante de voltar ao topo (`.md-top`) no meio da coluna de texto durante a rolagem; botão agora posicionado de forma fixa e não obstrutiva (`bottom: 2rem; right: 2rem`).
+  - `docs/stylesheets/extra.css`: estilização limpa para blocos de citação (`blockquote`) e conteinerização responsiva com barra de rolagem horizontal sutil para diagramas Mermaid (`.mermaid`).
+  - `docs/design/personas-e-jornadas.md`: otimização dos rótulos dos diagramas Mermaid Journey (AS-IS e TO-BE) para evitar truncamento e sobreposição de texto em resoluções padrão, complementados por tabelas estruturadas de Mapeamento Detalhado da Experiência.
+
 ### Changed
 
 - `docs/tecnico/arquitetura.md`: consolidação dos componentes do Modelo C4 e tabela de responsabilidades técnicas com a stack definitiva (Preact/Vite e FastAPI + Pydantic v2), inserção da topologia estrutural de Monorepo (`extension/`, `backend/`, `shared/`) e alinhamento do comentário da esteira `ci.yml`.

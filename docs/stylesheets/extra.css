@@ -1,21 +1,20 @@
 /* ==========================================================================
    Estilos Personalizados - Documentação Extensão Fact-Checking YouTube
-   Acessibilidade (WCAG 2.1 AA), Transições Sutis e Qualidade Visual
+   Acessibilidade (WCAG 2.1 AA), Usabilidade (Heurísticas de Nielsen) e Design Clean
    ========================================================================== */
 
 /* 1. Transição Suave e Sutil entre Páginas (navigation.instant) */
+/* Animação restrita a opacidade para não criar containing block que quebre position: fixed */
 .md-main__inner {
-  animation: subtleFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: subtleFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes subtleFadeIn {
   0% {
-    opacity: 0.85;
-    transform: translateY(3px);
+    opacity: 0.88;
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -26,16 +25,15 @@
   transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Transições suaves para links, abas e botões */
+/* Transições suaves para links, abas e controles interativos */
 a, 
 button, 
 .md-nav__link, 
-.md-tabs__link,
-.md-top {
-  transition: color 0.18s ease, background-color 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+.md-tabs__link {
+  transition: color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
 }
 
-/* Respeito a usuários com preferência de movimento reduzido (A11y) */
+/* Respeito estrito a usuários com preferência de movimento reduzido (WCAG 2.1 AA) */
 @media (prefers-reduced-motion: reduce) {
   *, 
   *::before, 
@@ -49,14 +47,14 @@ button,
 
 /* 2. Acessibilidade e Foco Visível (WCAG 2.1 AA - Critério 2.4.7) */
 :focus-visible {
-  outline: 2px solid var(--md-accent-fg-color, #c00) !important;
+  outline: 2px solid var(--md-accent-fg-color, #e50914) !important;
   outline-offset: 3px !important;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-/* Melhoria no contraste de seleção de texto */
+/* Contraste aprimorado de seleção de texto */
 ::selection {
-  background-color: rgba(229, 9, 20, 0.25);
+  background-color: rgba(229, 9, 20, 0.22);
   color: inherit;
 }
 
@@ -66,11 +64,11 @@ button,
   border-radius: 8px;
   border: 1px solid var(--md-default-fg-color--lightest);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease;
   display: block;
   margin: 1.5rem auto;
   max-width: 100%;
   height: auto;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 [data-md-color-scheme="slate"] .md-content figure,
@@ -81,7 +79,7 @@ button,
 
 .md-content figure:hover,
 .md-content p > img:hover {
-  transform: scale(1.008);
+  transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
@@ -90,20 +88,63 @@ button,
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
 }
 
-/* Legendas de figuras com tipografia refinada e semântica */
-.md-content em,
-.md-content figcaption {
+/* Legendas semânticas exclusivas para figuras e imagens */
+.md-content figcaption,
+.md-content figure > em {
   display: block;
   text-align: center;
   font-size: 0.83rem;
   font-style: italic;
   color: var(--md-default-fg-color--light);
-  margin-top: -0.85rem;
+  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.4;
 }
 
-/* 4. Tabelas Elegantes e Responsivas */
+/* 4. Citações e Declarações de Usuários (Blockquotes) */
+.md-typeset blockquote {
+  border-left: 3px solid var(--md-primary-fg-color, #c00);
+  padding: 0.6rem 1.1rem;
+  margin: 1rem 0;
+  background-color: var(--md-default-bg-color--lighter, rgba(0, 0, 0, 0.02));
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--md-default-fg-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+[data-md-color-scheme="slate"] .md-typeset blockquote {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-left-color: var(--md-primary-fg-color, #e50914);
+}
+
+/* 5. Diagramas Mermaid Responsivos e Legíveis (Heurística de Nielsen #8) */
+.mermaid {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1.25rem 0.75rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  background-color: var(--md-default-bg-color--lighter, rgba(0, 0, 0, 0.015));
+  border: 1px solid var(--md-default-fg-color--lightest);
+  -webkit-overflow-scrolling: touch;
+}
+
+[data-md-color-scheme="slate"] .mermaid {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mermaid svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 6. Tabelas Elegantes e Responsivas */
 .md-typeset table:not([class]) {
   border-collapse: separate;
   border-spacing: 0;
@@ -113,6 +154,7 @@ button,
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
   margin: 1.5rem 0;
   font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .md-typeset table:not([class]) th {
@@ -134,7 +176,7 @@ button,
   background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* 5. Cartões e Badges de Requisitos */
+/* 7. Cartões e Badges de Requisitos */
 .badge-must {
   background-color: rgba(211, 47, 47, 0.12);
   color: #c62828;
@@ -183,7 +225,7 @@ button,
   border-color: rgba(102, 187, 106, 0.4);
 }
 
-/* 6. Navegação Superior por Abas (Tabs) */
+/* 8. Navegação Superior por Abas (Tabs) */
 .md-tabs {
   border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
@@ -200,20 +242,44 @@ button,
   opacity: 1;
 }
 
-/* 7. Breadcrumbs (navigation.path) */
+/* 9. Breadcrumbs (navigation.path) */
 .md-path {
   font-size: 0.76rem;
   color: var(--md-default-fg-color--light);
   margin-bottom: 0.5rem;
 }
 
-/* 8. Botão Voltar ao Topo Suave */
+/* 10. Botão Voltar ao Topo Fixo e Desobstrutivo (Heurística de Nielsen #8) */
 .md-top {
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  position: fixed !important;
+  bottom: 2rem !important;
+  right: 2rem !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  z-index: 99 !important;
+  border-radius: 24px !important;
+  padding: 0.4rem 0.9rem !important;
+  font-size: 0.76rem !important;
+  font-weight: 500 !important;
+  background-color: var(--md-default-bg-color) !important;
+  color: var(--md-default-fg-color) !important;
+  border: 1px solid var(--md-default-fg-color--lightest) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease !important;
+}
+
+[data-md-color-scheme="slate"] .md-top {
+  background-color: var(--md-default-bg-color) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5) !important;
 }
 
 .md-top:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+[data-md-color-scheme="slate"] .md-top:hover {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.7) !important;
 }
