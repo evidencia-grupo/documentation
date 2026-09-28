@@ -16,7 +16,7 @@ Definições de todos os termos, siglas e abreviações utilizados na documenta�
 
 | Termo | Definição |
 |:---|:---|
-| **Backend Proxy** | Serviço intermediário (Node.js ou Python) que autentica e encaminha as requisições entre a extensão e as APIs de IA/busca, sem expor chaves de API ao cliente |
+| **Backend Proxy** | Serviço intermediário seguro em Python FastAPI ([ADR-004](../tecnico/decisoes/ADR-004-stack-tecnologica.md)) que autentica e encaminha as requisições entre a extensão e as APIs de IA/busca, sem expor chaves de API ao cliente |
 | **Badge** | Indicador visual destacado no painel lateral que sinaliza o status de uma alegação (apoiada, contraditada, inconclusiva) |
 
 ## C

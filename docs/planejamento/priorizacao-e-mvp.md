@@ -7,6 +7,8 @@
 - [Funil de Priorização do Backlog](#funil-de-priorizacao-do-backlog)
 - [Critérios de Exclusão e Limites de Escopo](#criterios-de-exclusao-e-limites-de-escopo)
 - [Matriz de Revisão Técnica](#matriz-de-revisao-tecnica-o-que-como-fazer)
+- [Planejamento de Sprints e Cadência (Fast-Track 2 Semanas)](#planejamento-sprints)
+- [Alocação de Responsabilidades da Equipe (5 Integrantes)](#alocacao-equipe)
 - [Resumo Executivo](#resumo-executivo)
 
 ---
@@ -85,10 +87,50 @@ A eficácia do produto depende da delimitação do que deliberadamente **não** 
 | **RF-09 — Cache local** | Recuperação instantânea de checagens recentes | `chrome.storage.local` com chave = hash do `videoId`, TTL configurável (ex.: 24h), invalidação automática em leitura expirada |
 | **RF-11 — Metadados temporais** *(Onda 2)* | Data de publicação e canal exibidos no cabeçalho | Consumo da YouTube Data API (ou scraping controlado da página) no momento da extração da transcrição, cacheado junto ao resultado |
 | **RNF-03 — Manifest V3 / multi-browser** | Compatibilidade Chrome, Edge, Brave | Service Worker para lógica de fundo (sem `background page` persistente); `host_permissions` restritos a `https://www.youtube.com/*` · [ADR-001](../tecnico/decisoes/ADR-001-manifest-v3.md) |
-| **RNF-04 — Segurança de credenciais** | Nenhuma chave exposta no client | Todas as chamadas de IA/busca passam por um backend proxy autenticado (ex.: Node/Python); a extensão nunca armazena segredos |
+| **RNF-04 — Segurança de credenciais** | Nenhuma chave exposta no client | Todas as chamadas de IA/busca passam por um backend proxy autenticado em Python FastAPI ([ADR-004](../tecnico/decisoes/ADR-004-stack-tecnologica.md)); a extensão nunca armazena segredos |
 | **RNF-05 — Privacidade (LGPD)** | Sem coleta de histórico geral | Apenas permissão `activeTab` + escopo `youtube.com`; nenhuma persistência de dados analíticos por padrão, cache local restrito ao escopo da extensão |
 | **RNF-01 / RNF-02 — Performance** | Resposta em até 10s, TBT +50ms, RAM +80MB | Chamadas assíncronas com indicador de progresso desde o primeiro clique; lazy-loading do painel; monitoramento de bundle size do content script |
 | **RNF-07 — Acessibilidade (WCAG AA)** | Interface hierarquizada e navegável por teclado | Uso de HTML semântico, contraste validado (ferramenta tipo axe-core em CI), foco gerenciado via `tabindex` no painel |
+
+---
+
+## Planejamento de Sprints e Cadência (Fast-Track 2 Semanas) {: #planejamento-sprints }
+
+Com o prazo fatal estabelecido para **09 de outubro de 2026** (2 semanas a partir de 28 de setembro de 2026), o plano de execução divide o MVP em duas iterações rígidas orientadas a evidências:
+
+```
+Fast-Track (28/09/2026 a 09/10/2026)
+├── Sprint 1 (28/09 a 02/10): Happy Path E2E & Contratos Fundamentais
+│   ├── Setup do monorepo (extension, backend, shared) e esteira de CI/CD
+│   ├── Ingestao e extracao de legendas no player do YouTube via Content Script
+│   ├── Backend Proxy em FastAPI com schemas Pydantic v2 e orquestracao assincrona
+│   └── Renderizacao inicial do Painel Lateral Preact com comunicacao postMessage
+└── Sprint 2 (05/10 a 09/10): Cache Local, Acessibilidade, SLAs & Homologacao
+    ├── Implementacao de cache em chrome.storage.local com TTL de 24h
+    ├── Conformidade WCAG 2.1 AA (navegacao por teclado, leitor de tela, contraste)
+    ├── Auditoria de fontes com links externos seguros e badges de incerteza
+    ├── Validacao estrita de SLAs (<= 10s P90, TBT <= 50ms, RAM <= 80MB)
+    └── Code Freeze e homologacao final do release
+```
+
+| Sprint | Período | Foco de Entrega | Histórias Mapeadas | Critério de Aceitação da Sprint |
+|:---|:---|:---|:---|:---|
+| **Sprint 1** | 28/09 a 02/10 | Integração ponta a ponta funcional (Happy Path) | HU01, HU02, HU04, HU05, HU10 | Usuário clica no botão injetado, o sistema extrai a legenda, submete ao backend FastAPI e exibe o velocímetro com o score inicial. |
+| **Sprint 2** | 05/10 a 09/10 | Robustez, cache local, acessibilidade e validação de SLAs | HU03, HU06, HU07, HU08, HU09 | Cache local com entrega instantânea (< 100ms) em reincidência, painel 100% navegável por teclado, fontes auditadas e esteira de CI validada. |
+
+---
+
+## Alocação de Responsabilidades da Equipe (5 Integrantes) {: #alocacao-equipe }
+
+Para garantir paralelismo e autonomia com entrega no prazo de 2 semanas, o escopo de engenharia foi distribuído entre os 5 integrantes:
+
+| Integrante / Responsável | Módulo Principal | Escopo Técnico e Histórias de Usuário | Tecnologias Envolvidas |
+|:---|:---|:---|:---|
+| **@MylenaTrindade** | UI/UX & Acessibilidade | [HU01, HU09](../requisitos/backlog-e-historias.md#hu01) — Desenvolvimento do Painel Lateral em Preact, velocímetro (gauge), cartões analíticos, contraste de cores e navegação completa por teclado (WCAG 2.1 AA). | Preact 10, CSS Modules, axe-core |
+| **@pedrohpsantos** | Backend Proxy & Orquestração IA | [HU02, HU04](../requisitos/backlog-e-historias.md#hu02) — Arquitetura da API FastAPI, validação Pydantic v2, orquestrador de modelos de IA com timeout de 8,0s, controle de vazão (SlowAPI) e esteira de CI/CD. | Python 3.12+, FastAPI, Pydantic v2, Pytest |
+| **@luizoryone** | Content Script & Ingestão Player | [HU05, HU10](../requisitos/backlog-e-historias.md#hu05) — Injeção do botão no YouTube via Shadow DOM, interceptação do `videoId`, extração de faixas de legenda (nativas/automáticas) e tratamento para vídeos sem legenda. | TypeScript, Shadow DOM API, YouTube DOM |
+| **@lipestile** | Service Worker & Cache Local | [HU03, HU06](../requisitos/backlog-e-historias.md#hu03) — Roteador do Service Worker (Manifest V3), estratégia de cache em `chrome.storage.local` com TTL de 24 horas, otimização de latência e resiliência de rede. | TypeScript, Manifest V3 Service Worker, Storage API |
+| **@mahiaara** | Auditoria de Fontes & Contexto | [HU07, HU08](../requisitos/backlog-e-historias.md#hu07) — Estruturação de dados de evidências factuais, metadados temporais, abertura segura de fontes externas em nova aba e tratamento de incerteza/conflito de fontes. | TypeScript, JSON Schema, HTML Semântico |
 
 ---
 

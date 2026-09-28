@@ -32,9 +32,11 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   - `docs/tecnico/estrategia-testes.md`: pirâmide de testes, protocolos automatizados de medição para SLA de 10s (RNF-01) e TBT (RNF-02), e Definition of Done (DoD).
   - `docs/tecnico/decisoes/ADR-002-backend-proxy.md`: decisão arquitetural de intermediação via Backend Proxy dedicado.
   - `docs/tecnico/decisoes/ADR-003-estrategia-cache-local.md`: decisão técnica de cache local com `chrome.storage.local` e TTL de 24 horas.
+  - `docs/tecnico/decisoes/ADR-004-stack-tecnologica.md`: decisão formal da stack tecnológica consolidada — Preact 10 + TypeScript + Vite 5 na extensão cliente (Manifest V3) e Python 3.12+ com FastAPI e Pydantic v2 no Backend Proxy, organizados em topologia de monorepo.
 - **Design e Interface:**
   - `docs/design/design-system.md`: especificação de tokens visuais, componente de velocímetro (gauge), card analítico e diretrizes de acessibilidade WCAG 2.1 AA baseados no mockup oficial.
 - **Planejamento e Governança:**
+  - `docs/planejamento/priorizacao-e-mvp.md`: especificação da cadência de execução em Fast-Track de 2 semanas (Sprint 1 de 28/09 a 02/10 e Sprint 2 de 05/10 a 09/10/2026) e Matriz de Alocação de Responsabilidades distribuída entre os 5 integrantes da equipe.
   - `docs/planejamento/gestao-riscos.md`: matriz de riscos técnicos e de projeto com planos de contingência detalhados.
   - `docs/planejamento/metricas-telemetria.md`: plano de instrumentação e coleta ética de KPIs de negócio em conformidade com a privacidade.
 - **Infraestrutura e Tooling:**
@@ -45,9 +47,12 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Changed
 
+- `docs/tecnico/arquitetura.md`: consolidação dos componentes do Modelo C4 e tabela de responsabilidades técnicas com a stack definitiva (Preact/Vite e FastAPI + Pydantic v2), e inserção da topologia estrutural de Monorepo (`extension/`, `backend/`, `shared/`).
+- `docs/tecnico/guia-contribuicao.md`: atualização dos pré-requisitos, instruções operacionais e comandos de build/execução para os subsistemas da extensão (`npm run build`/`dev`) e backend proxy (`uvicorn app.main:app`).
+- `docs/referencia/glossario.md` e `docs/requisitos/matriz-rastreabilidade.md`: harmonização das definições do Backend Proxy com referência direta ao FastAPI e ADR-004.
 - Removidos integralmente todos os emojis da documentação para adotar um tom estritamente profissional e corporativo.
 - Reformulação da landing page `docs/index.md` e do `README.md` com matriz interativa de módulos e parâmetros técnicos consolidados.
-- Atualização do menu de navegação do `mkdocs.yml` para comportar a hierarquia completa de engenharia com abas dedicadas e sumário direito.
+- Atualização do menu de navegação do `mkdocs.yml` para comportar a hierarquia completa de engenharia com abas dedicadas, sumário direito e registro do ADR-004.
 - Validação contínua com `uv run mkdocs build --strict` passando com zero erros e zero avisos.
 
 ---

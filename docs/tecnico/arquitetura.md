@@ -7,6 +7,7 @@
 - [Modelo C4 — Nível 2: Diagrama de Contêineres](#c4-conteineres)
 - [Diagrama de Sequência do Fluxo Crítico (UC-01)](#diagrama-sequencia)
 - [Componentes Técnicos e Responsabilidades](#componentes-principais)
+- [Organização do Código-Fonte (Monorepo)](#organizacao-monorepo)
 - [Estratégia de Cache e Armazenamento Local](#estrategia-de-cache)
 - [Padrões de Degradação Graciosa](#fluxo-de-degradacao-segura)
 - [Segurança e Privacidade](#seguranca-e-privacidade)
@@ -62,7 +63,7 @@ flowchart TB
     end
 
     subgraph Backend["Ambiente de Nuvem / Servidor"]
-        Proxy[Backend Proxy\nFastAPI / Node.js]
+        Proxy[Backend Proxy\nFastAPI + Pydantic v2]
         LLMOrch[Orquestrador de IA\nIsolamento de Alegacoes]
         SearchOrch[Agregador de Evidencias\nConsultas Paralelas]
     end
@@ -144,11 +145,45 @@ sequenceDiagram
 
 | Componente | Tecnologia Base | Escopo e Responsabilidade Técnica |
 |:---|:---|:---|
-| **Content Script** | TypeScript / JavaScript MV3 | Injeção do botão de veracidade na página `/watch` do YouTube via Shadow DOM; interceptação do `videoId` e das faixas de legenda expostas pelo player; coordenação de abertura do painel. |
-| **Service Worker** | JavaScript MV3 | Gerenciamento de ciclo de vida em segundo plano; verificação e invalidação do cache em `chrome.storage.local`; comunicação de rede HTTPS com o Backend Proxy. |
-| **Painel Lateral** | Preact / HTML5 / CSS Modules | Renderização do velocímetro de veracidade, card de justificativa analítica e lista de fontes; isolamento de estilos e scripts via `iframe` com atributo `sandbox="allow-scripts"`. |
-| **Backend Proxy** | Python FastAPI / Node.js Express | Ponto único de entrada para chamadas externas; validação de tokens de cliente; controle rigoroso de requisições (*Rate Limiting*); orquestração de chamadas para LLM e bases de checagem. |
+| **Content Script** | TypeScript + Vite (Manifest V3) | Injeção do botão de veracidade na página `/watch` do YouTube via Shadow DOM; interceptação do `videoId` e das faixas de legenda expostas pelo player; coordenação de abertura do painel. |
+| **Service Worker** | TypeScript + Vite (Manifest V3) | Gerenciamento de ciclo de vida em segundo plano; verificação e invalidação do cache em `chrome.storage.local`; comunicação de rede HTTPS com o Backend Proxy. |
+| **Painel Lateral** | Preact 10 / TypeScript / CSS Modules | Renderização do velocímetro de veracidade, card de justificativa analítica e lista de fontes; isolamento de estilos e scripts via `iframe` com atributo `sandbox="allow-scripts"`. |
+| **Backend Proxy** | Python 3.12+ (FastAPI + Pydantic v2 + Uvicorn) | Ponto único de entrada para chamadas externas; validação de tokens de cliente; controle rigoroso de requisições (*Rate Limiting*); orquestração assíncrona de chamadas para LLM e bases de checagem com timeout de 8,0s. |
+| **Contratos Compartilhados** | JSON Schema / TypeScript | Definições canônicas de tipos e schemas (`shared/schemas/api-schema.json` e `shared/types/api.ts`) consumidas por cliente e servidor. |
 | **Cache Local** | `chrome.storage.local` API | Persistência cliente das análises efetuadas por 24 horas, indexadas pelo hash do `videoId`. |
+
+---
+
+## Organização do Código-Fonte (Monorepo) {: #organizacao-monorepo }
+
+Conforme deliberado no [ADR-004](decisoes/ADR-004-stack-tecnologica.md), o projeto é estruturado como um monorepo para garantir consistência de contratos, alinhamento de versões e fluxo unificado de CI/CD:
+
+```
+evidencia/
+├── extension/             # Extensao de navegador (Manifest V3)
+│   ├── manifest.json      # Declaracao de permissoes minimas (activeTab, storage)
+│   ├── package.json       # Dependencias Preact, TypeScript e Vite
+│   ├── vite.config.ts     # Build multi-entry (service-worker, content-script, panel)
+│   └── src/
+│       ├── background/    # Service Worker e gerenciador de cache
+│       ├── content/       # Content Script e injetor Shadow DOM
+│       └── panel/         # UI em Preact (Velocimetro, Claims, Fontes)
+├── backend/               # Backend Proxy de seguranca e orquestracao
+│   ├── pyproject.toml     # Dependencias e configuracao de testes
+│   ├── requirements.txt   # FastAPI, Pydantic v2, Uvicorn, SlowAPI
+│   ├── app/
+│   │   ├── main.py        # Ponto de entrada FastAPI, CORS e Rate Limiting
+│   │   ├── config.py      # Gestao segura de variaveis de ambiente
+│   │   ├── schemas.py     # Modelos Pydantic v2 alinhados ao contrato
+│   │   ├── api/v1/        # Endpoints /analyze e /health
+│   │   └── services/      # Orquestrador assincrono com timeout de 8,0s
+│   └── tests/             # Testes automatizados com Pytest
+├── shared/                # Fonte unica da verdade para integracao
+│   ├── schemas/           # api-schema.json validavel
+│   └── types/             # api.ts (interfaces TypeScript para a extensao)
+└── .github/
+    └── workflows/ci.yml   # Esteira de CI unificada (TypeScript + Pytest)
+```
 
 ---
 
@@ -200,6 +235,7 @@ Para satisfazer o requisito [RNF-06](../requisitos/catalogo-requisitos.md#rnf-06
 | [ADR-001](decisoes/ADR-001-manifest-v3.md) | Adoção do padrão Manifest V3 com Service Worker | Aceito | Conformidade obrigatória com a Chrome Web Store e navegadores modernos. |
 | [ADR-002](decisoes/ADR-002-backend-proxy.md) | Intermediação via Backend Proxy Dedicado | Aceito | Proteção absoluta de chaves de API, controle de custos e rate limiting. |
 | [ADR-003](decisoes/ADR-003-estrategia-cache-local.md) | Cache local via `chrome.storage.local` com TTL de 24h | Aceito | Redução de 100% de latência em vídeos reincidentes e privacidade de dados. |
+| [ADR-004](decisoes/ADR-004-stack-tecnologica.md) | Definição da Stack Tecnológica (Preact + FastAPI + Monorepo) | Aceito | Desempenho ultraleve no navegador, ecossistema de IA robusto no backend e contratos unificados. |
 
 ---
 

@@ -16,21 +16,25 @@
 
 | Ferramenta | Versão Mínima | Finalidade |
 |:---|:---|:---|
-| **Python** | >= 3.13 | Ambiente de execução e ferramentas de documentação |
-| **uv** | Mais recente | Gerenciador determinístico de pacotes e ambientes virtuais Python |
-| **Node.js** | >= 20 LTS | Build do frontend da extensão e do backend proxy em TypeScript/JavaScript |
+| **Python** | >= 3.12 | Backend Proxy (FastAPI + Pydantic v2) e ferramentas de documentação |
+| **Node.js** | >= 20 LTS | Build da extensão (Preact + Vite + TypeScript) com npm >= 10 |
+| **uv** | Mais recente | Gerenciador determinístico opcional para ferramentas Python e MkDocs |
 | **Git** | >= 2.40 | Controle de versões |
-| **Navegador Chromium** | Google Chrome, Edge ou Brave | Execução da extensão em modo desenvolvedor |
+| **Navegador Chromium** | Google Chrome, Edge ou Brave | Execução e validação da extensão em modo desenvolvedor |
 
 ---
 
 ## Rodar a Documentação Localmente {: #rodar-a-documentacao-localmente }
 
-Com o **uv** instalado, o ambiente virtual e as dependências são gerenciados de forma transparente:
+No repositório `documentation/`, o ambiente e as dependências são gerenciados via **uv** ou `pip`:
 
 ```bash
-# 1. Iniciar o servidor de desenvolvimento com hot-reload:
+# 1. Iniciar o servidor de desenvolvimento com hot-reload via uv:
 uv run mkdocs serve
+
+# Ou alternativamente via python venv:
+# python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+# mkdocs serve
 
 # O site estara disponivel em: http://127.0.0.1:8000
 ```
@@ -46,90 +50,129 @@ uv run mkdocs build --strict
 
 ## Ambiente de Desenvolvimento da Extensão {: #desenvolvimento-extensao }
 
-Para executar e testar a extensão no navegador em modo descompactado (*unpacked*):
+No repositório de código `evidencia/`, a extensão localiza-se no diretório `extension/`:
 
-1. **Compilar os Artefatos da Extensão:**
+1. **Instalar Dependências e Compilar:**
    ```bash
+   cd extension
    npm install
    npm run build
-   # Gera a pasta de distribuicao /dist com manifest.json, content-scripts e service-worker
+   # Gera a pasta de distribuicao extension/dist/ com manifest.json, service-worker.js, content-script.js e panel
    ```
-2. **Carregar no Navegador Chromium:**
+
+2. **Desenvolvimento Contínuo com Watch:**
+   ```bash
+   npm run dev
+   # Compila em modo incremental ao salvar alteracoes
+   ```
+
+3. **Carregar no Navegador Chromium:**
    - Acesse `chrome://extensions/` (ou `edge://extensions/` ou `brave://extensions/`).
    - Ative a opção **Modo do desenvolvedor** no canto superior direito.
    - Clique no botão **Carregar sem compactação** (*Load unpacked*).
-   - Selecione o diretório `/dist` gerado pelo build.
-3. **Testar no YouTube:**
+   - Selecione o diretório `extension/dist/`.
+
+4. **Testar no YouTube:**
    - Abra qualquer vídeo em `https://www.youtube.com/watch?v=...`.
-   - Localize o botão de veracidade injetado abaixo do título do vídeo.
+   - Localize o botão de veracidade injetado via Shadow DOM abaixo do player do vídeo.
 
 ---
 
 ## Ambiente de Desenvolvimento do Backend Proxy {: #desenvolvimento-backend }
 
-O Backend Proxy pode ser executado localmente para simular respostas reais ou sintetizadas por mock:
+O Backend Proxy em FastAPI reside no diretório `backend/` do repositório `evidencia/`:
 
 ```bash
-# 1. Configurar variáveis de ambiente a partir do modelo
+# 1. Acessar o diretorio do backend e criar ambiente virtual isolado:
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate  # No Windows: .venv\Scripts\activate
+
+# 2. Instalar dependencias requeridas (FastAPI, Pydantic v2, Uvicorn, SlowAPI):
+pip install -r requirements.txt
+
+# 3. Configurar variaveis de ambiente a partir do modelo:
 cp .env.example .env
 
-# 2. Instalar dependências e executar o servidor
-uv run uvicorn server.main:app --reload --port 8000
-# Ou via Node.js:
-# npm run dev
+# 4. Iniciar o servidor FastAPI com hot-reload:
+uvicorn app.main:app --reload --port 8000
+
+# 5. Executar os testes automatizados da esteira:
+pytest
 ```
 
 Variáveis mínimas requeridas no arquivo `.env`:
 ```ini
 PORT=8000
 ENVIRONMENT=development
-LLM_API_KEY=sua_chave_de_teste_aqui
-SEARCH_API_KEY=sua_chave_de_busca_aqui
-RATE_LIMIT_MAX_PER_MINUTE=60
+CORS_ORIGINS=["chrome-extension://*"]
+RATE_LIMIT_PER_MINUTE=60
+AI_ANALYSIS_TIMEOUT_SECONDS=8.0
+GEMINI_API_KEY=sua_chave_de_teste_aqui
 ```
 
 ---
 
-## Estrutura Consolidada do Repositório {: #estrutura-de-arquivos }
+## Estrutura Consolidada dos Repositórios {: #estrutura-de-arquivos }
 
+O ecossistema do projeto divide-se em dois repositórios complementares:
+
+### Repositório de Código (`evidencia`)
+```
+evidencia/
+├── .github/
+│   ├── workflows/ci.yml     → Pipeline automatizada (lint, build Preact e pytest)
+│   ├── CODEOWNERS           → Definicao de responsaveis tecnicos por modulo
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── ISSUE_TEMPLATE/      → Templates de bug, feature e user story
+├── extension/               → Extensao Chromium Manifest V3 (Preact + TypeScript + Vite)
+│   ├── manifest.json
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── vite.config.ts
+│   └── src/
+│       ├── background/      → Service Worker (cache e requisicoes)
+│       ├── content/         → Content Script (Shadow DOM no player)
+│       └── panel/           → Painel Lateral Preact (Gauge, Claims, Fontes)
+├── backend/                 → Backend Proxy seguro (Python 3.12+ FastAPI)
+│   ├── pyproject.toml
+│   ├── requirements.txt
+│   ├── .env.example
+│   ├── app/
+│   │   ├── main.py          → Ponto de entrada FastAPI, CORS e Rate Limiting
+│   │   ├── config.py        → Carregamento e validacao de ambiente
+│   │   ├── schemas.py       → Modelos Pydantic v2 sincronizados com o contrato
+│   │   ├── api/v1/          → Endpoints /analyze e /health
+│   │   └── services/        → Orquestrador de IA com timeout de 8,0s
+│   └── tests/               → Testes de integracao com pytest e TestClient
+├── shared/                  → Contratos compartilhados (Single Source of Truth)
+│   ├── schemas/api-schema.json
+│   └── types/api.ts
+├── CONTRIBUTING.md          → Normas corporativas e fluxo de branch
+├── SECURITY.md              → Politica de reporte de vulnerabilidades
+└── README.md
+```
+
+### Repositório de Documentação (`documentation`)
 ```
 documentation/
-├── .gitignore               → Regras de exclusao do Git (venv, site/, caches, OS)
-├── .python-version          → Versao do Python fixada (3.13)
-├── pyproject.toml           → Especificacao do projeto e dependencias via uv
-├── uv.lock                  → Trava deterministica de dependencias
-├── README.md                → Visao executiva do projeto
-├── CHANGELOG.md             → Historico cronologico de mudancas
-├── mkdocs.yml               → Configuracao do portal MkDocs Material
-└── docs/
-    ├── assets/              → Imagens, mockups e diagramas
-    ├── index.md             → Landing page da documentacao
+├── .github/workflows/ci-docs.yml  → Esteira de lint sem emojis e build estrito
+├── pyproject.toml                 → Dependencias MkDocs Material via uv
+├── CHANGELOG.md                   → Historico cronologico de versoes
+├── mkdocs.yml                     → Configuracao estrutural de navegacao
+└── docs/                          → Portal completo de requisitos e arquitetura
     ├── visao/
-    │   └── alinhamento-estrategico.md
     ├── design/
-    │   ├── personas-e-jornadas.md
-    │   └── design-system.md
     ├── requisitos/
-    │   ├── catalogo-requisitos.md
-    │   ├── backlog-e-historias.md
-    │   ├── casos-de-uso.md
-    │   └── matriz-rastreabilidade.md
     ├── tecnico/
     │   ├── arquitetura.md
     │   ├── contrato-api.md
     │   ├── threat-model.md
     │   ├── estrategia-testes.md
     │   ├── guia-contribuicao.md
-    │   └── decisoes/
-    │       ├── ADR-001-manifest-v3.md
-    │       ├── ADR-002-backend-proxy.md
-    │       └── ADR-003-estrategia-cache-local.md
+    │   └── decisoes/              → ADR-001 a ADR-004
     ├── planejamento/
-    │   ├── priorizacao-e-mvp.md
-    │   ├── gestao-riscos.md
-    │   └── metricas-telemetria.md
     └── referencia/
-        └── glossario.md
 ```
 
 ---

@@ -98,6 +98,7 @@ nav:
           - ADR-001 — Manifest V3: tecnico/decisoes/ADR-001-manifest-v3.md
           - ADR-002 — Backend Proxy Dedicado: tecnico/decisoes/ADR-002-backend-proxy.md
           - ADR-003 — Estratégia de Cache Local: tecnico/decisoes/ADR-003-estrategia-cache-local.md
+          - ADR-004 — Definição da Stack Tecnológica: tecnico/decisoes/ADR-004-stack-tecnologica.md
   - Planejamento e Governança:
       - Priorização e MVP: planejamento/priorizacao-e-mvp.md
       - Gestão de Riscos Técnicos: planejamento/gestao-riscos.md
