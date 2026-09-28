@@ -33,6 +33,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   - `docs/tecnico/decisoes/ADR-002-backend-proxy.md`: decisão arquitetural de intermediação via Backend Proxy dedicado.
   - `docs/tecnico/decisoes/ADR-003-estrategia-cache-local.md`: decisão técnica de cache local com `chrome.storage.local` e TTL de 24 horas.
   - `docs/tecnico/decisoes/ADR-004-stack-tecnologica.md`: decisão formal da stack tecnológica consolidada — Preact 10 + TypeScript + Vite 5 na extensão cliente (Manifest V3) e Python 3.12+ com FastAPI e Pydantic v2 no Backend Proxy, organizados em topologia de monorepo.
+  - `docs/tecnico/estrategia-testes.md`: especificação formal da arquitetura da esteira de CI/CD com duas trilhas independentes de 4 estágios sequenciais (`lint`, `build`, `test`, `deploy`) para frontend e backend, e atualização dos ambientes de teste (Node.js 20 para extensão e Python 3.12 para backend proxy).
 - **Design e Interface:**
   - `docs/design/design-system.md`: especificação de tokens visuais, componente de velocímetro (gauge), card analítico e diretrizes de acessibilidade WCAG 2.1 AA baseados no mockup oficial.
 - **Planejamento e Governança:**
@@ -47,8 +48,8 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Changed
 
-- `docs/tecnico/arquitetura.md`: consolidação dos componentes do Modelo C4 e tabela de responsabilidades técnicas com a stack definitiva (Preact/Vite e FastAPI + Pydantic v2), e inserção da topologia estrutural de Monorepo (`extension/`, `backend/`, `shared/`).
-- `docs/tecnico/guia-contribuicao.md`: atualização dos pré-requisitos, instruções operacionais e comandos de build/execução para os subsistemas da extensão (`npm run build`/`dev`) e backend proxy (`uvicorn app.main:app`).
+- `docs/tecnico/arquitetura.md`: consolidação dos componentes do Modelo C4 e tabela de responsabilidades técnicas com a stack definitiva (Preact/Vite e FastAPI + Pydantic v2), inserção da topologia estrutural de Monorepo (`extension/`, `backend/`, `shared/`) e alinhamento do comentário da esteira `ci.yml`.
+- `docs/tecnico/guia-contribuicao.md`: atualização dos pré-requisitos, instruções operacionais e comandos de build/execução para os subsistemas da extensão (`npm run build`/`dev`) e backend proxy (`uvicorn app.main:app`), além da especificação da pipeline unificada de 4 estágios.
 - `docs/referencia/glossario.md` e `docs/requisitos/matriz-rastreabilidade.md`: harmonização das definições do Backend Proxy com referência direta ao FastAPI e ADR-004.
 - Removidos integralmente todos os emojis da documentação para adotar um tom estritamente profissional e corporativo.
 - Reformulação da landing page `docs/index.md` e do `README.md` com matriz interativa de módulos e parâmetros técnicos consolidados.

@@ -13,6 +13,7 @@
   - [Validação de Sobrecarga e TBT (RNF-02)](#validacao-rnf-02)
   - [Validação de Degradação Graciosa (RNF-06)](#validacao-rnf-06)
   - [Validação de Acessibilidade (RNF-07)](#validacao-rnf-07)
+- [Arquitetura da Esteira de CI/CD e Portões de Qualidade](#pipeline-ci-cd)
 - [Definition of Done (DoD)](#definition-of-done-dod)
   - [DoD para Histórias de Usuário](#dod-historias-de-usuario)
   - [DoD para Releases e Publicação](#dod-releases-e-publicacao)
@@ -48,7 +49,7 @@ A garantia de qualidade da **Extensão de Fact-Checking para YouTube** baseia-se
 ### 2. Testes de Integração {: #testes-de-integracao }
 
 - **Escopo:** Comunicação interna de mensagens entre Content Script e Service Worker utilizando mocks da API `chrome.runtime`; integração do Backend Proxy com adaptadores de IA e mecanismos de cache em memória.
-- **Ambiente:** Execução automatizada em ambiente Node.js isolado em esteira de Integração Contínua (CI).
+- **Ambiente:** Execução automatizada no runner de CI em ambientes isolados: Node.js 20 LTS para o cliente da extensão (Vitest com mocks da API `chrome.runtime`) e Python 3.12 para o Backend Proxy (Pytest com `httpx.AsyncClient` e FastAPI TestClient).
 
 ### 3. Testes de Contrato de API {: #testes-de-contrato-de-api }
 
@@ -100,6 +101,41 @@ A garantia de qualidade da **Extensão de Fact-Checking para YouTube** baseia-se
   1. Executar a biblioteca automatizada `axe-core` contra a árvore DOM do painel lateral.
   2. Nenhuma violação crítica ou séria de contraste ou rotulagem ARIA é permitida.
   3. Validar manualmente o ciclo de foco via teclado (`Tab`, `Shift+Tab`, `Escape`).
+
+---
+
+## Arquitetura da Esteira de CI/CD e Portões de Qualidade {: #pipeline-ci-cd }
+
+A esteira de integração contínua do repositório de desenvolvimento (`evidencia/.github/workflows/ci.yml`) materializa a garantia de qualidade através de duas trilhas independentes executadas em paralelo, cada uma estruturada em quatro estágios sequenciais rigorosos:
+
+```mermaid
+flowchart LR
+    subgraph Frontend["Trilha Frontend (Extensao MV3)"]
+        LF[1. lint front\ntsc --noEmit] --> BF[2. build front\nVite build + dist]
+        BF --> TF[3. test front\nVitest unitarios]
+        TF --> DF[4. deploy front\nZip para Web Store]
+    end
+
+    subgraph Backend["Trilha Backend (Proxy FastAPI)"]
+        LB[1. lint back\nRuff + py_compile] --> BB[2. build back\nPydantic + wheel]
+        BB --> TB[3. test back\nPytest + AsyncClient]
+        TB --> DB[4. deploy back\nGate homologacao nuvem]
+    end
+```
+
+### 1. Trilha Frontend (Extensão Manifest V3)
+
+1. **`lint front`:** Verificação estática de tipagem e integridade do código TypeScript com `tsc --noEmit`, bloqueando antecipadamente inconsistências em componentes Preact e contratos de dados.
+2. **`build front`:** Compilação multi-entry via Vite (`background.js`, `content.js`, `panel/index.html`), verificação de tamanho de bundle e arquivamento dos artefatos em `extension/dist/`.
+3. **`test front`:** Execução automatizada da suíte de testes com Vitest, cobrindo parsing e higienização de legendas, mocks da API Chromium e renderização básica.
+4. **`deploy front`:** Compactação em arquivo `.zip` padronizado para submissão à Chrome Web Store e arquivamento como release asset quando acionado na branch `main`.
+
+### 2. Trilha Backend (Proxy FastAPI)
+
+1. **`lint back`:** Análise estática com Ruff e compilação de bytecode Python (`py_compile`), garantindo ausência de erros de sintaxe ou violações de boas práticas em todos os módulos.
+2. **`build back`:** Instalação de dependências, smoke test de inicialização da aplicação FastAPI e geração dos pacotes binários e de código-fonte (`sdist` e `wheel`).
+3. **`test back`:** Execução da suíte de integração e testes de endpoint assíncronos com Pytest e `httpx.AsyncClient`, validando rate limiting, schemas e timeout de 8,0s.
+4. **`deploy back`:** Validação de imagem de contêiner e portão de homologação para ambiente de nuvem gerenciado (Cloud Run / Serverless) na branch `main`.
 
 ---
 

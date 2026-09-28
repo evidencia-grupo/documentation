@@ -182,7 +182,7 @@ evidencia/
 │   ├── schemas/           # api-schema.json validavel
 │   └── types/             # api.ts (interfaces TypeScript para a extensao)
 └── .github/
-    └── workflows/ci.yml   # Esteira de CI unificada (TypeScript + Pytest)
+    └── workflows/ci.yml   # Esteira de CI unificada com 4 estagios para front e back
 ```
 
 ---

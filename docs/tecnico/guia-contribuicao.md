@@ -121,7 +121,7 @@ O ecossistema do projeto divide-se em dois repositórios complementares:
 ```
 evidencia/
 ├── .github/
-│   ├── workflows/ci.yml     → Pipeline automatizada (lint, build Preact e pytest)
+│   ├── workflows/ci.yml     → Pipeline unificada (4 estágios: lint, build, test, deploy para front e back)
 │   ├── CODEOWNERS           → Definicao de responsaveis tecnicos por modulo
 │   ├── PULL_REQUEST_TEMPLATE.md
 │   └── ISSUE_TEMPLATE/      → Templates de bug, feature e user story
