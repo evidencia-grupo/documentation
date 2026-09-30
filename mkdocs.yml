@@ -95,6 +95,7 @@ nav:
       - Threat Model e LGPD: tecnico/threat-model.md
       - Estratégia de Testes e DoD: tecnico/estrategia-testes.md
       - Evidências de Validação (HU03): tecnico/evidencias/hu03-checagem-rapida.md
+      - Evidências de Validação (HU06): tecnico/evidencias/hu06-cache-local.md
       - Guia de Contribuição e Setup: tecnico/guia-contribuicao.md
       - Decisões Arquiteturais (ADRs):
           - ADR-001 — Manifest V3: tecnico/decisoes/ADR-001-manifest-v3.md
