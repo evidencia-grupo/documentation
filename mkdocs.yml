@@ -90,6 +90,7 @@ nav:
       - Matriz de Rastreabilidade: requisitos/matriz-rastreabilidade.md
   - Arquitetura e Engenharia:
       - Arquitetura do Sistema: tecnico/arquitetura.md
+      - Pipeline de IA e Datasets: tecnico/ia-e-datasets.md
       - Contrato de Dados e API: tecnico/contrato-api.md
       - Threat Model e LGPD: tecnico/threat-model.md
       - Estratégia de Testes e DoD: tecnico/estrategia-testes.md
@@ -99,6 +100,7 @@ nav:
           - ADR-002 — Backend Proxy Dedicado: tecnico/decisoes/ADR-002-backend-proxy.md
           - ADR-003 — Estratégia de Cache Local: tecnico/decisoes/ADR-003-estrategia-cache-local.md
           - ADR-004 — Definição da Stack Tecnológica: tecnico/decisoes/ADR-004-stack-tecnologica.md
+          - ADR-005 — Modelo Local e Datasets Brasileiros: tecnico/decisoes/ADR-005-modelo-local-e-datasets-brasileiros.md
   - Planejamento e Governança:
       - Priorização e MVP: planejamento/priorizacao-e-mvp.md
       - Gestão de Riscos Técnicos: planejamento/gestao-riscos.md

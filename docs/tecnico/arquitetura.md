@@ -149,6 +149,7 @@ sequenceDiagram
 | **Service Worker** | TypeScript + Vite (Manifest V3) | Gerenciamento de ciclo de vida em segundo plano; verificação e invalidação do cache em `chrome.storage.local`; comunicação de rede HTTPS com o Backend Proxy. |
 | **Painel Lateral** | Preact 10 / TypeScript / CSS Modules | Renderização do velocímetro de veracidade, card de justificativa analítica e lista de fontes; isolamento de estilos e scripts via `iframe` com atributo `sandbox="allow-scripts"`. |
 | **Backend Proxy** | Python 3.12+ (FastAPI + Pydantic v2 + Uvicorn) | Ponto único de entrada para chamadas externas; validação de tokens de cliente; controle rigoroso de requisições (*Rate Limiting*); orquestração assíncrona de chamadas para LLM e bases de checagem com timeout de 8,0s. |
+| **Pipeline IA & Datasets** | Ollama (Qwen 2.5-3B) + FactChecks.br | Extração estruturada de alegações em JSON, síntese sem jargões e correspondência local imediata com base em checagens jornalísticas brasileiras ([Detalhes](ia-e-datasets.md)). |
 | **Contratos Compartilhados** | JSON Schema / TypeScript | Definições canônicas de tipos e schemas (`shared/schemas/api-schema.json` e `shared/types/api.ts`) consumidas por cliente e servidor. |
 | **Cache Local** | `chrome.storage.local` API | Persistência cliente das análises efetuadas por 24 horas, indexadas pelo hash do `videoId`. |
 
@@ -177,7 +178,9 @@ evidencia/
 │   │   ├── config.py      # Gestao segura de variaveis de ambiente
 │   │   ├── schemas.py     # Modelos Pydantic v2 alinhados ao contrato
 │   │   ├── api/v1/        # Endpoints /analyze e /health
-│   │   └── services/      # Orquestrador assincrono com timeout de 8,0s
+│   │   └── services/      # Orquestrador assincrono, Ollama e Brazilian Fact Matcher
+│   ├── ml/                # Inteligência Artificial e Datasets
+│   │   └── datasets/      # Script de download e sample_facts.json (FactChecks.br)
 │   └── tests/             # Testes automatizados com Pytest
 ├── shared/                # Fonte unica da verdade para integracao
 │   ├── schemas/           # api-schema.json validavel
@@ -237,8 +240,9 @@ Para satisfazer o requisito [RNF-06](../requisitos/catalogo-requisitos.md#rnf-06
 | [ADR-002](decisoes/ADR-002-backend-proxy.md) | Intermediação via Backend Proxy Dedicado | Aceito | Proteção absoluta de chaves de API, controle de custos e rate limiting. |
 | [ADR-003](decisoes/ADR-003-estrategia-cache-local.md) | Cache local via `chrome.storage.local` com TTL de 24h | Aceito | Redução de 100% de latência em vídeos reincidentes e privacidade de dados. |
 | [ADR-004](decisoes/ADR-004-stack-tecnologica.md) | Definição da Stack Tecnológica (Preact + FastAPI + Monorepo) | Aceito | Desempenho ultraleve no navegador, ecossistema de IA robusto no backend e contratos unificados. |
+| [ADR-005](decisoes/ADR-005-modelo-local-e-datasets-brasileiros.md) | Modelo Local (Ollama Qwen 2.5-3B) e Datasets Brasileiros | Aceito | Soberania de dados, latência zero de rede para LLM, ausência de custos de API e alinhamento cultural com FactChecks.br e Fake.br. |
 
 ---
 
-**Próximo:** [Contrato de Dados e API](contrato-api.md) — schemas JSON e endpoints de integração.  
-**Ver também:** [Threat Model e Segurança](threat-model.md) — análise formal de ameaças e privacidade.
+**Próximo:** [Pipeline de IA e Datasets](ia-e-datasets.md) — integração com Ollama e bases de checagem brasileiras.  
+**Ver também:** [Contrato de Dados e API](contrato-api.md) e [Threat Model](threat-model.md).
