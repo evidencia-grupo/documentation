@@ -34,7 +34,6 @@ theme:
     - navigation.instant.preview
     - navigation.tracking
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.path
@@ -78,28 +77,31 @@ nav:
   - Visão Geral:
       - Apresentação: index.md
       - Síntese Executiva (1 Página): visao-geral/visao-geral-do-projeto.md
-      - Mapa Visual e Topologia: visao-geral/mapa-do-projeto.md
+      - Topologia & Mapa Visual: visao-geral/mapa-do-projeto.md
       - Painel de Status Consolidado: visao-geral/status.md
       - Glossário Oficial Unificado: glossario.md
-  - Requisitos & Produto:
-      - Alinhamento Estratégico: visao/alinhamento-estrategico.md
-      - Personas e Jornadas: design/personas-e-jornadas.md
-      - Design System e Interface: design/design-system.md
-      - Processo de Elicitação ($100): requisitos/elicitacao.md
-      - Catálogo de Requisitos (RF e RNF): requisitos/catalogo-requisitos.md
-      - Casos de Uso e Diagramas: requisitos/casos-de-uso.md
-      - Cenários de Uso e Operação: requisitos/cenarios.md
-      - Backlog e Histórias (HUs): requisitos/backlog-e-historias.md
-      - Matriz de Rastreabilidade (MoSCoW): requisitos/matriz-rastreabilidade.md
-      - Priorização e Riscos: planejamento/priorizacao-e-mvp.md
-  - Arquitetura & Engenharia:
-      - Arquitetura do Sistema (C4): tecnico/arquitetura.md
-      - Pipeline de IA e Datasets: tecnico/ia-e-datasets.md
-      - Contrato de Dados e API: tecnico/contrato-api.md
-      - Threat Model (STRIDE) e LGPD: tecnico/threat-model.md
-      - Estratégia de Testes e CI/CD: tecnico/estrategia-testes.md
-      - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
-      - Guia de Contribuição e Setup: tecnico/guia-contribuicao.md
+  - Requisitos:
+      - Visão de Produto & UX:
+          - Alinhamento Estratégico: visao/alinhamento-estrategico.md
+          - Personas e Jornadas: design/personas-e-jornadas.md
+          - Design System e Interface: design/design-system.md
+      - Especificação de Requisitos:
+          - Processo de Elicitação ($100): requisitos/elicitacao.md
+          - Catálogo de Requisitos (RF e RNF): requisitos/catalogo-requisitos.md
+          - Casos de Uso e Diagramas: requisitos/casos-de-uso.md
+          - Cenários de Uso e Operação: requisitos/cenarios.md
+          - Backlog e Histórias (HUs): requisitos/backlog-e-historias.md
+          - Matriz de Rastreabilidade (MoSCoW): requisitos/matriz-rastreabilidade.md
+          - Priorização e Riscos: planejamento/priorizacao-e-mvp.md
+  - Arquitetura:
+      - Sistema & Engenharia:
+          - Arquitetura do Sistema (C4): tecnico/arquitetura.md
+          - Pipeline de IA e Datasets: tecnico/ia-e-datasets.md
+          - Contrato de Dados e API: tecnico/contrato-api.md
+          - Threat Model (STRIDE) e LGPD: tecnico/threat-model.md
+          - Estratégia de Testes e CI/CD: tecnico/estrategia-testes.md
+          - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
+          - Guia de Contribuição e Setup: tecnico/guia-contribuicao.md
       - Decisões de Arquitetura (ADRs):
           - ADR-001 — Manifest V3: tecnico/decisoes/ADR-001-manifest-v3.md
           - ADR-002 — Backend Proxy Dedicado: tecnico/decisoes/ADR-002-backend-proxy.md
@@ -107,14 +109,15 @@ nav:
           - ADR-004 — Definição da Stack Tecnológica: tecnico/decisoes/ADR-004-stack-tecnologica.md
           - ADR-005 — Modelo Local e Datasets Brasileiros: tecnico/decisoes/ADR-005-modelo-local-e-datasets-brasileiros.md
           - ADR-006 — Arquitetura Evidence-First: tecnico/decisoes/ADR-006-evidence-first-architecture.md
-  - Processo CBL & Scrum:
-      - Framework CBL (12 Guiding Questions): visao/guiding-questions.md
-      - Alinhamento da Essential Question: visao/essential-question-alignment.md
-      - Log de Decisões Metodológicas: visao/decision-log.md
-      - Governança Scrum e DoD: scrum/definition-of-done.md
-      - Cerimônias e Ritos: scrum/ceremonies.md
-      - Product Backlog e Sprints: scrum/product-backlog.md
-      - Experimento com Usuários (Act):
+  - Processo & Validação:
+      - Metodologia CBL & Scrum:
+          - 12 Guiding Questions (Engage): visao/guiding-questions.md
+          - Alinhamento da Essential Question: visao/essential-question-alignment.md
+          - Log de Decisões Metodológicas: visao/decision-log.md
+          - Governança Scrum e DoD: scrum/definition-of-done.md
+          - Cerimônias e Ritos: scrum/ceremonies.md
+          - Product Backlog e Sprints: scrum/product-backlog.md
+      - Validação Científica (Act):
           - Plano do Experimento: cbl/act/experiment-plan.md
           - Protocolo do Participante: cbl/act/participant-protocol.md
           - Definição de Métricas (M1 a M9): cbl/act/metrics-definition.md
@@ -123,7 +126,7 @@ nav:
           - Template de Resultados: cbl/act/results-template.md
           - Critérios Go / No-Go: cbl/act/go-no-go-act.md
           - Limitações Metodológicas: cbl/act/limitations.md
-      - Fechamento (Reflect & Share):
+      - Fechamento & Banca (Reflect & Share):
           - Síntese Acadêmica e Reflexão: cbl/reflect-share/reflection.md
           - Lições Aprendidas: cbl/reflect-share/lessons-learned.md
           - Portfólio de Pesquisa: cbl/reflect-share/research-portfolio.md

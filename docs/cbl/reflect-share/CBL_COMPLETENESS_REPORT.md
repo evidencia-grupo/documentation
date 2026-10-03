@@ -3,7 +3,7 @@
 
 > **Data da Auditoria:** 2026-10-03  
 > **Fase Auditada:** `SCAFFOLD`  
-> **Versão Documentação:** `@`061a110  
+> **Versão Documentação:** `@`cf0936a  
 > **Versão Código:** `@`60ae479  
 > **Veredito Geral:** **`NO-GO`**  
 > **Flag de Bloqueio Imediato:** `ATIVADA` (condição fatal de integridade violada)  
