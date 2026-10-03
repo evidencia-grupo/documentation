@@ -66,7 +66,7 @@ Desenvolvida para **usuários leigos, estudantes e educadores**, permitindo vali
 | **Planejamento** | [Priorização e MVP](docs/planejamento/priorizacao-e-mvp.md) | Matriz MoSCoW e sequenciador de features Lean Inception |
 | **Planejamento** | [Gestão de Riscos Técnicos](docs/planejamento/gestao-riscos.md) | Mapeamento de ameaças técnicas e planos de contingência |
 | **Planejamento** | [Métricas e Telemetria](docs/planejamento/metricas-telemetria.md) | Instrumentação e coleta ética de dados de uso |
-| **Referência** | [Glossário Técnico](docs/referencia/glossario.md) | Definições formais de todos os termos e siglas utilizados |
+| **Referência** | [Glossário Técnico](docs/arquivo/glossario-legado.md) | Definições formais de todos os termos e siglas utilizados |
 
 ---
 

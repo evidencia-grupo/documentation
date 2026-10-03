@@ -25,7 +25,7 @@ A documentação está estruturada em sete áreas fundamentais para orientar des
 | **Arquitetura e Engenharia** | [Arquitetura C4 e Sequência](tecnico/arquitetura.md)<br>[Contrato de API REST](tecnico/contrato-api.md)<br>[Threat Model (STRIDE & LGPD)](tecnico/threat-model.md)<br>[Estratégia de Testes e DoD](tecnico/estrategia-testes.md)<br>[Guia de Contribuição e Setup](tecnico/guia-contribuicao.md) | Modelo C4 (Contexto e Contêineres), sequência com SLAs, schemas JSON, interfaces TypeScript, STRIDE e pirâmide de testes | [Técnico](tecnico/arquitetura.md) |
 | **Decisões Arquiteturais** | [ADR-001 — Padrão Manifest V3](tecnico/decisoes/ADR-001-manifest-v3.md)<br>[ADR-002 — Backend Proxy Dedicado](tecnico/decisoes/ADR-002-backend-proxy.md)<br>[ADR-003 — Estratégia de Cache Local com TTL](tecnico/decisoes/ADR-003-estrategia-cache-local.md) | Registros de decisões estruturais homologadas (ADRs) com justificativas, alternativas e impactos | [ADRs](tecnico/decisoes/ADR-001-manifest-v3.md) |
 | **Planejamento e Governança** | [Priorização e MVP](planejamento/priorizacao-e-mvp.md)<br>[Gestão de Riscos Técnicos](planejamento/gestao-riscos.md)<br>[Instrumentação e Telemetria](planejamento/metricas-telemetria.md) | Matriz MoSCoW, Sequenciador Lean Inception (Ondas 1 a 3), funil de backlog, critérios de exclusão e governança de telemetria | [Planejamento](planejamento/priorizacao-e-mvp.md) |
-| **Referência** | [Glossário Técnico](referencia/glossario.md) | Vocabulário técnico unificado com definições de termos, métricas e siglas | [Glossário](referencia/glossario.md) |
+| **Referência** | [Glossário Técnico](arquivo/glossario-legado.md) | Vocabulário técnico unificado com definições de termos, métricas e siglas | [Glossário](arquivo/glossario-legado.md) |
 
 ---
 

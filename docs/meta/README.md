@@ -9,7 +9,7 @@
 ---
 
 ## Arquivos desta Pasta
-- [`repo-audit-2026-10-02.md`](repo-audit-2026-10-02.md): Relatorio completo de diagnostico dos repositorios de documentacao e codigo.
+- [`repo-audit-2026-10-02.md`](../arquivo/auditoria-2026-10-02.md): Relatorio completo de diagnostico dos repositorios de documentacao e codigo.
 - [`protected-paths.md`](protected-paths.md): Catalogo formal de caminhos protegidos contra mutacao destrutiva.
 - [`convencoes.md`](convencoes.md): Convencoes de nomenclatura, mapa de responsabilidades, legenda de status e regras de diagramas.
 - [`link-fixes.md`](link-fixes.md): Registro auditavel de correcoes pontuais de links quebrados.
@@ -18,4 +18,4 @@
 ---
 
 ## Ordem Recomendada de Leitura
-1. [`convencoes.md`](convencoes.md) -> 2. [`protected-paths.md`](protected-paths.md) -> 3. [`repo-audit-2026-10-02.md`](repo-audit-2026-10-02.md).
+1. [`convencoes.md`](convencoes.md) -> 2. [`protected-paths.md`](protected-paths.md) -> 3. [`repo-audit-2026-10-02.md`](../arquivo/auditoria-2026-10-02.md).

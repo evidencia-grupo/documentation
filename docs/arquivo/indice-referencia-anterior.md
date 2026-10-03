@@ -9,7 +9,7 @@
 ---
 
 ## Arquivos desta Pasta
-- [`glossario.md`](glossario.md): Glossario tecnico geral cobrindo tecnologias de extensao, navegadores e arquitetura web.
+- [`glossario.md`](glossario-legado.md): Glossario tecnico geral cobrindo tecnologias de extensao, navegadores e arquitetura web.
 
 ---
 
