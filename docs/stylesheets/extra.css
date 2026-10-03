@@ -486,25 +486,107 @@ button,
   border: 1px solid rgba(229, 9, 20, 0.4) !important;
 }
 
-/* Campo de busca limpo e arredondado */
-.md-search__input {
-  border-radius: 9999px !important;
-  background-color: rgba(255, 255, 255, 0.18) !important;
-  color: #ffffff !important;
-  font-size: 0.82rem !important;
-  padding-left: 2.3rem !important;
-  padding-right: 1rem !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+/* --------------------------------------------------------------------------
+   8.1 Barra de Pesquisa (Search) - Uniforme, Clean e Sem Deformações
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 60em) {
+  .md-search__form {
+    background-color: rgba(0, 0, 0, 0.14) !important;
+    border-radius: 9999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    height: 1.95rem !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .md-search__form:hover {
+    background-color: rgba(255, 255, 255, 0.22) !important;
+    border-color: rgba(255, 255, 255, 0.42) !important;
+  }
+
+  .md-search__input {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    color: #ffffff !important;
+    font-size: 0.82rem !important;
+    height: 100% !important;
+    padding-left: 2.25rem !important;
+    padding-right: 1rem !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .md-search__input::placeholder {
+    color: rgba(255, 255, 255, 0.82) !important;
+  }
+
+  .md-search__icon {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
 }
 
-.md-search__input::placeholder {
-  color: rgba(255, 255, 255, 0.75) !important;
+/* Modo escuro (Slate) em repouso */
+@media screen and (min-width: 60em) {
+  [data-md-color-scheme="slate"] .md-search__form {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: none !important;
+  }
+
+  [data-md-color-scheme="slate"] .md-search__form:hover {
+    background-color: rgba(255, 255, 255, 0.11) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  [data-md-color-scheme="slate"] .md-search__input {
+    color: #f1f5f9 !important;
+  }
+
+  [data-md-color-scheme="slate"] .md-search__input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  [data-md-color-scheme="slate"] .md-search__icon {
+    color: #94a3b8 !important;
+  }
 }
 
-.md-search__input:focus {
-  background-color: #ffffff !important;
-  color: #1e1e1e !important;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2) !important;
+/* Quando a busca está aberta com resultados */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__inner {
+  border-radius: 8px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28) !important;
+  overflow: visible !important;
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  border-radius: 8px 8px 0 0 !important;
+  border: none !important;
+  background-color: var(--md-default-bg-color) !important;
+  height: 2.6rem !important;
+  box-shadow: none !important;
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__input {
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  color: var(--md-default-fg-color) !important;
+  font-size: 0.95rem !important;
+  height: 2.6rem !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__output {
+  border-radius: 0 0 8px 8px !important;
+}
+
+[data-md-color-scheme="slate"] [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  background-color: #1e293b !important;
+}
+
+[data-md-color-scheme="slate"] [data-md-toggle="search"]:checked ~ .md-header .md-search__output {
+  background-color: #0f172a !important;
 }
 
 /* --------------------------------------------------------------------------
