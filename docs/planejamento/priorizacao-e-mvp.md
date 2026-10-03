@@ -20,12 +20,16 @@ A classificação MoSCoW foi consolidada a partir da alocação de recursos da [
 ![Matriz MoSCoW da Votação](../assets/matriz-moscow-votacao.png)
 *Figura: Matriz MoSCoW validada após a dinâmica da Técnica dos 100 Dólares com os participantes.*
 
+> [!NOTE]
+> **Revisão Evidence-First (2026-10-02 — ADR-006):** O requisito **RF-05 (Retorno Reflexivo / HU11)** foi promovido para **Must Have (MVP)** para cumprir a Essential Question ("estimular pensamento crítico sem substituí-lo"). Foram incorporados ao MVP os requisitos **RF-12 a RF-15** (estado `insufficient_evidence`, provenance, desacoplamento de provider e bloqueio de mock em produção).
+
 | Prioridade | Item | Justificativa |
 |:---|:---|:---|
-| **Must Have** | RF-01, RF-02, RF-03, RF-06, RF-07, RF-08, RF-09, RNF-01 a RNF-07 | Sem esses itens não há produto funcional, seguro ou minimamente confiável — formam o Happy Path completo |
-| **Should Have** | RF-04 (fontes com link direto), RF-11 (metadados temporais do vídeo) | Aumentam significativamente a credibilidade, mas o fluxo crítico funciona sem eles, ainda que com menor confiança |
-| **Could Have** | RF-05 (retorno reflexivo), RF-10 (avaliação de relevância) | Já classificados como OUT pelo levantamento original ([HU11, HU12](../requisitos/backlog-e-historias.md#hu11)) |
-| **Won't Have (agora)** | Suporte multi-idioma, sincronização de histórico entre dispositivos, dashboard de estatísticas de uso, suporte a outras plataformas (Instagram, TikTok) | Não mapeados no levantamento original; risco de dispersão de esforço — mantidos explicitamente fora para evitar ambiguidade |
+| **Must Have** | RF-01 a RF-04, RF-05 (promovido), RF-06 a RF-08, RF-12 a RF-15, RNF-01 a RNF-07 | Núcleo do produto: investigação assistida orientada a alegações, recuperação factual de evidências com provenance, reflexão crítica ativa e segurança de infraestrutura ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)) |
+| **Should Have** | RF-09 (cache local com TTL), RF-11 (metadados temporais do vídeo) | Otimizam a experiência de uso repetido e evitam falsas contradições em conteúdos antigos |
+| **Could Have** | RF-10 (avaliação de relevância / HU12) | Feedback anônimo de utilidade pelos usuários para ciclos posteriores |
+| **Won't Have (agora)** | Vereditos algorítmicos automatizados, scores numéricos de veracidade (0–100%), gauge, suporte multi-idioma, login social obrigatório | Proibidos por desenho (ADR-006) ou fora de escopo para manter foco na investigação assistida |
+
 
 ---
 

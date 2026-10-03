@@ -13,8 +13,8 @@
 
 ## Visão do Produto
 
-!!! quote "Declaração de Visão do Produto"
-    Para **usuários que consomem conteúdo informativo no YouTube e desconfiam de sua veracidade** (leigos, estudantes, educadores), cujo problema é **a desinformação em vídeos e a sobrecarga de pesquisa manual**, a **Extensão de Fact-Checking para YouTube** é uma **extensão de navegador informativa (Manifest V3)** que **extrai a transcrição do vídeo em reprodução, cruza as alegações com fontes externas confiáveis via IA e apresenta uma síntese categorizada de evidências com índice visual de veracidade** — diferente de ferramentas como **NewsGuard** e **Fake News Detector** (que se limitam à reputação de domínios ou palavras-chave) ou de pesquisas manuais em agências de checagem. Nosso produto conduz a investigação junto com o usuário, fortalecendo sua capacidade analítica autônoma.
+!!! quote "Declaração de Visão do Produto (Atualizada — 2026-10-02)"
+    Para **usuários que consomem conteúdo informativo no YouTube e desejam avaliar criticamente as informações apresentadas** (leigos, estudantes, educadores), cujo problema é **a desinformação em vídeos e a dificuldade de encontrar evidências confiáveis sem perder a autonomia de julgamento**, a **Extensão de Fact-Checking para YouTube (EvidencIA)** é uma **extensão de navegador informativa (Manifest V3)** que **extrai a transcrição do vídeo em reprodução, decompõe o discurso em alegações verificáveis, cruza com corpora brasileiros de fact-checking e apresenta uma investigação estruturada de evidências com perguntas orientadoras para reflexão crítica, sem emitir vereditos algorítmicos ou scores globais** — diferente de ferramentas que tentam dizer se um vídeo é "verdadeiro ou falso". Nosso produto apoia a investigação autônoma do usuário, preservando integralmente seu pensamento crítico ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)).
 
 ![Declaração de Visão e Diferenciação Competitiva](../assets/visao-do-produto-concorrentes.png)
 
@@ -23,15 +23,16 @@
 | Dimensão | Descrição |
 |:---|:---|
 | **É** | Uma extensão de navegador (Chrome, Edge, Brave — Manifest V3) que atua exclusivamente sobre páginas de reprodução do YouTube (`/watch`) |
-| **Não É** | Uma rede social de checagem colaborativa, um serviço de moderação/remoção de conteúdo do YouTube, um verificador de fatos em tempo real para transmissões ao vivo, ou uma ferramenta de auditoria acadêmica com padrão de citação formal (ABNT/APA) |
-| **Faz** | Extrai transcrição automaticamente; envia o texto a um backend proxy autenticado; usa IA + busca externa para isolar alegações; classifica evidências como apoio, contradição ou contexto; sinaliza incerteza/controvérsia; exibe fontes com link direto; cacheia resultados localmente; degrada com segurança em falhas de rede/API |
-| **Não Faz** | Não modera, remove ou sinaliza publicamente o vídeo perante terceiros; não opera fora do domínio `youtube.com`; não processa vídeos sem legenda/transcrição disponível; não emite veredito absoluto em temas com fontes legítimas divergentes (expõe ambos os lados); não requer login, cadastro ou coleta de histórico geral de navegação |
+| **Não É** | Uma rede social de checagem colaborativa, um serviço de moderação/remoção de conteúdo do YouTube, um oráculo de verdade factual, um verificador em tempo real para transmissões ao vivo ou uma autoridade algorítmica com vereditos fechados |
+| **Faz** | Extrai transcrição automaticamente; envia o texto a um backend proxy autenticado; decompõe o vídeo em alegações atômicas; busca evidências em corpora verificados (FactChecks.br); mapeia relações (sustenta, contradiz, contextualiza); explicita lacunas e incertezas (`insufficient_evidence`); formula perguntas para reflexão crítica; exibe fontes com link direto; cacheia resultados localmente; degrada com segurança em falhas de rede/API |
+| **Não Faz** | Não declara "a verdade"; não atribui nota ou score numérico (0–100%) ao vídeo; não modera, remove ou sinaliza publicamente o vídeo perante terceiros; não opera fora do domínio `youtube.com`; não processa vídeos sem legenda/transcrição disponível; não converte ausência de evidência em falsidade; não emite veredito absoluto em controvérsias legítimas; não requer login ou coleta de dados pessoais |
 
 ## Objetivos de Negócio e MVP
 
 ### Hipótese de Validação
 
-> Usuários leigos que recebem, dentro do próprio YouTube, uma síntese categorizada e em linguagem acessível sobre a veracidade de um vídeo **confiam mais na informação apresentada** e **adotam o hábito de checar antes de compartilhar**, mesmo sem compreender os detalhes técnicos do processo de verificação.
+> Usuários leigos que recebem, dentro do próprio YouTube, uma síntese estruturada de evidências e perguntas orientadoras de reflexão crítica sobre as alegações de um vídeo **desenvolvem maior autonomia analítica**, **percebem lacunas com maior clareza** e **adotam o hábito de investigar antes de compartilhar**, sem depender de um veredito algorítmico automatizado.
+
 
 ### Métricas de Sucesso (KPIs)
 
