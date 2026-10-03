@@ -1,3 +1,7 @@
+<!-- nav:start -->
+[Voltar ao Indice CBL](../README.md) · [Voltar ao Indice Mestre](../../README.md)
+<!-- nav:end -->
+
 # Experimento CBL (Fase Act) — Avaliacao Comportamental Evidence-First vs. Veredito
 
 ## Visao Geral
