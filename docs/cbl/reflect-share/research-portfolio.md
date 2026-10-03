@@ -16,13 +16,13 @@ Este portfólio cataloga todos os artefatos de pesquisa produzidos ao longo do c
 | **Engage** | Alinhamento Essential Question | `documentation` | [`docs/visao/essential-question-alignment.md`](../../visao/essential-question-alignment.md) | `@9e95b68` | Verificado |
 | **Engage** | Guiding Questions (GQ01–GQ12) | `documentation` | [`docs/visao/guiding-questions.md`](../../visao/guiding-questions.md) | `@9e95b68` | Verificado |
 | **Engage** | Log de Decisões Estratégicas | `documentation` | [`docs/visao/decision-log.md`](../../visao/decision-log.md) | `@9e95b68` | Verificado |
-| **Investigate** | Registry de Datasets | `EvidencIA` | [`backend/ml/datasets/sources.yaml`](file:///EvidencIA/backend/ml/datasets/sources.yaml) | `@27c53e8` | Verificado |
-| **Investigate** | Schemas Canônicos de Evidência | `EvidencIA` | [`backend/ml/schemas/evidence.py`](file:///EvidencIA/backend/ml/schemas/evidence.py) | `@27c53e8` | Verificado |
-| **Investigate** | Notebook Exploratório (17 seções) | `EvidencIA` | [`notebooks/eda_datasets.ipynb`](file:///EvidencIA/notebooks/eda_datasets.ipynb) | `@27c53e8` | Verificado |
+| **Investigate** | Registry de Datasets | `EvidencIA` | [`backend/ml/datasets/sources.yaml`](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/datasets/sources.yaml) | `@27c53e8` | Verificado |
+| **Investigate** | Schemas Canônicos de Evidência | `EvidencIA` | [`backend/ml/schemas/evidence.py`](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/schemas/evidence.py) | `@27c53e8` | Verificado |
+| **Investigate** | Notebook Exploratório (17 seções) | `EvidencIA` | [`notebooks/eda_datasets.ipynb`](https://github.com/evidencia-grupo/EvidencIA/blob/main/notebooks/eda_datasets.ipynb) | `@27c53e8` | Verificado |
 | **Investigate** | Resultados da EDA & Métricas IR | `documentation` | `docs/investigate/eda-results.md` | `@9e95b68` | PENDENTE |
 | **Investigate** | Decisões Técnicas Derivadas da EDA | `documentation` | `docs/investigate/eda-decisions.md` | `@9e95b68` | PENDENTE |
 | **Investigate** | ADR-006 (Arquitetura Evidence-First) | `documentation` | [`docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md`](../../tecnico/decisoes/ADR-006-evidence-first-architecture.md) | `@9e95b68` | Verificado |
-| **Investigate** | Contrato de API Evidence-First | `EvidencIA` | [`shared/schemas/api-schema.json`](file:///EvidencIA/shared/schemas/api-schema.json) | `@27c53e8` | Verificado |
+| **Investigate** | Contrato de API Evidence-First | `EvidencIA` | [`shared/schemas/api-schema.json`](https://github.com/evidencia-grupo/EvidencIA/blob/main/shared/schemas/api-schema.json) | `@27c53e8` | Verificado |
 | **Act** | Plano Experimental do Estudo | `documentation` | [`docs/cbl/act/experiment-plan.md`](../act/experiment-plan.md) | `@9e95b68` | Verificado |
 | **Act** | Protocolo do Participante & TCLE | `documentation` | [`docs/cbl/act/participant-protocol.md`](../act/participant-protocol.md) | `@9e95b68` | Verificado |
 | **Act** | Definição de Métricas Comportamentais | `documentation` | [`docs/cbl/act/metrics-definition.md`](../act/metrics-definition.md) | `@9e95b68` | Verificado |
@@ -56,7 +56,7 @@ Conforme o registro formal em `backend/ml/datasets/sources.yaml` [EV: EvidencIA:
 
 A integridade dos arquivos e dos modelos de teste é garantida via SHA-256 canônicos:
 
-- **Manifesto de Datasets:** O arquivo [`backend/data/manifest.json`](file:///EvidencIA/backend/data/manifest.json) (@`27c53e8`) armazena a tabela de hashes dos arquivos baixados pelo pipeline de dados.
+- **Manifesto de Datasets:** O arquivo [`backend/data/manifest.json`](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/data/manifest.json) (@`27c53e8`) armazena a tabela de hashes dos arquivos baixados pelo pipeline de dados.
 - **Governança de Dados Brutos (DATA-03):** Por política estrita de versionamento, nenhum arquivo de dados brutos (`backend/data/bronze/` ou `silver/`) superior a 5 MB é rastreado no Git [EV: EvidencIA:backend/data/README.md#governanca-de-dados@27c53e8].
 - **Sumário de Validação Experimental:** O hash oficial do arquivo de métricas de teste `analysis/act/out/summary.json` será calculado pelo script de auditoria e registrado na entrega final. Em fase SCAFFOLD: `PENDENTE — depende de: docs/cbl/act/results.md`.
 
@@ -64,7 +64,7 @@ A integridade dos arquivos e dos modelos de teste é garantida via SHA-256 canô
 
 ## 4. Notebook de Análise Exploratória (EDA)
 
-O notebook de análise exploratória [`notebooks/eda_datasets.ipynb`](file:///EvidencIA/notebooks/eda_datasets.ipynb) (@`27c53e8`) foi estruturado com 17 seções metodológicas completas (seções 0 a 16), cobrindo:
+O notebook de análise exploratória [`notebooks/eda_datasets.ipynb`](https://github.com/evidencia-grupo/EvidencIA/blob/main/notebooks/eda_datasets.ipynb) (@`27c53e8`) foi estruturado com 17 seções metodológicas completas (seções 0 a 16), cobrindo:
 1. Reprodutibilidade e Configuração de Ambiente
 2. Inventário dos Datasets (Fake.br, FactChecks.br, ClaimPT)
 3. Qualidade dos Dados (nulos, duplicatas, formatação)
