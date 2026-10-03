@@ -36,7 +36,7 @@ As subseções abaixo formalizam cada decisão do ADR.
 
 ---
 
-### Decisão 1 — Fim do Score Global
+### Decisão 1 — Fim do Score Global {: #decisao-1-fim-do-score-global }
 
 **Os campos `score` (0–100) e `reliabilityScore` são removidos do contrato de API e da UX principal.**
 
@@ -50,7 +50,7 @@ O resultado da análise não possui mais um número global. O estado de cada ale
 
 ---
 
-### Decisão 2 — Unidade = Alegação + Evidências
+### Decisão 2 — Unidade = Alegação + Evidências {: #decisao-2-unidade-alegacao-evidencias }
 
 **O novo contrato conceitual da resposta `/analyze` é:**
 
@@ -110,7 +110,7 @@ O schema JSON correspondente será versionado em `shared/schemas/api-schema.json
 
 ---
 
-### Decisão 3 — Estado "Sem Evidência Suficiente"
+### Decisão 3 — Estado "Sem Evidência Suficiente" {: #decisao-3-estado-sem-evidencia-suficiente }
 
 **O estado `insufficient_evidence` é distinto de `"false"` ou `"contradicted"`.**
 
@@ -120,7 +120,7 @@ Quando nenhuma evidência com score de similaridade acima do limiar definido na 
 
 ---
 
-### Decisão 4 — A LLM Não Decide a Verdade Antes de Recuperar Evidências
+### Decisão 4 — A LLM Não Decide a Verdade Antes de Recuperar Evidências {: #decisao-4-a-llm-nao-decide-a-verdade-antes-de-recuperar-evidencias }
 
 **Pipeline obrigatório:**
 
@@ -159,7 +159,7 @@ A LLM **não emite julgamento factual** na etapa de Claim Extraction. Ela apenas
 
 ---
 
-### Decisão 5 — Papéis dos Datasets
+### Decisão 5 — Papéis dos Datasets {: #decisao-5-papeis-dos-datasets }
 
 | Dataset | Papel no Produto | Restrições |
 |:---|:---|:---|
@@ -170,7 +170,9 @@ A LLM **não emite julgamento factual** na etapa de Claim Extraction. Ela apenas
 
 ---
 
-### Decisão 6 — Providers de LLM Desacoplados
+### Decisão 6 — Providers de LLM Desacoplados {: #decisao-6-desacoplamento-de-providers-de-ia }
+
+<a id="decisao-6-providers-de-llm-desacoplados"></a>
 
 **Interface `LLMProvider`:**
 
@@ -205,7 +207,7 @@ class LLMProvider(ABC):
 
 ---
 
-### Decisão 7 — HU11 Promovida para Must Have do MVP
+### Decisão 7 — HU11 Promovida para Must Have do MVP {: #decisao-7-hu11-promovida-para-must-have-do-mvp }
 
 **As perguntas orientadoras de reflexão crítica (HU11) são promovidas de `Could Have / Pós-MVP` para `Must Have` do MVP.**
 
@@ -215,7 +217,7 @@ Motivação: HU11 é o mecanismo que mais diretamente responde à Essential Ques
 
 ---
 
-### Decisão 8 — Critérios de Aceitação de Performance e Comportamento
+### Decisão 8 — Critérios de Aceitação de Performance e Comportamento {: #decisao-8-criterios-de-aceitacao-de-performance-e-comportamento }
 
 | Critério | Limiar | Método de Validação |
 |:---|:---|:---|

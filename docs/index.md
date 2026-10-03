@@ -26,7 +26,7 @@
 A documentação está consolidada em quatro pilares objetivos para rápida localização por qualquer perfil de leitor:
 
 <div class="doc-grid">
-  <a href="visao-geral/visao-geral-do-projeto.md" class="doc-card">
+  <a href="visao-geral/visao-geral-do-projeto/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
@@ -37,7 +37,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
     <div class="doc-card__action"><span>Entender o Projeto &rarr;</span></div>
   </a>
 
-  <a href="requisitos/catalogo-requisitos.md" class="doc-card">
+  <a href="requisitos/catalogo-requisitos/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></span>
@@ -48,7 +48,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
     <div class="doc-card__action"><span>Explorar Requisitos &rarr;</span></div>
   </a>
 
-  <a href="tecnico/arquitetura.md" class="doc-card">
+  <a href="tecnico/arquitetura/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
@@ -59,7 +59,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
     <div class="doc-card__action"><span>Ver Arquitetura &rarr;</span></div>
   </a>
 
-  <a href="cbl/act/experiment-plan.md" class="doc-card">
+  <a href="cbl/act/experiment-plan/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/><line x1="8" y1="15" x2="16" y2="15"/></svg></span>

@@ -11,14 +11,14 @@
 
 ---
 
-## Visão do Produto
+## Visão do Produto {: #visao-do-produto }
 
 !!! quote "Declaração de Visão do Produto (Atualizada — 2026-10-02)"
     Para **usuários que consomem conteúdo informativo no YouTube e desejam avaliar criticamente as informações apresentadas** (leigos, estudantes, educadores), cujo problema é **a desinformação em vídeos e a dificuldade de encontrar evidências confiáveis sem perder a autonomia de julgamento**, a **Extensão de Fact-Checking para YouTube (EvidencIA)** é uma **extensão de navegador informativa (Manifest V3)** que **extrai a transcrição do vídeo em reprodução, decompõe o discurso em alegações verificáveis, cruza com corpora brasileiros de fact-checking e apresenta uma investigação estruturada de evidências com perguntas orientadoras para reflexão crítica, sem emitir vereditos algorítmicos ou scores globais** — diferente de ferramentas que tentam dizer se um vídeo é "verdadeiro ou falso". Nosso produto apoia a investigação autônoma do usuário, preservando integralmente seu pensamento crítico ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)).
 
 ![Declaração de Visão e Diferenciação Competitiva](../assets/visao-do-produto-concorrentes.png)
 
-## Matriz É / Não É / Faz / Não Faz
+## Matriz É / Não É / Faz / Não Faz {: #matriz-e-nao-e-faz-nao-faz }
 
 | Dimensão | Descrição |
 |:---|:---|
@@ -27,14 +27,14 @@
 | **Faz** | Extrai transcrição automaticamente; envia o texto a um backend proxy autenticado; decompõe o vídeo em alegações atômicas; busca evidências em corpora verificados (FactChecks.br); mapeia relações (sustenta, contradiz, contextualiza); explicita lacunas e incertezas (`insufficient_evidence`); formula perguntas para reflexão crítica; exibe fontes com link direto; cacheia resultados localmente; degrada com segurança em falhas de rede/API |
 | **Não Faz** | Não declara "a verdade"; não atribui nota ou score numérico (0–100%) ao vídeo; não modera, remove ou sinaliza publicamente o vídeo perante terceiros; não opera fora do domínio `youtube.com`; não processa vídeos sem legenda/transcrição disponível; não converte ausência de evidência em falsidade; não emite veredito absoluto em controvérsias legítimas; não requer login ou coleta de dados pessoais |
 
-## Objetivos de Negócio e MVP
+## Objetivos de Negócio e MVP {: #objetivos-de-negocio-e-mvp }
 
-### Hipótese de Validação
+### Hipótese de Validação {: #hipotese-de-validacao }
 
 > Usuários leigos que recebem, dentro do próprio YouTube, uma síntese estruturada de evidências e perguntas orientadoras de reflexão crítica sobre as alegações de um vídeo **desenvolvem maior autonomia analítica**, **percebem lacunas com maior clareza** e **adotam o hábito de investigar antes de compartilhar**, sem depender de um veredito algorítmico automatizado.
 
 
-### Métricas de Sucesso (KPIs)
+### Métricas de Sucesso (KPIs) {: #metricas-de-sucesso-kpis }
 
 | Métrica | O que valida | Meta inicial sugerida |
 |:---|:---|:---|
@@ -44,7 +44,7 @@
 | **Retenção (D7)** | Se o hábito de checagem se forma | ≥ 20% de usuários retornando em 7 dias |
 | **Taxa de Degradação Segura** | Robustez do RNF-06 (sem travar o navegador) | ≥ 95% das falhas resultam em mensagem clara, não em crash |
 
-### Restrições de Negócio Relevantes para o MVP
+### Restrições de Negócio Relevantes para o MVP {: #restricoes-de-negocio-relevantes-para-o-mvp }
 
 - **Privacidade por padrão (RNF-05):** sem coleta de histórico geral de navegação, sem retenção de dados analíticos por padrão — restrição de negócio, não apenas técnica, dado o público leigo e o tema sensível (desinformação em saúde/política).
 - **Neutralidade editorial (UC-06):** o produto não pode "vencer" debates com fontes legítimas divergentes — isso é um limite estratégico, não apenas um requisito funcional, pois protege a credibilidade da ferramenta a longo prazo.
