@@ -34,11 +34,11 @@ flowchart TD
     Inicio([Escolha seu Perfil])
     Inicio --> P1["Perfil 1: Quero Entender o Projeto<br/>(Visão e Conceito)"]
     Inicio --> P2["Perfil 2: Vou Desenvolver<br/>(Código e Engenharia)"]
-    Inicio --> P3["Perfil 3: Vou Avaliar ou Auditar<br/>(Banca, Métricas e CBL)"]
+    Inicio --> P3["Perfil 3: Quero Avaliar a Validação<br/>(Experimento e Métricas)"]
 
     P1 --> R1["1. Visão Geral (1 página)<br/>2. Alinhamento Estratégico<br/>3. Glossário Unificado"]
     P2 --> R2["1. Guia de Contribuição<br/>2. Arquitetura C4<br/>3. Contrato de API & DoD"]
-    P3 --> R3["1. Painel de Status<br/>2. Showcase da Banca<br/>3. Relatório de Completude CBL"]
+    P3 --> R3["1. Painel de Status<br/>2. Plano do Experimento<br/>3. Métricas e Reflexão"]
 ```
 
 ### Perfil 1 — Quem Quer Entender o Projeto (Gestores, Curiosos e Usuários)
@@ -54,11 +54,11 @@ flowchart TD
 4. Verifique os critérios de entrega e qualidade: [Definition of Done (DoD)](docs/scrum/definition-of-done.md) e [Product Backlog](docs/scrum/product-backlog.md).
 5. Explore os endpoints e schemas: [Contrato de Dados e API](docs/tecnico/contrato-api.md).
 
-### Perfil 3 — Quem Vai Avaliar, Auditar ou Pesquisar (Banca Acadêmica e Avaliadores)
+### Perfil 3 — Quem Quer Avaliar a Validação e Qualidade (Avaliadores e Pesquisadores)
 1. Acompanhe a situação atual das entregas: [Painel de Status Consolidado](docs/visao-geral/status.md).
-2. Conheça o roteiro de apresentação formal: [Roteiro de Showcase para Banca](docs/cbl/reflect-share/showcase-script.md).
-3. Leia o ensaio metodológico de fechamento: [Síntese Acadêmica e Reflexão Crítica](docs/cbl/reflect-share/reflection.md).
-4. Inspecione os portões de decisão: [Matriz Go / No-Go Final](docs/cbl/reflect-share/go-no-go-final.md) e [Relatório de Completude CBL](docs/cbl/reflect-share/CBL_COMPLETENESS_REPORT.md).
+2. Conheça a metodologia de teste empírico: [Plano do Experimento com Usuários](docs/cbl/act/experiment-plan.md).
+3. Inspecione os indicadores de eficácia e usabilidade: [Métricas de Validação (M1 a M9)](docs/cbl/act/metrics-definition.md).
+4. Analise os impactos cognitivos e de discernimento: [Síntese e Reflexão Crítica](docs/cbl/reflect-share/reflection.md).
 
 ---
 
@@ -69,7 +69,7 @@ flowchart TD
 | **1. Visão Geral** | [Visão em 1 Página](docs/visao-geral/visao-geral-do-projeto.md) · [Mapa Visual](docs/visao-geral/mapa-do-projeto.md) · [Status](docs/visao-geral/status.md) · [Glossário](docs/glossario.md) | Panorama executivo do produto, topologia, painel de entregas e definições formais unificadas. |
 | **2. Requisitos & Produto** | [Elicitação](docs/requisitos/elicitacao.md) · [Catálogo RF/RNF](docs/requisitos/catalogo-requisitos.md) · [Casos de Uso](docs/requisitos/casos-de-uso.md) · [Personas & UX](docs/design/personas-e-jornadas.md) · [Histórias Gherkin](docs/requisitos/backlog-e-historias.md) · [Matriz MoSCoW](docs/requisitos/matriz-rastreabilidade.md) | Levantamento empírico, catálogo RF-01 a RF-15, RNF-01 a RNF-07, casos de uso UC-01 a UC-06, personas e matriz de priorização. |
 | **3. Arquitetura & Engenharia** | [Arquitetura C4](docs/tecnico/arquitetura.md) · [Pipeline RAG Local](docs/tecnico/ia-e-datasets.md) · [Contrato de API](docs/tecnico/contrato-api.md) · [Threat Model](docs/tecnico/threat-model.md) · [ADRs 001–006](docs/tecnico/decisoes/ADR-001-manifest-v3.md) · [Testes & CI/CD](docs/tecnico/estrategia-testes.md) | Diagramas de contêineres e sequência, isolamento de segredos, schemas Pydantic, modelo STRIDE, decisões arquiteturais e setup. |
-| **4. Processo CBL & Scrum** | [12 GQs (Engage)](docs/visao/guiding-questions.md) · [Scrum & DoD](docs/scrum/definition-of-done.md) · [Sprints 01 e 02](docs/scrum/product-backlog.md) · [Experimento Act](docs/cbl/act/experiment-plan.md) · [Showcase & Auditoria](docs/cbl/reflect-share/reflection.md) | Ciclo Challenge Based Learning, cerimônias ágeis, desenho experimental comparativo com participantes humanos e fechamento acadêmico. |
+| **4. Validação & Qualidade** | [Plano do Experimento](docs/cbl/act/experiment-plan.md) · [Protocolo de Teste](docs/cbl/act/participant-protocol.md) · [Métricas M1 a M9](docs/cbl/act/metrics-definition.md) · [Telemetria](docs/cbl/act/telemetry-spec.md) · [DoD](docs/scrum/definition-of-done.md) · [Reflexão Crítica](docs/cbl/reflect-share/reflection.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega. |
 
 ---
 

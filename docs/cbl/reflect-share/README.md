@@ -35,14 +35,8 @@ O princípio norteador desta documentação é a **integridade estrita**: *o doc
 A pasta `docs/cbl/reflect-share/` consolida os seguintes instrumentos de reflexão, compartilhamento e governança:
 
 | Artefato | Finalidade | Status Atual | Referência Principal |
-|:---|:---|:---|:---|
-| [`reflection.md`](reflection.md) | Síntese acadêmica e reflexão metodológica sobre a Essential Question, as 12 GQs e as ameaças à validade | **SCAFFOLD** | [GQ01–GQ12](../../visao/guiding-questions.md) · [ADR-006](../../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| [`lessons-learned.md`](lessons-learned.md) | Catálogo de lições aprendidas por domínio (Metodologia, Dados/ML, Arquitetura, Scrum, Equipe, Produto) | **SCAFFOLD** | [Retrospectiva Sprint 1](../../scrum/sprint-01/retrospective.md) · [Review Sprint 1](../../scrum/sprint-01/review.md) |
-| [`research-portfolio.md`](research-portfolio.md) | Portfólio de pesquisa rastreável: datasets, papéis, notebook EDA, benchmarks e reprodutibilidade | **SCAFFOLD** | [sources.yaml](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/datasets/sources.yaml) · [eda_datasets.ipynb](https://github.com/evidencia-grupo/EvidencIA/blob/main/notebooks/eda_datasets.ipynb) |
-| [`showcase-script.md`](showcase-script.md) | Roteiro estruturado de apresentação para a banca avaliadora (10:00 padrão), com perguntas previstas e defesas | **SCAFFOLD** | [Cadeia CBL](../../visao/alinhamento-estrategico.md) · [Demonstração](demo-script.md) |
-| [`demo-script.md`](demo-script.md) | Roteiro operacional de demonstração honesta da extensão e seus componentes verificados | **SCAFFOLD** | [Painel da Extensão](https://github.com/evidencia-grupo/EvidencIA/tree/main/extension/src/panel) · [Contrato API](https://github.com/evidencia-grupo/EvidencIA/blob/main/shared/schemas/api-schema.json) |
-| [`go-no-go-final.md`](go-no-go-final.md) | Matriz formal de critérios Go / No-Go para avaliação da banca avaliadora (Portões G1 a G8) | **SCAFFOLD** | [DoD](../../scrum/definition-of-done.md) · [Critérios Act](../act/go-no-go-act.md) |
-| [`CBL_COMPLETENESS_REPORT.md`](CBL_COMPLETENESS_REPORT.md) | Relatório determinístico de auditoria gerado pelo script automatizado fail-closed | **GERADO** | [Script de Auditoria](https://github.com/evidencia-grupo/EvidencIA/blob/main/scripts/audit_project_completeness.py) |
+|:---|:---|:---:|:---|
+| [`reflection.md`](reflection.md) | Síntese acadêmica e reflexão metodológica sobre a Essential Question, o discernimento crítico e a integridade da solução | **EVIDENCIADO** | [GQ01–GQ12](../../visao/guiding-questions.md) · [ADR-006](../../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ---
 

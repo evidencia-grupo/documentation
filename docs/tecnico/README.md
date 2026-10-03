@@ -16,7 +16,6 @@
 - [`ia-e-datasets.md`](ia-e-datasets.md): Pipeline de dados de checagem, taxonomias e integração com Hugging Face.
 - [`guia-contribuicao.md`](guia-contribuicao.md): Instrucoes de setup local, execução de linters e testes.
 - [`decisoes/`](decisoes/README.md): Architecture Decision Records (ADR-001 a ADR-006).
-- [`evidencias/`](evidencias/README.md): Relatorios de evidências de execução e medicao de RNFs.
 
 ---
 

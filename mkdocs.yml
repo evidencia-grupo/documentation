@@ -109,31 +109,18 @@ nav:
           - ADR-004 — Definição da Stack Tecnológica: tecnico/decisoes/ADR-004-stack-tecnologica.md
           - ADR-005 — Modelo Local e Datasets Brasileiros: tecnico/decisoes/ADR-005-modelo-local-e-datasets-brasileiros.md
           - ADR-006 — Arquitetura Evidence-First: tecnico/decisoes/ADR-006-evidence-first-architecture.md
-  - Processo & Validação:
-      - Metodologia CBL & Scrum:
-          - 12 Guiding Questions (Engage): visao/guiding-questions.md
-          - Alinhamento da Essential Question: visao/essential-question-alignment.md
-          - Log de Decisões Metodológicas: visao/decision-log.md
-          - Governança Scrum e DoD: scrum/definition-of-done.md
-          - Cerimônias e Ritos: scrum/ceremonies.md
-          - Product Backlog e Sprints: scrum/product-backlog.md
-      - Validação Científica (Act):
+  - Validação:
+      - Experimento com Usuários:
           - Plano do Experimento: cbl/act/experiment-plan.md
           - Protocolo do Participante: cbl/act/participant-protocol.md
-          - Definição de Métricas (M1 a M9): cbl/act/metrics-definition.md
+          - Métricas de Validação (M1 a M9): cbl/act/metrics-definition.md
           - Especificação de Telemetria: cbl/act/telemetry-spec.md
-          - Template do Banco de Itens: cbl/act/item-bank-template.md
-          - Template de Resultados: cbl/act/results-template.md
-          - Critérios Go / No-Go: cbl/act/go-no-go-act.md
-          - Limitações Metodológicas: cbl/act/limitations.md
-      - Fechamento & Banca (Reflect & Share):
-          - Síntese Acadêmica e Reflexão: cbl/reflect-share/reflection.md
-          - Lições Aprendidas: cbl/reflect-share/lessons-learned.md
-          - Portfólio de Pesquisa: cbl/reflect-share/research-portfolio.md
-          - Showcase da Banca Avaliadora: cbl/reflect-share/showcase-script.md
-          - Roteiro de Demonstração (Demo): cbl/reflect-share/demo-script.md
-          - Matriz Go / No-Go Final: cbl/reflect-share/go-no-go-final.md
-          - Relatório de Completude CBL: cbl/reflect-share/CBL_COMPLETENESS_REPORT.md
+          - Limitações do Estudo: cbl/act/limitations.md
+      - Qualidade & Metodologia:
+          - Critérios de Entrega (DoD): scrum/definition-of-done.md
+          - Backlog do Produto: scrum/product-backlog.md
+          - Questões Norteadoras: visao/guiding-questions.md
+          - Avaliação e Reflexão Crítica: cbl/reflect-share/reflection.md
 
 
 

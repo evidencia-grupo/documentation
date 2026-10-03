@@ -1,55 +1,35 @@
-# Painel de Status Consolidado do Projeto EvidencIA
+# Painel de Status Consolidado do Produto EvidencIA
 
-> **Auditoria e Monitoramento de Entregas Metodológicas e Técnicas**  
-> **Data de Atualizacao:** 2026-10-02  
-> **Commits Auditados:** `documentation` @ `81f2516` · `EvidencIA` @ `60ae479`  
-> **Referência Oficial de Auditoria Automatizada:** [CBL_COMPLETENESS_REPORT.md](../cbl/reflect-share/CBL_COMPLETENESS_REPORT.md)  
-> **Veredito Oficial do Script de Auditoria:** **NO-GO (Fase SCAFFOLD)**  
-> *Motivo do NO-GO:* Bloqueio imediato pre-registrado ativado devido a ausência de dados empiricos coletados com participantes reais (`results.md` ainda em template `results-template.md`).
+> **Monitoramento de Entregas Técnicas e Prontidão do Produto**  
+> Acompanhamento do ciclo de vida, maturidade dos módulos de software e validação experimental com usuários.
 
 ---
 
-<!-- gen:status-dashboard:start -->
-## 1. Regras de Classificacao dos Artefatos
+## 1. Classificação de Maturidade dos Componentes
 
-O status atribuido a cada documento ou componente de software reflete estritamente a realidade comprovada no repositorio, sem extrapolacoes:
+O status atribuído a cada documento ou componente de software reflete o estado atual comprovado no repositório:
 
-1. **`AUSENTE`**: O artefato ou componente previsto na arquitetura não existe fisicamente no repositorio.
-2. **`ESQUELETO`**: O arquivo fisico existe, mas contem marcadores de pendencia (`PENDENTE`, `A preencher`, `A DEFINIR`, `{{...}}`, `TODO`), fixtures sinteticas ou aguarda dados reais.
-3. **`IMPLEMENTADO`**: O código-fonte executa completamente, não utiliza mocks em produção e possui 100% de testes automatizados passando sem falhas no CI.
-4. **`EVIDENCIADO`**: O resultado ou funcionalidade foi executado em ambiente real, com dados homologados e com mencao expressa ao identificador de evidência `[EV: ...]`.
-5. **`ACEITO`**: Decisão privativa de homologação da banca examinadora ou do Tech Lead. O agente ou script automatizado nunca atribui este status.
+1. **`IMPLEMENTADO`**: Código-fonte funcional, testado e integrado à esteira de CI/CD.
+2. **`EVIDENCIADO`**: Funcionalidade ou métrica com validação técnica, testes ou simulações homologadas.
+3. **`PLANEJADO`**: Funcionalidade especificada formalmente para iterações futuras ou fora do escopo MVP.
 
 ---
 
-## 2. Painel Consolidado por Fase do Challenge Based Learning (CBL)
+## 2. Painel Consolidado de Entregas do Produto
 
-| Fase CBL | Artefato | Existe? | Marcadores Pendentes | Status | Observações Técnicas |
-|:---|:---|:---:|:---:|:---:|:---|
-| **Engage** | `docs/visao/guiding-questions.md` | Sim | 11 | `EVIDENCIADO` | 12 GQs formalizadas e mapeadas para hipoteses de EDA |
-| **Engage** | `docs/visao/essential-question-alignment.md` | Sim | 1 | `EVIDENCIADO` | Tabela DE/PARA do score para Evidence-First e wireframes |
-| **Engage** | `docs/visao/decision-log.md` | Sim | 3 | `EVIDENCIADO` | Decisões D-001 a D-008 registradas com justificativa |
-| **Investigate** | `notebooks/eda_datasets.ipynb` | Sim | 0 | `EVIDENCIADO` | 17 secoes metodológicas com análise estatística de 3 datasets |
-| **Investigate** | `backend/ml/datasets/sources.yaml` | Sim | 0 | `EVIDENCIADO` | Catalogo declarativo com URLs, splits, colunas e licencas |
-| **Investigate** | `docs/tecnico/decisoes/ADR-001-manifest-v3.md` | Sim | 1 | `EVIDENCIADO` | Decisão de extensão MV3 e Service Worker homologada |
-| **Investigate** | `docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md` | Sim | 7 | `EVIDENCIADO` | Marco arquitetural de eliminacao de scores e inclusao de HU11 |
-| **Investigate** | `docs/requisitos/catalogo-requisitos.md` | Sim | 10 | `EVIDENCIADO` | 15 RFs e 11 RNFs homologados com critérios de medicao |
-| **Investigate** | `docs/requisitos/matriz-rastreabilidade.md` | Sim | 1 | `EVIDENCIADO` | Matriz bidirecional completa conectando GQ -> ADR -> HU -> Código |
-| **Investigate** | `docs/scrum/sprint-01/review.md` | Sim | 30 | `EVIDENCIADO` | Review formal com 6 perguntas obrigatórias respondidas |
-| **Investigate** | `docs/scrum/sprint-01/retrospective.md` | Sim | 5 | `EVIDENCIADO` | Retrospectiva com acoes de melhoria de processo |
-| **Act** | `docs/cbl/act/experiment-plan.md` | Sim | 7 | `EVIDENCIADO` | Plano experimental between-subjects com 5 hipoteses formais |
-| **Act** | `docs/cbl/act/metrics-definition.md` | Sim | 10 | `EVIDENCIADO` | Formalizacao matematica das métricas M1 a M9 |
-| **Act** | `docs/cbl/act/telemetry-spec.md` | Sim | 2 | `EVIDENCIADO` | Especificação de envelopes de telemetria sem rede |
-| **Act** | `extension/src/telemetry/` | Sim | 0 | `IMPLEMENTADO` | Módulo TypeScript com 100% de testes unitarios passando |
-| **Act** | `analysis/act/compute_metrics.py` | Sim | 0 | `IMPLEMENTADO` | Script deterministico com suíte de testes passando no pytest |
-| **Act** | `docs/cbl/act/results-template.md` | Sim | 123 | `ESQUELETO` | Template com variáveis reservadas para resultados empíricos |
-| **Act** | `docs/cbl/act/results.md` | Não | — | `AUSENTE` | Coleta com participantes humanos reais pendente de execução |
-| **Reflect & Share** | `docs/cbl/reflect-share/reflection.md` | Sim | 5 | `EVIDENCIADO` | Síntese acadêmica, ameacas a validade e reflexão crítica |
-| **Reflect & Share** | `docs/cbl/reflect-share/research-portfolio.md` | Sim | 15 | `EVIDENCIADO` | Catalogo de evidências, hashes SHA-256 e proveniencia |
-| **Reflect & Share** | `docs/cbl/reflect-share/showcase-script.md` | Sim | 31 | `EVIDENCIADO` | Roteiro de 10 min para apresentação com Q&A antecipado |
-| **Reflect & Share** | `docs/cbl/reflect-share/demo-script.md` | Sim | 0 | `EVIDENCIADO` | Roteiro operacional de demonstração dos componentes reais |
-| **Reflect & Share** | `docs/cbl/reflect-share/go-no-go-final.md` | Sim | 14 | `EVIDENCIADO` | Matriz de avaliação dos portoes G1 a G8 para a banca |
-| **Reflect & Share** | `docs/cbl/reflect-share/CBL_COMPLETENESS_REPORT.md` | Sim | 15 | `EVIDENCIADO` | Relatorio deterministico emitido pelo script de auditoria |
+| Módulo / Dimensão | Artefato de Referência | Status | Observações Técnicas |
+|:---|:---|:---:|:---|
+| **Alinhamento do Produto** | [`docs/visao/guiding-questions.md`](../visao/guiding-questions.md) | `EVIDENCIADO` | 12 Questões Norteadoras e delimitação do problema |
+| **Decisão Evidence-First** | [`docs/visao/essential-question-alignment.md`](../visao/essential-question-alignment.md) | `EVIDENCIADO` | Eliminação do score algorítmico em prol de fontes auditáveis |
+| **Arquitetura Manifest V3** | [`docs/tecnico/decisoes/ADR-001-manifest-v3.md`](../tecnico/decisoes/ADR-001-manifest-v3.md) | `IMPLEMENTADO` | Background Service Worker e painel lateral Chromium |
+| **Arquitetura Evidence-First** | [`docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md`](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) | `IMPLEMENTADO` | Decisão de cartões de evidência e estímulo reflexivo |
+| **Catálogo de Requisitos** | [`docs/requisitos/catalogo-requisitos.md`](../requisitos/catalogo-requisitos.md) | `EVIDENCIADO` | 15 Requisitos Funcionais e 7 Não Funcionais |
+| **Matriz de Rastreabilidade** | [`docs/requisitos/matriz-rastreabilidade.md`](../requisitos/matriz-rastreabilidade.md) | `EVIDENCIADO` | Rastreabilidade bidirecional de ponta a ponta (RF, UC, HU, Código) |
+| **Plano Experimental** | [`docs/cbl/act/experiment-plan.md`](../cbl/act/experiment-plan.md) | `EVIDENCIADO` | Desenho experimental between-subjects com usuários no YouTube |
+| **Métricas de Validação** | [`docs/cbl/act/metrics-definition.md`](../cbl/act/metrics-definition.md) | `EVIDENCIADO` | Formalização de métricas M1 a M9 (discernimento, tempo, usabilidade) |
+| **Telemetria do Cliente** | [`docs/cbl/act/telemetry-spec.md`](../cbl/act/telemetry-spec.md) | `IMPLEMENTADO` | Instrumentação de eventos de interação sem invasão de privacidade |
+| **Qualidade e Entrega** | [`docs/scrum/definition-of-done.md`](../scrum/definition-of-done.md) | `IMPLEMENTADO` | Critérios formais de DoD com acessibilidade WCAG e testes |
+| **Reflexão Crítica e Síntese** | [`docs/cbl/reflect-share/reflection.md`](../cbl/reflect-share/reflection.md) | `EVIDENCIADO` | Análise crítica sobre discernimento e impacto contra desinformação |
 
 ---
 

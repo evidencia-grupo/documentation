@@ -28,7 +28,7 @@
 
 ### Proveniência de Dados (*Data Provenance*)
 - **Definição:** Registro auditável e detalhado da origem, versão, data de publicação, link canônico e hash criptográfico de cada dado ou evidência apresentado no sistema, permitindo que a pessoa usuária faça a validação independente da fonte primária.
-- **Fonte Oficial:** [Portfólio de Pesquisa](cbl/reflect-share/research-portfolio.md) e [RF-13](requisitos/catalogo-requisitos.md#rf-13).
+- **Fonte Oficial:** [ADR-006](tecnico/decisoes/ADR-006-evidence-first-architecture.md) e [RF-13](requisitos/catalogo-requisitos.md#rf-13).
 
 ### Score Global e Velocímetro (*Descontinuados*)
 - **Definição:** Indicador numérico percentual (0 a 100%) e medidor visual tricolor presentes nos protótipos iniciais do projeto. Foram formalmente descontinuados pelo ADR-006 por representarem uma autoridade algorítmica impositiva que induz à aceitação passiva e atrofia o pensamento crítico.

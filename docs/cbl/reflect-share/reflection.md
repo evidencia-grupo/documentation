@@ -71,7 +71,7 @@ Quando o estudo for concluído em campo, os dados serão consolidados no sumári
 
 Em respeito estrito ao princípio da honestidade intelectual e integridade técnica:
 
-1. **Validação com Amostra Humana Concluída:** Na presente data da fase SCAFFOLD, o experimento de campo com participantes humanos ainda não foi executado. Nenhuma alegação de eficácia comportamental sobre usuários reais pode ser legitimamente afirmada [EV: documentation:docs/cbl/act/go-no-go-act.md#critérios-de-prontidao@9e95b68].
+1. **Validação com Amostra Humana Concluída:** Na presente data da fase SCAFFOLD, o experimento de campo com participantes humanos ainda não foi executado. Nenhuma alegação de eficácia comportamental sobre usuários reais pode ser legitimamente afirmada [EV: documentation:docs/cbl/act/experiment-plan.md#criterios-de-prontidao@9e95b68].
 2. **Remoção Física Completa do Componente Legacy na Extensão:** Embora o contrato conceitual e a decisão arquitetural ADR-006 proíbam o score global, o arquivo físico `Gauge.tsx` ainda reside na árvore legada da extensão aguardando a finalização da Sprint 2 [EV: EvidencIA:extension/src/panel/components/Gauge.tsx@27c53e8].
 3. **Latência de Recuperação em Produção com Modelo Local:** Em virtude do peso computacional de inferência do modelo local (Qwen 2.5-3B via Ollama), o pipeline sob hardware convencional sem GPU dedicada não atinge de forma consistente a meta de latência P90 inferior a 10 segundos, exigindo investigação de modelos destilados ou serviços remotos de inferência [EV: documentation:docs/scrum/sprint-01/review.md#incremento-demonstrado@9e95b68].
 

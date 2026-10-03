@@ -16,18 +16,13 @@ Para isso, compara-se uma interface orientada a evidências e reflexão (**Condi
 
 ---
 
-## Ordem Recomendada de Leitura
+## Documentos do Experimento
 
-Para membros da equipe, revisores técnicos, orientadores e auditores, a leitura deve seguir a seguinte sequencia logica:
-
-1. [Plano do Experimento (experiment-plan.md)](experiment-plan.md): Contexto científico, hipoteses H1 a H5, desenho experimental entre sujeitos (between-subjects), especificação das condições A e B, e excecao controlada de arquitetura.
-2. [Protocolo do Participante (participant-protocol.md)](participant-protocol.md): Roteiro cronometrado para o facilitador, scripts neutros verbatim, modelo de Termo de Consentimento Livre e Esclarecido (TCLE) e procedimento de pseudonimizacao offline.
-3. [Definição de Métricas e Regra de Decisão (metrics-definition.md)](metrics-definition.md): Formalizacao matematica das métricas M1 a M9, formulas, tratamento de denominadores nulos e regra de decisão pre-registrada (GO / INVESTIGAR / NO-GO).
-4. [Especificação de Telemetria (telemetry-spec.md)](telemetry-spec.md): Catalogo exato de eventos, schemas de envelope e propriedades, politica estrita de privacidade (zero PII, zero rede) e mapeamento evento-métrica.
-5. [Template do Banco de Itens (item-bank-template.md)](item-bank-template.md): Estrutura para construção dos conjuntos de estimulos S1 (baseline), S2 (assistido) e S3 (transferencia), regras de balanceamento e rotulagem independente.
-6. [Checklist Go / No-Go (go-no-go-act.md)](go-no-go-act.md): Critérios de prontidao pre-coleta e condições de parada/decisão pos-coleta.
-7. [Limitacoes Metodológicas (limitations.md)](limitations.md): Análise a priori das ameacas a validade interna, externa e de construto.
-8. [Template de Resultados (results-template.md)](results-template.md): Estrutura padronizada a ser preenchida exclusivamente após a execução dos scripts deterministas de análise.
+1. [Plano do Experimento (experiment-plan.md)](experiment-plan.md): Contexto científico, hipóteses H1 a H5, desenho experimental entre sujeitos (between-subjects) e especificação das condições de teste.
+2. [Protocolo do Participante (participant-protocol.md)](participant-protocol.md): Roteiro cronometrado para o facilitador, scripts neutros e procedimento de pseudonimização offline.
+3. [Definição de Métricas e Regra de Decisão (metrics-definition.md)](metrics-definition.md): Formalização matemática das métricas M1 a M9, fórmulas e regra de decisão pré-registrada.
+4. [Especificação de Telemetria (telemetry-spec.md)](telemetry-spec.md): Catálogo de eventos, schemas de envelope, política estrita de privacidade (zero PII, zero rede) e mapeamento evento-métrica.
+5. [Limitações Metodológicas (limitations.md)](limitations.md): Análise a priori das ameaças à validade interna, externa e de construto.
 
 ---
 

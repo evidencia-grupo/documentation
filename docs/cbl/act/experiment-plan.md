@@ -97,7 +97,7 @@ A Condição B implementa a totalidade das diretrizes do ADR-006 e dos requisito
 
 ## 5. Banco de Itens e Regras de Construção
 
-A montagem do banco de estimulos deve seguir os preceitos detalhados em `item-bank-template.md`:
+A montagem do banco de estímulos segue preceitos metodológicos rigorosos:
 
 1. **Rotulagem Dupla Cega**: A verdade-terreno de cada alegação e determinada de forma independente por dois pesquisadores, tomando como referência relatorios publicados por agencias profissionais de fact-checking reconhecidas pela IFCN (ex.: Aos Fatos, Lupa, Boatos.org, E-farsas).
 2. **Resolucao de Divergencias**: Casos de discrepancia entre os avaliadores devem ser deliberados com um terceiro membro e documentados com a justificativa final. Alegações ambiguas são descartadas.

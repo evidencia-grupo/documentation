@@ -59,15 +59,15 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
     <div class="doc-card__action"><span>Ver Arquitetura &rarr;</span></div>
   </a>
 
-  <a href="visao/guiding-questions.md" class="doc-card">
+  <a href="cbl/act/experiment-plan.md" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/><line x1="8" y1="15" x2="16" y2="15"/></svg></span>
-        <h3 class="doc-card__title">4. Processo & Validação</h3>
+        <h3 class="doc-card__title">4. Validação & Qualidade</h3>
       </div>
-      <p class="doc-card__desc">Framework Challenge Based Learning (Engage, Investigate, Act), governança Scrum, experimento com usuários e banca acadêmica.</p>
+      <p class="doc-card__desc">Desenho experimental com participantes no YouTube, protocolo de teste, métricas de discernimento (M1 a M9) e critérios de entrega.</p>
     </div>
-    <div class="doc-card__action"><span>Conferir Validação &rarr;</span></div>
+    <div class="doc-card__action"><span>Explorar Validação &rarr;</span></div>
   </a>
 </div>
 
@@ -76,7 +76,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
 | **1. Visão Geral** | [Visão em 1 Página](visao-geral/visao-geral-do-projeto.md) · [Mapa Visual](visao-geral/mapa-do-projeto.md) · [Painel de Status](visao-geral/status.md) · [Glossário](glossario.md) | Síntese executiva (5-10 min), fluxo de telas, topologia dos repositórios e status das entregas | [Começar aqui](visao-geral/visao-geral-do-projeto.md) |
 | **2. Requisitos & Produto** | [Elicitação ($100)](requisitos/elicitacao.md) · [Catálogo RF/RNF](requisitos/catalogo-requisitos.md) · [Personas & UX](design/personas-e-jornadas.md) · [Histórias Gherkin](requisitos/backlog-e-historias.md) · [Matriz MoSCoW](requisitos/matriz-rastreabilidade.md) | Personas, requisitos funcionais/não funcionais, casos de uso, critérios Gherkin e priorização MoSCoW | [Ver Requisitos](requisitos/catalogo-requisitos.md) |
 | **3. Arquitetura & Engenharia** | [Arquitetura C4](tecnico/arquitetura.md) · [Pipeline RAG Local](tecnico/ia-e-datasets.md) · [Contrato de API](tecnico/contrato-api.md) · [STRIDE & LGPD](tecnico/threat-model.md) · [ADRs 001–006](tecnico/decisoes/ADR-001-manifest-v3.md) · [CI/CD](tecnico/estrategia-testes.md) | Modelo C4, sequência assíncrona, schemas OpenAPI/Pydantic, privacidade, decisões arquiteturais e setup | [Ver Arquitetura](tecnico/arquitetura.md) |
-| **4. Processo & Validação** | [12 GQs (Engage)](visao/guiding-questions.md) · [Scrum & DoD](scrum/definition-of-done.md) · [Experimento Act](cbl/act/experiment-plan.md) · [Showcase & Auditoria](cbl/reflect-share/reflection.md) | Ciclo Challenge Based Learning, cerimônias ágeis, desenho experimental com participantes e evidências para banca | [Ver Processo](visao/guiding-questions.md) |
+| **4. Validação & Qualidade** | [Plano do Experimento](cbl/act/experiment-plan.md) · [Protocolo de Teste](cbl/act/participant-protocol.md) · [Métricas M1 a M9](cbl/act/metrics-definition.md) · [Telemetria](cbl/act/telemetry-spec.md) · [DoD](scrum/definition-of-done.md) · [Reflexão Crítica](cbl/reflect-share/reflection.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega | [Ver Validação](cbl/act/experiment-plan.md) |
 
 ---
 

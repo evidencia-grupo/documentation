@@ -76,4 +76,4 @@ A rastreabilidade completa das HUs permanece em [`docs/requisitos/backlog-e-hist
 
 ---
 
-**Ver também:** [Definition of Done](definition-of-done.md) · [Sprint 01](sprint-01/sprint-goal.md) · [Sprint 02](sprint-02/sprint-goal.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md)
+**Ver também:** [Definition of Done](definition-of-done.md) · [Catálogo de Requisitos](../requisitos/catalogo-requisitos.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md) · [Matriz de Rastreabilidade](../requisitos/matriz-rastreabilidade.md)
