@@ -83,6 +83,7 @@ nav:
   - Requisitos:
       - Visão de Produto & UX:
           - Alinhamento Estratégico: visao/alinhamento-estrategico.md
+          - Essential Question (CBL): visao/essential-question-alignment.md
           - Personas e Jornadas: design/personas-e-jornadas.md
           - Design System e Interface: design/design-system.md
       - Especificação de Requisitos:
@@ -92,7 +93,8 @@ nav:
           - Cenários de Uso e Operação: requisitos/cenarios.md
           - Backlog e Histórias (HUs): requisitos/backlog-e-historias.md
           - Matriz de Rastreabilidade (MoSCoW): requisitos/matriz-rastreabilidade.md
-          - Priorização e Riscos: planejamento/priorizacao-e-mvp.md
+          - Priorização e MVP: planejamento/priorizacao-e-mvp.md
+          - Gestão de Riscos: planejamento/gestao-riscos.md
   - Arquitetura:
       - Sistema & Engenharia:
           - Arquitetura do Sistema (C4): tecnico/arquitetura.md
@@ -103,6 +105,7 @@ nav:
           - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
           - Guia de Contribuição e Setup: tecnico/guia-contribuicao.md
       - Decisões de Arquitetura (ADRs):
+          - Log de Decisões Estratégicas: visao/decision-log.md
           - ADR-001 — Manifest V3: tecnico/decisoes/ADR-001-manifest-v3.md
           - ADR-002 — Backend Proxy Dedicado: tecnico/decisoes/ADR-002-backend-proxy.md
           - ADR-003 — Estratégia de Cache Local: tecnico/decisoes/ADR-003-estrategia-cache-local.md

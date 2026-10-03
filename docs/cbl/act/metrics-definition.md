@@ -1,205 +1,216 @@
-# Definição de Métricas e Regra de Decisão Pre-Registrada — Fase CBL Act
+# Definição de Métricas e Regra de Decisão Pré-Registrada — Fase CBL Act
 
-## 1. Convencoes e Notacao Matematica
-
-Para todas as formulas definidas neste documento, adota-se a seguinte notacao formal:
-
-- $s \in S$: sessão individual associada a um participante pseudonimizado $P$.
-- $cond(s) \in \{A, B\}$: condição experimental atribuida a sessão $s$.
-- $p \in \{\text{baseline}, \text{assisted}, \text{transfer}\}$: fase do experimento (Fases 1, 2 e 3).
-- $i \in I_p$: item apresentado na fase $p$.
-- $c \in C_i$: alegação individual presente no item $i$.
-- $d(s, c, \text{stage})$: decisão registrada pelo participante para a alegação $c$, onde $\text{stage} \in \{\text{pre\_evidence}, \text{final}\}$.
-- $gt(c) \in \{\text{supported}, \text{contradicted}, \text{misleading}, \text{insufficient}\}$: rotulo objetivo de verdade-terreno da alegação $c$ definido por checadores independentes.
-- $o(d) \in \{0, 1\}$: função indicadora de acuracia factual, onde $o(d) = 1$ se $d = gt(c)$ e $o(d) = 0$ caso contrario.
-- $conf(d) \in [0, 100]$: grau subjetivo de confianca expresso pelo participante de que sua decisão esta correta.
-- $p_{conf}(d) = \frac{conf(d)}{100} \in [0.0, 1.0]$: confianca normalizada em probabilidade.
+> **O que você vai encontrar aqui:** Formalização matemática e conceitual das métricas comportamentais (M1 a M9), convenções de cálculo, regras de tratamento para denominadores nulos e matriz de decisão preestabelecida para validar a arquitetura Evidence-First no YouTube.
 
 ---
 
-## 2. Catalogo Detalhado de Métricas Comportamentais (M1 a M9)
+## 1. Convenções e Notação Matemática
 
-### M1 — Evidence Inspection Rate (EIR)
-- **Definição**: Proporcao de alegações visíveis na fase assistida cujos cards de evidência correspondentes foram explicitamente expandidos pelo usuário ao menos uma vez.
-- **Formula**:
-  $$\text{EIR}_s = \frac{|\{c \in C_{\text{assisted}} : \text{count}(\text{evidence\_expanded}_{s,c}) \ge 1\}|}{|\{c \in C_{\text{assisted}} : c \text{ foi visualizada via } \text{claims\_viewed}\}|}$$
-- **Unidade de Análise**: Participante / sessão $s$.
-- **Agregado por Condição**: Media aritmetica $\overline{\text{EIR}}_{\text{cond}}$ acompanhada da proporcao de sessões em que $\text{EIR}_s > 0$.
-- **Tratamento de Denominador Zero**: Se nenhuma alegação for registrada como visualizada na fase assistida, a sessão e considerada invalida para M1, excluida do calculo e contabilizada no relatorio de incidentes.
-- **Condições Aplicáveis**: Condição A (via expansao de "Ver fontes") e Condição B (via expansao dos Evidence Cards).
-- **Interpretacao**: Mede se a interface induz o comportamento básico de ler e analisar evidências antes de julgar.
-- **Armadilhas**: Cliques repetidos ou expansoes rapidas sem leitura ("clique reflexo"). Mitigado cruzando com o tempo de permanencia (TTC).
+Para todas as fórmulas definidas neste documento, adota-se a seguinte notação formal:
 
----
-
-### M1b — Source Open Rate (SOR)
-- **Definição**: Proporcao de alegações na fase assistida em que o participante abriu a fonte original externa de ao menos uma evidência.
-- **Formula**:
-  $$\text{SOR}_s = \frac{|\{c \in C_{\text{assisted}} : \text{count}(\text{source\_opened}_{s,c}) \ge 1\}|}{|\{c \in C_{\text{assisted}} : c \text{ foi visualizada}\}|}$$
-- **Unidade de Análise**: Participante / sessão $s$.
-- **Tratamento de Denominador Zero**: Identico a M1.
-- **Condições Aplicáveis**: Condições A e B.
-- **Interpretacao**: Mensura o nivel de leitura lateral (ir a fonte primaria externa).
+- `s ∈ S`: Sessão individual associada a um participante pseudonimizado `P`.
+- `cond(s) ∈ {A, B}`: Condição experimental atribuída à sessão `s` (Condição A: controle com velocímetro/score; Condição B: intervenção Evidence-First).
+- `fase ∈ {baseline, assisted, transfer}`: Fases do experimento (Fase 1: basal; Fase 2: assistida; Fase 3: transferência).
+- `i ∈ I_p`: Item apresentado na fase `p`.
+- `c ∈ C_i`: Alegação individual presente no item `i`.
+- `d(s, c, etapa)`: Decisão registrada pelo participante para a alegação `c`, onde `etapa ∈ {pre_evidence, final}`.
+- `gt(c) ∈ {supported, contradicted, misleading, insufficient}`: Rótulo objetivo de verdade-terreno (*ground truth*) da alegação `c`, definido por agências profissionais de checagem.
+- `o(d) ∈ {0, 1}`: Função indicadora de acurácia factual (`o(d) = 1` se `d = gt(c)`; `o(d) = 0` caso contrário).
+- `conf(d) ∈ [0, 100]`: Grau subjetivo de confiança expresso pelo participante de que sua decisão está correta (escala de 0% a 100%).
+- `p_conf(d) = conf(d) / 100 ∈ [0.0, 1.0]`: Grau de confiança normalizado em probabilidade decimal.
 
 ---
 
-### M2 — Reflection Interaction Rate (RIR)
-- **Definição**: Taxa de engajamento ativo com as perguntas reflexivas (Reflection Cards) apresentadas na interface.
-- **Formula**:
-  $$\text{RIR}_s = \frac{|\{q : \text{reflection\_interacted}_{s,q} \in \{\text{expanded}, \text{answered}\}\}|}{|\{q : \text{reflection\_viewed}_{s,q}\}|}$$
-- **Unidade de Análise**: Participante / sessão $s$.
-- **Tratamento de Denominador Zero**: Se nenhuma pergunta reflexiva foi apresentada na sessão, a métrica e computada como não aplicável (`null`).
-- **Condições Aplicáveis**: Estritamente Condição B (a Condição A não possui perguntas reflexivas).
-- **Interpretacao e Armadilhas**: Eventos de fechamento (`dismissed`) contam no denominador (como visualizadas), mas **não** pontuam no numerador como interação construtiva.
+## 2. Catálogo Detalhado de Métricas Comportamentais (M1 a M9)
+
+### M1 — Taxa de Inspeção de Evidências (Evidence Inspection Rate - EIR)
+- **Definição:** Proporção de alegações visualizadas na fase assistida cujos cartões de evidência factual correspondentes foram explicitamente expandidos pelo usuário ao menos uma vez.
+- **Fórmula de Cálculo:**
+  ```text
+  EIR_s = (Alegações assistidas com expansão de evidência >= 1) / (Total de alegações visualizadas)
+  ```
+- **Unidade de Análise:** Participante individual por sessão `s`.
+- **Agregado por Condição:** Média aritmética `EIR_médio` acompanhada da proporção de sessões em que `EIR_s > 0`.
+- **Tratamento de Denominador Nulo:** Se nenhuma alegação for registrada como visualizada na fase assistida, a sessão é considerada inválida para M1, excluída do cálculo e contabilizada no relatório de desvios.
+- **Condições Aplicáveis:** Condição A (expansão do link "Ver fontes") e Condição B (expansão dos Evidence Cards).
+- **Interpretação:** Mensura se a interface estimula a leitura e inspeção crítica das evidências antes do julgamento final.
+- **Mitigação de Ruído:** Cliques repetidos em sequência rápida sem tempo hábil de leitura são filtrados cruzando o evento com o Tempo até Conclusão (TTC).
 
 ---
 
-### M3 — Evidence Revision Rate (ERR)
-- **Definição**: Frequencia com que o participante revisa ou altera sua decisão previa após expandir e inspecionar evidências factuais.
-- **Formula**:
-  $$\text{ERR} = \frac{\sum_{c \in C_{\text{elegivel}}} \mathbb{I}[d(s, c, \text{final}) \neq d(s, c, \text{pre\_evidence})]}{|C_{\text{elegivel}}|}$$
-  Onde $C_{\text{elegivel}}$ são alegações que possuem ambos os registros $d(s, c, \text{pre\_evidence})$ e $d(s, c, \text{final})$, com pelo menos um evento `evidence_expanded` entre ambas as decisões.
-- **Subtaxas Obrigatórias**:
-  - **Revisao Construtiva ($\text{ERR}_{\text{correct}}$)**:
-    $$\text{ERR}_{\text{correct}} = \frac{\sum \mathbb{I}[d_{\text{pre}} \neq gt(c) \land d_{\text{final}} = gt(c)]}{\sum \mathbb{I}[d_{\text{final}} \neq d_{\text{pre}}]}$$
-  - **Revisao Prejudicial ($\text{ERR}_{\text{harm}}$)**:
-    $$\text{ERR}_{\text{harm}} = \frac{\sum \mathbb{I}[d_{\text{pre}} = gt(c) \land d_{\text{final}} \neq gt(c)]}{\sum \mathbb{I}[d_{\text{final}} \neq d_{\text{pre}}]}$$
-- **Tratamento de Denominador Zero**: Se não houver revisoes ($d_{\text{final}} = d_{\text{pre}}$ para todas as alegações), $\text{ERR} = 0$, e as subtaxas são registradas como indefinidas com nota explicativa.
-- **Condições Aplicáveis**: Condição B e Condição A (se o protocolo de A contiver o passo pre-evidência).
+### M1b — Taxa de Abertura de Fontes Externas (Source Open Rate - SOR)
+- **Definição:** Proporção de alegações na fase assistida em que o participante clicou no link externo para abrir a matéria original do veículo de checagem em nova aba.
+- **Fórmula de Cálculo:**
+  ```text
+  SOR_s = (Alegações com clique em link externo de fonte >= 1) / (Total de alegações visualizadas)
+  ```
+- **Unidade de Análise:** Participante individual por sessão `s`.
+- **Tratamento de Denominador Nulo:** Idêntico ao critério de M1.
+- **Condições Aplicáveis:** Condições A e B.
+- **Interpretação:** Avalia o comportamento de leitura lateral espontânea (recorrer à fonte primária externa).
 
 ---
 
-### M3b — Premature Decision Rate (PDR)
-- **Definição**: Proporcao de decisões finais tomadas precipitadamente, sem que nenhuma evidência ou fonte tenha sido expandida para a referida alegação.
-- **Formula**:
-  $$\text{PDR}_s = \frac{|\{c \in C_{\text{assisted}} : \text{count}(\text{evidence\_expanded}_{s,c}) = 0 \land \exists d(s, c, \text{final})\}|}{|\{c \in C_{\text{assisted}} : \exists d(s, c, \text{final})\}|}$$
-- **Unidade de Análise**: Participante / sessão $s$.
-- **Interpretacao**: Mede a taxa de impulsividade ou complacencia com o veredito sugerido. Valores elevados na Condição A indicam consumo passivo do gauge.
+### M2 — Taxa de Interação com Perguntas Reflexivas (Reflection Interaction Rate - RIR)
+- **Definição:** Taxa de engajamento ativo com as perguntas provocativas de reflexão crítica apresentadas na interface.
+- **Fórmula de Cálculo:**
+  ```text
+  RIR_s = (Perguntas reflexivas expandidas ou respondidas) / (Total de perguntas reflexivas visualizadas)
+  ```
+- **Unidade de Análise:** Participante individual por sessão `s`.
+- **Tratamento de Denominador Nulo:** Caso nenhuma pergunta reflexiva tenha sido apresentada na sessão, a métrica é assinalada como não aplicável (`null`).
+- **Condições Aplicáveis:** Estritamente Condição B (a interface de controle com velocímetro da Condição A não possui perguntas reflexivas).
+- **Interpretação:** Ações de fechamento voluntário sem resposta contam no denominador como visualizadas, mas não pontuam no numerador como engajamento positivo.
 
 ---
 
-### M4 — Confidence Calibration (Brier Score, Overconfidence Gap, ECE)
-- **Definição**: Medida formal da concordancia entre a confianca declarada pelo participante e a veracidade factual objetiva de suas respostas.
-- **Componentes Matematicos**:
-  1. **Brier Score ($BS$)**:
-     $$BS = \frac{1}{N_{\text{decisões}}} \sum_{k=1}^{N_{\text{decisões}}} (p_{\text{conf}, k} - o(d_k))^2$$
-     *(Valores proximos de 0 indicam calibracao perfeita; valores proximos de 1 indicam erro severo de calibracao).*
-  2. **Gap de Superconfianca ($OG$)**:
-     $$OG = \left(\frac{1}{N_{\text{decisões}}} \sum_{k=1}^{N_{\text{decisões}}} p_{\text{conf}, k}\right) - \left(\frac{1}{N_{\text{decisões}}} \sum_{k=1}^{N_{\text{decisões}}} o(d_k)\right)$$
-     *(Valores positivos denotam excesso de confianca em respostas incorretas).*
-  3. **Expected Calibration Error ($ECE$)**:
-     Divisão das predicoes em 5 faixas equiprovaveis ($B_m$, com $m \in \{1..5\}$):
-     $$ECE = \sum_{m=1}^{5} \frac{|B_m|}{N_{\text{decisões}}} |\text{acc}(B_m) - \text{conf}(B_m)|$$
-- **Regra Estrita para o ECE**: O calculo do ECE e **obrigatoriamente omitido** se o número total de decisões avaliadas for inferior a 100 ($N_{\text{decisões}} < 100$). Justificativa: em amostras pequenas, o particionamento em 5 faixas gera *bins* vazios ou com $n < 5$, produzindo instabilidade aritmetica espuria. Nesses casos, o relatorio registra expressamente o motivo da omissao.
+### M3 — Taxa de Revisão Pós-Evidência (Evidence Revision Rate - ERR)
+- **Definição:** Frequência com que o participante altera sua percepção ou voto prévio após expandir e inspecionar as evidências factuais.
+- **Fórmula de Cálculo:**
+  ```text
+  ERR_s = (Alegações elegíveis em que voto_final != voto_prévio) / (Total de alegações elegíveis)
+  ```
+  *Nota:* Alegações elegíveis são aquelas com registro de voto prévio, voto final e ao menos um evento de expansão de evidência entre ambos.
+- **Subtaxas de Qualidade:**
+  - **Revisão Construtiva (ERR_correta):** Participante estava incorreto na avaliação prévia e mudou para o julgamento correto após ler as evidências.
+  - **Revisão Prejudicial (ERR_prejudicial):** Participante estava correto e mudou para incorreto após ler as evidências.
+- **Tratamento de Denominador Nulo:** Se não houver alterações de voto (`voto_final == voto_prévio` para todas as alegações), define-se `ERR = 0` com nota explicativa.
 
 ---
 
-### M5 — Final Accuracy e Delta-Accuracy
-- **Definição**:
-  - **Acuracia por Fase**: Proporcao de decisões finais que coincidem com a verdade-terreno:
-    $$\text{Acc}_p = \frac{1}{|C_p|} \sum_{c \in C_p} o(d(s, c, \text{final}))$$
-  - **Delta de Acuracia Intra-Participante ($\Delta\text{Acc}_s$)**:
-    $$\Delta\text{Acc}_s = \text{Acc}_{\text{assisted}, s} - \text{Acc}_{\text{baseline}, s}$$
-- **Interpretacao**: Mede o ganho cognitivo propiciado pela interface em comparacao com o desempenho basal do proprio participante.
-- **Ressalva Metodológica**: $\Delta\text{Acc}$ só possui validade interpretativa sob a premissa de que os conjuntos S1 e S2 foram devidamente pareados em grau de dificuldade.
+### M3b — Taxa de Decisão Prematura (Premature Decision Rate - PDR)
+- **Definição:** Proporção de decisões finais registradas de modo impulsivo, sem que nenhuma evidência factual tenha sido aberta ou inspecionada para aquela alegação.
+- **Fórmula de Cálculo:**
+  ```text
+  PDR_s = (Alegações finalizadas com zero expansões de evidência) / (Total de alegações finalizadas)
+  ```
+- **Unidade de Análise:** Participante individual por sessão `s`.
+- **Interpretação:** Avalia a complacência passiva do usuário. Valores altos na Condição A comprovam a tendência prejudicial de acatar o velocímetro/score sem reflexão analítica.
 
 ---
 
-### M6 — Transfer Task Accuracy (TTA)
-- **Definição**: Acuracia media obtida pelo participante na Fase 3 (itens inéditos do conjunto S3, realizada sem nenhuma ferramenta de apoio).
-- **Formula**:
-  $$\text{TTA}_s = \frac{1}{|C_{\text{transfer}}|} \sum_{c \in C_{\text{transfer}}} o(d(s, c, \text{final}))$$
-- **Interpretacao**: Testa a hipotese H4 de que a interação previa com a interface evidence-first consolida habitos analiticos independentes do software.
+### M4 — Calibração de Confiança (Brier Score, Overconfidence Gap e ECE)
+- **Definição:** Aferição matemática da harmonia entre o grau de certeza declarado pelo usuário e a veracidade empírica de seus acertos.
+- **Indicadores Numéricos:**
+  1. **Brier Score (BS):**
+     ```text
+     BS = (1 / N_decisões) * Soma((confiança_normalizada - acerto_binário)²)
+     ```
+     *(Valores próximos de 0 representam calibração ideal; valores próximos de 1 indicam forte descalibração).*
+  2. **Gap de Superconfiança (OG - Overconfidence Gap):**
+     ```text
+     OG = (Média da confiança declarada) - (Taxa média de acerto factual)
+     ```
+     *(Valores positivos revelam ilusão de certeza em respostas erradas).*
+  3. **Expected Calibration Error (ECE):**
+     Particionamento das predições em faixas de probabilidade para calcular a diferença média ponderada entre acurácia e confiança.
+- **Regra de Estabilidade Amostral:** O ECE é omitido caso o total de decisões avaliadas seja inferior a 100 (`N_decisões < 100`), prevenindo distorções aritméticas em amostras pequenas.
 
 ---
 
-### M6b — Verification Steps Count (VSC)
-- **Definição**: Quantidade de procedimentos metodológicos distintos de checagem que o participante reportou ter executado autonomamente durante a fase de transferencia.
-- **Formula**:
-  $$\text{VSC}_s = |\text{steps}_s \setminus \{\text{"none"}\}|, \quad \text{onde } \text{steps}_s \subseteq \{\text{"source"}, \text{"date"}, \text{"independent\_evidence"}, \text{"context"}, \text{"none"}\}$$
-- **Valores Possíveis**: Inteiro entre 0 e 4. Se o participante assinalar `"none"`, $\text{VSC}_s = 0$.
+### M5 — Acurácia Final e Delta de Aprendizado (Delta-Accuracy)
+- **Definição:**
+  - **Acurácia por Fase (Acc):** Percentual de decisões finais concordantes com a apuração das agências de checagem.
+  - **Delta de Acurácia Intraparticipante (Delta_Acc):**
+    ```text
+    Delta_Acc = Acurácia_fase_assistida - Acurácia_fase_basal
+    ```
+- **Interpretação:** Mede o ganho cognitivo efetivo proporcionado pelo uso da extensão frente à habilidade prévia individual da pessoa.
 
 ---
 
-### M7 — Time to Conclusion (TTC)
-- **Definição**: Tempo transcorrido em segundos entre a primeira selecao da alegação na interface e o envio formal da decisão final.
-- **Formula**:
-  $$\text{TTC}_c = \frac{t_{\text{ms}}(\text{decision\_submitted}_{\text{final}, c}) - t_{\text{ms}}(\text{claim\_selected}_{1^{\circ}, c})}{1000}$$
-- **Sumarizacao**: Reportado via **mediana** e **Intervalo Interquartil (IQR)** por condição.
-- **Aviso Metodológico**: Não ha direção presumida de "melhor". Um TTC excessivamente curto pode denunciar superficialidade analitica; um TTC excessivamente longo pode indicar sobrecarga cognitiva ou atrito de usabilidade.
+### M6 — Acurácia na Tarefa de Transferência (Transfer Task Accuracy - TTA)
+- **Definição:** Percentual de acertos factuais obtido na Fase 3 (itens inéditos sem o suporte de nenhuma ferramenta), avaliando retenção de postura crítica.
+- **Fórmula de Cálculo:**
+  ```text
+  TTA_s = (Acertos na Fase 3) / (Total de itens da Fase 3)
+  ```
+- **Interpretação:** Testa a hipótese de que o uso contínuo da abordagem Evidence-First desenvolve competências autônomas de pensamento crítico.
 
 ---
 
-### M8 — Esforco Percebido (Single Ease Question - SEQ)
-- **Definição**: Mediana das avaliações de esforco subjetivo reportadas no questionario pos-tarefa na escala ordinal de 1 a 7.
-- **Interpretacao**: Acompanha a viabilidade da solução. Se B exigir esforco excessivo sem ganho correspondente, o produto enfrenta risco de abandono.
+### M6b — Contagem de Etapas de Verificação Autônoma (Verification Steps Count - VSC)
+- **Definição:** Quantidade de métodos independentes de checagem (buscar data, inspecionar canal, procurar fontes externas) que o participante executou de forma autônoma na fase de transferência.
+- **Valores Possíveis:** Número inteiro entre 0 e 4 procedimentos relatados.
 
 ---
 
-### M9 — Investigation Behavior Rate (IBR — Métrica Operacional Composta)
-- **Status Metodológico**: Métrica puramente instrumental e heuristica, desenvolvida para sumarizar dimensoes de engajamento do estudo. **NÃO possui validação psicometrica formal e e TERMINANTEMENTE PROIBIDO exibi-la como score, reputacao ou nota para o usuário final.**
-- **Formulacao**:
-  - **Taxa Geral Comparavel ($\text{IBR}_{\text{common}}$)**:
-    $$\text{IBR}_{\text{common}} = \frac{\text{CE} + \text{EIR} + \text{SOR}}{3}$$
-    Onde $\text{CE}$ (Claim Engagement Rate) e a proporcao de alegações vistas que foram selecionadas ativamente:
-    $$\text{CE} = \frac{|\{c : \text{count}(\text{claim\_selected}_{s,c}) \ge 1\}|}{|\{c : c \text{ visível}\}|}$$
-  - **Taxa Completa da Condição B ($\text{IBR}_B$)**:
-    $$\text{IBR}_B = \frac{\text{CE} + \text{EIR} + \text{SOR} + \text{RIR}}{4}$$
+### M7 — Tempo até Conclusão da Decisão (Time to Conclusion - TTC)
+- **Definição:** Intervalo de tempo em segundos transcorrido entre a seleção inicial da alegação na extensão e a submissão do veredito pelo usuário.
+- **Métrica Sumarizada:** Mediana e Intervalo Interquartil (IQR) por condição experimental.
+- **Ressalva:** Tempos excessivamente curtos revelam julgamento superficial; tempos desproporcionalmente longos indicam atrito de interface ou fadiga cognitiva.
 
 ---
 
-## 3. Regra de Decisão Pre-Registrada (Framework de Decisão Act)
+### M8 — Esforço Subjetivo Percebido (Single Ease Question - SEQ)
+- **Definição:** Avaliação de esforço relatada ao término da sessão na escala padronizada de 1 ("Muito difícil") a 7 ("Muito fácil").
+- **Interpretação:** Monitora a viabilidade ergonômica da extensão. A abordagem reflexiva não pode se tornar exaustiva a ponto de inviabilizar o uso no dia a dia.
 
-Para assegurar integridade científica e blindar a equipe contra interpretacoes *post hoc*, os limiares de decisão são propostos e registrados formalmente antes da coleta.
+---
 
-### Limiares Numericos Propostos (Sujeitos a Ratificacao)
+### M9 — Taxa de Comportamento Investigativo (Investigation Behavior Rate - IBR)
+- **Status Metodológico:** Métrica exclusivamente de pesquisa e sumarização acadêmica. **É terminantemente proibido exibir este valor como nota, score ou índice de reputação para a pessoa usuária.**
+- **Composição Paramétrica:**
+  ```text
+  IBR_Condição_B = (Taxa_Seleção + EIR + SOR + RIR) / 4
+  ```
 
-| Parametro | Descrição do Limiar | Valor Proposto | Justificativa |
+---
+
+## 3. Regra de Decisão Pré-Registrada (Framework de Validação Act)
+
+Para blindar a avaliação contra viés confirmatório ou interpretações arbitrárias, os limiares de sucesso foram definidos antes da coleta empírica:
+
+### Limiares Numéricos Homologados
+
+| Limiar | Parâmetro Avaliado | Valor de Corte | Racionalidade Metodológica |
 |:---:|:---|:---:|:---|
-| **$\theta_1$** | EIR minimo absoluto na Condição B | **0.60** (60%) | Maioria substancial das alegações deve ser analisada com evidências. |
-| **$\theta_2$** | Diferenca minima de inspecao ($\text{EIR}_B - \text{EIR}_A$) | **0.20** (+20 pp) | Condição B deve superar o controle em inspecao de evidências por margem expressiva. |
-| **$\theta_3$** | Taxa minima de revisao guiada por evidência ($\text{ERR}_B$) | **0.15** (15%) | Evidências devem provocar reavaliacao em parcela mensuravel das alegações. |
-| **$\theta_4$** | Engajamento minimo em perguntas reflexivas ($\text{RIR}_B$) | **0.30** (30%) | Ao menos 30% das perguntas reflexivas apresentadas devem ser interagidas. |
-| **$\delta$** | Margem de não-inferioridade em acuracia e transferencia | **0.05** (5 pp) | Tolerancia maxima de perda em acuracia admitida para o novo paradigma. |
-| **$\rho$** | Razao maxima permitida de tempo ($\text{mediana}(\text{TTC}_B) / \text{mediana}(\text{TTC}_A)$) | **1.50** (+50%) | A investigacao em B não pode demorar mais que 1.5 vezes o tempo do veredito. |
-| **$\theta_5$** | Fracao maxima de sessões com esforco extremo ($\text{SEQ} \le 2$) | **0.25** (25%) | No maximo 1/4 dos participantes podem avaliar a tarefa como excessivamente penosa. |
-| **$\varepsilon$** | Queda maxima tolerada na mediana de esforco ($\text{SEQ}_B$ vs. $\text{SEQ}_A$) | **1 ponto** | Esforco em B não pode degradar mais de 1 ponto na escala de 1 a 7. |
+| **θ₁** | Taxa mínima de inspeção na Condição B (EIR_B) | **≥ 60%** | A ampla maioria das alegações deve ter evidências consultadas |
+| **θ₂** | Diferença mínima de inspeção frente ao controle (EIR_B - EIR_A) | **≥ +20 pp** | A Condição B deve superar o velocímetro por margem expressiva |
+| **θ₃** | Taxa mínima de revisão orientada por evidência (ERR_B) | **≥ 15%** | As evidências devem provocar reavaliação consciente no usuário |
+| **θ₄** | Engajamento mínimo com perguntas reflexivas (RIR_B) | **≥ 30%** | Pelo menos um terço dos estímulos de reflexão deve ser interagido |
+| **δ** | Margem de não-inferioridade em acurácia (Acc_B vs. Acc_A) | **≤ 5 pp** | Tolerância máxima de variação estatística em acerto geral |
+| **ρ** | Razão máxima permitida de tempo (Mediana TTC_B / TTC_A) | **≤ 1,50** | A reflexão crítica não pode demorar mais que 1,5× o veredito passivo |
+| **θ₅** | Fração máxima de sessões com esforço extremo (SEQ ≤ 2) | **≤ 25%** | No máximo um quarto dos participantes pode relatar esforço penoso |
+| **ε** | Variação máxima tolerada na mediana de esforço | **≤ 1 ponto** | A usabilidade não pode degradar além de 1 ponto na escala 1 a 7 |
 
 ---
 
-### Condições Logicas de Classificacao
+### Lógica Sequencial de Classificação
 
-As condições abaixo são aplicadas de forma sequencial, prevalecendo estritamente a classificacao mais restritiva (**NO-GO > INVESTIGAR > GO**):
+A tomada de decisão segue estritamente a ordem de precedência mais cautelosa (**NO-GO > INVESTIGAR > GO**):
 
 ```text
-[GO] (Validacao Positiva da Arquitetura Evidence-First):
+[GO] (Aprovação Plena da Arquitetura Evidence-First):
      EIR_B >= 0.60
   E  (EIR_B - EIR_A) >= 0.20
   E  ERR_B >= 0.15
   E  Acc_B >= (Acc_A - 0.05)
   E  TTA_B >= (TTA_A - 0.05)
-  E  (mediana(TTC_B) / mediana(TTC_A)) <= 1.50
+  E  (Mediana_TTC_B / Mediana_TTC_A) <= 1.50
 
-[INVESTIGAR] (Gargalos de UX ou Desalinhamento Cognitivo):
-     (Reflection Cards sao visualizados, mas RIR_B < 0.30)
-  OU (Interacao com evidencias e alta, mas ganho cognitivo e nulo: Delta-Acc ≈ 0)
-  OU (EIR_B situa-se na faixa marginal entre 0.45 e 0.60)
+[INVESTIGAR] (Necessidade de Refinamento de UX):
+     (Perguntas reflexivas são exibidas, mas RIR_B < 0.30)
+  OU (Leitura de evidências é alta, mas sem evolução no Delta de acurácia)
+  OU (EIR_B situa-se na faixa intermediária entre 0.45 e 0.60)
 
 [NO-GO] (Inviabilidade do Paradigma ou Dano Comportamental):
-     PDR_B >= PDR_A
-  OU (Fracao de sessoes com SEQ <= 2) > 0.25
-  OU (mediana(SEQ_B) < mediana(SEQ_A) - 1 E sem ganho comportamental comprovado em EIR/ERR)
+     PDR_B >= PDR_A (usuários continuam decidindo sem ler evidências)
+  OU (Percentual de sessões com SEQ <= 2) > 0.25
   OU TTA_B < (TTA_A - 0.05)
 ```
 
 ---
 
-## 4. Governança de Desvios de Protocolo
+## 4. Governança e Tratamento de Desvios de Protocolo
 
-Qualquer situação imprevista durante a execução que obrigue a adocao de procedimento distinto do pre-registrado deve ser tratada da seguinte forma:
+1. **Vedação de Alteração Retroativa:** Nenhum limiar numérico pode ser afrouxado ou redefinido após o congelamento oficial do protocolo de teste.
+2. **Registro de Ocorrências Atípicas:** Quedas de conexão, descarte voluntário de participantes ou falhas de navegador devem ser registradas com a respectiva justificativa e análise de sensibilidade (cálculo de métricas com e sem o participante afetado).
 
-1. **Vedacao de Alteracao Retroativa**: Sob nenhuma hipotese os valores de $\theta_1..\theta_5$, $\delta$, $\rho$ ou $\varepsilon$ poderao ser modificados após a emissao da tag Git `act-prereg-v1`.
-2. **Registro Obrigatório de Desvio**: Qualquer ocorrencia atipica (ex.: perda de conectividade local em uma maquina, descarte excepcional de participante, oscilacao de versão de navegador) devera ser registrada na Secao 9 do documento de resultados (`results.md`), discriminando:
-   - Descrição exata do evento.
-   - Justificativa metodológica da acao corretiva adotada.
-   - Análise de sensibilidade (calculo das métricas com e sem os dados afetados).
+---
+
+## Documentos Relacionados
+- [Plano do Experimento](experiment-plan.md) — Desenho experimental between-subjects e hipóteses formais.
+- [Protocolo do Participante](participant-protocol.md) — Roteiro de aplicação para o facilitador.
+- [Especificação de Telemetria](telemetry-spec.md) — Eventos e payloads gerados pela extensão.
+- [Limitações do Estudo](limitations.md) — Ameaças conhecidas à validade interna e externa.

@@ -3,6 +3,7 @@
 ## Nesta página
 
 - [Visão geral por épico](#backlog-do-produto-por-epico)
+- [Índice sequencial de histórias (HU01–HU16)](#indice-sequencial-de-historias)
 - [Épico 1 — Gatilho e Ativação](#epico-1-gatilho-e-ativacao) · HU01, HU03
 - [Épico 2 — Extração de Transcrição](#epico-2-extracao-de-transcricao) · HU05, HU10
 - [Épico 3 — Análise e Checagem via IA](#epico-3-analise-e-checagem-via-ia) · HU02, HU04, HU09
@@ -36,6 +37,28 @@
 | **E7 — Investigação e Evidências** | UX Evidence-First e Alegações | HU13, HU14, HU15 | Must Have \| IN | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [Cenário 05](cenarios.md#cenario-05) |
 | **E8 — Infraestrutura de IA** | Desacoplamento de Providers | HU16 | Must Have \| IN | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
 
+### Índice Sequencial de Histórias de Usuário (HU01 a HU16) {: #indice-sequencial-de-historias }
+
+Para facilitar a consulta direta e auditoria técnica, a tabela abaixo consolida todas as 16 histórias de usuário em ordem numérica estrita:
+
+| ID | Título da História | Épico Associado | Persona | Prioridade MoSCoW | Escopo |
+|:---:|:---|:---|:---|:---:|:---:|
+| [HU01](#hu01) | Acesso Rápido à Investigação de Vídeo | [Épico 1](#epico-1-gatilho-e-ativacao) | Dona Lurdes | Must Have | IN |
+| [HU02](#hu02) | Síntese Explicativa Baseada em Evidências | [Épico 3](#epico-3-analise-e-checagem-via-ia) | Dona Lurdes | Must Have | IN |
+| [HU03](#hu03) | Checagem Rápida e Factual no Player | [Épico 1](#epico-1-gatilho-e-ativacao) | Amanda | Must Have | IN |
+| [HU04](#hu04) | Exibição Transparente de Fontes e Evidências | [Épico 3](#epico-3-analise-e-checagem-via-ia) | Mayara | Must Have | IN |
+| [HU05](#hu05) | Ingestão e Processamento de Transcrição | [Épico 2](#epico-2-extracao-de-transcricao) | Carlos Augusto | Must Have | IN |
+| [HU06](#hu06) | Desempenho e Reuso Local em Vídeos Já Analisados | [Épico 5](#epico-5-performance-e-cache) | Amanda | Should Have | IN |
+| [HU07](#hu07) | Verificação e Validade de Fontes Oficiais | [Épico 4](#epico-4-confianca-e-fontes) | Mayara | Must Have | IN |
+| [HU08](#hu08) | Mapeamento de Credibilidade e Diversidade das Fontes | [Épico 4](#epico-4-confianca-e-fontes) | Carlos Augusto | Should Have | IN |
+| [HU09](#hu09) | Detecção Fina de Factualidade e Síntese Neutra | [Épico 3](#epico-3-analise-e-checagem-via-ia) | Mariana | Must Have | IN |
+| [HU10](#hu10) | Notificação Rápida de Ausência de Transcrição | [Épico 2](#epico-2-extracao-de-transcricao) | Mariana | Must Have | IN |
+| [HU11](#hu11) | Transparência Metodológica e Limitações da IA | [Épico 6](#epico-6-engajamento-reflexivo-e-avaliacao) | Helena | Must Have | IN |
+| [HU12](#hu12) | Feedback do Usuário sobre Utilidade das Evidências | [Épico 6](#epico-6-engajamento-reflexivo-e-avaliacao) | Helena | Could Have | OUT |
+| [HU13](#hu13) | Extração Atômica de Alegações Verificáveis | [Épico 7](#epico-7-investigacao-orientada-por-alegacoes-e-evidencias) | Dona Lurdes | Must Have | IN |
+| [HU14](#hu14) | Consulta Multi-Fonte com Busca Semântica Neutra | [Épico 7](#epico-7-investigacao-orientada-por-alegacoes-e-evidencias) | Mayara | Must Have | IN |
+| [HU15](#hu15) | Reflexão Crítica na UX | [Épico 7](#epico-7-investigacao-orientada-por-alegacoes-e-evidencias) | Helena | Must Have | IN |
+| [HU16](#hu16) | Provedor de IA Independente | [Épico 8](#epico-8-infraestrutura-e-provedores-de-ia) | Engenharia | Must Have | IN |
 
 ### Funil de Priorização do Backlog
 

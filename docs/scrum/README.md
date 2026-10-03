@@ -4,7 +4,7 @@
 
 # Governança e Metodologia Scrum
 
-> **Propósito:** Formalizar a estrutura de gestao agil do projeto EvidencIA, com cerimonias, Definition of Done, Product Backlog e historico de execução por sprint.
+> **Propósito:** Formalizar a estrutura de gestão ágil do projeto EvidencIA, com cerimônias, Definition of Done, Product Backlog e histórico de execução por sprint.
 
 ---
 

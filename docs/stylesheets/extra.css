@@ -226,15 +226,24 @@ button,
 }
 
 /* 8. Navegação Superior por Abas (Tabs) - 4 Pilares Estratégicos */
+.md-header {
+  padding-bottom: 0.35rem;
+}
+
 .md-header__inner {
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.45rem;
+  align-items: center;
+}
+
+.md-header__topic {
+  line-height: 1.5 !important;
 }
 
 .md-tabs {
   height: auto !important;
-  min-height: 2.85rem;
-  padding-top: 0.2rem;
-  padding-bottom: 0.75rem !important;
+  min-height: 3rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.85rem !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   overflow: visible !important;
 }

@@ -135,21 +135,21 @@ Cada participante recebeu um orçamento virtual fixo de **$100 (cem dólares)** 
 
 ![Alocação dos 100 Dólares nos Requisitos Funcionais](../assets/votacao-requisitos-funcionais.png)
 
-*Quadro de Investimento Acumulado nos Requisitos Funcionais:*
+*Quadro de Investimento nos Requisitos Funcionais (ordenado por ID):*
 
-| Requisito Candidato | Investimento Acumulado ($) | Análise de Prioridade Técnica | Decisão de Escopo |
-|:---|:---|:---|:---|
-| **RF-03** (Evidências em linguagem acessível e clara) | **$71** | Requisito com maior alocação orçamentária do projeto. Reflete a dor central expressa nas entrevistas e protótipos de que resumos herméticos afastam o usuário leigo. | **Must Have \| IN** |
-| **RF-02** (Obtenção e análise da transcrição do vídeo) | **$61** | Insumo tecnológico essencial. Sem extração da transcrição do áudio, o pipeline analítico de IA não opera. | **Must Have \| IN** |
-| **RF-01** (Acionamento da análise na página de vídeo) | **$55** | Ponto de contato de entrada da extensão. Necessidade de ativação simples em 1 clique no player. | **Must Have \| IN** |
-| **RF-04** (Fontes e referências com links diretos) | **$48** | Pilar de autoridade e credibilidade. Permite ao usuário auditar os dados primários de forma independente. | **Must Have \| IN** |
-| **RF-05** (Retorno reflexivo sobre a investigação) | **$46** | Importante para estimular pensamento crítico, mas demanda engenharia avançada de prompts. | **Could Have \| OUT** |
-| **RF-09** (Cache local de análises recentes) | **$46** | Otimização vital de custo de tokens e resposta rápida para vídeos virais repetidos. | **Should Have \| IN** |
-| **RF-07** (Alerta de incerteza e controvérsia) | **$44** | Evita decisões dogmáticas em temas em aberto na ciência; badge visual de cautela. | **Must Have \| IN** |
-| **RF-06** (Síntese estruturada de resultados) | **$42** | Componente visual do painel (velocímetro + cartões divididos em apoiada/contraditada). | **Must Have \| IN** |
-| **RF-08** (Notificação de ausência de legendas) | **$38** | Tratamento gracioso de exceção para vídeos sem transcrição disponível no YouTube. | **Must Have \| IN** |
-| **RF-11** (Contextualização temporal e canal) | **$34** | Evita falsas contradições em vídeos antigos que representavam o consenso da época. | **Should Have \| IN** |
-| **RF-10** (Feedback de utilidade da IA pelo usuário) | **$28** | Mecanismo comunitário de avaliação; não bloqueia a entrega da análise inicial. | **Could Have \| OUT** |
+| ID | Requisito Candidato | Votação ($) | Análise Técnica e Racionalidade | Escopo MoSCoW |
+|:---:|:---|:---:|:---|:---:|
+| **RF-01** | Acionamento da análise na página de vídeo | **$55** *(3º)* | Ponto de contato de entrada da extensão. Ativação simples em 1 clique no player. | **Must Have \| IN** |
+| **RF-02** | Obtenção e análise da transcrição do vídeo | **$61** *(2º)* | Insumo tecnológico essencial. Sem transcrição do áudio, o pipeline analítico de IA não opera. | **Must Have \| IN** |
+| **RF-03** | Evidências em linguagem acessível e clara | **$71** *(1º)* | Requisito com maior alocação orçamentária. Evita resumos herméticos que afastam a pessoa leiga. | **Must Have \| IN** |
+| **RF-04** | Fontes e referências com links diretos | **$48** *(4º)* | Pilar de autoridade e credibilidade. Permite auditar os dados primários de forma independente. | **Must Have \| IN** |
+| **RF-05** | Retorno reflexivo sobre a investigação | **$46** *(5º)* | Estímulo ao pensamento crítico autônomo (promovido ao MVP pelo [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)). | **Must Have (promovido) \| IN** |
+| **RF-06** | Síntese estruturada de resultados | **$42** *(8º)* | Apresentação em cartões de alegações apoiadas/contraditadas com fontes auditáveis. | **Must Have \| IN** |
+| **RF-07** | Alerta de incerteza e controvérsia | **$44** *(7º)* | Evita decisões dogmáticas em temas abertos na ciência; badge visual de cautela. | **Must Have \| IN** |
+| **RF-08** | Notificação de ausência de legendas | **$38** *(9º)* | Tratamento amigável de exceção para vídeos sem legendas ou transcrição disponível. | **Must Have \| IN** |
+| **RF-09** | Armazenamento em cache local recente | **$46** *(5º)* | Otimização vital de custo de tokens e resposta rápida para vídeos de grande circulação. | **Should Have \| IN** |
+| **RF-10** | Feedback de utilidade da IA pelo usuário | **$28** *(11º)* | Mecanismo voluntário de avaliação; programado para iterações pós-MVP. | **Could Have \| OUT** |
+| **RF-11** | Contextualização temporal e do canal | **$34** *(10º)* | Previne anacronismos ao contextualizar a data de publicação e autoria original. | **Should Have \| IN** |
 
 ---
 
@@ -159,19 +159,17 @@ Cada participante recebeu um orçamento virtual fixo de **$100 (cem dólares)** 
 
 ![Alocação dos 100 Dólares nos Requisitos Não Funcionais — Painel 2](../assets/votacao-requisitos-nao-funcionais-2.png)
 
-*Quadro de Investimento Acumulado nos Requisitos Não Funcionais:*
+*Quadro de Investimento nos Requisitos Não Funcionais (ordenado por ID):*
 
-| Requisito Não Funcional | Investimento Acumulado ($) | Meta Técnica Associada | Requisito Formal |
-|:---|:---|:---|:---|
-| **Comunicação de Incerteza Analítica** | **$52** | Transparência obrigatória sobre divergências e insuficiência de dados | **RNF-05** (incorporado em RF-07 / RNF-06) |
-| **Baixa Carga Cognitiva e Usabilidade** | **$40** | Hierarquia limpa, linguagem acessível e foco visual | **RNF-07** (WCAG 2.1 AA) |
-| **SLA de Latência e Resposta Rápida** | **$40** | Feedback em <= 1s e resultado útil em <= 10s (P90) | **RNF-01** (Desempenho) |
-| **Rastreabilidade e Fontes Auditáveis** | **$40** | Metadados e links diretos para veículos oficiais | **RNF-04 / RF-04** |
-| **Acessibilidade Digital e Alto Contraste** | **$30** | Contraste de cores >= 4,5:1 e suporte integral a teclado | **RNF-07** (Acessibilidade) |
-| **Privacidade e LGPD por Padrão** | **$26** | Permissão restrita `activeTab`, sem login e sem rastreamento | **RNF-05** (Privacidade) |
-| **Segurança e Gestão de Segredos** | **$26** | Zero chaves de API no cliente; tráfego via Backend Proxy | **RNF-04** (Segurança) |
-| **Leveza e Sobrecarga de Renderização** | **$24** | TBT <= 50 ms e memória adicional <= 80 MB na aba ativa | **RNF-02** (Performance) |
-| **Tolerância a Falhas e Resiliência** | **$22** | Degradação segura sem travamentos da extensão ou do navegador | **RNF-06** (Resiliência) |
+| ID | Requisito Não Funcional | Votação ($) | Meta Técnica Associada | Escopo MoSCoW |
+|:---:|:---|:---:|:---|:---:|
+| **RNF-01** | SLA de Latência e Desempenho | **$40** | Primeira evidência em ≤ 5s (P90); resposta completa em ≤ 10s (P90) | **Must Have \| IN** |
+| **RNF-02** | Leveza e Sobrecarga de Renderização | **$24** | Impacto máximo de +50 ms no Total Blocking Time (TBT) do player | **Must Have \| IN** |
+| **RNF-03** | Arquitetura e Compatibilidade | **$30** | Manifest V3 e execução plena em Chromium (Chrome, Edge, Brave) | **Must Have \| IN** |
+| **RNF-04** | Segurança e Gestão de Segredos | **$26** | Zero chaves de API no cliente; intermediação estrita via Backend Proxy | **Must Have \| IN** |
+| **RNF-05** | Privacidade de Dados e LGPD | **$26** | Permissão restrita a `activeTab`; sem coleta de histórico geral | **Must Have \| IN** |
+| **RNF-06** | Resiliência e Tolerância a Falhas | **$22** | Degradação graciosa com indicação visual sem travamentos do navegador | **Must Have \| IN** |
+| **RNF-07** | Acessibilidade e Usabilidade Digital | **$40** | Conformidade com WCAG 2.1 AA, contraste ≥ 4,5:1 e suporte integral a teclado | **Must Have \| IN** |
 
 ---
 
