@@ -125,6 +125,26 @@ nav:
       - Priorização e MVP: planejamento/priorizacao-e-mvp.md
       - Gestão de Riscos Técnicos: planejamento/gestao-riscos.md
       - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
+  - Experimento CBL (Act):
+      - Visão Geral e Ordem de Leitura: cbl/act/README.md
+      - Plano do Experimento: cbl/act/experiment-plan.md
+      - Protocolo do Participante: cbl/act/participant-protocol.md
+      - Definição de Métricas: cbl/act/metrics-definition.md
+      - Especificação de Telemetria: cbl/act/telemetry-spec.md
+      - Template do Banco de Itens: cbl/act/item-bank-template.md
+      - Template de Resultados: cbl/act/results-template.md
+      - Critérios Go / No-Go: cbl/act/go-no-go-act.md
+      - Limitações Metodológicas: cbl/act/limitations.md
+  - Fechamento CBL (Reflect & Share):
+      - Visão Geral: cbl/reflect-share/README.md
+      - Síntese Acadêmica e Reflexão: cbl/reflect-share/reflection.md
+      - Lições Aprendidas: cbl/reflect-share/lessons-learned.md
+      - Portfólio de Pesquisa: cbl/reflect-share/research-portfolio.md
+      - Roteiro de Apresentação (Showcase): cbl/reflect-share/showcase-script.md
+      - Roteiro de Demonstração (Demo): cbl/reflect-share/demo-script.md
+      - Matriz Go / No-Go Final: cbl/reflect-share/go-no-go-final.md
+      - Relatório de Completude: cbl/reflect-share/CBL_COMPLETENESS_REPORT.md
   - Referência:
       - Glossário Técnico: referencia/glossario.md
+
 
