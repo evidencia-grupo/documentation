@@ -1,5 +1,5 @@
 <!-- nav:start -->
-[Voltar ao Indice Scrum](../README.md) · [Voltar ao Indice Mestre](../../README.md)
+[Voltar ao Indice Scrum](../README.md) · [Voltar ao Indice Mestre](../../index.md)
 <!-- nav:end -->
 
 # Sprint 02 — Pipeline Evidence-First, Telemetria e Validacao

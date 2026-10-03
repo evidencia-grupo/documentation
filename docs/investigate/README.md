@@ -1,5 +1,5 @@
 <!-- nav:start -->
-[Voltar ao Indice Mestre](../README.md)
+[Voltar ao Indice Mestre](../index.md)
 <!-- nav:end -->
 
 # CBL — Fase Investigate (Investigacao e EDA)
