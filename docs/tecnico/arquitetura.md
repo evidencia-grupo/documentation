@@ -21,7 +21,7 @@ A solução adota uma arquitetura cliente-servidor desacoplada, composta por uma
 
 Nenhuma credencial ou chave privada de serviços de inteligência artificial é distribuída com a extensão. Todo o processamento sensível e a orquestração de buscas externas ocorrem em ambiente protegido de servidor.
 
-![Visão Geral da Arquitetura](../assets/diagrama.png)
+As seções a seguir detalham essa topologia através de modelos formais C4 (Níveis 1 e 2) e do fluxo sequencial de análise.
 
 ---
 

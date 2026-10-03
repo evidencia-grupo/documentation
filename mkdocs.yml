@@ -76,7 +76,11 @@ markdown_extensions:
 
 nav:
   - Início: index.md
-  - Visão:
+  - Visão Geral:
+      - Visão Geral do Projeto (1 Página): visao-geral/visao-geral-do-projeto.md
+      - Mapa do Projeto e Topologia: visao-geral/mapa-do-projeto.md
+      - Painel de Status Consolidado: visao-geral/status.md
+  - Visão Estratégica (Engage):
       - Alinhamento Estratégico: visao/alinhamento-estrategico.md
       - Guiding Questions (CBL): visao/guiding-questions.md
       - Alinhamento com a Essential Question: visao/essential-question-alignment.md
@@ -144,7 +148,10 @@ nav:
       - Roteiro de Demonstração (Demo): cbl/reflect-share/demo-script.md
       - Matriz Go / No-Go Final: cbl/reflect-share/go-no-go-final.md
       - Relatório de Completude: cbl/reflect-share/CBL_COMPLETENESS_REPORT.md
-  - Referência:
-      - Glossário Técnico: referencia/glossario.md
+  - Referência e Governança:
+      - Glossário Oficial: glossario.md
+      - Metadados e Governança: meta/README.md
+      - Arquivo Histórico: arquivo/README.md
+
 
 
