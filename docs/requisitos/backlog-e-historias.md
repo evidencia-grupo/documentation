@@ -34,8 +34,8 @@
 | **E4 — Confiança e Fontes** | Credibilidade e contexto | HU07, HU08 | Must Have (HU07) / Should Have (HU08) \| IN | [Cenário 04](cenarios.md#cenario-04), [Cenário 09](cenarios.md#cenario-09) |
 | **E5 — Performance e Cache** | Otimização e reuso local | HU06 | Should Have \| IN | [Cenário 07](cenarios.md#cenario-07) |
 | **E6 — Engajamento Reflexivo e Avaliação** | Pensamento crítico e feedback | HU11, HU12 | Must Have (HU11) \| IN / Could Have (HU12) \| OUT | [Cenário 05](cenarios.md#cenario-05), [Cenário 11](cenarios.md#cenario-11) |
-| **E7 — Investigação e Evidências** | UX Evidence-First e Alegações | HU13, HU14, HU15 | Must Have \| IN | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [Cenário 05](cenarios.md#cenario-05) |
-| **E8 — Infraestrutura de IA** | Desacoplamento de Providers | HU16 | Must Have \| IN | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| **E7 — Investigação e Evidências** | UX Evidence-First e Alegações | HU13, HU14, HU15 | Must Have \| IN | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [Cenário 05](cenarios.md#cenario-05) |
+| **E8 — Infraestrutura de IA** | Desacoplamento de Providers | HU16 | Must Have \| IN | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ### Índice Sequencial de Histórias de Usuário (HU01 a HU16) {: #indice-sequencial-de-historias }
 
@@ -77,8 +77,8 @@ A alocação de esforço e cadência de entrega de cada história segue o funil 
 |:---|:---|
 | **Descrição** | Eu, como Dona Lurdes, pretendo iniciar a investigação das alegações de um vídeo com apenas um clique para que eu possa examinar as evidências sobre as receitas e dicas caseiras de saúde antes de decidir seguir ou repassar a familiares. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Dona Lurdes](../design/personas-e-jornadas.md#dona-lurdes) |
-| **Rastreabilidade** | GQ02, GQ11, [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 01](cenarios.md#cenario-01), [UC-01](casos-de-uso.md#uc-01), [RF-01](catalogo-requisitos.md#rf-01), [RF-03](catalogo-requisitos.md#rf-03), [RNF-01](catalogo-requisitos.md#rnf-01), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Persona Relacionada** | [Dona Lurdes](personas-e-jornadas.md#dona-lurdes) |
+| **Rastreabilidade** | GQ02, GQ11, [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 01](cenarios.md#cenario-01), [UC-01](casos-de-uso.md#uc-01), [RF-01](catalogo-requisitos.md#rf-01), [RF-03](catalogo-requisitos.md#rf-03), [RNF-01](catalogo-requisitos.md#rnf-01), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
 
@@ -107,7 +107,7 @@ Funcionalidade: Acesso rápido à investigação de vídeo
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Reescrita para alinhar com Essential Question: "saber se é seguro" substituído por "examinar evidências antes de decidir"; UX de investigação assistida em vez de veredito; critérios Gherkin atualizados para exigir ausência de score global. | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Reescrita para alinhar com Essential Question: "saber se é seguro" substituído por "examinar evidências antes de decidir"; UX de investigação assistida em vez de veredito; critérios Gherkin atualizados para exigir ausência de score global. | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | *(original)* | *"Como Dona Lurdes, pretendo iniciar a checagem de um vídeo com apenas um clique para que eu saiba se as receitas e dicas caseiras de saúde são seguras antes de seguir ou repassar a familiares."* | — |
 
 ---
@@ -118,8 +118,8 @@ Funcionalidade: Acesso rápido à investigação de vídeo
 |:---|:---|
 | **Descrição** | Eu, como Amanda, pretendo ver a primeira evidência útil sobre afirmações de vídeos de divulgação científica em até 5 segundos para validar premissas sem interromper o fluxo dos meus estudos. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Amanda](../design/personas-e-jornadas.md#amanda) |
-| **Rastreabilidade** | GQ09, [ADR-006 Decisão 8](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 01](cenarios.md#cenario-01), [Cenário 03](cenarios.md#cenario-03), [UC-01](casos-de-uso.md#uc-01), [UC-03](casos-de-uso.md#uc-03), [RF-01](catalogo-requisitos.md#rf-01), [RF-09](catalogo-requisitos.md#rf-09), [RNF-01](catalogo-requisitos.md#rnf-01) |
+| **Persona Relacionada** | [Amanda](personas-e-jornadas.md#amanda) |
+| **Rastreabilidade** | GQ09, [ADR-006 Decisão 8](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 01](cenarios.md#cenario-01), [Cenário 03](cenarios.md#cenario-03), [UC-01](casos-de-uso.md#uc-01), [UC-03](casos-de-uso.md#uc-03), [RF-01](catalogo-requisitos.md#rf-01), [RF-09](catalogo-requisitos.md#rf-09), [RNF-01](catalogo-requisitos.md#rnf-01) |
 
 **Critérios de Aceitação:**
 
@@ -156,7 +156,7 @@ Funcionalidade: Checagem rápida e entrega de evidências no player
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | SLA reescrito: "análise" substituído por "primeira evidência útil" (≤ 5s P90); adicionado SLA de resultado completo (≤ 10s P90) e cache hit (< 1s). Alinhado ao ADR-006 Decisão 8. | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | SLA reescrito: "análise" substituído por "primeira evidência útil" (≤ 5s P90); adicionado SLA de resultado completo (≤ 10s P90) e cache hit (< 1s). Alinhado ao ADR-006 Decisão 8. | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | *(original)* | *"...analisar afirmações... em até 10 segundos..."* | — |
 
 ---
@@ -169,7 +169,7 @@ Funcionalidade: Checagem rápida e entrega de evidências no player
 |:---|:---|
 | **Descrição** | Eu, como Carlos Augusto, pretendo que o sistema obtenha e processe automaticamente a transcrição do vídeo para que a verificação de factualidade ocorra a partir do áudio exato do conteúdo. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Carlos Augusto](../design/personas-e-jornadas.md#carlos-augusto) |
+| **Persona Relacionada** | [Carlos Augusto](personas-e-jornadas.md#carlos-augusto) |
 | **Rastreabilidade** | [Cenário 02](cenarios.md#cenario-02), [UC-02](casos-de-uso.md#uc-02), [RF-02](catalogo-requisitos.md#rf-02), [RF-08](catalogo-requisitos.md#rf-08), [RNF-03](catalogo-requisitos.md#rnf-03), [RNF-06](catalogo-requisitos.md#rnf-06) |
 
 **Critérios de Aceitação:**
@@ -202,7 +202,7 @@ Funcionalidade: Ingestão e processamento de transcrição
 |:---|:---|
 | **Descrição** | Eu, como Mariana, pretendo ser notificada imediatamente caso o vídeo assistido não possua legendas para não perder tempo aguardando um resultado que não pode ser gerado. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Mariana](../design/personas-e-jornadas.md#mariana) |
+| **Persona Relacionada** | [Mariana](personas-e-jornadas.md#mariana) |
 | **Rastreabilidade** | [Cenário 08](cenarios.md#cenario-08), [UC-02](casos-de-uso.md#uc-02), [RF-08](catalogo-requisitos.md#rf-08), [RNF-01](catalogo-requisitos.md#rnf-01), [RNF-06](catalogo-requisitos.md#rnf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
@@ -236,8 +236,8 @@ Funcionalidade: Notificação rápida de ausência de transcrição
 |:---|:---|
 | **Descrição** | Eu, como Dona Lurdes, pretendo visualizar uma síntese explicativa acessível de cada alegação, baseada nas evidências recuperadas, para compreender o que as fontes encontradas dizem sem que a IA me diga o que é verdade. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Dona Lurdes](../design/personas-e-jornadas.md#dona-lurdes) |
-| **Rastreabilidade** | GQ02, GQ03, GQ11, [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 10](cenarios.md#cenario-10), [UC-01](casos-de-uso.md#uc-01), [UC-03](casos-de-uso.md#uc-03), [RF-03](catalogo-requisitos.md#rf-03), [RF-06](catalogo-requisitos.md#rf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Persona Relacionada** | [Dona Lurdes](personas-e-jornadas.md#dona-lurdes) |
+| **Rastreabilidade** | GQ02, GQ03, GQ11, [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 10](cenarios.md#cenario-10), [UC-01](casos-de-uso.md#uc-01), [UC-03](casos-de-uso.md#uc-03), [RF-03](catalogo-requisitos.md#rf-03), [RF-06](catalogo-requisitos.md#rf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
 
@@ -268,7 +268,7 @@ Funcionalidade: Síntese explicativa baseada em evidências
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Reescrita: síntese baseada em classificação substituída por síntese explicativa derivada de evidências recuperadas; critério explícito de ausência de score global/gauge. | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Reescrita: síntese baseada em classificação substituída por síntese explicativa derivada de evidências recuperadas; critério explícito de ausência de score global/gauge. | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | *(original)* | *"...entender facilmente o que é verdade, mentira ou sem comprovação..."* | — |
 
 ---
@@ -279,8 +279,8 @@ Funcionalidade: Síntese explicativa baseada em evidências
 |:---|:---|
 | **Descrição** | Eu, como Amanda, pretendo visualizar as principais alegações do vídeo mapeadas individualmente para evidências que sustentam, contradizem ou contextualizam cada fala para facilitar meus fichamentos acadêmicos sem aceitar uma classificação simplista. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Amanda](../design/personas-e-jornadas.md#amanda) |
-| **Rastreabilidade** | GQ01, GQ02, GQ03, [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [UC-03](casos-de-uso.md#uc-03), [RF-03](catalogo-requisitos.md#rf-03), [RF-06](catalogo-requisitos.md#rf-06), [RNF-02](catalogo-requisitos.md#rnf-02) |
+| **Persona Relacionada** | [Amanda](personas-e-jornadas.md#amanda) |
+| **Rastreabilidade** | GQ01, GQ02, GQ03, [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [UC-03](casos-de-uso.md#uc-03), [RF-03](catalogo-requisitos.md#rf-03), [RF-06](catalogo-requisitos.md#rf-06), [RNF-02](catalogo-requisitos.md#rnf-02) |
 
 **Critérios de Aceitação:**
 
@@ -314,7 +314,7 @@ Funcionalidade: Mapeamento estruturado de alegações e evidências
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Reescrita: de categorização automática unificada para mapeamento claim → evidence por alegação com relação explícita (sustenta/contradiz/contextualiza), sem imposição de veredito ou score. | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Reescrita: de categorização automática unificada para mapeamento claim → evidence por alegação com relação explícita (sustenta/contradiz/contextualiza), sem imposição de veredito ou score. | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | *(original)* | *"Eu, como Amanda, pretendo visualizar as principais alegações do vídeo categorizadas entre evidências que apoiam, contradizem ou contextualizam a fala para facilitar os meus fichamentos acadêmicos."* | — |
 
 ---
@@ -325,8 +325,8 @@ Funcionalidade: Mapeamento estruturado de alegações e evidências
 |:---|:---|
 | **Descrição** | Eu, como Mariana, pretendo ser alertada visualmente quando uma alegação não possuir evidência suficiente no corpus ou apresentar divergência entre fontes para não repassar informações sem comprovação factual nem assumir falsidade automática. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Mariana](../design/personas-e-jornadas.md#mariana) |
-| **Rastreabilidade** | GQ05, GQ06, [ADR-006 Decisão 3](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 06](cenarios.md#cenario-06), [UC-06](casos-de-uso.md#uc-06), [RF-07](catalogo-requisitos.md#rf-07), [RNF-06](catalogo-requisitos.md#rnf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Persona Relacionada** | [Mariana](personas-e-jornadas.md#mariana) |
+| **Rastreabilidade** | GQ05, GQ06, [ADR-006 Decisão 3](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 06](cenarios.md#cenario-06), [UC-06](casos-de-uso.md#uc-06), [RF-07](catalogo-requisitos.md#rf-07), [RNF-06](catalogo-requisitos.md#rnf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
 
@@ -360,7 +360,7 @@ Funcionalidade: Alerta de incerteza e limitações analíticas
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Reescrita: incerteza e limitações promovidas a pilar central; formalização do estado `insufficient_evidence` (distinto de falso) e obrigatoriedade da seção "O que ainda não sabemos". | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Reescrita: incerteza e limitações promovidas a pilar central; formalização do estado `insufficient_evidence` (distinto de falso) e obrigatoriedade da seção "O que ainda não sabemos". | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | *(original)* | *"Eu, como Mariana, pretendo receber um alerta visual destacado quando houver incerteza ou conflito de fontes sobre o vídeo para conter impulsos de repasse em mensagens no WhatsApp."* | — |
 
 ---
@@ -373,8 +373,8 @@ Funcionalidade: Alerta de incerteza e limitações analíticas
 |:---|:---|
 | **Descrição** | Eu, como Mayara, pretendo auditar a origem primária das evidências acessando suas fontes com metadados de provenance (origem do dataset, data, publisher e hash de integridade) e hiperligações diretas de forma autônoma. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Mayara](../design/personas-e-jornadas.md#mayara) |
-| **Rastreabilidade** | GQ04, GQ07, [ADR-006 Decisão 2](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 04](cenarios.md#cenario-04), [UC-04](casos-de-uso.md#uc-04), [RF-04](catalogo-requisitos.md#rf-04), [RNF-05](catalogo-requisitos.md#rnf-05), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Persona Relacionada** | [Mayara](personas-e-jornadas.md#mayara) |
+| **Rastreabilidade** | GQ04, GQ07, [ADR-006 Decisão 2](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 04](cenarios.md#cenario-04), [UC-04](casos-de-uso.md#uc-04), [RF-04](catalogo-requisitos.md#rf-04), [RNF-05](catalogo-requisitos.md#rnf-05), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
 
@@ -409,7 +409,7 @@ Funcionalidade: Auditoria direta e provenance de fontes
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Reescrita: expansão para inclusão obrigatória de provenance (dataset de origem, publisher, data de indexação e hash); remoção explícita de `reliabilityScore` algorítmico por fonte. | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Reescrita: expansão para inclusão obrigatória de provenance (dataset de origem, publisher, data de indexação e hash); remoção explícita de `reliabilityScore` algorítmico por fonte. | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | *(original)* | *"Eu, como Mayara, pretendo acessar as fontes utilizadas na checagem por meio de hiperligações e metadados diretos para auditar a origem primária das evidências de forma autônoma."* | — |
 
 ---
@@ -420,7 +420,7 @@ Funcionalidade: Auditoria direta e provenance de fontes
 |:---|:---|
 | **Descrição** | Eu, como Mayara, pretendo visualizar a data original de publicação do vídeo e as informações do canal para avaliar se as afirmações analisadas estão anacrônicas ou fora de época. |
 | **Prioridade** | Should Have \| IN |
-| **Persona Relacionada** | [Mayara](../design/personas-e-jornadas.md#mayara) |
+| **Persona Relacionada** | [Mayara](personas-e-jornadas.md#mayara) |
 | **Rastreabilidade** | [Cenário 09](cenarios.md#cenario-09), [UC-01](casos-de-uso.md#uc-01), [UC-03](casos-de-uso.md#uc-03), [RF-11](catalogo-requisitos.md#rf-11), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
@@ -454,7 +454,7 @@ Funcionalidade: Contextualização temporal e autoria do vídeo
 |:---|:---|
 | **Descrição** | Eu, como Carlos Augusto, pretendo recuperar checagens recentes salvas no cache local para não desperdiçar tráfego de rede nem consumir processamento em vídeos já auditados. |
 | **Prioridade** | Should Have \| IN |
-| **Persona Relacionada** | [Carlos Augusto](../design/personas-e-jornadas.md#carlos-augusto) |
+| **Persona Relacionada** | [Carlos Augusto](personas-e-jornadas.md#carlos-augusto) |
 | **Rastreabilidade** | [Cenário 07](cenarios.md#cenario-07), [UC-01](casos-de-uso.md#uc-01), [RF-09](catalogo-requisitos.md#rf-09), [RNF-01](catalogo-requisitos.md#rnf-01), [RNF-05](catalogo-requisitos.md#rnf-05) |
 
 **Critérios de Aceitação:**
@@ -484,7 +484,7 @@ Funcionalidade: Consulta imediata via cache local
 ## Épico 6 — Engajamento Reflexivo e Avaliação {: #epico-6-engajamento-reflexivo-e-avaliacao }
 
 !!! note "Escopo da Release 1.0 (MVP)"
-    A **HU11 (Reflexão Crítica)** foi promovida a **Must Have do MVP** por determinação da Essential Question ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)). A HU12 permanece como Could Have (Pós-MVP / Onda 3).
+    A **HU11 (Reflexão Crítica)** foi promovida a **Must Have do MVP** por determinação da Essential Question ([ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md)). A HU12 permanece como Could Have (Pós-MVP / Onda 3).
 
 ### HU11 — Perguntas Orientadoras para Reflexão Crítica {: #hu11 }
 
@@ -492,8 +492,8 @@ Funcionalidade: Consulta imediata via cache local
 |:---|:---|
 | **Descrição** | Eu, como Helena, pretendo receber perguntas reflexivas neutras sobre as alegações do vídeo para orientar a minha própria avaliação crítica e investigar lacunas sem que o sistema imponha conclusões fechadas. |
 | **Prioridade** | Must Have \| IN (Promovida de Pós-MVP para MVP) |
-| **Persona Relacionada** | [Helena](../design/personas-e-jornadas.md#helena) |
-| **Rastreabilidade** | GQ08, GQ11, [ADR-006 Decisão 7](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 05](cenarios.md#cenario-05), [UC-05](casos-de-uso.md#uc-05), [RF-05](catalogo-requisitos.md#rf-05), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Persona Relacionada** | [Helena](personas-e-jornadas.md#helena) |
+| **Rastreabilidade** | GQ08, GQ11, [ADR-006 Decisão 7](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 05](cenarios.md#cenario-05), [UC-05](casos-de-uso.md#uc-05), [RF-05](catalogo-requisitos.md#rf-05), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
 
@@ -527,7 +527,7 @@ Funcionalidade: Perguntas orientadoras para reflexão crítica
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Promoção de Could Have (Pós-MVP / Onda 3 / OUT) para Must Have (MVP / Onda 1 / IN). Eliminação da restrição de Pós-MVP; garantia de ≥ 3 perguntas reflexivas neutras por análise; alinhamento obrigatório com a Essential Question do desafio. | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Promoção de Could Have (Pós-MVP / Onda 3 / OUT) para Must Have (MVP / Onda 1 / IN). Eliminação da restrição de Pós-MVP; garantia de ≥ 3 perguntas reflexivas neutras por análise; alinhamento obrigatório com a Essential Question do desafio. | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | *(original)* | Prioridade: *Could Have \| OUT (Pós-MVP)*. *"Eu, como Helena, pretendo receber perguntas reflexivas sobre os pontos controversos do vídeo para orientar a minha própria checagem sem que a IA imponha conclusões fechadas."* | — |
 
 ---
@@ -538,7 +538,7 @@ Funcionalidade: Perguntas orientadoras para reflexão crítica
 |:---|:---|
 | **Descrição** | Eu, como Helena, pretendo classificar a utilidade das evidências e perguntas recebidas para colaborar com a melhoria contínua das respostas analíticas do sistema. |
 | **Prioridade** | Could Have \| OUT (Pós-MVP) |
-| **Persona Relacionada** | [Helena](../design/personas-e-jornadas.md#helena) |
+| **Persona Relacionada** | [Helena](personas-e-jornadas.md#helena) |
 | **Rastreabilidade** | [Cenário 11](cenarios.md#cenario-11), [RF-10](catalogo-requisitos.md#rf-10), [RNF-05](catalogo-requisitos.md#rnf-05) |
 
 **Critérios de Aceitação:**
@@ -572,8 +572,8 @@ Funcionalidade: Avaliação de relevância e precisão da análise
 |:---|:---|
 | **Descrição** | Eu, como usuária, pretendo visualizar as principais alegações verificáveis do vídeo separadamente para investigar cada uma delas sem aceitar uma classificação global ou veredito automático. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Amanda](../design/personas-e-jornadas.md#amanda) |
-| **Rastreabilidade** | GQ01, GQ02, GQ11, [ADR-006 Decisão 1 e 2](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-06](catalogo-requisitos.md#rf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Persona Relacionada** | [Amanda](personas-e-jornadas.md#amanda) |
+| **Rastreabilidade** | GQ01, GQ02, GQ11, [ADR-006 Decisão 1 e 2](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [RF-06](catalogo-requisitos.md#rf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
 
@@ -605,7 +605,7 @@ Funcionalidade: Investigação orientada por alegações
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Criação da história para formalizar a alegação como unidade atômica da investigação e a eliminação definitiva de scores globais (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Criação da história para formalizar a alegação como unidade atômica da investigação e a eliminação definitiva de scores globais (Origem: ADR-006). | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ---
 
@@ -615,8 +615,8 @@ Funcionalidade: Investigação orientada por alegações
 |:---|:---|
 | **Descrição** | Eu, como usuária, pretendo ver quais fontes sustentam, contradizem ou contextualizam cada alegação para poder verificar a origem das informações de forma autônoma. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Mayara](../design/personas-e-jornadas.md#mayara) |
-| **Rastreabilidade** | GQ02, GQ04, GQ06, [ADR-006 Decisão 2 e 5](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-04](catalogo-requisitos.md#rf-04), [RF-13](catalogo-requisitos.md#rf-13), [RNF-05](catalogo-requisitos.md#rnf-05) |
+| **Persona Relacionada** | [Mayara](personas-e-jornadas.md#mayara) |
+| **Rastreabilidade** | GQ02, GQ04, GQ06, [ADR-006 Decisão 2 e 5](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [RF-04](catalogo-requisitos.md#rf-04), [RF-13](catalogo-requisitos.md#rf-13), [RNF-05](catalogo-requisitos.md#rnf-05) |
 
 **Critérios de Aceitação:**
 
@@ -647,7 +647,7 @@ Funcionalidade: Evidência rastreável
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Criação da história para assegurar a rastreabilidade estrita de cada evidência por alegação com relação explícita e metadados completos (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Criação da história para assegurar a rastreabilidade estrita de cada evidência por alegação com relação explícita e metadados completos (Origem: ADR-006). | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ---
 
@@ -657,8 +657,8 @@ Funcionalidade: Evidência rastreável
 |:---|:---|
 | **Descrição** | Eu, como usuária, pretendo receber perguntas que me ajudem a avaliar a alegação por conta própria antes de formar uma conclusão definitiva sobre o conteúdo assistido. |
 | **Prioridade** | Must Have \| IN |
-| **Persona Relacionada** | [Helena](../design/personas-e-jornadas.md#helena) |
-| **Rastreabilidade** | GQ08, GQ11, [ADR-006 Decisão 7](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-05](catalogo-requisitos.md#rf-05), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Persona Relacionada** | [Helena](personas-e-jornadas.md#helena) |
+| **Rastreabilidade** | GQ08, GQ11, [ADR-006 Decisão 7](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [RF-05](catalogo-requisitos.md#rf-05), [RNF-07](catalogo-requisitos.md#rnf-07) |
 
 **Critérios de Aceitação:**
 
@@ -689,7 +689,7 @@ Funcionalidade: Reflexão crítica na UX
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Criação da história para garantir na interface o estímulo contínuo ao pensamento crítico através de perguntas estruturadas (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Criação da história para garantir na interface o estímulo contínuo ao pensamento crítico através de perguntas estruturadas (Origem: ADR-006). | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ---
 
@@ -702,7 +702,7 @@ Funcionalidade: Reflexão crítica na UX
 | **Descrição** | Eu, como sistema, pretendo utilizar diferentes provedores de LLM por meio de uma interface comum para não depender estruturalmente do Ollama local e operar com flexibilidade de infraestrutura. |
 | **Prioridade** | Must Have \| IN |
 | **Persona Relacionada** | Equipe de Engenharia / Sistema |
-| **Rastreabilidade** | GQ03, GQ07, [ADR-006 Decisão 6](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-14](catalogo-requisitos.md#rf-14), [RF-15](catalogo-requisitos.md#rf-15), [RNF-06](catalogo-requisitos.md#rnf-06) |
+| **Rastreabilidade** | GQ03, GQ07, [ADR-006 Decisão 6](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [RF-14](catalogo-requisitos.md#rf-14), [RF-15](catalogo-requisitos.md#rf-15), [RNF-06](catalogo-requisitos.md#rnf-06) |
 
 **Critérios de Aceitação:**
 
@@ -734,10 +734,10 @@ Funcionalidade: Provedor de IA independente
 
 | Data | Motivo | Referência |
 |:---|:---|:---|
-| 2026-10-02 | Criação da história para formalizar o desacoplamento de provedores de LLM, a degradação resiliente para modo Evidence-Only e a proibição absoluta de mocks em ambiente produtivo (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| 2026-10-02 | Criação da história para formalizar o desacoplamento de provedores de LLM, a degradação resiliente para modo Evidence-Only e a proibição absoluta de mocks em ambiente produtivo (Origem: ADR-006). | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ---
 
 **Próximo:** [Casos de Uso](casos-de-uso.md) — fluxos detalhados de cada funcionalidade.  
-**Ver também:** [Priorização e MVP](../planejamento/priorizacao-e-mvp.md) — sequência de entrega e decisões técnicas.
+**Ver também:** [Priorização e MVP](priorizacao-e-mvp.md) — sequência de entrega e decisões técnicas.
 

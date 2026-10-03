@@ -17,7 +17,7 @@
 
 | ID | Risco Identificado | Categoria | Probabilidade | Impacto | Severidade | Estratégia Adotada |
 |:---:|:---|:---|:---:|:---:|:---:|:---|
-| **R-01** | Pipeline em série exceder o SLA de 10 segundos ([RNF-01](../requisitos/catalogo-requisitos.md#rnf-01)) | Desempenho | Média | Alto | **Alta** | Mitigação via paralelização assíncrona e cache |
+| **R-01** | Pipeline em série exceder o SLA de 10 segundos ([RNF-01](catalogo-requisitos.md#rnf-01)) | Desempenho | Média | Alto | **Alta** | Mitigação via paralelização assíncrona e cache |
 | **R-02** | Alterações unilaterais no layout ou DOM do YouTube pelo Google | Técnico | Alta | Médio | **Alta** | Mitigação via seletores estáveis e testes contínuos |
 | **R-03** | Explosão de custos operacionais com provedores de IA e busca | Financeiro | Média | Alto | **Alta** | Mitigação via cache agressivo e modelos econômicos |
 | **R-04** | Vídeos sem faixas de legenda nativas ou automáticas disponíveis | Produto | Média | Médio | **Média** | Tratamento gracioso no MVP; roadmap para Onda 3 |
@@ -46,7 +46,7 @@
 
 - **Descrição:** O aumento exponencial de acessos ou vídeos virais repetidos pode inflacionar os custos de computação de modelos e consumo de APIs pagas de busca.
 - **Plano de Mitigação:**
-  1. **Cache Local de 24 Horas:** Consulta imediata em `chrome.storage.local` impede que o mesmo usuário gere cobranças repetidas ([ADR-003](../tecnico/decisoes/ADR-003-estrategia-cache-local.md)).
+  1. **Cache Local de 24 Horas:** Consulta imediata em `chrome.storage.local` impede que o mesmo usuário gere cobranças repetidas ([ADR-003](../arquitetura/decisoes/ADR-003-estrategia-cache-local.md)).
   2. **Cache Centralizado no Backend Proxy:** Vídeos populares com checagens idênticas utilizam o resultado já processado para outros usuários.
   3. **Rate Limiting:** Bloqueio de abusos e limites estritos de chamadas por usuário.
 
@@ -54,7 +54,7 @@
 
 - **Descrição:** Canais que desativam manualmente legendas ou vídeos com ruído de áudio onde a transcrição automática do YouTube falha inviabilizam o fluxo do MVP.
 - **Plano de Mitigação:**
-  1. **Feedback Imediato:** Notificação clara em até 1 segundo explicando que o vídeo não possui legendas, evitando tempo de espera inútil ([RF-08](../requisitos/catalogo-requisitos.md#rf-08)).
+  1. **Feedback Imediato:** Notificação clara em até 1 segundo explicando que o vídeo não possui legendas, evitando tempo de espera inútil ([RF-08](catalogo-requisitos.md#rf-08)).
   2. **Evolução Planejada (Onda 3):** No Sequenciador de Features, a Onda 3 prevê a funcionalidade `F3.3: Transcrição por áudio local via Whisper` como fallback para vídeos sem faixas de texto nativas.
 
 ### Risco 5: Ataques Coordenados e Engenharia Reversa {: #risco-5 }
@@ -72,5 +72,5 @@ A matriz de riscos é revisada semanalmente com base nas métricas operacionais 
 
 ---
 
-**Próximo:** [Instrumentação e Telemetria](metricas-telemetria.md) — coleta ética de dados de uso e KPIs.  
-**Ver também:** [Threat Model e Segurança](../tecnico/threat-model.md) — governança de segurança contra ameaças.
+**Próximo:** [Instrumentação e Telemetria](../arquitetura/metricas-telemetria.md) — coleta ética de dados de uso e KPIs.  
+**Ver também:** [Threat Model e Segurança](../arquitetura/threat-model.md) — governança de segurança contra ameaças.

@@ -17,7 +17,7 @@
 ---
 
 !!! tip "Novo no projeto? Comece por aqui em até 15 minutos"
-    Consulte a [Visão Geral do Projeto (1 página)](visao-geral/visao-geral-do-projeto.md) para entender rapidamente o problema, a solução, a arquitetura e os próximos passos. Acompanhe a entrega dos marcos no [Painel de Status Consolidado](visao-geral/status.md).
+    Consulte a [Visão Geral do Projeto (1 página)](visao/visao-geral-do-projeto.md) para entender rapidamente o problema, a solução, a arquitetura e os próximos passos. Acompanhe a entrega dos marcos no [Painel de Status Consolidado](visao/status.md).
 
 ---
 
@@ -26,7 +26,7 @@
 A documentação está consolidada em quatro pilares objetivos para rápida localização por qualquer perfil de leitor:
 
 <div class="doc-grid">
-  <a href="visao-geral/visao-geral-do-projeto/" class="doc-card">
+  <a href="visao/visao-geral-do-projeto/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
@@ -48,7 +48,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
     <div class="doc-card__action"><span>Explorar Requisitos &rarr;</span></div>
   </a>
 
-  <a href="tecnico/arquitetura/" class="doc-card">
+  <a href="arquitetura/arquitetura/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
@@ -59,7 +59,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
     <div class="doc-card__action"><span>Ver Arquitetura &rarr;</span></div>
   </a>
 
-  <a href="cbl/act/experiment-plan/" class="doc-card">
+  <a href="validacao/experiment-plan/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/><line x1="8" y1="15" x2="16" y2="15"/></svg></span>
@@ -73,10 +73,10 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
 
 | Pilar | Documentos Principais | O que você encontra | Ponto de Partida |
 |:---|:---|:---|:---:|
-| **1. Visão Geral** | [Visão em 1 Página](visao-geral/visao-geral-do-projeto.md) · [Mapa Visual](visao-geral/mapa-do-projeto.md) · [Painel de Status](visao-geral/status.md) · [Glossário](glossario.md) | Síntese executiva (5-10 min), fluxo de telas, topologia dos repositórios e status das entregas | [Começar aqui](visao-geral/visao-geral-do-projeto.md) |
-| **2. Requisitos & Produto** | [Elicitação ($100)](requisitos/elicitacao.md) · [Catálogo RF/RNF](requisitos/catalogo-requisitos.md) · [Personas & UX](design/personas-e-jornadas.md) · [Histórias Gherkin](requisitos/backlog-e-historias.md) · [Matriz MoSCoW](requisitos/matriz-rastreabilidade.md) | Personas, requisitos funcionais/não funcionais, casos de uso, critérios Gherkin e priorização MoSCoW | [Ver Requisitos](requisitos/catalogo-requisitos.md) |
-| **3. Arquitetura & Engenharia** | [Arquitetura C4](tecnico/arquitetura.md) · [Pipeline RAG Local](tecnico/ia-e-datasets.md) · [Contrato de API](tecnico/contrato-api.md) · [STRIDE & LGPD](tecnico/threat-model.md) · [ADRs 001–006](tecnico/decisoes/ADR-001-manifest-v3.md) · [CI/CD](tecnico/estrategia-testes.md) | Modelo C4, sequência assíncrona, schemas OpenAPI/Pydantic, privacidade, decisões arquiteturais e setup | [Ver Arquitetura](tecnico/arquitetura.md) |
-| **4. Validação & Qualidade** | [Plano do Experimento](cbl/act/experiment-plan.md) · [Protocolo de Teste](cbl/act/participant-protocol.md) · [Métricas M1 a M9](cbl/act/metrics-definition.md) · [Telemetria](cbl/act/telemetry-spec.md) · [DoD](scrum/definition-of-done.md) · [Reflexão Crítica](cbl/reflect-share/reflection.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega | [Ver Validação](cbl/act/experiment-plan.md) |
+| **1. Visão Geral** | [Visão em 1 Página](visao/visao-geral-do-projeto.md) · [Mapa Visual](visao/mapa-do-projeto.md) · [Painel de Status](visao/status.md) · [Glossário](glossario.md) | Síntese executiva (5-10 min), fluxo de telas, topologia dos repositórios e status das entregas | [Começar aqui](visao/visao-geral-do-projeto.md) |
+| **2. Requisitos & Produto** | [Elicitação ($100)](requisitos/elicitacao.md) · [Catálogo RF/RNF](requisitos/catalogo-requisitos.md) · [Personas & UX](requisitos/personas-e-jornadas.md) · [Histórias Gherkin](requisitos/backlog-e-historias.md) · [Matriz MoSCoW](requisitos/matriz-rastreabilidade.md) | Personas, requisitos funcionais/não funcionais, casos de uso, critérios Gherkin e priorização MoSCoW | [Ver Requisitos](requisitos/catalogo-requisitos.md) |
+| **3. Arquitetura & Engenharia** | [Arquitetura C4](arquitetura/arquitetura.md) · [Pipeline RAG Local](arquitetura/ia-e-datasets.md) · [Contrato de API](arquitetura/contrato-api.md) · [STRIDE & LGPD](arquitetura/threat-model.md) · [ADRs 001–006](arquitetura/decisoes/ADR-001-manifest-v3.md) · [CI/CD](arquitetura/estrategia-testes.md) | Modelo C4, sequência assíncrona, schemas OpenAPI/Pydantic, privacidade, decisões arquiteturais e setup | [Ver Arquitetura](arquitetura/arquitetura.md) |
+| **4. Validação & Qualidade** | [Plano do Experimento](validacao/experiment-plan.md) · [Protocolo de Teste](validacao/participant-protocol.md) · [Métricas M1 a M9](validacao/metrics-definition.md) · [Telemetria](validacao/telemetry-spec.md) · [DoD](validacao/definition-of-done.md) · [Reflexão Crítica](validacao/reflection.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega | [Ver Validação](validacao/experiment-plan.md) |
 
 ---
 
@@ -84,7 +84,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
 
 O **EvidencIA** é uma extensão de navegador de código aberto desenvolvida sob o padrão **Manifest V3** (Google Chrome, Microsoft Edge e Brave) projetada para apoiar o discernimento crítico de quem assiste a conteúdos no YouTube. A ferramenta analisa a transcrição do áudio do vídeo em tempo real, identifica alegações verificáveis e busca evidências factuais em agências de checagem jornalística brasileiras, organizando os resultados em um painel lateral acessível.
 
-Ao contrário de abordagens baseadas em vereditos algorítmicos automatizados, o EvidencIA adota a arquitetura **Evidence-First** ([ADR-006](tecnico/decisoes/ADR-006-evidence-first-architecture.md)): o sistema não atribui uma nota ou score à verdade, mas fornece o contexto factual, as fontes auditáveis e perguntas de estímulo crítico para que o próprio usuário forme sua convicção.
+Ao contrário de abordagens baseadas em vereditos algorítmicos automatizados, o EvidencIA adota a arquitetura **Evidence-First** ([ADR-006](arquitetura/decisoes/ADR-006-evidence-first-architecture.md)): o sistema não atribui uma nota ou score à verdade, mas fornece o contexto factual, as fontes auditáveis e perguntas de estímulo crítico para que o próprio usuário forme sua convicção.
 
 ![Interface do Painel Lateral da Extensão no YouTube](assets/mockup-painel-youtube.png)
 *Figura: Conceito visual do painel lateral em tema escuro integrado ao player do YouTube. A interface segue a arquitetura Evidence-First com cartões de alegações, fontes com links auditáveis e perguntas reflexivas.*
@@ -95,12 +95,12 @@ Ao contrário de abordagens baseadas em vereditos algorítmicos automatizados, o
 
 | Dimensão | Especificação Homologada | Rastreabilidade |
 |:---|:---|:---:|
-| **Padrão de Extensão** | Manifest V3 (Google Chrome Extensions API) | [ADR-001](tecnico/decisoes/ADR-001-manifest-v3.md) |
+| **Padrão de Extensão** | Manifest V3 (Google Chrome Extensions API) | [ADR-001](arquitetura/decisoes/ADR-001-manifest-v3.md) |
 | **Navegadores Homologados** | Google Chrome, Microsoft Edge, Brave (Chromium ≥ 110) | [RNF-03](requisitos/catalogo-requisitos.md#rnf-03) |
 | **Escopo de Operação** | Exclusivo em páginas de reprodução ativa: `https://www.youtube.com/watch*` | [RF-01](requisitos/catalogo-requisitos.md#rf-01) |
 | **SLA de Latência** | Primeira evidência em ≤ 5s (P90); resposta completa em ≤ 10s (P90) | [RNF-01](requisitos/catalogo-requisitos.md#rnf-01) |
 | **Sobrecarga de Renderização** | Impacto máximo de **+50 ms** em Total Blocking Time (TBT) | [RNF-02](requisitos/catalogo-requisitos.md#rnf-02) |
-| **Segurança e Credenciais** | Zero chaves no cliente; intermediação estrita via Backend Proxy | [ADR-002](tecnico/decisoes/ADR-002-backend-proxy.md) |
+| **Segurança e Credenciais** | Zero chaves no cliente; intermediação estrita via Backend Proxy | [ADR-002](arquitetura/decisoes/ADR-002-backend-proxy.md) |
 | **Privacidade de Dados** | Permissão restrita a `activeTab`; sem coleta de histórico geral de navegação | [RNF-05](requisitos/catalogo-requisitos.md#rnf-05) |
 | **Acessibilidade Digital** | Conformidade com as diretrizes internacionais WCAG 2.1 nível AA | [RNF-07](requisitos/catalogo-requisitos.md#rnf-07) |
 
@@ -129,7 +129,7 @@ uv run mkdocs build --strict
 ---
 
 ## Documentos Relacionados
-- [Visão Geral do Projeto (1 página)](visao-geral/visao-geral-do-projeto.md) — Resumo de alto nível para leitura rápida.
-- [Painel Consolidado de Status](visao-geral/status.md) — Monitoramento de entregas e portões de decisão.
+- [Visão Geral do Projeto (1 página)](visao/visao-geral-do-projeto.md) — Resumo de alto nível para leitura rápida.
+- [Painel Consolidado de Status](visao/status.md) — Monitoramento de entregas e portões de decisão.
 - [Catálogo de Requisitos](requisitos/catalogo-requisitos.md) — Especificação detalhada de requisitos funcionais e não funcionais.
 - [Glossário Oficial](glossario.md) — Vocabulário padronizado do projeto.

@@ -110,15 +110,15 @@ O produto não determina "a verdade". Ao apresentar evidências com seus metadad
 
 | GQ(s) | Decisão | Status | Referência |
 |:---|:---|:---|:---|
-| GQ01 | Unidade de análise = alegação individual (não o vídeo inteiro) | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| GQ02, GQ12 | Remoção do score global 0–100 e do gauge da UX | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| GQ03, GQ07 | LLM como componente auxiliar; RAG como núcleo factual | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| GQ04 | Priorizar FactChecks.br e Fake.br; ClaimPT como auxiliar metodológico | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| GQ05, GQ06 | Estado `insufficient_evidence` distinto de `false`; fontes conflitantes expostas lado a lado | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| GQ08 | HU11 promovida de Pós-MVP para Must Have do MVP | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [HU11](../requisitos/backlog-e-historias.md#hu11) |
+| GQ01 | Unidade de análise = alegação individual (não o vídeo inteiro) | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| GQ02, GQ12 | Remoção do score global 0–100 e do gauge da UX | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| GQ03, GQ07 | LLM como componente auxiliar; RAG como núcleo factual | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| GQ04 | Priorizar FactChecks.br e Fake.br; ClaimPT como auxiliar metodológico | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| GQ05, GQ06 | Estado `insufficient_evidence` distinto de `false`; fontes conflitantes expostas lado a lado | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| GQ08 | HU11 promovida de Pós-MVP para Must Have do MVP | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [HU11](../requisitos/backlog-e-historias.md#hu11) |
 | GQ09 | EDA inclui avaliação de retrieval com Recall@k, MRR, nDCG | Aceito | Sprint 01 |
-| GQ10 | Campo `TemporalContext` obrigatório no schema de alegações | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| GQ11 | UX de investigação assistida; usuário é investigador final | Aceito | [essential-question-alignment.md](essential-question-alignment.md) |
+| GQ10 | Campo `TemporalContext` obrigatório no schema de alegações | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| GQ11 | UX de investigação assistida; usuário é investigador final | Aceito | [essential-question-alignment.md](../requisitos/essential-question-alignment.md) |
 
 ---
 
@@ -151,4 +151,4 @@ As GQs respondidas na Sprint 1 alimentam a Sprint 2 (fase **Act**), que converte
 
 ---
 
-**Ver também:** [Essential Question Alignment](essential-question-alignment.md) · [ADR-006 — Evidence-First Architecture](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md)
+**Ver também:** [Essential Question Alignment](../requisitos/essential-question-alignment.md) · [ADR-006 — Evidence-First Architecture](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md)

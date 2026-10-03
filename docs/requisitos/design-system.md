@@ -1,7 +1,7 @@
 # Design System e Interface do Painel Lateral
 
-> [!NOTE]
-> **Alinhamento Evidence-First (2026-10-02):** Conforme deliberado no [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), o componente `Gauge.tsx` (velocímetro numérico 0–100%) foi removido da UX principal para evitar vereditos algorítmicos. O painel passa a estruturar a experiência em torno de **Alegações Atômicas**, **Cartões de Evidência** com relação explícita e **Perguntas para Reflexão Crítica** (HU11/HU15).
+!!! note "Alinhamento Evidence-First (2026-10-02):"
+    Conforme deliberado no [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), o componente `Gauge.tsx` (velocímetro numérico 0–100%) foi removido da UX principal para evitar vereditos algorítmicos. O painel passa a estruturar a experiência em torno de **Alegações Atômicas**, **Cartões de Evidência** com relação explícita e **Perguntas para Reflexão Crítica** (HU11/HU15).
 
 ## Nesta página
 
@@ -105,5 +105,5 @@ As cores e tipografias foram mapeadas para garantir contraste estrito e conformi
 
 ---
 
-**Próximo:** [Catálogo Consolidado de Requisitos](../requisitos/catalogo-requisitos.md) — especificações completas de RF e RNF.  
+**Próximo:** [Catálogo Consolidado de Requisitos](catalogo-requisitos.md) — especificações completas de RF e RNF.  
 **Ver também:** [Personas e Jornadas](personas-e-jornadas.md) — perfis de usuários que orientam o design do produto.

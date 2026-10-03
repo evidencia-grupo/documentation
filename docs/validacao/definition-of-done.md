@@ -75,4 +75,4 @@ Uma História de Usuário ou Requisito Funcional está **Done** quando:
 
 ---
 
-**Ver também:** [Product Backlog](product-backlog.md) · [Estratégia de Testes](../tecnico/estrategia-testes.md) · [Contrato de API](../tecnico/contrato-api.md)
+**Ver também:** [Product Backlog](product-backlog.md) · [Estratégia de Testes](../arquitetura/estrategia-testes.md) · [Contrato de API](../arquitetura/contrato-api.md)

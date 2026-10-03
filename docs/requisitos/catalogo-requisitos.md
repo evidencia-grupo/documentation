@@ -93,7 +93,7 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 | **Classificação MoSCoW** | Must Have (Onda 1 - MVP) \| IN (Promovido de Pós-MVP via ADR-006) |
 | **Regras de Negócio** | O sistema formula no mínimo 3 perguntas reflexivas neutras por análise/alegação investigada (ex.: origem primária, atualidade temporal, omissões de argumentos e existência de evidências independentes) para estimular a reflexão do usuário, sem emitir juízos ideológicos ou impor conclusões pré-fabricadas. A seção "Perguntas para você" é componente indispensável do MVP. A interação é opcional e não bloqueia a navegação. |
 | **Componente Responsável** | Painel Lateral (Módulo Reflexivo Preact) e Backend Proxy (Gerador de Perguntas). |
-| **Rastreabilidade** | GQ08, GQ11, [ADR-006 Decisão 7](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 05](cenarios.md#cenario-05), [UC-05](casos-de-uso.md#uc-05), [HU11, HU15](backlog-e-historias.md#hu11). |
+| **Rastreabilidade** | GQ08, GQ11, [ADR-006 Decisão 7](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 05](cenarios.md#cenario-05), [UC-05](casos-de-uso.md#uc-05), [HU11, HU15](backlog-e-historias.md#hu11). |
 
 ### RF-06: Síntese Estruturada de Resultados {: #rf-06 }
 
@@ -103,7 +103,7 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 | **Classificação MoSCoW** | Must Have (Onda 1 - MVP) \| IN |
 | **Regras de Negócio** | A interface do painel lateral deve apresentar a investigação estruturada orientada a alegações individuais, agrupando as evidências de cada afirmação em: Sustentam (`supports`), Contradizem (`contradicts`) ou Contextualizam (`contextualizes`). É expressamente proibida a exibição de score de veracidade (0 a 100%), velocímetro gráfico (gauge) ou qualquer índice numérico agregador, preservando o julgamento autônomo do usuário. |
 | **Componente Responsável** | Painel Lateral (Preact / Shadow DOM) e Backend Proxy. |
-| **Rastreabilidade** | GQ01, GQ02, [ADR-006 Decisão 1 e 2](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [Cenário 10](cenarios.md#cenario-10), [UC-01, UC-03](casos-de-uso.md#uc-01), [HU02, HU04, HU13](backlog-e-historias.md#hu02). |
+| **Rastreabilidade** | GQ01, GQ02, [ADR-006 Decisão 1 e 2](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [Cenário 10](cenarios.md#cenario-10), [UC-01, UC-03](casos-de-uso.md#uc-01), [HU02, HU04, HU13](backlog-e-historias.md#hu02). |
 
 ### RF-07: Alerta Expresso de Incerteza Analítica {: #rf-07 }
 
@@ -161,10 +161,10 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 |:---|:---|
 | **Enunciado Padronizado** | O sistema deve classificar e exibir explicitamente o estado de "Sem evidência suficiente" (`insufficient_evidence`) quando a busca não identificar registros que corroborem ou refutem uma alegação. |
 | **Classificação MoSCoW** | Must Have (Onda 1 - MVP) \| IN |
-| **Origem do Requisito** | [ADR-006 Decisão 3](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) (GQ05). |
+| **Origem do Requisito** | [ADR-006 Decisão 3](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) (GQ05). |
 | **Regras de Negócio** | A ausência de evidências nos corpora consultados jamais deve ser convertida automaticamente em rótulo de falsidade ou penalidade. O estado `insufficient_evidence` é epistemicamente distinto de `contradicted`/falso e deve ser exposto na seção "O que ainda não sabemos" da interface. |
 | **Componente Responsável** | Backend Proxy (Classificador de Evidências) e Painel Lateral (Badge de Incerteza). |
-| **Rastreabilidade** | GQ05, [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [HU09](backlog-e-historias.md#hu09). |
+| **Rastreabilidade** | GQ05, [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [HU09](backlog-e-historias.md#hu09). |
 
 ### RF-13: Provenance e Rastreabilidade Completa de Evidências {: #rf-13 }
 
@@ -172,10 +172,10 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 |:---|:---|
 | **Enunciado Padronizado** | O sistema deve fornecer metadados de provenance para cada evidência recuperada, assegurando a possibilidade de auditoria independente por parte do usuário. |
 | **Classificação MoSCoW** | Must Have (Onda 1 - MVP) \| IN |
-| **Origem do Requisito** | [ADR-006 Decisão 2 e 5](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) (GQ04, GQ07). |
+| **Origem do Requisito** | [ADR-006 Decisão 2 e 5](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) (GQ04, GQ07). |
 | **Regras de Negócio** | Cada registro de evidência entregue à interface deve conter obrigatoriamente: corpus/dataset de proveniência (ex.: FactChecks.br), data de indexação, título da publicação, publisher, link canônico direto e hash/identificador único do documento indexado. |
 | **Componente Responsável** | Backend Proxy (Pipeline RAG / Chroma) e Painel Lateral (`EvidenceCard.tsx`). |
-| **Rastreabilidade** | GQ04, GQ07, [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [HU07, HU14](backlog-e-historias.md#hu07). |
+| **Rastreabilidade** | GQ04, GQ07, [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [HU07, HU14](backlog-e-historias.md#hu07). |
 
 ### RF-14: Desacoplamento de Provedores de IA {: #rf-14 }
 
@@ -183,10 +183,10 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 |:---|:---|
 | **Enunciado Padronizado** | O backend deve prover interface desacoplada para execução de tarefas de linguagem natural com suporte a múltiplos provedores intercambiáveis via configuração. |
 | **Classificação MoSCoW** | Must Have (Onda 1 - MVP) \| IN |
-| **Origem do Requisito** | [ADR-006 Decisão 6](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) (GQ03, GQ07). |
+| **Origem do Requisito** | [ADR-006 Decisão 6](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) (GQ03, GQ07). |
 | **Regras de Negócio** | O subsistema de inferência deve implementar a interface `LLMProvider` abstrata. A seleção entre provedor local (Ollama), remoto via API ou mock para testes deve ocorrer exclusivamente via variável de ambiente (`LLM_PROVIDER`). Falhas de conexão do provedor devem degradar o sistema para o modo Evidence-Only sem interrupção de serviço. |
 | **Componente Responsável** | Backend Proxy (`app/providers/base.py`). |
-| **Rastreabilidade** | GQ03, GQ07, [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [HU16](backlog-e-historias.md#hu16), [RNF-06](catalogo-requisitos.md#rnf-06). |
+| **Rastreabilidade** | GQ03, GQ07, [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [HU16](backlog-e-historias.md#hu16), [RNF-06](catalogo-requisitos.md#rnf-06). |
 
 ### RF-15: Proibição Estrita de Mock de IA em Produção {: #rf-15 }
 
@@ -194,10 +194,10 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 |:---|:---|
 | **Enunciado Padronizado** | O sistema deve impedir a inicialização ou execução de provedores simulados (mocks) quando operando em ambiente de homologação ou produção. |
 | **Classificação MoSCoW** | Must Have (Onda 1 - MVP) \| IN |
-| **Origem do Requisito** | [ADR-006 Decisão 6](../tecnico/decisoes/ADR-006-evidence-first-architecture.md). |
+| **Origem do Requisito** | [ADR-006 Decisão 6](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md). |
 | **Regras de Negócio** | Caso a aplicação identifique `ENV=production` ou `NODE_ENV=production` conjuntamente com `LLM_PROVIDER=mock`, o processo deve ser imediatamente abortado com exceção fatal de segurança e registro do evento no log de auditoria do sistema. Mocks só são permitidos com ativação explícita em testes unitários ou desenvolvimento local. |
 | **Componente Responsável** | Backend Proxy (Validador de Configuração e Startup Gate). |
-| **Rastreabilidade** | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [HU16](backlog-e-historias.md#hu16), [RNF-04](catalogo-requisitos.md#rnf-04). |
+| **Rastreabilidade** | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [HU16](backlog-e-historias.md#hu16), [RNF-04](catalogo-requisitos.md#rnf-04). |
 
 
 ---
@@ -229,7 +229,7 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 | **Enunciado Padronizado** | A extensão deve ser implementada em estrita conformidade com o padrão Manifest V3 do ecossistema Chromium, utilizando Service Workers para rotinas de fundo e assegurando interoperabilidade nos navegadores Google Chrome, Microsoft Edge e Brave. |
 | **Escopo de Homologação** | Navegadores baseados em Chromium versão >= 110. Escopo restrito a `https://www.youtube.com/watch*`. |
 | **Método de Validação** | Testes de regressão automatizados em runners Chromium para Chrome, Edge e Brave. |
-| **Rastreabilidade** | [Cenário 02](cenarios.md#cenario-02), [HU05](backlog-e-historias.md#hu05), [ADR-001](../tecnico/decisoes/ADR-001-manifest-v3.md). |
+| **Rastreabilidade** | [Cenário 02](cenarios.md#cenario-02), [HU05](backlog-e-historias.md#hu05), [ADR-001](../arquitetura/decisoes/ADR-001-manifest-v3.md). |
 
 ### RNF-04 [Segurança - Gestão de Credenciais] {: #rnf-04 }
 
@@ -238,7 +238,7 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 | **Enunciado Padronizado** | A extensão não deve conter chaves de API, credenciais ou segredos em seu código executável no cliente (client-side), canalizando todas as requisições a serviços externos e inferências por meio de um servidor proxy autenticado. |
 | **Diretrizes de Segurança** | Zero segredos em arquivos empacotados na extensão; autenticação segura por token de sessão efêmero no Backend Proxy; isolamento de renderização em Shadow DOM. |
 | **Método de Validação** | Secret scanning estático no CI (Gitleaks, Trufflehog) e análise de tráfego de rede no build. |
-| **Rastreabilidade** | [Cenário 03](cenarios.md#cenario-03), [HU03, HU04](backlog-e-historias.md#hu03), [ADR-002](../tecnico/decisoes/ADR-002-backend-proxy.md). |
+| **Rastreabilidade** | [Cenário 03](cenarios.md#cenario-03), [HU03, HU04](backlog-e-historias.md#hu03), [ADR-002](../arquitetura/decisoes/ADR-002-backend-proxy.md). |
 
 ### RNF-05 [Segurança e Privacidade (LGPD)] {: #rnf-05 }
 
@@ -247,7 +247,7 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 | **Enunciado Padronizado** | A extensão deve solicitar apenas permissões estritamente essenciais no manifesto (activeTab e escopo restrito a https://www.youtube.com/*), sem coletar histórico geral de navegação, sem armazenar credenciais do usuário e sem reter dados analíticos por padrão. |
 | **Princípios LGPD** | Necessidade (Art. 6º, III), Finalidade (Art. 6º, I) e Segurança (Art. 6º, VII). Sem cookies de terceiros ou identificadores biométricos/persistentes. |
 | **Método de Validação** | Auditoria de segurança de permissões de manifesto e verificação de conformidade no Threat Model. |
-| **Rastreabilidade** | [Cenário 04, 07, 11](cenarios.md#cenario-04), [HU06, HU07, HU12](backlog-e-historias.md#hu06), [Threat Model](../tecnico/threat-model.md). |
+| **Rastreabilidade** | [Cenário 04, 07, 11](cenarios.md#cenario-04), [HU06, HU07, HU12](backlog-e-historias.md#hu06), [Threat Model](../arquitetura/threat-model.md). |
 
 ### RNF-06 [Resiliência e Degradação Graciosa] {: #rnf-06 }
 
@@ -265,7 +265,7 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 | **Enunciado Padronizado** | A interface deve apresentar as informações de forma hierarquizada e sem sobrecarga cognitiva para usuários leigos, atendendo aos padrões WCAG de contraste de cores, legibilidade e suporte integral à navegação via teclado. |
 | **Critérios de Acessibilidade** | Conformidade com WCAG 2.1 nível AA; contraste de cores >= 4,5:1; suporte integral a foco via `Tab`; atributos descritivos ARIA. |
 | **Método de Validação** | Varredura automatizada com `axe-core` no CI e testes manuais de navegação por teclado. |
-| **Rastreabilidade** | [Cenário 01, 04, 06, 08, 09, 10](cenarios.md#cenario-01), [HU01, HU02, HU07, HU08, HU09, HU10](backlog-e-historias.md#hu01), [Design System](../design/design-system.md). |
+| **Rastreabilidade** | [Cenário 01, 04, 06, 08, 09, 10](cenarios.md#cenario-01), [HU01, HU02, HU07, HU08, HU09, HU10](backlog-e-historias.md#hu01), [Design System](design-system.md). |
 
 ---
 

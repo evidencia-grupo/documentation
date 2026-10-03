@@ -57,8 +57,8 @@ flowchart LR
     style UC05 fill:#eee,stroke:#999,stroke-dasharray: 5 5
 ```
 
-> [!NOTE]
-> **Evolução Arquitetural (ADR-006):** No planejamento inicial, o retorno reflexivo era classificado como *Could Have* (Fora do MVP). Com a homologação da arquitetura Evidence-First ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)), as perguntas reflexivas ([RF-05](catalogo-requisitos.md#rf-05) / [HU11](backlog-e-historias.md#hu11)) foram **promovidas para Must Have (MVP)**, permanecendo fora do MVP apenas o canal voluntário de avaliação de precisão ([RF-10](catalogo-requisitos.md#rf-10) / [HU12](backlog-e-historias.md#hu12)).
+!!! note "Evolução Arquitetural (ADR-006):"
+    No planejamento inicial, o retorno reflexivo era classificado como *Could Have* (Fora do MVP). Com a homologação da arquitetura Evidence-First ([ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md)), as perguntas reflexivas ([RF-05](catalogo-requisitos.md#rf-05) / [HU11](backlog-e-historias.md#hu11)) foram **promovidas para Must Have (MVP)**, permanecendo fora do MVP apenas o canal voluntário de avaliação de precisão ([RF-10](catalogo-requisitos.md#rf-10) / [HU12](backlog-e-historias.md#hu12)).
 
 ---
 
@@ -203,5 +203,5 @@ flowchart LR
 
 ---
 
-**Próximo:** [Priorização e MVP](../planejamento/priorizacao-e-mvp.md) — sequência de entrega e estratégias técnicas por feature.  
+**Próximo:** [Priorização e MVP](priorizacao-e-mvp.md) — sequência de entrega e estratégias técnicas por feature.  
 **Ver também:** [Backlog e Histórias](backlog-e-historias.md) — critérios de aceitação detalhados em Gherkin.

@@ -19,17 +19,17 @@ O status atribuído a cada documento ou componente de software reflete o estado 
 
 | Módulo / Dimensão | Artefato de Referência | Status | Observações Técnicas |
 |:---|:---|:---:|:---|
-| **Alinhamento do Produto** | [`docs/visao/guiding-questions.md`](../visao/guiding-questions.md) | `EVIDENCIADO` | 12 Questões Norteadoras e delimitação do problema |
-| **Decisão Evidence-First** | [`docs/visao/essential-question-alignment.md`](../visao/essential-question-alignment.md) | `EVIDENCIADO` | Eliminação do score algorítmico em prol de fontes auditáveis |
-| **Arquitetura Manifest V3** | [`docs/tecnico/decisoes/ADR-001-manifest-v3.md`](../tecnico/decisoes/ADR-001-manifest-v3.md) | `IMPLEMENTADO` | Background Service Worker e painel lateral Chromium |
-| **Arquitetura Evidence-First** | [`docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md`](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) | `IMPLEMENTADO` | Decisão de cartões de evidência e estímulo reflexivo |
+| **Alinhamento do Produto** | [`docs/visao/guiding-questions.md`](../validacao/guiding-questions.md) | `EVIDENCIADO` | 12 Questões Norteadoras e delimitação do problema |
+| **Decisão Evidence-First** | [`docs/visao/essential-question-alignment.md`](../requisitos/essential-question-alignment.md) | `EVIDENCIADO` | Eliminação do score algorítmico em prol de fontes auditáveis |
+| **Arquitetura Manifest V3** | [`docs/tecnico/decisoes/ADR-001-manifest-v3.md`](../arquitetura/decisoes/ADR-001-manifest-v3.md) | `IMPLEMENTADO` | Background Service Worker e painel lateral Chromium |
+| **Arquitetura Evidence-First** | [`docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md`](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) | `IMPLEMENTADO` | Decisão de cartões de evidência e estímulo reflexivo |
 | **Catálogo de Requisitos** | [`docs/requisitos/catalogo-requisitos.md`](../requisitos/catalogo-requisitos.md) | `EVIDENCIADO` | 15 Requisitos Funcionais e 7 Não Funcionais |
 | **Matriz de Rastreabilidade** | [`docs/requisitos/matriz-rastreabilidade.md`](../requisitos/matriz-rastreabilidade.md) | `EVIDENCIADO` | Rastreabilidade bidirecional de ponta a ponta (RF, UC, HU, Código) |
-| **Plano Experimental** | [`docs/cbl/act/experiment-plan.md`](../cbl/act/experiment-plan.md) | `EVIDENCIADO` | Desenho experimental between-subjects com usuários no YouTube |
-| **Métricas de Validação** | [`docs/cbl/act/metrics-definition.md`](../cbl/act/metrics-definition.md) | `EVIDENCIADO` | Formalização de métricas M1 a M9 (discernimento, tempo, usabilidade) |
-| **Telemetria do Cliente** | [`docs/cbl/act/telemetry-spec.md`](../cbl/act/telemetry-spec.md) | `IMPLEMENTADO` | Instrumentação de eventos de interação sem invasão de privacidade |
-| **Qualidade e Entrega** | [`docs/scrum/definition-of-done.md`](../scrum/definition-of-done.md) | `IMPLEMENTADO` | Critérios formais de DoD com acessibilidade WCAG e testes |
-| **Reflexão Crítica e Síntese** | [`docs/cbl/reflect-share/reflection.md`](../cbl/reflect-share/reflection.md) | `EVIDENCIADO` | Análise crítica sobre discernimento e impacto contra desinformação |
+| **Plano Experimental** | [`docs/cbl/act/experiment-plan.md`](../validacao/experiment-plan.md) | `EVIDENCIADO` | Desenho experimental between-subjects com usuários no YouTube |
+| **Métricas de Validação** | [`docs/cbl/act/metrics-definition.md`](../validacao/metrics-definition.md) | `EVIDENCIADO` | Formalização de métricas M1 a M9 (discernimento, tempo, usabilidade) |
+| **Telemetria do Cliente** | [`docs/cbl/act/telemetry-spec.md`](../validacao/telemetry-spec.md) | `IMPLEMENTADO` | Instrumentação de eventos de interação sem invasão de privacidade |
+| **Qualidade e Entrega** | [`docs/scrum/definition-of-done.md`](../validacao/definition-of-done.md) | `IMPLEMENTADO` | Critérios formais de DoD com acessibilidade WCAG e testes |
+| **Reflexão Crítica e Síntese** | [`docs/cbl/reflect-share/reflection.md`](../validacao/reflection.md) | `EVIDENCIADO` | Análise crítica sobre discernimento e impacto contra desinformação |
 
 ---
 

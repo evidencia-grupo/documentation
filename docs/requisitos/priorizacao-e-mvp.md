@@ -15,17 +15,17 @@
 
 ## Matriz MoSCoW {: #matriz-moscow }
 
-A classificação MoSCoW foi consolidada a partir da alocação de recursos da [Técnica dos 100 Dólares](../requisitos/elicitacao.md#etapa-4-100-dolares), estabelecendo os limites estritos do produto mínimo viável:
+A classificação MoSCoW foi consolidada a partir da alocação de recursos da [Técnica dos 100 Dólares](elicitacao.md#etapa-4-100-dolares), estabelecendo os limites estritos do produto mínimo viável:
 
 ![Matriz MoSCoW da Votação](../assets/matriz-moscow-votacao.png)
 *Figura: Matriz MoSCoW validada após a dinâmica da Técnica dos 100 Dólares com os participantes.*
 
-> [!NOTE]
-> **Revisão Evidence-First (2026-10-02 — ADR-006):** O requisito **RF-05 (Retorno Reflexivo / HU11)** foi promovido para **Must Have (MVP)** para cumprir a Essential Question ("estimular pensamento crítico sem substituí-lo"). Foram incorporados ao MVP os requisitos **RF-12 a RF-15** (estado `insufficient_evidence`, provenance, desacoplamento de provider e bloqueio de mock em produção).
+!!! note "Revisão Evidence-First (2026-10-02 — ADR-006):"
+    O requisito **RF-05 (Retorno Reflexivo / HU11)** foi promovido para **Must Have (MVP)** para cumprir a Essential Question ("estimular pensamento crítico sem substituí-lo"). Foram incorporados ao MVP os requisitos **RF-12 a RF-15** (estado `insufficient_evidence`, provenance, desacoplamento de provider e bloqueio de mock em produção).
 
 | Prioridade | Item | Justificativa |
 |:---|:---|:---|
-| **Must Have** | RF-01 a RF-04, RF-05 (promovido), RF-06 a RF-08, RF-12 a RF-15, RNF-01 a RNF-07 | Núcleo do produto: investigação assistida orientada a alegações, recuperação factual de evidências com provenance, reflexão crítica ativa e segurança de infraestrutura ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)) |
+| **Must Have** | RF-01 a RF-04, RF-05 (promovido), RF-06 a RF-08, RF-12 a RF-15, RNF-01 a RNF-07 | Núcleo do produto: investigação assistida orientada a alegações, recuperação factual de evidências com provenance, reflexão crítica ativa e segurança de infraestrutura ([ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md)) |
 | **Should Have** | RF-09 (cache local com TTL), RF-11 (metadados temporais do vídeo) | Otimizam a experiência de uso repetido e evitam falsas contradições em conteúdos antigos |
 | **Could Have** | RF-10 (avaliação de relevância / HU12) | Feedback anônimo de utilidade pelos usuários para ciclos posteriores |
 | **Won't Have (agora)** | Vereditos algorítmicos automatizados, scores numéricos de veracidade (0–100%), gauge, suporte multi-idioma, login social obrigatório | Proibidos por desenho (ADR-006) ou fora de escopo para manter foco na investigação assistida |
@@ -56,7 +56,7 @@ A passagem do escopo conceitual para a cadência operacional de engenharia adota
 *Figura: Funil estratégico de refinamento contínuo do Backlog — organizando a esteira de desenvolvimento de Now (MVP) até horizontes futuros (Later).*
 
 - **Now (Linha do MVP):** Foco imediato na entrega dos Épicos E1, E2, E3 e E4 (disparo, transcrição, checagem e síntese categorizada).
-- **Next (Incremento 1):** Introdução de cache local avançado com TTL ([ADR-003](../tecnico/decisoes/ADR-003-estrategia-cache-local.md)) e refinamento de metadados temporais.
+- **Next (Incremento 1):** Introdução de cache local avançado com TTL ([ADR-003](../arquitetura/decisoes/ADR-003-estrategia-cache-local.md)) e refinamento de metadados temporais.
 - **Soon (Incremento 2):** Incorporação de perguntas reflexivas para fomento do pensamento crítico e avaliação de precisão.
 - **Later (Visão Futura):** Transcrição de áudio via Whisper como contingência e integração com plataformas adicionais de vídeo.
 
@@ -90,8 +90,8 @@ A eficácia do produto depende da delimitação do que deliberadamente **não** 
 | **RF-04 — Fontes com link direto** *(Onda 2)* | Cartões de evidência com hiperligação e metadados | Estrutura de dados da API já prevendo array de `sources[{titulo, url, dominio}]`; abertura via `window.open` em nova aba, sem afetar a aba ativa |
 | **RF-09 — Cache local** | Recuperação instantânea de checagens recentes | `chrome.storage.local` com chave = hash do `videoId`, TTL configurável (ex.: 24h), invalidação automática em leitura expirada |
 | **RF-11 — Metadados temporais** *(Onda 2)* | Data de publicação e canal exibidos no cabeçalho | Consumo da YouTube Data API (ou scraping controlado da página) no momento da extração da transcrição, cacheado junto ao resultado |
-| **RNF-03 — Manifest V3 / multi-browser** | Compatibilidade Chrome, Edge, Brave | Service Worker para lógica de fundo (sem `background page` persistente); `host_permissions` restritos a `https://www.youtube.com/*` · [ADR-001](../tecnico/decisoes/ADR-001-manifest-v3.md) |
-| **RNF-04 — Segurança de credenciais** | Nenhuma chave exposta no client | Todas as chamadas de IA/busca passam por um backend proxy autenticado em Python FastAPI ([ADR-004](../tecnico/decisoes/ADR-004-stack-tecnologica.md)); a extensão nunca armazena segredos |
+| **RNF-03 — Manifest V3 / multi-browser** | Compatibilidade Chrome, Edge, Brave | Service Worker para lógica de fundo (sem `background page` persistente); `host_permissions` restritos a `https://www.youtube.com/*` · [ADR-001](../arquitetura/decisoes/ADR-001-manifest-v3.md) |
+| **RNF-04 — Segurança de credenciais** | Nenhuma chave exposta no client | Todas as chamadas de IA/busca passam por um backend proxy autenticado em Python FastAPI ([ADR-004](../arquitetura/decisoes/ADR-004-stack-tecnologica.md)); a extensão nunca armazena segredos |
 | **RNF-05 — Privacidade (LGPD)** | Sem coleta de histórico geral | Apenas permissão `activeTab` + escopo `youtube.com`; nenhuma persistência de dados analíticos por padrão, cache local restrito ao escopo da extensão |
 | **RNF-01 / RNF-02 — Performance** | Resposta em até 10s, TBT +50ms, RAM +80MB | Chamadas assíncronas com indicador de progresso desde o primeiro clique; lazy-loading do painel; monitoramento de bundle size do content script |
 | **RNF-07 — Acessibilidade (WCAG AA)** | Interface hierarquizada e navegável por teclado | Uso de HTML semântico, contraste validado (ferramenta tipo axe-core em CI), foco gerenciado via `tabindex` no painel |
@@ -130,11 +130,11 @@ Para garantir paralelismo e autonomia com entrega no prazo de 2 semanas, o escop
 
 | Integrante / Responsável | Módulo Principal | Escopo Técnico e Histórias de Usuário | Tecnologias Envolvidas |
 |:---|:---|:---|:---|
-| **@MylenaTrindade** | UI/UX & Acessibilidade | [HU01, HU09](../requisitos/backlog-e-historias.md#hu01) — Desenvolvimento do Painel Lateral em Preact, velocímetro (gauge), cartões analíticos, contraste de cores e navegação completa por teclado (WCAG 2.1 AA). | Preact 10, CSS Modules, axe-core |
-| **@pedrohpsantos** | Backend Proxy & Orquestração IA | [HU02, HU04](../requisitos/backlog-e-historias.md#hu02) — Arquitetura da API FastAPI, validação Pydantic v2, orquestrador de modelos de IA com timeout de 8,0s, controle de vazão (SlowAPI) e esteira de CI/CD. | Python 3.12+, FastAPI, Pydantic v2, Pytest |
-| **@luizoryone** | Content Script & Ingestão Player | [HU05, HU10](../requisitos/backlog-e-historias.md#hu05) — Injeção do botão no YouTube via Shadow DOM, interceptação do `videoId`, extração de faixas de legenda (nativas/automáticas) e tratamento para vídeos sem legenda. | TypeScript, Shadow DOM API, YouTube DOM |
-| **@lipestile** | Service Worker & Cache Local | [HU03, HU06](../requisitos/backlog-e-historias.md#hu03) — Roteador do Service Worker (Manifest V3), estratégia de cache em `chrome.storage.local` com TTL de 24 horas, otimização de latência e resiliência de rede. | TypeScript, Manifest V3 Service Worker, Storage API |
-| **@mahiaara** | Auditoria de Fontes & Contexto | [HU07, HU08](../requisitos/backlog-e-historias.md#hu07) — Estruturação de dados de evidências factuais, metadados temporais, abertura segura de fontes externas em nova aba e tratamento de incerteza/conflito de fontes. | TypeScript, JSON Schema, HTML Semântico |
+| **@MylenaTrindade** | UI/UX & Acessibilidade | [HU01, HU09](backlog-e-historias.md#hu01) — Desenvolvimento do Painel Lateral em Preact, velocímetro (gauge), cartões analíticos, contraste de cores e navegação completa por teclado (WCAG 2.1 AA). | Preact 10, CSS Modules, axe-core |
+| **@pedrohpsantos** | Backend Proxy & Orquestração IA | [HU02, HU04](backlog-e-historias.md#hu02) — Arquitetura da API FastAPI, validação Pydantic v2, orquestrador de modelos de IA com timeout de 8,0s, controle de vazão (SlowAPI) e esteira de CI/CD. | Python 3.12+, FastAPI, Pydantic v2, Pytest |
+| **@luizoryone** | Content Script & Ingestão Player | [HU05, HU10](backlog-e-historias.md#hu05) — Injeção do botão no YouTube via Shadow DOM, interceptação do `videoId`, extração de faixas de legenda (nativas/automáticas) e tratamento para vídeos sem legenda. | TypeScript, Shadow DOM API, YouTube DOM |
+| **@lipestile** | Service Worker & Cache Local | [HU03, HU06](backlog-e-historias.md#hu03) — Roteador do Service Worker (Manifest V3), estratégia de cache em `chrome.storage.local` com TTL de 24 horas, otimização de latência e resiliência de rede. | TypeScript, Manifest V3 Service Worker, Storage API |
+| **@mahiaara** | Auditoria de Fontes & Contexto | [HU07, HU08](backlog-e-historias.md#hu07) — Estruturação de dados de evidências factuais, metadados temporais, abertura segura de fontes externas em nova aba e tratamento de incerteza/conflito de fontes. | TypeScript, JSON Schema, HTML Semântico |
 
 ---
 
@@ -145,5 +145,5 @@ Para garantir paralelismo e autonomia com entrega no prazo de 2 semanas, o escop
 
 ---
 
-**Ver também:** [Arquitetura do Sistema](../tecnico/arquitetura.md) — componentes e decisões técnicas detalhadas.  
-**Ver também:** [Casos de Uso](../requisitos/casos-de-uso.md) — fluxos detalhados de cada funcionalidade do MVP.
+**Ver também:** [Arquitetura do Sistema](../arquitetura/arquitetura.md) — componentes e decisões técnicas detalhadas.  
+**Ver também:** [Casos de Uso](casos-de-uso.md) — fluxos detalhados de cada funcionalidade do MVP.

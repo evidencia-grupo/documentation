@@ -44,7 +44,7 @@ Reconhecer explicitamente as limitações científicas do protocolo é essencial
 
 ## 3. Limitações e Inconsistências Observadas em Campo (*A Posteriori*)
 
-> [!NOTE]
-> Esta seção é mantida deliberadamente vazia durante a fase de planejamento e pré-registro. Ela será obrigatoriamente preenchida pela equipe de pesquisa após a conclusão de todas as sessões experimentais e consolidação do arquivo `results.md`, reportando eventuais dificuldades operacionais reais, vieses inesperados e desvios práticos observados em campo.
+!!! note "Nota"
+    Esta seção é mantida deliberadamente vazia durante a fase de planejamento e pré-registro. Ela será obrigatoriamente preenchida pela equipe de pesquisa após a conclusão de todas as sessões experimentais e consolidação do arquivo `results.md`, reportando eventuais dificuldades operacionais reais, vieses inesperados e desvios práticos observados em campo.
 
 *(Seção a preencher após a realização das sessões com participantes).*

@@ -1,7 +1,7 @@
 # Product Backlog — EvidencIA
 
-> [!NOTE]
-> **KANBAN.md** e **BACKLOG.md** anteriores (em `EvidencIA/`) permanecem como histórico de planejamento inicial. Este arquivo é a fonte oficial do product backlog a partir da Sprint 1 (2026-10-02), seguindo a governança Scrum documentada em `docs/scrum/`.
+!!! note "KANBAN.md"
+    e **BACKLOG.md** anteriores (em `EvidencIA/`) permanecem como histórico de planejamento inicial. Este arquivo é a fonte oficial do product backlog a partir da Sprint 1 (2026-10-02), seguindo a governança Scrum documentada em `docs/scrum/`.
 
 ## Nesta página
 

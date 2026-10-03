@@ -143,7 +143,7 @@ Cada participante recebeu um orçamento virtual fixo de **$100 (cem dólares)** 
 | **RF-02** | Obtenção e análise da transcrição do vídeo | **$61** *(2º)* | Insumo tecnológico essencial. Sem transcrição do áudio, o pipeline analítico de IA não opera. | **Must Have \| IN** |
 | **RF-03** | Evidências em linguagem acessível e clara | **$71** *(1º)* | Requisito com maior alocação orçamentária. Evita resumos herméticos que afastam a pessoa leiga. | **Must Have \| IN** |
 | **RF-04** | Fontes e referências com links diretos | **$48** *(4º)* | Pilar de autoridade e credibilidade. Permite auditar os dados primários de forma independente. | **Must Have \| IN** |
-| **RF-05** | Retorno reflexivo sobre a investigação | **$46** *(5º)* | Estímulo ao pensamento crítico autônomo (promovido ao MVP pelo [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)). | **Must Have (promovido) \| IN** |
+| **RF-05** | Retorno reflexivo sobre a investigação | **$46** *(5º)* | Estímulo ao pensamento crítico autônomo (promovido ao MVP pelo [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md)). | **Must Have (promovido) \| IN** |
 | **RF-06** | Síntese estruturada de resultados | **$42** *(8º)* | Apresentação em cartões de alegações apoiadas/contraditadas com fontes auditáveis. | **Must Have \| IN** |
 | **RF-07** | Alerta de incerteza e controvérsia | **$44** *(7º)* | Evita decisões dogmáticas em temas abertos na ciência; badge visual de cautela. | **Must Have \| IN** |
 | **RF-08** | Notificação de ausência de legendas | **$38** *(9º)* | Tratamento amigável de exceção para vídeos sem legendas ou transcrição disponível. | **Must Have \| IN** |

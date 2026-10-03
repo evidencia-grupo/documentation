@@ -14,7 +14,7 @@ O projeto surge no contexto do método de ensino e pesquisa **Challenge Based Le
 
 > *"Como sistemas de IA podem ajudar as pessoas a avaliar a confiabilidade de informações sem substituir seu pensamento crítico?"*
 
-Ao contrário das ferramentas tradicionais de verificação, o EvidencIA não emite vereditos algorítmicos prontos nem exibe pontuações numéricas de "confiabilidade". Ele adota a filosofia **Evidence-First** ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)): o sistema localiza e apresenta evidências factuais auditáveis, destacando fontes jornalísticas de referência e formulando perguntas orientadoras para que a pessoa usuária exerça seu próprio julgamento.
+Ao contrário das ferramentas tradicionais de verificação, o EvidencIA não emite vereditos algorítmicos prontos nem exibe pontuações numéricas de "confiabilidade". Ele adota a filosofia **Evidence-First** ([ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md)): o sistema localiza e apresenta evidências factuais auditáveis, destacando fontes jornalísticas de referência e formulando perguntas orientadoras para que a pessoa usuária exerça seu próprio julgamento.
 
 ---
 
@@ -40,7 +40,7 @@ flowchart LR
 ```
 
 1. **Captura:** Ao clicar no botão da extensão em um vídeo, o *Content Script* extrai as legendas do player, o identificador do vídeo (`videoId`), a data de publicação e as informações do canal.
-2. **Intermediação Segura:** A extensão envia o conteúdo ao **Backend Proxy** via protocolo seguro. Nenhuma chave de API ou credencial sensível reside na extensão ([ADR-002](../tecnico/decisoes/ADR-002-backend-proxy.md)).
+2. **Intermediação Segura:** A extensão envia o conteúdo ao **Backend Proxy** via protocolo seguro. Nenhuma chave de API ou credencial sensível reside na extensão ([ADR-002](../arquitetura/decisoes/ADR-002-backend-proxy.md)).
 3. **Recuperação de Evidências (RAG):** O backend decompõe a transcrição em alegações atômicas e busca reportagens de agências de checagem brasileiras homologadas (como Aos Fatos e Agência Lupa).
 4. **Apresentação Investigativa:** O painel lateral renderiza cada alegação acompanhada de suas fontes com links auditáveis.
    - Quando não há reportagens sobre o tema, o sistema assume expressamente o estado **"Sem evidência suficiente"** ([RF-12](../requisitos/catalogo-requisitos.md#rf-12)), evitando falsas certezas.

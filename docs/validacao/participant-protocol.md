@@ -173,9 +173,8 @@ Para atender aos rigores da LGPD e às normas éticas de pesquisa:
 
 ## 6. Governança e Submissão Ética
 
-> [!IMPORTANT]
-> **STATUS DA SUBMISSÃO ÉTICA: A VALIDAR COM ORIENTAÇÃO DOCENTE**
->
-> A necessidade formal de submissão deste protocolo ao Comitê de Ética em Pesquisa (CEP / Sistema Plataforma Brasil), nos termos da Resolução CNS nº 510/2016 (pesquisas em ciências humanas e sociais) e da Resolução CNS nº 466/2012, deverá ser **expressamente deliberada e ratificada pela orientação docente responsável pelo projeto**.
->
-> Em nenhuma circunstância a equipe de desenvolvimento deverá presumir ou declarar dispensa de apreciação ética de forma autônoma sem o aval documental da coordenação acadêmica.
+!!! warning "STATUS DA SUBMISSÃO ÉTICA: A VALIDAR COM ORIENTAÇÃO DOCENTE"
+
+    A necessidade formal de submissão deste protocolo ao Comitê de Ética em Pesquisa (CEP / Sistema Plataforma Brasil), nos termos da Resolução CNS nº 510/2016 (pesquisas em ciências humanas e sociais) e da Resolução CNS nº 466/2012, deverá ser **expressamente deliberada e ratificada pela orientação docente responsável pelo projeto**.
+
+    Em nenhuma circunstância a equipe de desenvolvimento deverá presumir ou declarar dispensa de apreciação ética de forma autônoma sem o aval documental da coordenação acadêmica.

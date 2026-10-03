@@ -24,7 +24,7 @@
 | **Contexto de Uso** | Diabética com preocupação constante sobre saúde. Assiste a vídeos recomendados com títulos apelativos prometendo receitas e curas milagrosas antes de repassar a familiares |
 | **Dores Centrais** | Intimidada por termos médicos e científicos complexos; receio de disseminar desinformação prejudicial; frustração com a lentidão e divergência de resultados em buscas manuais |
 | **Objetivos no Produto** | Veredito rápido, visual e em linguagem estritamente simples (sem jargões técnicos) diretamente na página do vídeo |
-| **Rastreabilidade** | [HU01, HU02](../requisitos/backlog-e-historias.md#hu01), [UC-01](../requisitos/casos-de-uso.md#uc-01) |
+| **Rastreabilidade** | [HU01, HU02](backlog-e-historias.md#hu01), [UC-01](casos-de-uso.md#uc-01) |
 
 ### Persona 02: Amanda (Estudante Universitária) {: #amanda }
 
@@ -35,7 +35,7 @@
 | **Contexto de Uso** | Consome palestras e vídeos de divulgação científica no YouTube para complementar fichamentos e trabalhos de neurociência e comportamento |
 | **Dores Centrais** | Perda de tempo ao alternar abas para verificar afirmações e medo de citar premissas falsas ou pseudocientíficas em apresentações acadêmicas |
 | **Objetivos no Produto** | Análise e categorização factual em até 10 segundos, estruturando o que é apoiado por evidências científicas e o que é infundado |
-| **Rastreabilidade** | [HU03, HU04](../requisitos/backlog-e-historias.md#hu03), [UC-03](../requisitos/casos-de-uso.md#uc-03) |
+| **Rastreabilidade** | [HU03, HU04](backlog-e-historias.md#hu03), [UC-03](casos-de-uso.md#uc-03) |
 
 ### Persona 03: Mariana Oliveira (Professora e Multiplicadora) {: #mariana }
 
@@ -46,7 +46,7 @@
 | **Contexto de Uso** | Busca informações sobre saúde, prevenção e temas comunitários; frequente compartilhamento com grupos de pais e colegas de trabalho |
 | **Dores Centrais** | Ansiedade em relação à responsabilidade social de suas mensagens; dificuldade de distinguir temas de controvérsia científica legítima de boatos fabricados |
 | **Objetivos no Produto** | Sinalização visual instantânea quando houver carência de dados ou fontes em divergência, evitando o compartilhamento precipitado |
-| **Rastreabilidade** | [HU09, HU10](../requisitos/backlog-e-historias.md#hu09), [UC-06](../requisitos/casos-de-uso.md#uc-06) |
+| **Rastreabilidade** | [HU09, HU10](backlog-e-historias.md#hu09), [UC-06](casos-de-uso.md#uc-06) |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Persona | Perfil e Ocupação | Foco de Interação | Rastreabilidade |
 |:---|:---|:---|:---|
-| **Carlos Augusto** {: #carlos-augusto } | 29 anos, analista de qualidade em cooperativa de tecnologia social | Validação de transcrições completas, precisão temporal e recuperação instantânea via cache local | [HU05, HU06](../requisitos/backlog-e-historias.md#hu05) |
-| **Mayara** {: #mayara } | 34 anos, jornalista investigativa | Auditoria rigorosa de fontes primárias com hiperligações diretas e verificação de contexto temporal da publicação | [HU07, HU08](../requisitos/backlog-e-historias.md#hu07) |
-| **Helena** {: #helena } | 54 anos, assistente administrativo | Questionamentos reflexivos e avaliação voluntária de utilidade da inferência (funcionalidades pós-MVP) | [HU11, HU12](../requisitos/backlog-e-historias.md#hu11) |
+| **Carlos Augusto** {: #carlos-augusto } | 29 anos, analista de qualidade em cooperativa de tecnologia social | Validação de transcrições completas, precisão temporal e recuperação instantânea via cache local | [HU05, HU06](backlog-e-historias.md#hu05) |
+| **Mayara** {: #mayara } | 34 anos, jornalista investigativa | Auditoria rigorosa de fontes primárias com hiperligações diretas e verificação de contexto temporal da publicação | [HU07, HU08](backlog-e-historias.md#hu07) |
+| **Helena** {: #helena } | 54 anos, assistente administrativo | Questionamentos reflexivos e avaliação voluntária de utilidade da inferência (funcionalidades pós-MVP) | [HU11, HU12](backlog-e-historias.md#hu11) |
 
 ---
 
@@ -139,12 +139,12 @@ journey
 | Estágio da Jornada | Ação do Usuário | Pensamento e Emoção | Valor Entregue pela Solução | Resposta do Sistema (EvidencIA) |
 |:---|:---|:---|:---|:---|
 | **1. Identificação Integrada** | Assiste ao vídeo e nota o botão discreto *"Verificar Fatos"* posicionado logo abaixo do player. | *"Olha, tem um botão aqui para ver se é verdade ou mentira."* Curiosidade segura. | Sem necessidade de abrir abas adicionais ou copiar links; elemento totalmente integrado à página. | Botão injetado via Shadow DOM com ícone claro e alto contraste (WCAG 2.1 AA). |
-| **2. Acionamento em 1 Clique** | Clica no botão de checagem enquanto o vídeo segue reproduzindo normalmente. | *"Vou clicar para ver. Que bom que não pausou meu vídeo!"* Sensação de controle e autonomia. | Respeito à preferência do usuário: sem interrupções forçadas ou congelamento da mídia ([RNF-06](../requisitos/catalogo-requisitos.md#rnf-06)). | Feedback visual imediato (< 1s) com indicador de carregamento sutil no botão. |
-| **3. Processamento Rápido** | Aguarda poucos segundos enquanto o orquestrador analisa as alegações da fala. | *"Já está terminando, foi bem rapidinho."* Percepção de eficiência e agilidade. | SLA rigoroso de resposta útil em até 10 segundos ([RNF-01](../requisitos/catalogo-requisitos.md#rnf-01)). | Backend Proxy extrai a transcrição e consulta fontes com timeout assíncrono de 8,0s. |
+| **2. Acionamento em 1 Clique** | Clica no botão de checagem enquanto o vídeo segue reproduzindo normalmente. | *"Vou clicar para ver. Que bom que não pausou meu vídeo!"* Sensação de controle e autonomia. | Respeito à preferência do usuário: sem interrupções forçadas ou congelamento da mídia ([RNF-06](catalogo-requisitos.md#rnf-06)). | Feedback visual imediato (< 1s) com indicador de carregamento sutil no botão. |
+| **3. Processamento Rápido** | Aguarda poucos segundos enquanto o orquestrador analisa as alegações da fala. | *"Já está terminando, foi bem rapidinho."* Percepção de eficiência e agilidade. | SLA rigoroso de resposta útil em até 10 segundos ([RNF-01](catalogo-requisitos.md#rnf-01)). | Backend Proxy extrai a transcrição e consulta fontes com timeout assíncrono de 8,0s. |
 | **4. Leitura do Painel Lateral** | Painel abre suavemente exibindo o velocímetro (ex.: 18% - Falso) e uma síntese de 2 linhas. | *"Entendi na hora: está no vermelho e diz que o chá não cura a doença."* Clareza cognitiva absoluta. | Comunicação imediata por cores e síntese em português claro, sem jargões científicos indecifráveis. | Velocímetro semafórico intuitivo + card analítico com contraste testado (≥ 4.5:1). |
 | **5. Decisão Emancipada** | Consulta as fontes oficiais (Fiocruz / Ministério da Saúde) e decide não repassar o vídeo. | *"Que alívio ter verificado antes de mandar no grupo da família!"* Segurança e empoderamento. | Quebra definitiva do ciclo de desinformação através de evidências confiáveis e links auditáveis. | Links diretos para agências e instituições abrindo em aba separada (`target="_blank"`). |
 
 ---
 
 **Próximo:** [Design System e Interface](design-system.md) — padrões visuais e componentes do painel lateral.  
-**Ver também:** [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md) — critérios de aceitação em formato Gherkin.
+**Ver também:** [Backlog e Histórias de Usuário](backlog-e-historias.md) — critérios de aceitação em formato Gherkin.

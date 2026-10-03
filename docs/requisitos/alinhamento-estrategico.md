@@ -14,7 +14,7 @@
 ## Visão do Produto {: #visao-do-produto }
 
 !!! quote "Declaração de Visão do Produto (Atualizada — 2026-10-02)"
-    Para **usuários que consomem conteúdo informativo no YouTube e desejam avaliar criticamente as informações apresentadas** (leigos, estudantes, educadores), cujo problema é **a desinformação em vídeos e a dificuldade de encontrar evidências confiáveis sem perder a autonomia de julgamento**, a **Extensão de Fact-Checking para YouTube (EvidencIA)** é uma **extensão de navegador informativa (Manifest V3)** que **extrai a transcrição do vídeo em reprodução, decompõe o discurso em alegações verificáveis, cruza com corpora brasileiros de fact-checking e apresenta uma investigação estruturada de evidências com perguntas orientadoras para reflexão crítica, sem emitir vereditos algorítmicos ou scores globais** — diferente de ferramentas que tentam dizer se um vídeo é "verdadeiro ou falso". Nosso produto apoia a investigação autônoma do usuário, preservando integralmente seu pensamento crítico ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)).
+    Para **usuários que consomem conteúdo informativo no YouTube e desejam avaliar criticamente as informações apresentadas** (leigos, estudantes, educadores), cujo problema é **a desinformação em vídeos e a dificuldade de encontrar evidências confiáveis sem perder a autonomia de julgamento**, a **Extensão de Fact-Checking para YouTube (EvidencIA)** é uma **extensão de navegador informativa (Manifest V3)** que **extrai a transcrição do vídeo em reprodução, decompõe o discurso em alegações verificáveis, cruza com corpora brasileiros de fact-checking e apresenta uma investigação estruturada de evidências com perguntas orientadoras para reflexão crítica, sem emitir vereditos algorítmicos ou scores globais** — diferente de ferramentas que tentam dizer se um vídeo é "verdadeiro ou falso". Nosso produto apoia a investigação autônoma do usuário, preservando integralmente seu pensamento crítico ([ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md)).
 
 ![Declaração de Visão e Diferenciação Competitiva](../assets/visao-do-produto-concorrentes.png)
 
@@ -51,4 +51,4 @@
 
 ---
 
-**Próximo:** [Personas e Jornadas](../design/personas-e-jornadas.md) — conheça os usuários para quem este produto foi desenhado.
+**Próximo:** [Personas e Jornadas](personas-e-jornadas.md) — conheça os usuários para quem este produto foi desenhado.

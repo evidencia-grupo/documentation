@@ -6,7 +6,7 @@
 | **Data** | 2026-10-02 |
 | **Autores** | Equipe EvidencIA |
 | **Revisores** | A preencher |
-| **Referências** | [GQ01–GQ12](../../visao/guiding-questions.md) · [Essential Question Alignment](../../visao/essential-question-alignment.md) |
+| **Referências** | [GQ01–GQ12](../../validacao/guiding-questions.md) · [Essential Question Alignment](../../requisitos/essential-question-alignment.md) |
 
 ---
 
@@ -282,9 +282,9 @@ Esconder o score em um "modo avançado". **Rejeitada:** a Essential Question nã
 
 ## Referências
 
-- [GQ01–GQ12 — Guiding Questions](../../visao/guiding-questions.md)
-- [Essential Question Alignment](../../visao/essential-question-alignment.md)
-- [Decision Log — D-001 a D-007](../../visao/decision-log.md)
+- [GQ01–GQ12 — Guiding Questions](../../validacao/guiding-questions.md)
+- [Essential Question Alignment](../../requisitos/essential-question-alignment.md)
+- [Decision Log — D-001 a D-007](decision-log.md)
 - [HU11 — Perguntas Orientadoras para Reflexão Crítica](../../requisitos/backlog-e-historias.md#hu11)
 - [HU13–HU16 — Novas Histórias Evidence-First](../../requisitos/backlog-e-historias.md#hu13)
 - [ADR-005 — Modelo Local e Datasets Brasileiros](ADR-005-modelo-local-e-datasets-brasileiros.md) *(precursor)*

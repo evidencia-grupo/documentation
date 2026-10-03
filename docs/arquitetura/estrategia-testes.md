@@ -164,5 +164,5 @@ Uma versão é homologada para publicação na Chrome Web Store apenas quando:
 
 ---
 
-**Próximo:** [Gestão de Riscos Técnicos](../planejamento/gestao-riscos.md) — identificação de ameaças de projeto e planos de mitigação.  
+**Próximo:** [Gestão de Riscos Técnicos](../requisitos/gestao-riscos.md) — identificação de ameaças de projeto e planos de mitigação.  
 **Ver também:** [Matriz de Rastreabilidade](../requisitos/matriz-rastreabilidade.md) — conexão entre requisitos e testes.

@@ -77,23 +77,23 @@ A existência de um mock implícito e não-documentado do provider de IA signifi
 
 | Mudança | Impacto nos Artefatos | Referência |
 |:---|:---|:---|
-| Remoção do `score` global (0–100) do contrato | `shared/schemas/api-schema.json`, `shared/types/api.ts`, `contrato-api.md` | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| Remoção do `reliabilityScore` das fontes | `shared/types/api.ts`, `contrato-api.md` | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| Remoção do componente `Gauge.tsx` da UX principal | `extension/src/panel/components/Gauge.tsx` | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| Novo contrato: `claims[]` com `evidence[]` e `uncertainty` | `shared/schemas/api-schema.json` (Planejado) | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| `reflectionQuestions[]` no contrato (obrigatório) | `shared/schemas/api-schema.json` (Planejado) | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), HU11, HU15 |
-| HU11 promovida para Must Have do MVP | `backlog-e-historias.md`, `catalogo-requisitos.md` (RF-05) | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| Provider de LLM desacoplado (`LLMProvider` interface) | `backend/app/providers/` (Planejado) | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), HU16 |
-| Mock explícito apenas em dev/testes, proibido em produção | Config de ambiente, testes | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| Remoção do `score` global (0–100) do contrato | `shared/schemas/api-schema.json`, `shared/types/api.ts`, `contrato-api.md` | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| Remoção do `reliabilityScore` das fontes | `shared/types/api.ts`, `contrato-api.md` | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| Remoção do componente `Gauge.tsx` da UX principal | `extension/src/panel/components/Gauge.tsx` | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| Novo contrato: `claims[]` com `evidence[]` e `uncertainty` | `shared/schemas/api-schema.json` (Planejado) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| `reflectionQuestions[]` no contrato (obrigatório) | `shared/schemas/api-schema.json` (Planejado) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), HU11, HU15 |
+| HU11 promovida para Must Have do MVP | `backlog-e-historias.md`, `catalogo-requisitos.md` (RF-05) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
+| Provider de LLM desacoplado (`LLMProvider` interface) | `backend/app/providers/` (Planejado) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), HU16 |
+| Mock explícito apenas em dev/testes, proibido em produção | Config de ambiente, testes | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | EDA obrigatória antes de continuar evolução da extensão | `docs/scrum/sprint-01/` | Sprint 01 Goal |
-| `analysisMode` substituindo classificação única | `shared/schemas/api-schema.json` (Planejado) | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+| `analysisMode` substituindo classificação única | `shared/schemas/api-schema.json` (Planejado) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ---
 
 ## O Que o Produto NÃO Faz {: #o-que-nao-faz }
 
-> [!IMPORTANT]
-> Este produto **não declara "a verdade"** sobre nenhum vídeo ou alegação. Ele organiza evidências e explicita lacunas.
+!!! warning "Importante"
+    Este produto **não declara "a verdade"** sobre nenhum vídeo ou alegação. Ele organiza evidências e explicita lacunas.
 
 - **Não emite veredito de "verdadeiro" ou "falso"** para o vídeo ou para alegações individuais.
 - **Não atribui score global** de veracidade, confiabilidade ou qualidade ao conteúdo.
@@ -171,19 +171,18 @@ O painel lateral da extensão passa a ter a seguinte estrutura de investigação
 
 ## Regra de Ouro {: #regra-de-ouro }
 
-> [!CAUTION]
-> **Resultado sem evidência jamais é convertido automaticamente em "falso".**
->
-> O campo `uncertainty` descreve o **estado do conjunto de evidências recuperadas**, não a "confiança da IA" na resposta. Valores possíveis:
->
-> - `supported` — evidências que sustentam a alegação foram encontradas
-> - `contradicted` — evidências que contradizem a alegação foram encontradas
-> - `contextualized` — evidências contextualizam sem confirmar ou negar
-> - `conflicting` — fontes com conclusões opostas encontradas (divergência legítima)
-> - `insufficient_evidence` — não foram encontradas evidências suficientes no corpus disponível
->
-> O estado `insufficient_evidence` é epistemicamente honesto e **distinto de `false`**. Convertê-lo automaticamente em "falso" seria uma alucinação classificatória.
+!!! danger "Resultado sem evidência jamais é convertido automaticamente em "falso"."
+
+    O campo `uncertainty` descreve o **estado do conjunto de evidências recuperadas**, não a "confiança da IA" na resposta. Valores possíveis:
+
+    - `supported` — evidências que sustentam a alegação foram encontradas
+    - `contradicted` — evidências que contradizem a alegação foram encontradas
+    - `contextualized` — evidências contextualizam sem confirmar ou negar
+    - `conflicting` — fontes com conclusões opostas encontradas (divergência legítima)
+    - `insufficient_evidence` — não foram encontradas evidências suficientes no corpus disponível
+
+    O estado `insufficient_evidence` é epistemicamente honesto e **distinto de `false`**. Convertê-lo automaticamente em "falso" seria uma alucinação classificatória.
 
 ---
 
-**Ver também:** [Guiding Questions](guiding-questions.md) · [ADR-006 — Evidence-First Architecture](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md)
+**Ver também:** [Guiding Questions](../validacao/guiding-questions.md) · [ADR-006 — Evidence-First Architecture](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](backlog-e-historias.md)
