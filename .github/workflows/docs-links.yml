@@ -1,0 +1,66 @@
+﻿name: Docs Link Checker
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "README.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-links:
+    name: Validate Markdown Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Relative Links
+        run: |
+          python -c "
+          import os, re, sys
+          from pathlib import Path
+
+          docs_dir = Path('docs')
+          md_files = list(docs_dir.rglob('*.md')) + [Path('README.md')]
+          link_pattern = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+
+          broken = []
+          for md_path in md_files:
+              if not md_path.exists():
+                  continue
+              try:
+                  content = md_path.read_text(encoding='utf-8')
+              except Exception:
+                  continue
+              for lno, line in enumerate(content.splitlines(), start=1):
+                  for match in link_pattern.finditer(line):
+                      text, target = match.group(1), match.group(2).strip()
+                      if target.startswith(('http://', 'https://', 'mailto:', '#')):
+                          continue
+                      if target.startswith('file:///'):
+                          broken.append((str(md_path), lno, target, 'file:// URI proibida'))
+                          continue
+                      rel_path = target.split('#')[0]
+                      if not rel_path:
+                          continue
+                      resolved = (md_path.parent / rel_path).resolve()
+                      if not resolved.exists():
+                          broken.append((str(md_path), lno, target, 'Arquivo inexistente'))
+
+          if broken:
+              print(f'Encontrados {len(broken)} links quebrados:')
+              for b in broken:
+                  print(f'  {b[0]}:{b[1]} -> {b[2]} ({b[3]})')
+              sys.exit(1)
+          print('Todos os links relativos foram validados com sucesso!')
+          "
