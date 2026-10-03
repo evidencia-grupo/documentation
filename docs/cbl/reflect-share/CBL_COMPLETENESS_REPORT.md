@@ -3,7 +3,7 @@
 
 > **Data da Auditoria:** 2026-10-02  
 > **Fase Auditada:** `SCAFFOLD`  
-> **Versão Documentação:** `@`df25e3c  
+> **Versão Documentação:** `@`63a61fc  
 > **Versão Código:** `@`eb148a7  
 > **Veredito Geral:** **`NO-GO`**  
 > **Flag de Bloqueio Imediato:** `ATIVADA` (condição fatal de integridade violada)  
@@ -23,9 +23,9 @@
 | **SCR** | 3 | 2 | 0 | 0 | 5 |
 | **SEC** | 2 | 2 | 0 | 0 | 4 |
 | **TEL** | 1 | 1 | 0 | 0 | 2 |
-| **TRC** | 2 | 1 | 0 | 0 | 3 |
+| **TRC** | 3 | 0 | 0 | 0 | 3 |
 | **UX** | 0 | 1 | 0 | 0 | 1 |
-| **TOTAL GERAL** | **23** | **22** | **1** | **1** | **47** |
+| **TOTAL GERAL** | **24** | **21** | **1** | **1** | **47** |
 
 ---
 
@@ -78,7 +78,7 @@
 | TEL | **TEL-02** | docs/cbl/act/telemetry-spec.md existe e o catálogo de eventos coincide com EVENT_ALLOWLIST | 4 tipos de eventos documentados | PASS | P1 | telemetry-spec.md validado |
 | TRC | **TRC-01** | HU11 não consta como Pós-MVP; HU13–HU16 existem; matriz liga GQ → ADR → HU | HU11 no MVP, HU13–HU16 presentes e matriz GQ → ADR → HU validada | PASS | P0 | Rastreabilidade íntegra |
 | TRC | **TRC-02** | Todo ID citado (GQ, HU, ADR, RF, RNF) existe nos catálogos | Todos os 12 IDs de GQ referenciados na matriz | PASS | P1 | Consistência de IDs verificada |
-| TRC | **TRC-03** | Hiperlinks relativos internos válidos na documentação | 2 links quebrados encontrados: ['docs/cbl/reflect-share/README.md -> CBL_COMPLETENESS_REPORT.md', 'docs/cbl/reflect-share/research-portfolio.md -> CBL_COMPLETENESS_REPORT.md'] | **FAIL** | P1 | Verificar referências relativas em arquivos .md |
+| TRC | **TRC-03** | Hiperlinks relativos internos válidos na documentação | 724 hiperlinks relativos auditados; nenhum link quebrado | PASS | P1 | Navegação íntegra |
 | UX | **UX-01** | EvidenceCard.tsx e ReflectionQuestions.tsx presentes em extension/src | Componentes ausentes em extension/src/panel/components: ['EvidenceCard.tsx', 'ReflectionQuestions.tsx'] | **FAIL** | P0 | HU11 promovida ao MVP exige EvidenceCard e ReflectionQuestions |
 
 ---
@@ -146,7 +146,7 @@ Foram identificados **18** bloqueadores críticos P0:
 
 ## 4. Dívidas Técnicas e Alertas (P1/P2)
 
-Foram registradas **4** dívidas técnicas/alertas:
+Foram registradas **3** dívidas técnicas/alertas:
 
 - **[PERF-01]** (P1 - `FAIL`): test_retrieval_latency.py ausente
   - *Detalhe:* Teste de latência de recuperação não encontrado
@@ -154,8 +154,6 @@ Foram registradas **4** dívidas técnicas/alertas:
   - *Detalhe:* Esteira de CI incompleta
 - **[SEC-04]** (P1 - `FAIL`): Testes de segurança ausentes: ['rate limit', 'limite de transcript']
   - *Detalhe:* Testes de abuso e injeção incompletos
-- **[TRC-03]** (P1 - `FAIL`): 2 links quebrados encontrados: ['docs/cbl/reflect-share/README.md -> CBL_COMPLETENESS_REPORT.md', 'docs/cbl/reflect-share/research-portfolio.md -> CBL_COMPLETENESS_REPORT.md']
-  - *Detalhe:* Verificar referências relativas em arquivos .md
 
 ---
 
