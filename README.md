@@ -62,21 +62,14 @@ flowchart TD
 
 ---
 
-## 3. Mapa Completo da Documentação
+## 3. Mapa dos 4 Pilares da Documentação
 
-| Seção | Principais Documentos | Propósito Técnico e Metodológico |
+| Pilar | Documentos Principais | Propósito Técnico e Metodológico |
 |:---|:---|:---|
-| **Visão Geral** | [Visão em 1 Página](docs/visao-geral/visao-geral-do-projeto.md) · [Mapa](docs/visao-geral/mapa-do-projeto.md) · [Status](docs/visao-geral/status.md) | Panorama executivo do produto, topologia e painel de entregas. |
-| **Visão Estratégica (Engage)** | [Alinhamento Estratégico](docs/visao/alinhamento-estrategico.md) · [Guiding Questions](docs/visao/guiding-questions.md) · [Decisões](docs/visao/decision-log.md) | Problema de pesquisa, 12 perguntas orientadoras e log de decisões de negócio. |
-| **Engenharia de Requisitos** | [Elicitação](docs/requisitos/elicitacao.md) · [Catálogo RF/RNF](docs/requisitos/catalogo-requisitos.md) · [Casos de Uso](docs/requisitos/casos-de-uso.md) · [Histórias](docs/requisitos/backlog-e-historias.md) · [Rastreabilidade](docs/requisitos/matriz-rastreabilidade.md) | Levantamento empírico, requisitos RF-01 a RF-15, RNF-01 a RNF-07, casos de uso UC-01 a UC-06 e matriz bidirecional. |
-| **Arquitetura e Engenharia** | [Arquitetura C4](docs/tecnico/arquitetura.md) · [Pipeline de IA](docs/tecnico/ia-e-datasets.md) · [Contrato de API](docs/tecnico/contrato-api.md) · [Threat Model](docs/tecnico/threat-model.md) · [Testes](docs/tecnico/estrategia-testes.md) | Diagramas de contêineres e sequência, isolamento de segredos, schemas Pydantic e estratégia de testes. |
-| **Decisões Arquiteturais** | [Índice de ADRs](docs/tecnico/decisoes/README.md) · [ADR-001 a ADR-006](docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md) | Architecture Decision Records fundamentando escolhas técnicas irreversíveis. |
-| **Governança Ágil (Scrum)** | [Product Backlog](docs/scrum/product-backlog.md) · [DoD](docs/scrum/definition-of-done.md) · [Cerimônias](docs/scrum/ceremonies.md) · [Sprint 01](docs/scrum/sprint-01/README.md) · [Sprint 02](docs/scrum/sprint-02/README.md) | Processo iterativo, planejamento das sprints, reviews e retrospectivas formais. |
-| **Design e Experiência** | [Personas e Jornadas](docs/design/personas-e-jornadas.md) · [Design System](docs/design/design-system.md) | Arquétipos de uso, fluxos TO-BE, componentes do painel e diretrizes WCAG AA. |
-| **Planejamento e Riscos** | [Priorização e MVP](docs/planejamento/priorizacao-e-mvp.md) · [Gestão de Riscos](docs/planejamento/gestao-riscos.md) · [Telemetria](docs/planejamento/metricas-telemetria.md) | Matriz MoSCoW, Lean Inception, matriz de riscos técnicos e telemetria ética sem rede. |
-| **Experimento de Campo (Act)** | [Plano Experimental](docs/cbl/act/experiment-plan.md) · [Métricas M1-M9](docs/cbl/act/metrics-definition.md) · [Protocolo](docs/cbl/act/participant-protocol.md) | Desenho do estudo científico comparativo (*between-subjects*) para validação comportamental. |
-| **Fechamento Metodológico** | [Síntese e Reflexão](docs/cbl/reflect-share/reflection.md) · [Portfólio de Pesquisa](docs/cbl/reflect-share/research-portfolio.md) · [Roteiros](docs/cbl/reflect-share/showcase-script.md) · [Go/No-Go](docs/cbl/reflect-share/go-no-go-final.md) | Relatório acadêmico, catalogação de evidências com hashes e roteiro de demonstração. |
-| **Referência e Legado** | [Glossário Unificado](docs/glossario.md) · [Pasta de Arquivo Histórico](docs/arquivo/README.md) | Definições formais vigentes e preservação de artefatos descontinuados com notas explicativas. |
+| **1. Visão Geral** | [Visão em 1 Página](docs/visao-geral/visao-geral-do-projeto.md) · [Mapa Visual](docs/visao-geral/mapa-do-projeto.md) · [Status](docs/visao-geral/status.md) · [Glossário](docs/glossario.md) | Panorama executivo do produto, topologia, painel de entregas e definições formais unificadas. |
+| **2. Requisitos & Produto** | [Elicitação](docs/requisitos/elicitacao.md) · [Catálogo RF/RNF](docs/requisitos/catalogo-requisitos.md) · [Casos de Uso](docs/requisitos/casos-de-uso.md) · [Personas & UX](docs/design/personas-e-jornadas.md) · [Histórias Gherkin](docs/requisitos/backlog-e-historias.md) · [Matriz MoSCoW](docs/requisitos/matriz-rastreabilidade.md) | Levantamento empírico, catálogo RF-01 a RF-15, RNF-01 a RNF-07, casos de uso UC-01 a UC-06, personas e matriz de priorização. |
+| **3. Arquitetura & Engenharia** | [Arquitetura C4](docs/tecnico/arquitetura.md) · [Pipeline RAG Local](docs/tecnico/ia-e-datasets.md) · [Contrato de API](docs/tecnico/contrato-api.md) · [Threat Model](docs/tecnico/threat-model.md) · [ADRs 001–006](docs/tecnico/decisoes/ADR-001-manifest-v3.md) · [Testes & CI/CD](docs/tecnico/estrategia-testes.md) | Diagramas de contêineres e sequência, isolamento de segredos, schemas Pydantic, modelo STRIDE, decisões arquiteturais e setup. |
+| **4. Processo CBL & Scrum** | [12 GQs (Engage)](docs/visao/guiding-questions.md) · [Scrum & DoD](docs/scrum/definition-of-done.md) · [Sprints 01 e 02](docs/scrum/product-backlog.md) · [Experimento Act](docs/cbl/act/experiment-plan.md) · [Showcase & Auditoria](docs/cbl/reflect-share/reflection.md) | Ciclo Challenge Based Learning, cerimônias ágeis, desenho experimental comparativo com participantes humanos e fechamento acadêmico. |
 
 ---
 

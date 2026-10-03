@@ -75,110 +75,62 @@ markdown_extensions:
   - pymdownx.keys
 
 nav:
-  - Início: index.md
   - Visão Geral:
-      - Introdução à Seção: visao-geral/README.md
-      - Visão Geral do Projeto (1 Página): visao-geral/visao-geral-do-projeto.md
-      - Mapa do Projeto e Topologia: visao-geral/mapa-do-projeto.md
+      - Apresentação: index.md
+      - Síntese Executiva (1 Página): visao-geral/visao-geral-do-projeto.md
+      - Mapa Visual e Topologia: visao-geral/mapa-do-projeto.md
       - Painel de Status Consolidado: visao-geral/status.md
-  - Visão Estratégica (Engage):
-      - Introdução: visao/README.md
+      - Glossário Oficial Unificado: glossario.md
+  - Requisitos & Produto:
       - Alinhamento Estratégico: visao/alinhamento-estrategico.md
-      - Guiding Questions (CBL): visao/guiding-questions.md
-      - Alinhamento com a Essential Question: visao/essential-question-alignment.md
-      - Log de Decisões: visao/decision-log.md
-  - Investigação (Investigate):
-      - Guia da Fase Investigate: investigate/README.md
-  - Governança Scrum:
-      - Visão Geral da Governança: scrum/README.md
-      - Product Backlog: scrum/product-backlog.md
-      - Definition of Done (DoD): scrum/definition-of-done.md
-      - Cerimônias Scrum: scrum/ceremonies.md
-      - Sprint 01 (Investigação e EDA):
-          - Visão da Sprint 01: scrum/sprint-01/README.md
-          - Sprint Goal: scrum/sprint-01/sprint-goal.md
-          - Sprint Backlog: scrum/sprint-01/sprint-backlog.md
-          - Sprint Review: scrum/sprint-01/review.md
-          - Sprint Retrospective: scrum/sprint-01/retrospective.md
-      - Sprint 02 (Evidence-First UX):
-          - Visão da Sprint 02: scrum/sprint-02/README.md
-          - Sprint Goal: scrum/sprint-02/sprint-goal.md
-          - Sprint Backlog: scrum/sprint-02/sprint-backlog.md
-          - Sprint Review: scrum/sprint-02/review.md
-          - Sprint Retrospective: scrum/sprint-02/retrospective.md
-  - Design e Experiência:
-      - Introdução: design/README.md
       - Personas e Jornadas: design/personas-e-jornadas.md
       - Design System e Interface: design/design-system.md
-  - Engenharia de Requisitos:
-      - Introdução: requisitos/README.md
-      - Processo e Técnicas de Elicitação: requisitos/elicitacao.md
+      - Processo de Elicitação ($100): requisitos/elicitacao.md
       - Catálogo de Requisitos (RF e RNF): requisitos/catalogo-requisitos.md
-      - Casos de Uso: requisitos/casos-de-uso.md
+      - Casos de Uso e Diagramas: requisitos/casos-de-uso.md
       - Cenários de Uso e Operação: requisitos/cenarios.md
-      - Backlog e Histórias de Usuário: requisitos/backlog-e-historias.md
-      - Matriz de Rastreabilidade: requisitos/matriz-rastreabilidade.md
-  - Arquitetura e Engenharia:
-      - Introdução: tecnico/README.md
-      - Arquitetura do Sistema: tecnico/arquitetura.md
+      - Backlog e Histórias (HUs): requisitos/backlog-e-historias.md
+      - Matriz de Rastreabilidade (MoSCoW): requisitos/matriz-rastreabilidade.md
+      - Priorização e Riscos: planejamento/priorizacao-e-mvp.md
+  - Arquitetura & Engenharia:
+      - Arquitetura do Sistema (C4): tecnico/arquitetura.md
       - Pipeline de IA e Datasets: tecnico/ia-e-datasets.md
       - Contrato de Dados e API: tecnico/contrato-api.md
-      - Threat Model e LGPD: tecnico/threat-model.md
-      - Estratégia de Testes e DoD: tecnico/estrategia-testes.md
-      - Evidências de Validação:
-          - Índice de Evidências: tecnico/evidencias/README.md
-          - Evidências de Validação (HU03): tecnico/evidencias/hu03-checagem-rapida.md
-          - Evidências de Validação (HU06): tecnico/evidencias/hu06-cache-local.md
+      - Threat Model (STRIDE) e LGPD: tecnico/threat-model.md
+      - Estratégia de Testes e CI/CD: tecnico/estrategia-testes.md
+      - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
       - Guia de Contribuição e Setup: tecnico/guia-contribuicao.md
-      - Decisões Arquiteturais (ADRs):
-          - Índice de ADRs: tecnico/decisoes/README.md
+      - Decisões de Arquitetura (ADRs):
           - ADR-001 — Manifest V3: tecnico/decisoes/ADR-001-manifest-v3.md
           - ADR-002 — Backend Proxy Dedicado: tecnico/decisoes/ADR-002-backend-proxy.md
           - ADR-003 — Estratégia de Cache Local: tecnico/decisoes/ADR-003-estrategia-cache-local.md
           - ADR-004 — Definição da Stack Tecnológica: tecnico/decisoes/ADR-004-stack-tecnologica.md
           - ADR-005 — Modelo Local e Datasets Brasileiros: tecnico/decisoes/ADR-005-modelo-local-e-datasets-brasileiros.md
           - ADR-006 — Arquitetura Evidence-First: tecnico/decisoes/ADR-006-evidence-first-architecture.md
-          - Atalho de Compatibilidade: adr/README.md
-  - Planejamento e Governança:
-      - Introdução: planejamento/README.md
-      - Priorização e MVP: planejamento/priorizacao-e-mvp.md
-      - Gestão de Riscos Técnicos: planejamento/gestao-riscos.md
-      - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
-  - Ciclo Metodológico CBL:
-      - Visão Geral CBL: cbl/README.md
-      - Experimento (Act):
-          - Visão Geral e Ordem de Leitura: cbl/act/README.md
+  - Processo CBL & Scrum:
+      - Framework CBL (12 Guiding Questions): visao/guiding-questions.md
+      - Alinhamento da Essential Question: visao/essential-question-alignment.md
+      - Log de Decisões Metodológicas: visao/decision-log.md
+      - Governança Scrum e DoD: scrum/definition-of-done.md
+      - Cerimônias e Ritos: scrum/ceremonies.md
+      - Product Backlog e Sprints: scrum/product-backlog.md
+      - Experimento com Usuários (Act):
           - Plano do Experimento: cbl/act/experiment-plan.md
           - Protocolo do Participante: cbl/act/participant-protocol.md
-          - Definição de Métricas: cbl/act/metrics-definition.md
+          - Definição de Métricas (M1 a M9): cbl/act/metrics-definition.md
           - Especificação de Telemetria: cbl/act/telemetry-spec.md
           - Template do Banco de Itens: cbl/act/item-bank-template.md
           - Template de Resultados: cbl/act/results-template.md
           - Critérios Go / No-Go: cbl/act/go-no-go-act.md
           - Limitações Metodológicas: cbl/act/limitations.md
       - Fechamento (Reflect & Share):
-          - Visão Geral: cbl/reflect-share/README.md
           - Síntese Acadêmica e Reflexão: cbl/reflect-share/reflection.md
           - Lições Aprendidas: cbl/reflect-share/lessons-learned.md
           - Portfólio de Pesquisa: cbl/reflect-share/research-portfolio.md
-          - Roteiro de Apresentação (Showcase): cbl/reflect-share/showcase-script.md
+          - Showcase da Banca Avaliadora: cbl/reflect-share/showcase-script.md
           - Roteiro de Demonstração (Demo): cbl/reflect-share/demo-script.md
           - Matriz Go / No-Go Final: cbl/reflect-share/go-no-go-final.md
-          - Relatório de Completude: cbl/reflect-share/CBL_COMPLETENESS_REPORT.md
-  - Referência e Governança:
-      - Glossário Oficial: glossario.md
-      - Metadados e Governança:
-          - Índice de Metadados: meta/README.md
-          - Convenções de Estilo: meta/convencoes.md
-          - Caminhos Protegidos: meta/protected-paths.md
-          - Registro de Links: meta/link-fixes.md
-          - Relatório de Reorganização: meta/reorganizacao-proposta.md
-      - Arquivo Histórico:
-          - Índice do Arquivo: arquivo/README.md
-          - Índice Mestre Anterior: arquivo/indice-mestre-anterior.md
-          - Glossário Legado: arquivo/glossario-legado.md
-          - Índice de Referência Anterior: arquivo/indice-referencia-anterior.md
-          - Auditoria de 2026-10-02: arquivo/auditoria-2026-10-02.md
+          - Relatório de Completude CBL: cbl/reflect-share/CBL_COMPLETENESS_REPORT.md
 
 
 

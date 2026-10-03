@@ -225,21 +225,27 @@ button,
   border-color: rgba(102, 187, 106, 0.4);
 }
 
-/* 8. Navegação Superior por Abas (Tabs) */
+/* 8. Navegação Superior por Abas (Tabs) - 4 Pilares Estratégicos */
 .md-tabs {
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.md-tabs__list {
+  gap: 1rem;
 }
 
 .md-tabs__link {
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  opacity: 0.85;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  opacity: 0.88;
+  padding: 0.7rem 0.5rem;
 }
 
 .md-tabs__link--active,
 .md-tabs__link:hover {
   opacity: 1;
+  font-weight: 700;
 }
 
 /* 9. Breadcrumbs (navigation.path) */

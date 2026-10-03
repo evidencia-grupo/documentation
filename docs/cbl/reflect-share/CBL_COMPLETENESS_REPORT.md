@@ -3,7 +3,7 @@
 
 > **Data da Auditoria:** 2026-10-03  
 > **Fase Auditada:** `SCAFFOLD`  
-> **Versão Documentação:** `@`7a5ef5d  
+> **Versão Documentação:** `@`061a110  
 > **Versão Código:** `@`60ae479  
 > **Veredito Geral:** **`NO-GO`**  
 > **Flag de Bloqueio Imediato:** `ATIVADA` (condição fatal de integridade violada)  
@@ -78,7 +78,7 @@
 | TEL | **TEL-02** | docs/cbl/act/telemetry-spec.md existe e o catálogo de eventos coincide com EVENT_ALLOWLIST | 4 tipos de eventos documentados | PASS | P1 | telemetry-spec.md validado |
 | TRC | **TRC-01** | HU11 não consta como Pós-MVP; HU13–HU16 existem; matriz liga GQ → ADR → HU | HU11 no MVP, HU13–HU16 presentes e matriz GQ → ADR → HU validada | PASS | P0 | Rastreabilidade íntegra |
 | TRC | **TRC-02** | Todo ID citado (GQ, HU, ADR, RF, RNF) existe nos catálogos | Todos os 12 IDs de GQ referenciados na matriz | PASS | P1 | Consistência de IDs verificada |
-| TRC | **TRC-03** | Hiperlinks relativos internos válidos na documentação | 1005 hiperlinks relativos auditados; nenhum link quebrado | PASS | P1 | Navegação íntegra |
+| TRC | **TRC-03** | Hiperlinks relativos internos válidos na documentação | 911 hiperlinks relativos auditados; nenhum link quebrado | PASS | P1 | Navegação íntegra |
 | UX | **UX-01** | EvidenceCard.tsx e ReflectionQuestions.tsx presentes em extension/src | Componentes ausentes em extension/src/panel/components: ['EvidenceCard.tsx', 'ReflectionQuestions.tsx'] | **FAIL** | P0 | HU11 promovida ao MVP exige EvidenceCard e ReflectionQuestions |
 
 ---
