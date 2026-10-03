@@ -76,5 +76,5 @@ flowchart LR
 
 ---
 
-**Próximo:** [Glossário Técnico](../arquivo/glossario-legado.md) — vocabulário formal do projeto.  
+**Próximo:** [Glossário Técnico](../glossario.md) — vocabulário formal do projeto.  
 **Ver também:** [Alinhamento Estratégico](../visao/alinhamento-estrategico.md) — definição formal dos objetivos e métricas do produto.

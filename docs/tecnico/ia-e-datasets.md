@@ -96,18 +96,18 @@ A checagem de um vídeo no EvidencIA segue uma cascata de decisão determinísti
 flowchart TD
     Video["Transcrição Higienizada do Vídeo\n(caption-parser.ts)"] --> Step1{"Ollama Local Ativo?\n(qwen2.5:3b)"}
 
-    Step1 -- Sim --> QwenExt["Extração de Alegações via Qwen\nFormato JSON Estruturado"]
-    Step1 -- Não --> HeurExt["Extração Analítica Heurística\nRegras Calibradas via ClaimPT"]
+    Step1 -->|Sim| QwenExt["Extração de Alegações via Qwen\nFormato JSON Estruturado"]
+    Step1 -->|Não| HeurExt["Extração Analítica Heurística\nRegras Calibradas via ClaimPT"]
 
     QwenExt --> Step2["Brazilian Fact Matcher\nBase Curada Nacional (FactChecks.br)"]
     HeurExt --> Step2
 
     Step2 --> MatchBR{"Similaridade Jaccard >= 0.25\ncom Checagem Nacional?"}
-    MatchBR -- Sim --> LocalResp["Veredito Oficial de Agência BR\n(Lupa, Aos Fatos, Boatos.org)"]
+    MatchBR -->|Sim| LocalResp["Veredito Oficial de Agência BR\n(Lupa, Aos Fatos, Boatos.org)"]
 
-    MatchBR -- Não --> GoogleStep{"Google Fact Check API\nKey Configurada?"}
-    GoogleStep -- Sim --> GoogleSearch["Busca na Base Global ClaimReview\nGoogle Fact Check Tools API"]
-    GoogleStep -- Não / Miss --> AnalytSynth["Síntese Contextual Sem Jargões\n(Dona Lurdes — HU02)"]
+    MatchBR -->|Não| GoogleStep{"Google Fact Check API\nKey Configurada?"}
+    GoogleStep -->|Sim| GoogleSearch["Busca na Base Global ClaimReview\nGoogle Fact Check Tools API"]
+    GoogleStep -->|"Não / Miss"| AnalytSynth["Síntese Contextual Sem Jargões\n(Dona Lurdes — HU02)"]
 
     GoogleSearch --> AnalytSynth
     LocalResp --> FinalResp["Resposta Estruturada HTTP 200\n(AnalyzeResponse)"]
