@@ -8,7 +8,9 @@
 - [Épico 3 — Análise e Checagem via IA](#epico-3-analise-e-checagem-via-ia) · HU02, HU04, HU09
 - [Épico 4 — Confiança e Fontes](#epico-4-confianca-e-fontes) · HU07, HU08
 - [Épico 5 — Performance e Cache](#epico-5-performance-e-cache) · HU06
-- [Épico 6 — Engajamento Reflexivo (Fora do MVP)](#epico-6-engajamento-reflexivo-fora-do-mvp) · HU11, HU12
+- [Épico 6 — Engajamento Reflexivo e Avaliação](#epico-6-engajamento-reflexivo-e-avaliacao) · HU11, HU12
+- [Épico 7 — Investigação Orientada por Alegações e Evidências](#epico-7-investigacao-orientada-por-alegacoes-e-evidencias) · HU13, HU14, HU15
+- [Épico 8 — Infraestrutura e Provedores de IA](#epico-8-infraestrutura-e-provedores-de-ia) · HU16
 
 !!! info "Legenda de Padronização"
     - **HU** = História de Usuário (formato de valor de negócio com personas mapeadas)
@@ -31,6 +33,9 @@
 | **E4 — Confiança e Fontes** | Credibilidade e contexto | HU07, HU08 | Must Have (HU07) / Should Have (HU08) \| IN | [Cenário 04](cenarios.md#cenario-04), [Cenário 09](cenarios.md#cenario-09) |
 | **E5 — Performance e Cache** | Otimização e reuso local | HU06 | Should Have \| IN | [Cenário 07](cenarios.md#cenario-07) |
 | **E6 — Engajamento Reflexivo e Avaliação** | Pensamento crítico e feedback | HU11, HU12 | Must Have (HU11) \| IN / Could Have (HU12) \| OUT | [Cenário 05](cenarios.md#cenario-05), [Cenário 11](cenarios.md#cenario-11) |
+| **E7 — Investigação e Evidências** | UX Evidence-First e Alegações | HU13, HU14, HU15 | Must Have \| IN | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [Cenário 05](cenarios.md#cenario-05) |
+| **E8 — Infraestrutura de IA** | Desacoplamento de Providers | HU16 | Must Have \| IN | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+
 
 ### Funil de Priorização do Backlog
 
@@ -536,5 +541,180 @@ Funcionalidade: Avaliação de relevância e precisão da análise
 
 ---
 
+## Épico 7 — Investigação Orientada por Alegações e Evidências {: #epico-7-investigacao-orientada-por-alegacoes-e-evidencias }
+
+### HU13 — Investigação Orientada por Alegações {: #hu13 }
+
+| Propriedade | Detalhamento |
+|:---|:---|
+| **Descrição** | Eu, como usuária, pretendo visualizar as principais alegações verificáveis do vídeo separadamente para investigar cada uma delas sem aceitar uma classificação global ou veredito automático. |
+| **Prioridade** | Must Have \| IN |
+| **Persona Relacionada** | [Amanda](../design/personas-e-jornadas.md#amanda) |
+| **Rastreabilidade** | GQ01, GQ02, GQ11, [ADR-006 Decisão 1 e 2](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-06](catalogo-requisitos.md#rf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
+
+**Critérios de Aceitação:**
+
+- As alegações verificáveis extraídas da transcrição devem ser exibidas de forma atômica e individualizada no painel lateral.
+- Nenhum score global (0 a 100%), velocímetro gráfico ou medidor único de veracidade do vídeo deve ser exibido na interface.
+- Cada alegação deve conter identificador exclusivo e seu contexto temporal correspondente.
+
+```gherkin
+Funcionalidade: Investigação orientada por alegações
+
+  Cenário: Listagem individualizada de alegações sem score global
+    Dado que a investigação de um vídeo foi processada com sucesso
+    Quando o painel lateral é aberto
+    Então cada alegação identificada deve ser listada separadamente em um cartão próprio
+    E nenhum score global, gauge ou porcentagem de veracidade do vídeo deve ser apresentado
+
+  Cenário: Foco investigativo por alegação
+    Dado que o usuário deseja examinar uma afirmação específica
+    Quando ele seleciona o cartão daquela alegação
+    Então apenas o conjunto de evidências e perguntas pertinentes a ela deve ser expandido
+
+  Cenário: Vídeo composto exclusivamente por opiniões subjetivas
+    Dado que a transcrição do vídeo não contém premissas factuais verificáveis
+    Quando o pipeline conclui a extração
+    Então o painel deve informar que não foram identificadas alegações checáveis, sem atribuir nota ou veredito
+```
+
+### Histórico de Revisão — HU13
+
+| Data | Motivo | Referência |
+|:---|:---|:---|
+| 2026-10-02 | Criação da história para formalizar a alegação como unidade atômica da investigação e a eliminação definitiva de scores globais (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+
+---
+
+### HU14 — Evidência Rastreável {: #hu14 }
+
+| Propriedade | Detalhamento |
+|:---|:---|
+| **Descrição** | Eu, como usuária, pretendo ver quais fontes sustentam, contradizem ou contextualizam cada alegação para poder verificar a origem das informações de forma autônoma. |
+| **Prioridade** | Must Have \| IN |
+| **Persona Relacionada** | [Mayara](../design/personas-e-jornadas.md#mayara) |
+| **Rastreabilidade** | GQ02, GQ04, GQ06, [ADR-006 Decisão 2 e 5](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-04](catalogo-requisitos.md#rf-04), [RF-13](catalogo-requisitos.md#rf-13), [RNF-05](catalogo-requisitos.md#rnf-05) |
+
+**Critérios de Aceitação:**
+
+- Cada evidência deve exibir obrigatoriamente: título, hiperligação direta (URL), data de publicação, entidade publicadora (publisher) e relação explícita com a alegação (`supports`, `contradicts`, `contextualizes`).
+- As evidências devem ser organizadas agrupando visualmente o tipo de relação com a afirmação avaliada.
+- A consulta à fonte externa deve abrir em nova aba (`target="_blank"`), sem recarregar a extensão nem interromper o vídeo.
+
+```gherkin
+Funcionalidade: Evidência rastreável
+
+  Cenário: Exibição completa de atributos de evidência
+    Dado que uma alegação possui evidências recuperadas de corpora verificados
+    Quando o usuário visualiza o cartão de evidência
+    Então título, URL, data de publicação, publisher e a relação factual devem estar explicitamente visíveis
+
+  Cenário: Exibição de fontes contraditórias com destaque claro
+    Dado que uma fonte contradiz a afirmação realizada no vídeo
+    Quando o cartão dessa evidência é apresentado
+    Então o indicador de relação "Contradiz" deve ser exibido com destaque e acompanhado do trecho factual correspondente
+
+  Cenário: Exibição de contexto complementar
+    Dado que uma evidência fornece contexto temporal ou esclarecimento sem confirmar nem negar
+    Quando o cartão é apresentado
+    Então o indicador de relação "Contextualiza" deve ser exibido com metadados completos
+```
+
+### Histórico de Revisão — HU14
+
+| Data | Motivo | Referência |
+|:---|:---|:---|
+| 2026-10-02 | Criação da história para assegurar a rastreabilidade estrita de cada evidência por alegação com relação explícita e metadados completos (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+
+---
+
+### HU15 — Reflexão Crítica na UX {: #hu15 }
+
+| Propriedade | Detalhamento |
+|:---|:---|
+| **Descrição** | Eu, como usuária, pretendo receber perguntas que me ajudem a avaliar a alegação por conta própria antes de formar uma conclusão definitiva sobre o conteúdo assistido. |
+| **Prioridade** | Must Have \| IN |
+| **Persona Relacionada** | [Helena](../design/personas-e-jornadas.md#helena) |
+| **Rastreabilidade** | GQ08, GQ11, [ADR-006 Decisão 7](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-05](catalogo-requisitos.md#rf-05), [RNF-07](catalogo-requisitos.md#rnf-07) |
+
+**Critérios de Aceitação:**
+
+- O sistema deve gerar e exibir no mínimo 3 perguntas reflexivas neutras associadas a cada alegação ou conjunto analítico.
+- Nenhuma pergunta gerada deve emitir veredito, juízo de valor ideológico ou impor conclusões pré-moldadas.
+- As perguntas devem incidir sobre pontos investigativos essenciais: credibilidade da fonte original, atualidade dos dados, premissas omitidas e existência de comprovação independente.
+
+```gherkin
+Funcionalidade: Reflexão crítica na UX
+
+  Cenário: Formulação de no mínimo 3 perguntas reflexivas
+    Dado que a investigação de uma alegação foi concluída
+    Quando o componente de perguntas reflexivas é exibido
+    Então pelo menos 3 perguntas neutras orientadas à investigação pessoal devem ser apresentadas
+
+  Cenário: Garantia de neutralidade nas perguntas
+    Dado que o assistente de IA formula as perguntas de reflexão
+    Quando o texto é gerado
+    Então nenhuma pergunta deve declarar se o vídeo está "certo" ou "errado", mantendo postura investigativa aberta
+
+  Cenário: Não obrigatoriedade de resposta
+    Dado que o usuário lê as perguntas reflexivas
+    Quando ele decide continuar assistindo ao vídeo ou fechar o painel
+    Então nenhuma ação de resposta compulsória deve ser exigida
+```
+
+### Histórico de Revisão — HU15
+
+| Data | Motivo | Referência |
+|:---|:---|:---|
+| 2026-10-02 | Criação da história para garantir na interface o estímulo contínuo ao pensamento crítico através de perguntas estruturadas (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+
+---
+
+## Épico 8 — Infraestrutura e Provedores de IA {: #epico-8-infraestrutura-e-provedores-de-ia }
+
+### HU16 — Provedor de IA Independente {: #hu16 }
+
+| Propriedade | Detalhamento |
+|:---|:---|
+| **Descrição** | Eu, como sistema, pretendo utilizar diferentes provedores de LLM por meio de uma interface comum para não depender estruturalmente do Ollama local e operar com flexibilidade de infraestrutura. |
+| **Prioridade** | Must Have \| IN |
+| **Persona Relacionada** | Equipe de Engenharia / Sistema |
+| **Rastreabilidade** | GQ03, GQ07, [ADR-006 Decisão 6](../tecnico/decisoes/ADR-006-evidence-first-architecture.md), [RF-14](catalogo-requisitos.md#rf-14), [RF-15](catalogo-requisitos.md#rf-15), [RNF-06](catalogo-requisitos.md#rnf-06) |
+
+**Critérios de Aceitação:**
+
+- O backend deve implementar a interface abstrata `LLMProvider` permitindo alternar entre Ollama local, provedor remoto via API e provedor mock via configuração de ambiente (`LLM_PROVIDER`), sem modificação no código de negócio.
+- O uso de mock é restrito a desenvolvimento e testes automatizados, sendo estritamente proibido em ambiente de produção (`ENV=production`).
+- Em caso de falha de conexão, erro 5xx ou timeout no provedor de LLM, o sistema deve degradar graciosamente para o modo Evidence-Only (apresentação de evidências recuperadas sem síntese gerativa), exibindo aviso explícito de limitação.
+
+```gherkin
+Funcionalidade: Provedor de IA independente
+
+  Cenário: Troca de provedor por configuração
+    Dado que a variável de ambiente LLM_PROVIDER é alterada de "ollama" para "remote"
+    Quando o serviço de backend intermediário é iniciado
+    Então as inferências de extração e reflexão devem ser direcionadas ao provedor remoto sem qualquer alteração no código de negócio
+
+  Cenário: Bloqueio estrito de mock em produção
+    Dado que o sistema está em execução com ENV=production
+    Quando há qualquer tentativa de configurar LLM_PROVIDER=mock
+    Então o sistema deve abortar a inicialização imediatamente com código de erro e registrar evento no log de auditoria
+
+  Cenário: Degradação graciosa para modo Evidence-Only
+    Dado que o provedor de LLM ativo fica indisponível ou excede o timeout de 15 segundos
+    Quando a requisição de checagem do vídeo é processada
+    Então o sistema deve retornar as evidências obtidas pela busca vetorial no modo Evidence-Only
+    E o painel deve exibir uma mensagem indicando que a síntese de linguagem está temporariamente indisponível
+```
+
+### Histórico de Revisão — HU16
+
+| Data | Motivo | Referência |
+|:---|:---|:---|
+| 2026-10-02 | Criação da história para formalizar o desacoplamento de provedores de LLM, a degradação resiliente para modo Evidence-Only e a proibição absoluta de mocks em ambiente produtivo (Origem: ADR-006). | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
+
+---
+
 **Próximo:** [Casos de Uso](casos-de-uso.md) — fluxos detalhados de cada funcionalidade.  
 **Ver também:** [Priorização e MVP](../planejamento/priorizacao-e-mvp.md) — sequência de entrega e decisões técnicas.
+
