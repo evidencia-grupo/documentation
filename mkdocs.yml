@@ -78,6 +78,23 @@ nav:
   - Início: index.md
   - Visão:
       - Alinhamento Estratégico: visao/alinhamento-estrategico.md
+      - Guiding Questions (CBL): visao/guiding-questions.md
+      - Alinhamento com a Essential Question: visao/essential-question-alignment.md
+      - Log de Decisões: visao/decision-log.md
+  - Governança Scrum:
+      - Product Backlog: scrum/product-backlog.md
+      - Definition of Done (DoD): scrum/definition-of-done.md
+      - Cerimônias Scrum: scrum/ceremonies.md
+      - Sprint 01 (Investigação e EDA):
+          - Sprint Goal: scrum/sprint-01/sprint-goal.md
+          - Sprint Backlog: scrum/sprint-01/sprint-backlog.md
+          - Sprint Review: scrum/sprint-01/review.md
+          - Sprint Retrospective: scrum/sprint-01/retrospective.md
+      - Sprint 02 (Evidence-First UX):
+          - Sprint Goal: scrum/sprint-02/sprint-goal.md
+          - Sprint Backlog: scrum/sprint-02/sprint-backlog.md
+          - Sprint Review: scrum/sprint-02/review.md
+          - Sprint Retrospective: scrum/sprint-02/retrospective.md
   - Design e Experiência:
       - Personas e Jornadas: design/personas-e-jornadas.md
       - Design System e Interface: design/design-system.md
@@ -103,9 +120,11 @@ nav:
           - ADR-003 — Estratégia de Cache Local: tecnico/decisoes/ADR-003-estrategia-cache-local.md
           - ADR-004 — Definição da Stack Tecnológica: tecnico/decisoes/ADR-004-stack-tecnologica.md
           - ADR-005 — Modelo Local e Datasets Brasileiros: tecnico/decisoes/ADR-005-modelo-local-e-datasets-brasileiros.md
+          - ADR-006 — Arquitetura Evidence-First: tecnico/decisoes/ADR-006-evidence-first-architecture.md
   - Planejamento e Governança:
       - Priorização e MVP: planejamento/priorizacao-e-mvp.md
       - Gestão de Riscos Técnicos: planejamento/gestao-riscos.md
       - Instrumentação e Telemetria: planejamento/metricas-telemetria.md
   - Referência:
       - Glossário Técnico: referencia/glossario.md
+

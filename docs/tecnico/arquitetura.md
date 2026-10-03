@@ -41,7 +41,7 @@ flowchart TB
     ExtSystem -->|Captura videoId e faixas de legenda| YouTube
     ExtSystem -->|Envia transcricao e recebe alegacoes| AIProvider
     ExtSystem -->|Consulta bases factuais de referencia| SearchProvider
-    ExtSystem -->|Apresenta sintese de veracidade| User
+    ExtSystem -->|Apresenta investigacao estruturada de evidencias| User
 ```
 
 ---
@@ -129,11 +129,11 @@ sequenceDiagram
             SW->>API: POST /api/v1/analyze (HTTPS)
             Note over API: Timeout do servidor configurado para 8,0s
             API->>AI: Segmenta alegacoes e busca referencias
-            AI-->>API: Retorna score, justificativa e fontes
+            AI-->>API: Retorna alegacoes, evidencias recuperadas e perguntas
             API-->>SW: Retorna payload AnalyzeResponse (HTTP 200)
             SW->>Cache: Persiste registro (videoId + payload + timestamp)
             SW-->>CS: Encaminha resultado estruturado
-            CS->>Panel: Abre painel e renderiza velocimetro e fontes
+            CS->>Panel: Abre painel e renderiza alegacoes, evidencias e perguntas
             Note over User,Panel: [SLA RNF-01: Tempo total decorrido <= 10s (P90)]
         end
     end
@@ -145,11 +145,11 @@ sequenceDiagram
 
 | Componente | Tecnologia Base | Escopo e Responsabilidade Técnica |
 |:---|:---|:---|
-| **Content Script** | TypeScript + Vite (Manifest V3) | Injeção do botão de veracidade na página `/watch` do YouTube via Shadow DOM; interceptação do `videoId` e das faixas de legenda expostas pelo player; coordenação de abertura do painel. |
+| **Content Script** | TypeScript + Vite (Manifest V3) | Injeção do botão de acionamento na página `/watch` do YouTube via Shadow DOM; interceptação do `videoId` e das faixas de legenda expostas pelo player; coordenação de abertura do painel. |
 | **Service Worker** | TypeScript + Vite (Manifest V3) | Gerenciamento de ciclo de vida em segundo plano; verificação e invalidação do cache em `chrome.storage.local`; comunicação de rede HTTPS com o Backend Proxy. |
-| **Painel Lateral** | Preact 10 / TypeScript / CSS Modules | Renderização do velocímetro de veracidade, card de justificativa analítica e lista de fontes; isolamento de estilos e scripts via `iframe` com atributo `sandbox="allow-scripts"`. |
+| **Painel Lateral** | Preact 10 / TypeScript / CSS Modules | Renderização do painel de investigação: cartões de alegações, cartões de evidências com relação factual, seção de incertezas e perguntas de reflexão crítica ([ADR-006](decisoes/ADR-006-evidence-first-architecture.md)); isolamento via Shadow DOM e contêiner sandbox. |
 | **Backend Proxy** | Python 3.12+ (FastAPI + Pydantic v2 + Uvicorn) | Ponto único de entrada para chamadas externas; validação de tokens de cliente; controle rigoroso de requisições (*Rate Limiting*); orquestração assíncrona de chamadas para LLM e bases de checagem com timeout de 8,0s. |
-| **Pipeline IA & Datasets** | Ollama (Qwen 2.5-3B) + FactChecks.br | Extração estruturada de alegações em JSON, síntese sem jargões e correspondência local imediata com base em checagens jornalísticas brasileiras ([Detalhes](ia-e-datasets.md)). |
+| **Pipeline IA & Datasets** | Ollama / Remote (`LLMProvider`) + FactChecks.br | Extração estruturada de alegações em JSON, recuperação vetorial e geração de perguntas reflexivas neutras ([ADR-006](decisoes/ADR-006-evidence-first-architecture.md)). |
 | **Contratos Compartilhados** | JSON Schema / TypeScript | Definições canônicas de tipos e schemas (`shared/schemas/api-schema.json` e `shared/types/api.ts`) consumidas por cliente e servidor. |
 | **Cache Local** | `chrome.storage.local` API | Persistência cliente das análises efetuadas por 24 horas, indexadas pelo hash do `videoId`. |
 
@@ -168,7 +168,7 @@ evidencia/
 │   └── src/
 │       ├── background/    # Service Worker e gerenciador de cache
 │       ├── content/       # Content Script e injetor Shadow DOM
-│       └── panel/         # UI em Preact (Velocimetro, Claims, Fontes)
+│       └── panel/         # UI em Preact (ClaimCard, EvidenceCard, ReflectionQuestions)
 ├── backend/               # Backend Proxy de seguranca e orquestracao
 │   ├── pyproject.toml     # Dependencias e configuracao de testes
 │   ├── requirements.txt   # FastAPI, Pydantic v2, Uvicorn, SlowAPI
@@ -178,7 +178,8 @@ evidencia/
 │   │   ├── config.py      # Gestao segura de variaveis de ambiente
 │   │   ├── schemas.py     # Modelos Pydantic v2 alinhados ao contrato
 │   │   ├── api/v1/        # Endpoints /analyze e /health
-│   │   └── services/      # Orquestrador assincrono, Ollama e Brazilian Fact Matcher
+│   │   ├── providers/     # LLMProvider (base.py, ollama.py, remote.py, mock.py)
+│   │   └── services/      # Orquestrador assincrono e Brazilian Fact Matcher
 │   ├── ml/                # Inteligência Artificial e Datasets
 │   │   └── datasets/      # Script de download e sample_facts.json (FactChecks.br)
 │   └── tests/             # Testes automatizados com Pytest
@@ -198,14 +199,16 @@ A extensão emprega armazenamento estritamente local no navegador do usuário pa
 ```
 chrome.storage.local
   └── [chave: videoId]
-        ├── score: number (0-100)
-        ├── classification: "verdadeiro" | "moderado" | "falso" | "inconclusivo"
-        ├── summary: string
-        ├── claims: Array<VerificationClaim>
-        ├── sources: Array<FactCheckingSource>
+        ├── analysisMode: "evidence_first"
+        ├── videoTitle: string
+        ├── channelName: string
+        ├── publishedAt: string (ISO 8601)
+        ├── claims: Array<Claim>
+        ├── limitations: Array<string>
         ├── timestamp: epoch_milliseconds
         └── ttl: 86400000 (24 horas em milissegundos)
 ```
+
 
 - **Leitura Proativa:** Toda requisição verifica primeiro a presença do `videoId` no storage. Caso `Date.now() - timestamp < ttl`, o resultado é entregue sem tráfego de rede.
 - **Invalidação Transparente:** Ao identificar um registro com tempo expirado, o Service Worker o descarta e aciona o pipeline padrão de checagem.

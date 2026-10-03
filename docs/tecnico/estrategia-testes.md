@@ -60,9 +60,9 @@ A garantia de qualidade da **Extensão de Fact-Checking para YouTube** baseia-se
 
 - **Escopo:** Execução real da extensão empacotada em instâncias dedicadas de navegadores Chromium (Chrome e Edge) gerenciadas pelo **Playwright**.
 - **Cenários Cobertos:**
-  - Injeção bem-sucedida do botão de veracidade em páginas `/watch`.
-  - Acionamento da checagem em vídeo com legendas disponíveis.
-  - Abertura suave do painel lateral com renderização do velocímetro e cartões de fontes.
+  - Injeção bem-sucedida do botão de acionamento em páginas `/watch`.
+  - Acionamento da investigação em vídeo com legendas disponíveis.
+  - Abertura suave do painel lateral com renderização dos cartões de alegações, evidências e perguntas reflexivas sem velocímetro/gauge ([ADR-006](decisoes/ADR-006-evidence-first-architecture.md)).
   - Comportamento de clique em links externos (`target="_blank"`).
   - Fechamento do painel via clique no botão de fechar e via tecla `Escape`.
 

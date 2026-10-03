@@ -36,10 +36,10 @@ Para assegurar a conformidade estrita com o requisito [RNF-05](../requisitos/cat
 | Nome do Evento | Disparador | Dados Transmitidos |
 |:---|:---|:---|
 | `extension_installed` | Primeira execução pós-instalação da extensão | `version`, `browserEngine` |
-| `check_triggered` | Clique do usuário no botão de veracidade | `isCached: boolean` |
-| `check_completed` | Síntese de veracidade renderizada com sucesso | `durationMs`, `scoreClassification`, `sourcesCount` |
+| `check_triggered` | Clique do usuário no botão de acionamento da investigação | `isCached: boolean` |
+| `check_completed` | Investigação estruturada renderizada com sucesso no painel | `durationMs`, `analysisMode`, `claimsCount`, `sourcesCount`, `hasUncertainty` |
 | `check_aborted_no_captions` | Vídeo sem transcrição ou legendas desativadas | `durationMs` (esperado < 1000ms) |
-| `check_degraded_gracefully` | Falha de rede tratada com mensagem clara | `errorCode: string`, `durationMs` |
+| `check_degraded_gracefully` | Falha tratada com mensagem clara ou fallback Evidence-Only | `errorCode: string`, `durationMs` |
 
 ---
 
@@ -54,11 +54,14 @@ O payload transmitido para o endpoint de métricas não armazena referências ao
   "browserEngine": "Chromium-128",
   "durationMs": 4120,
   "isCached": false,
-  "scoreClassification": "moderado",
+  "analysisMode": "evidence_first",
+  "claimsCount": 3,
   "sourcesCount": 4,
-  "timestamp": "2026-09-26T12:00:00Z"
+  "hasUncertainty": false,
+  "timestamp": "2026-10-02T12:00:00Z"
 }
 ```
+
 
 ---
 

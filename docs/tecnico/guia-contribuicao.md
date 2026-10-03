@@ -74,7 +74,7 @@ No repositório de código `evidencia/`, a extensão localiza-se no diretório `
 
 4. **Testar no YouTube:**
    - Abra qualquer vídeo em `https://www.youtube.com/watch?v=...`.
-   - Localize o botão de veracidade injetado via Shadow DOM abaixo do player do vídeo.
+   - Localize o botão de acionamento da investigação injetado via Shadow DOM abaixo do player do vídeo.
 
 ---
 
@@ -134,7 +134,7 @@ evidencia/
 │   └── src/
 │       ├── background/      → Service Worker (cache e requisicoes)
 │       ├── content/         → Content Script (Shadow DOM no player)
-│       └── panel/           → Painel Lateral Preact (Gauge, Claims, Fontes)
+│       └── panel/           → Painel Lateral Preact (ClaimCard, EvidenceCard, ReflectionQuestions)
 ├── backend/                 → Backend Proxy seguro (Python 3.12+ FastAPI)
 │   ├── pyproject.toml
 │   ├── requirements.txt

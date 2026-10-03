@@ -31,7 +31,7 @@ A extensão atua exclusivamente como cliente consumidor da API fornecida pelo **
 
 ### POST /api/v1/analyze {: #post-apiv1analyze }
 
-Submete a transcrição capturada de um vídeo para extração de alegações, cruzamento com bases de evidências externas e cálculo do índice de veracidade.
+Submete a transcrição capturada de um vídeo para extração de alegações, recuperação de evidências factuais em corpora verificados (FactChecks.br) e formulação de perguntas para reflexão crítica, operando sob a arquitetura Evidence-First ([ADR-006](decisoes/ADR-006-evidence-first-architecture.md)).
 
 #### Cabeçalhos da Requisição
 
@@ -54,58 +54,82 @@ Submete a transcrição capturada de um vídeo para extração de alegações, c
 }
 ```
 
-#### Exemplo de Resposta de Sucesso (HTTP 200 OK)
+#### Exemplo de Resposta de Sucesso (HTTP 200 OK — Evidence-First)
 
 ```json
 {
   "videoId": "abc123xyz",
-  "analyzedAt": "2026-09-26T12:00:00Z",
-  "score": 68,
-  "classification": "moderado",
-  "summary": "O vídeo apresenta dados reais e cita especialistas reconhecidos na área de economia. No entanto, algumas projeções podem ser consideradas otimistas e não levam em conta possíveis riscos, como instabilidade política e fatores externos. Por isso, a veracidade é considerada moderada, com base na qualidade das fontes e na forma como as informações são apresentadas.",
+  "analysisMode": "evidence_first",
+  "videoTitle": "O Brasil vai se tornar a maior economia do mundo? Veja o que os especialistas dizem",
+  "channelName": "Mundo Hoje",
+  "publishedAt": "2026-09-24T14:30:00Z",
+  "processingTimeMs": 3840,
   "claims": [
     {
       "id": "clm-01",
       "text": "O PIB brasileiro ultrapassará os Estados Unidos até o ano de 2035.",
-      "status": "contraditada",
-      "evidenceSummary": "Relatórios do FMI e do Banco Mundial projetam crescimento moderado e descartam essa possibilidade.",
-      "confidence": 0.94
+      "temporalContext": {
+        "claimDate": "2026-09-24",
+        "videoPublishedAt": "2026-09-24T14:30:00Z"
+      },
+      "uncertainty": "contradicted",
+      "reflectionQuestions": [
+        "Qual é a fonte primária das projeções econômicas citadas no vídeo?",
+        "As projeções do FMI e Banco Mundial consideram que taxa de crescimento médio anual?",
+        "Que fatores de risco político ou cambial foram omitidos no argumento?"
+      ],
+      "evidence": [
+        {
+          "sourceId": "src-01",
+          "relation": "contradicts",
+          "title": "Banco Mundial - Perspectivas Econômicas do Brasil",
+          "url": "https://www.worldbank.org/pt/country/brazil",
+          "publishedAt": "2026-01-15T00:00:00Z",
+          "publisher": "Banco Mundial",
+          "snippet": "Projeções oficiais estimam crescimento de 1,8% a 2,2% ao ano, descartando ultrapassagem do PIB norte-americano.",
+          "provenance": {
+            "dataset": "factchecks-br",
+            "indexedAt": "2026-08-01T10:00:00Z",
+            "contentHash": "sha256-a1b2c3d4..."
+          }
+        }
+      ]
     },
     {
       "id": "clm-02",
       "text": "O setor de agronegócio e energia limpa lideram a atração de investimentos internacionais.",
-      "status": "apoiada",
-      "evidenceSummary": "Dados oficiais de comércio exterior e balança de pagamentos confirmam a liderança destes dois setores.",
-      "confidence": 0.91
+      "temporalContext": {
+        "claimDate": "2026-09-24",
+        "videoPublishedAt": "2026-09-24T14:30:00Z"
+      },
+      "uncertainty": "supported",
+      "reflectionQuestions": [
+        "A liderança setorial se mantém no último trimestre consolidado?",
+        "Que metodologia é utilizada para classificar 'energia limpa' nos relatórios citados?",
+        "Existem fontes independentes além dos dados ministeriais divulgados?"
+      ],
+      "evidence": [
+        {
+          "sourceId": "src-02",
+          "relation": "supports",
+          "title": "Balança Comercial e Investimento Estrangeiro Direto",
+          "url": "https://www.gov.br/mdic/pt-br/noticias",
+          "publishedAt": "2026-06-30T00:00:00Z",
+          "publisher": "MDIC / Banco Central",
+          "snippet": "Dados consolidados confirmam agropecuária e energia renovável como principais destinos de IED.",
+          "provenance": {
+            "dataset": "factchecks-br",
+            "indexedAt": "2026-08-01T10:00:00Z",
+            "contentHash": "sha256-e5f6g7h8..."
+          }
+        }
+      ]
     }
   ],
-  "sources": [
-    {
-      "id": "src-01",
-      "title": "Banco Mundial - Perspectivas Econômicas do Brasil",
-      "url": "https://www.worldbank.org/pt/country/brazil",
-      "domain": "worldbank.org",
-      "reliabilityScore": 0.98,
-      "publishedAt": "2026-01-15T00:00:00Z"
-    },
-    {
-      "id": "src-02",
-      "title": "Relatório do FMI - Projeções para o Brasil",
-      "url": "https://www.imf.org/pt/News/Articles",
-      "domain": "imf.org",
-      "reliabilityScore": 0.96,
-      "publishedAt": "2026-02-10T00:00:00Z"
-    },
-    {
-      "id": "src-03",
-      "title": "Artigo - O futuro da economia brasileira",
-      "url": "https://www.folha.uol.com.br/economia",
-      "domain": "folha.uol.com.br",
-      "reliabilityScore": 0.88,
-      "publishedAt": "2026-08-01T00:00:00Z"
-    }
-  ],
-  "processingTimeMs": 3840
+  "limitations": [
+    "A análise cobre apenas alegações verificáveis presentes na transcrição de áudio.",
+    "Bases de fact-checking possuem atualização até a data da última indexação do corpus."
+  ]
 }
 ```
 
@@ -151,32 +175,56 @@ export interface AnalyzeRequest {
   language?: string;
 }
 
-export interface VerificationClaim {
-  id: string;
-  text: string;
-  status: ClaimVerificationStatus;
-  evidenceSummary: string;
-  confidence: number;
+export type EvidenceRelation = "supports" | "contradicts" | "contextualizes";
+
+export type UncertaintyState =
+  | "supported"
+  | "contradicted"
+  | "contextualized"
+  | "conflicting"
+  | "insufficient_evidence";
+
+export interface EvidenceProvenance {
+  dataset: string;
+  indexedAt: string;
+  contentHash?: string;
 }
 
-export interface FactCheckingSource {
-  id: string;
+export interface TemporalContext {
+  claimDate?: string;
+  videoPublishedAt: string;
+  note?: string;
+}
+
+export interface Evidence {
+  sourceId: string;
+  relation: EvidenceRelation;
   title: string;
   url: string;
-  domain: string;
-  reliabilityScore: number;
-  publishedAt?: string;
+  publishedAt: string;
+  publisher: string;
+  snippet?: string;
+  provenance: EvidenceProvenance;
+}
+
+export interface Claim {
+  id: string;
+  text: string;
+  temporalContext: TemporalContext;
+  evidence: Evidence[];
+  uncertainty: UncertaintyState;
+  reflectionQuestions: string[];
 }
 
 export interface AnalyzeResponse {
   videoId: string;
-  analyzedAt: string;
-  score: number; // 0 a 100
-  classification: VerificationClassification;
-  summary: string;
-  claims: VerificationClaim[];
-  sources: FactCheckingSource[];
+  analysisMode: "evidence_first";
+  videoTitle: string;
+  channelName: string;
+  publishedAt: string;
   processingTimeMs: number;
+  claims: Claim[];
+  limitations: string[];
 }
 
 export interface ApiErrorDetail {

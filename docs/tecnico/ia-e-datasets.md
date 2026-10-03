@@ -71,7 +71,7 @@ flowchart TD
 
 * **Origem:** Dataset de referência acadêmica em Português para *Check-worthiness*.
 * **Conteúdo:** Textos anotados no nível de sentença para distinguir proposições verificáveis de opiniões, saudações ou comentários casuais.
-* **Papel no EvidencIA:** Guia a heurística de segmentação atômica e os prompts do Qwen 2.5-3B para descartar introduções de YouTubers e isolar apenas alegações verificáveis ([HU04](../../requisitos/backlog-e-historias.md#hu04)).
+* **Papel no EvidencIA:** Guia a heurística de segmentação atômica e os prompts para descartar introduções de YouTubers e isolar apenas alegações verificáveis ([HU04](../requisitos/backlog-e-historias.md#hu04); ver papel de ClaimPT no [ADR-006](decisoes/ADR-006-evidence-first-architecture.md#decisao-5-papeis-dos-datasets)).
 
 ---
 
