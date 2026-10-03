@@ -1,36 +1,112 @@
 /* ==========================================================================
    Estilos Personalizados - Documentação Extensão Fact-Checking YouTube
-   Acessibilidade (WCAG 2.1 AA), Usabilidade (Heurísticas de Nielsen) e Design Clean
+   Acessibilidade (WCAG 2.1 AA), Usabilidade (Nielsen) e Animações Suaves
    ========================================================================== */
 
-/* 1. Transição Suave e Sutil entre Páginas (navigation.instant) */
-/* Animação restrita a opacidade para não criar containing block que quebre position: fixed */
-.md-main__inner {
-  animation: subtleFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+/* --------------------------------------------------------------------------
+   0. Variáveis de Movimento, Física e Transição Fluida
+   -------------------------------------------------------------------------- */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --trans-fast: 0.15s var(--ease-smooth);
+  --trans-normal: 0.24s var(--ease-out-expo);
+  --trans-slow: 0.38s var(--ease-out-expo);
 }
 
-@keyframes subtleFadeIn {
+/* --------------------------------------------------------------------------
+   1. Transição Suave e Limpa entre Páginas (navigation.instant & View Transitions)
+   -------------------------------------------------------------------------- */
+.md-main__inner {
+  animation: pageFadeIn 0.22s var(--ease-out-expo) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes pageFadeIn {
   0% {
-    opacity: 0.88;
+    opacity: 0.85;
+    transform: translateY(3px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Barra de progresso sutil no topo durante carregamento instantâneo */
-.md-progress {
-  background-color: var(--md-accent-fg-color) !important;
-  height: 2.5px !important;
-  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+/* View Transitions nativas para navegadores com suporte */
+@supports (view-transition-name: root) {
+  ::view-transition-old(root) {
+    animation: 0.15s var(--ease-out-expo) both pageFadeOut;
+  }
+  ::view-transition-new(root) {
+    animation: 0.22s var(--ease-out-expo) both pageFadeIn;
+  }
 }
 
-/* Transições suaves para links, abas e controles interativos */
+@keyframes pageFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0.88; }
+}
+
+/* Barra de progresso com gradiente suave e brilho sutil */
+.md-progress {
+  background: linear-gradient(90deg, #e50914, #ff9800) !important;
+  height: 2.5px !important;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.45);
+  transition: width 0.25s var(--ease-out-expo);
+}
+
+/* Scrollbar fina, discreta e elegante em todo o documento */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 120, 120, 0.28) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(120, 120, 120, 0.28);
+  border-radius: 6px;
+  transition: background-color var(--trans-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(120, 120, 120, 0.48);
+}
+
+[data-md-color-scheme="slate"] * {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Transições universais para interatividade */
 a, 
 button, 
 .md-nav__link, 
-.md-tabs__link {
-  transition: color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
+.md-tabs__link,
+.md-search__input,
+.md-clipboard {
+  transition: color var(--trans-fast), 
+              background-color var(--trans-fast), 
+              border-color var(--trans-fast), 
+              opacity var(--trans-fast), 
+              transform var(--trans-fast), 
+              box-shadow var(--trans-fast);
 }
 
 /* Respeito estrito a usuários com preferência de movimento reduzido (WCAG 2.1 AA) */
@@ -45,50 +121,52 @@ button,
   }
 }
 
-/* 2. Acessibilidade e Foco Visível (WCAG 2.1 AA - Critério 2.4.7) */
+/* --------------------------------------------------------------------------
+   2. Acessibilidade e Foco Visível (WCAG 2.1 AA - Critério 2.4.7)
+   -------------------------------------------------------------------------- */
 :focus-visible {
   outline: 2px solid var(--md-accent-fg-color, #e50914) !important;
   outline-offset: 3px !important;
   border-radius: 4px;
 }
 
-/* Contraste aprimorado de seleção de texto */
 ::selection {
   background-color: rgba(229, 9, 20, 0.22);
   color: inherit;
 }
 
-/* 3. Aprimoramento Visual das Imagens e Mockups */
+/* --------------------------------------------------------------------------
+   3. Aprimoramento Visual das Imagens e Mockups
+   -------------------------------------------------------------------------- */
 .md-content figure,
 .md-content p > img {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--md-default-fg-color--lightest);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
   display: block;
-  margin: 1.5rem auto;
+  margin: 1.75rem auto;
   max-width: 100%;
   height: auto;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow var(--trans-normal), transform var(--trans-normal);
 }
 
 [data-md-color-scheme="slate"] .md-content figure,
 [data-md-color-scheme="slate"] .md-content p > img {
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
 }
 
 .md-content figure:hover,
 .md-content p > img:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
 }
 
 [data-md-color-scheme="slate"] .md-content figure:hover,
 [data-md-color-scheme="slate"] .md-content p > img:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65);
 }
 
-/* Legendas semânticas exclusivas para figuras e imagens */
 .md-content figcaption,
 .md-content figure > em {
   display: block;
@@ -96,21 +174,24 @@ button,
   font-size: 0.83rem;
   font-style: italic;
   color: var(--md-default-fg-color--light);
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   margin-bottom: 1.5rem;
   line-height: 1.4;
 }
 
-/* 4. Citações e Declarações de Usuários (Blockquotes) */
+/* --------------------------------------------------------------------------
+   4. Citações e Declarações de Usuários (Blockquotes)
+   -------------------------------------------------------------------------- */
 .md-typeset blockquote {
-  border-left: 3px solid var(--md-primary-fg-color, #c00);
-  padding: 0.6rem 1.1rem;
-  margin: 1rem 0;
+  border-left: 3.5px solid var(--md-primary-fg-color, #e50914);
+  padding: 0.75rem 1.25rem;
+  margin: 1.25rem 0;
   background-color: var(--md-default-bg-color--lighter, rgba(0, 0, 0, 0.02));
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 8px 8px 0;
   font-style: italic;
   color: var(--md-default-fg-color);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: border-color var(--trans-fast), background-color var(--trans-fast);
 }
 
 [data-md-color-scheme="slate"] .md-typeset blockquote {
@@ -118,23 +199,36 @@ button,
   border-left-color: var(--md-primary-fg-color, #e50914);
 }
 
-/* 5. Diagramas Mermaid Responsivos e Legíveis (Heurística de Nielsen #8) */
+.md-typeset blockquote:hover {
+  border-left-color: var(--md-accent-fg-color, #ff9800);
+}
+
+/* --------------------------------------------------------------------------
+   5. Diagramas Mermaid Responsivos e Legíveis (Heurística de Nielsen #8)
+   -------------------------------------------------------------------------- */
 .mermaid {
   display: block;
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 1.25rem 0.75rem;
-  margin: 1.5rem 0;
-  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  margin: 1.75rem 0;
+  border-radius: 10px;
   background-color: var(--md-default-bg-color--lighter, rgba(0, 0, 0, 0.015));
   border: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
   -webkit-overflow-scrolling: touch;
+  transition: border-color var(--trans-fast), box-shadow var(--trans-fast);
 }
 
 [data-md-color-scheme="slate"] .mermaid {
   background-color: rgba(255, 255, 255, 0.02);
   border-color: rgba(255, 255, 255, 0.08);
+}
+
+.mermaid:hover {
+  border-color: rgba(229, 9, 20, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .mermaid svg {
@@ -144,28 +238,37 @@ button,
   height: auto;
 }
 
-/* 6. Tabelas Elegantes e Responsivas */
+/* --------------------------------------------------------------------------
+   6. Tabelas Elegantes com Hover e Transição Suave
+   -------------------------------------------------------------------------- */
 .md-typeset table:not([class]) {
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  margin: 1.5rem 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  margin: 1.75rem 0;
   font-size: 0.88rem;
-  line-height: 1.5;
+  line-height: 1.55;
+  width: 100%;
 }
 
 .md-typeset table:not([class]) th {
   background-color: var(--md-default-bg-color--lighter, rgba(0, 0, 0, 0.03));
   font-weight: 600;
   border-bottom: 2px solid var(--md-default-fg-color--lightest);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
+  padding: 0.75rem 0.9rem;
 }
 
 [data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
   background-color: rgba(255, 255, 255, 0.04);
+}
+
+.md-typeset table:not([class]) td {
+  padding: 0.65rem 0.9rem;
+  transition: background-color var(--trans-fast);
 }
 
 .md-typeset table:not([class]) tr:nth-child(even) {
@@ -176,15 +279,40 @@ button,
   background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* 7. Cartões e Badges de Requisitos */
+/* Efeito de destaque suave ao passar o cursor pela linha */
+.md-typeset table:not([class]) tr:hover td {
+  background-color: rgba(229, 9, 20, 0.04) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:hover td {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Cartões e Badges de Requisitos
+   -------------------------------------------------------------------------- */
+.badge-must,
+.badge-should,
+.badge-in {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast);
+}
+
+.badge-must:hover,
+.badge-should:hover,
+.badge-in:hover {
+  transform: translateY(-1px);
+}
+
 .badge-must {
   background-color: rgba(211, 47, 47, 0.12);
   color: #c62828;
   border: 1px solid rgba(211, 47, 47, 0.3);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
 }
 
 [data-md-color-scheme="slate"] .badge-must {
@@ -197,10 +325,6 @@ button,
   background-color: rgba(245, 124, 0, 0.12);
   color: #e65100;
   border: 1px solid rgba(245, 124, 0, 0.3);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
 }
 
 [data-md-color-scheme="slate"] .badge-should {
@@ -213,10 +337,6 @@ button,
   background-color: rgba(46, 125, 50, 0.12);
   color: #2e7d32;
   border: 1px solid rgba(46, 125, 50, 0.3);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
 }
 
 [data-md-color-scheme="slate"] .badge-in {
@@ -225,9 +345,12 @@ button,
   border-color: rgba(102, 187, 106, 0.4);
 }
 
-/* 8. Navegação Superior por Abas (Tabs) - 4 Pilares Estratégicos */
+/* --------------------------------------------------------------------------
+   8. Cabeçalho e Navegação Superior por Abas (Tabs)
+   -------------------------------------------------------------------------- */
 .md-header {
   padding-bottom: 0.35rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 .md-header__inner {
@@ -269,25 +392,56 @@ button,
   font-weight: 600;
   letter-spacing: 0.015em;
   opacity: 0.88;
-  padding: 0.35rem 0.6rem 0.45rem 0.6rem !important;
+  padding: 0.38rem 0.75rem 0.48rem 0.75rem !important;
   line-height: 1.4 !important;
-  border-radius: 4px;
+  border-radius: 6px;
+  position: relative;
+  transition: opacity var(--trans-fast), background-color var(--trans-fast), transform var(--trans-fast);
 }
 
-.md-tabs__link--active,
 .md-tabs__link:hover {
   opacity: 1;
-  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
 }
 
-/* 9. Breadcrumbs (navigation.path) */
+.md-tabs__link--active {
+  opacity: 1;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+/* --------------------------------------------------------------------------
+   9. Navegação Lateral e Breadcrumbs
+   -------------------------------------------------------------------------- */
 .md-path {
   font-size: 0.76rem;
   color: var(--md-default-fg-color--light);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
-/* 10. Botão Voltar ao Topo Fixo e Desobstrutivo (Heurística de Nielsen #8) */
+.md-nav__link {
+  border-radius: 4px;
+  padding: 0.25rem 0.45rem;
+}
+
+.md-nav__link:hover {
+  background-color: rgba(229, 9, 20, 0.05);
+  padding-left: 0.6rem;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.md-nav__link--active {
+  font-weight: 600;
+  color: var(--md-primary-fg-color) !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. Botão Voltar ao Topo Fixo e Desobstrutivo
+   -------------------------------------------------------------------------- */
 .md-top {
   position: fixed !important;
   bottom: 2rem !important;
@@ -297,76 +451,99 @@ button,
   transform: none !important;
   z-index: 99 !important;
   border-radius: 24px !important;
-  padding: 0.4rem 0.9rem !important;
+  padding: 0.45rem 1rem !important;
   font-size: 0.76rem !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   background-color: var(--md-default-bg-color) !important;
   color: var(--md-default-fg-color) !important;
   border: 1px solid var(--md-default-fg-color--lightest) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast), background-color var(--trans-fast) !important;
 }
 
 [data-md-color-scheme="slate"] .md-top {
-  background-color: var(--md-default-bg-color) !important;
+  background-color: rgba(30, 33, 41, 0.88) !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
 }
 
 .md-top:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
+  border-color: var(--md-primary-fg-color) !important;
 }
 
 [data-md-color-scheme="slate"] .md-top:hover {
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.7) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/* 11. Componentes Visuais de Navegação Rápida (Frontend UI) */
+/* --------------------------------------------------------------------------
+   11. Componentes Visuais de Navegação Rápida (Hero e Doc Cards)
+   -------------------------------------------------------------------------- */
 .hero-banner {
-  background: linear-gradient(135deg, rgba(229, 9, 20, 0.05) 0%, rgba(255, 179, 0, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.05) 0%, rgba(255, 152, 0, 0.06) 100%);
   border: 1px solid rgba(229, 9, 20, 0.2);
-  border-radius: 12px;
-  padding: 1.5rem 1.75rem;
-  margin: 1.5rem 0 2rem 0;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  margin: 1.5rem 0 2.25rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: box-shadow var(--trans-normal), border-color var(--trans-normal);
 }
 
 [data-md-color-scheme="slate"] .hero-banner {
-  background: linear-gradient(135deg, rgba(229, 9, 20, 0.12) 0%, rgba(255, 179, 0, 0.06) 100%);
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.12) 0%, rgba(255, 152, 0, 0.06) 100%);
   border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero-banner:hover {
+  border-color: rgba(229, 9, 20, 0.35);
+  box-shadow: 0 8px 28px rgba(229, 9, 20, 0.08);
 }
 
 .hero-banner__title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--md-default-fg-color);
   margin-top: 0;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .hero-banner__pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0.75rem 0 0 0;
+  gap: 0.55rem;
+  margin: 0.85rem 0 0 0;
 }
 
 .hero-pill {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 16px;
+  padding: 4px 12px;
+  border-radius: 20px;
   background: var(--md-default-bg-color);
   color: var(--md-default-fg-color--light);
   border: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  transition: transform var(--trans-fast), border-color var(--trans-fast);
+}
+
+.hero-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
 }
 
 .doc-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  gap: 1.35rem;
   margin: 1.75rem 0 2.5rem 0;
 }
 
@@ -374,14 +551,32 @@ button,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.25rem 1.4rem;
-  border-radius: 10px;
+  padding: 1.35rem 1.5rem;
+  border-radius: 12px;
   border: 1px solid var(--md-default-fg-color--lightest);
   background-color: var(--md-default-bg-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  transition: transform var(--trans-normal), box-shadow var(--trans-normal), border-color var(--trans-normal);
   text-decoration: none !important;
   color: inherit !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.doc-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #e50914, #ff9800);
+  opacity: 0;
+  transition: opacity var(--trans-normal);
+}
+
+.doc-card:hover::before {
+  opacity: 1;
 }
 
 [data-md-color-scheme="slate"] .doc-card {
@@ -391,46 +586,156 @@ button,
 }
 
 .doc-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--md-primary-fg-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 [data-md-color-scheme="slate"] .doc-card:hover {
   border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
 }
 
 .doc-card__header {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.6rem;
+  gap: 0.65rem;
+  margin-bottom: 0.65rem;
 }
 
 .doc-card__icon {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  transition: transform var(--trans-fast);
+}
+
+.doc-card:hover .doc-card__icon {
+  transform: scale(1.12);
 }
 
 .doc-card__title {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--md-primary-fg-color);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .doc-card__desc {
-  font-size: 0.82rem;
-  line-height: 1.5;
+  font-size: 0.84rem;
+  line-height: 1.55;
   color: var(--md-default-fg-color--light);
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.1rem 0;
 }
 
 .doc-card__action {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--md-accent-fg-color, #e50914);
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.35rem;
+  transition: gap var(--trans-fast);
+}
+
+.doc-card:hover .doc-card__action {
+  gap: 0.6rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Admonições e Detalhes Colapsáveis
+   -------------------------------------------------------------------------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  transition: box-shadow var(--trans-fast), transform var(--trans-fast);
+}
+
+.md-typeset .admonition:hover,
+.md-typeset details:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   13. Blocos de Código e Botão de Copiar
+   -------------------------------------------------------------------------- */
+.md-typeset .highlight {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.md-clipboard {
+  border-radius: 6px !important;
+  transition: transform var(--trans-fast), opacity var(--trans-fast) !important;
+}
+
+.md-clipboard:hover {
+  transform: scale(1.1) !important;
+}
+
+/* --------------------------------------------------------------------------
+   14. Diálogo de Busca Fluido e Moderno
+   -------------------------------------------------------------------------- */
+.md-search__inner {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+}
+
+.md-search-result__link {
+  transition: background-color var(--trans-fast);
+}
+
+.md-search-result__link:hover {
+  background-color: rgba(229, 9, 20, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   15. Rolagem Suave Global e Links de Texto
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.md-typeset a:not([class]) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--trans-fast), text-decoration-color var(--trans-fast);
+}
+
+.md-typeset a:not([class]):hover {
+  text-decoration-color: var(--md-accent-fg-color, #e50914);
+}
+
+/* --------------------------------------------------------------------------
+   16. Índice Lateral (ToC) com Transição Fluida no Scrollspy
+   -------------------------------------------------------------------------- */
+.md-nav--secondary .md-nav__link {
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem;
+  transition: color var(--trans-fast), border-left-color var(--trans-fast), padding-left var(--trans-fast);
+}
+
+.md-nav--secondary .md-nav__link:hover {
+  color: var(--md-accent-fg-color, #e50914) !important;
+  padding-left: 0.75rem;
+}
+
+.md-nav--secondary .md-nav__link--active {
+  font-weight: 600;
+  color: var(--md-accent-fg-color, #e50914) !important;
+  border-left-color: var(--md-accent-fg-color, #e50914);
+  padding-left: 0.75rem;
 }
