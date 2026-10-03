@@ -48,7 +48,7 @@ flowchart TB
 
 ## Modelo C4 — Nível 2: Diagrama de Contêineres {: #c4-conteineres }
 
-O detalhamento de contêineres evidencia os limites de execução, isolamento de processos e protocolos de comunicação:
+O detalhamento de contêineres evidência os limites de execução, isolamento de processos e protocolos de comunicação:
 
 ```mermaid
 flowchart TB

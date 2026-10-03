@@ -1,15 +1,15 @@
-# Registro Auditavel de Correcoes de Links (Link Fixes)
+# Registro Auditável de Correcoes de Links (Link Fixes)
 
 - **Data:** 2026-10-02
 - **Escopo:** `evidencia-grupo/documentation`
-- **Classificacao:** SEGURA (Correcao pontual de alvo de link quebrado sem alteracao textual de conteudo)
+- **Classificacao:** SEGURA (Correcao pontual de alvo de link quebrado sem alteracao textual de conteúdo)
 - **Regra Estrita Aplicada:** Regra 1(b) — Apenas o alvo do link relativo/pseudo-esquema foi alterado em linha existente.
 
 ---
 
 ## Tabela de Correcoes Realizadas
 
-| # | Arquivo:Linha | Alvo Original (Quebrado) | Novo Alvo Homologado | Justificativa Tecnica |
+| # | Arquivo:Linha | Alvo Original (Quebrado) | Novo Alvo Homologado | Justificativa Técnica |
 |:---:|:---|:---|:---|:---|
 | 1 | `docs/cbl/reflect-share/README.md:41` | `file:///EvidencIA/backend/ml/datasets/sources.yaml` | `https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/datasets/sources.yaml` | Migracao de esquema file:/// para URL absoluta em main |
 | 2 | `docs/cbl/reflect-share/README.md:41` | `file:///EvidencIA/notebooks/eda_datasets.ipynb` | `https://github.com/evidencia-grupo/EvidencIA/blob/main/notebooks/eda_datasets.ipynb` | Migracao de esquema file:/// para URL absoluta em main |
@@ -25,7 +25,7 @@
 
 ---
 
-## Resumo Estatistico
+## Resumo Estatístico
 - **Total de links corrigidos:** 11 links
 - **Arquivos modificados:** 2 (`docs/cbl/reflect-share/README.md` e `docs/cbl/reflect-share/research-portfolio.md`)
 - **Regressao:** 0 links quebrados introduzidos

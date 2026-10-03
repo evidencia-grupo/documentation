@@ -1,18 +1,18 @@
 <!-- nav:start -->
-[Voltar ao Indice Tecnico](../README.md) · [Voltar ao Indice Mestre](../../index.md)
+[Voltar ao Índice Técnico](../README.md) · [Voltar ao Índice Mestre](../../index.md)
 <!-- nav:end -->
 
-# Registros de Decisao Arquitetural (ADRs)
+# Registros de Decisão Arquitetural (ADRs)
 
-> **Proposito:** Documentar formalmente todas as decisoes de design de software que moldaram a extensao e o backend proxy do EvidencIA.
+> **Propósito:** Documentar formalmente todas as decisões de design de software que moldaram a extensão e o backend proxy do EvidencIA.
 
 ---
 
-## Catalogo de Decisoes
+## Catalogo de Decisões
 - [`ADR-001-manifest-v3.md`](ADR-001-manifest-v3.md): Arquitetura Manifest V3 com Service Worker no navegador Chromium.
 - [`ADR-002-backend-proxy.md`](ADR-002-backend-proxy.md): Backend Proxy Seguro em FastAPI para isolamento de credenciais e controle de taxa.
-- [`ADR-003-estrategia-cache-local.md`](ADR-003-estrategia-cache-local.md): Cache client-side de analises com TTL de 24 horas via `chrome.storage.local`.
-- [`ADR-004-stack-tecnologica.md`](ADR-004-stack-tecnologica.md): Definicao das tecnologias: Preact, Vite, TypeScript, Python 3.12, FastAPI e uv.
+- [`ADR-003-estrategia-cache-local.md`](ADR-003-estrategia-cache-local.md): Cache client-side de análises com TTL de 24 horas via `chrome.storage.local`.
+- [`ADR-004-stack-tecnologica.md`](ADR-004-stack-tecnologica.md): Definição das tecnologias: Preact, Vite, TypeScript, Python 3.12, FastAPI e uv.
 - [`ADR-005-modelo-local-e-datasets-brasileiros.md`](ADR-005-modelo-local-e-datasets-brasileiros.md): Inferencia via Ollama e incorporacao de corpora jornalisticos nacionais.
 - [`ADR-006-evidence-first-architecture.md`](ADR-006-evidence-first-architecture.md): Adoção do paradigma Evidence-First, eliminacao de scores e inclusao da HU11 no MVP.
 

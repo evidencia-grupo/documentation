@@ -1,12 +1,12 @@
 # Mapa Visual e Topologia do Projeto EvidencIA
 
-> **Proposito:** Visualizar graficamente o ciclo metodologico CBL, a cadeia de rastreabilidade de valor, a topologia de repositorios e a linha do tempo das iteracoes Scrum.  
-> **Padrao Visual:** Mermaid nativo do GitHub · Conformidade estrita com a legenda de status textual.
+> **Propósito:** Visualizar graficamente o ciclo metodológico CBL, a cadeia de rastreabilidade de valor, a topologia de repositorios e a linha do tempo das iteracoes Scrum.  
+> **Padrão Visual:** Mermaid nativo do GitHub · Conformidade estrita com a legenda de status textual.
 
 ---
 
 <!-- gen:mapa-cbl:start -->
-## 1. Ciclo Metodologico CBL (Challenge Based Learning)
+## 1. Ciclo Metodológico CBL (Challenge Based Learning)
 
 > **Legenda de Status:** `EVIDENCIADO` · `IMPLEMENTADO` · `ESQUELETO` · `PLANEJADO` · `AUSENTE`  
 > *Gerado em 2026-10-02 sobre 81f2516/60ae479*
@@ -55,7 +55,7 @@ flowchart TD
 
 ---
 
-## 2. Cadeia de Rastreabilidade Estrategica (EQ -> Codigo -> Validacao)
+## 2. Cadeia de Rastreabilidade Estratégica (EQ -> Código -> Validação)
 
 > **Legenda de Status:** Linhas continuas = artefatos existentes; Linhas pontilhadas = componentes planejados.  
 > *Gerado em 2026-10-02 sobre 81f2516/60ae479*
@@ -79,7 +79,7 @@ flowchart LR
 
 ## 3. Mapa de Relacionamento entre os Dois Repositorios
 
-> **Legenda de Status:** `documentation` (governanca e especificacao) <---> `EvidencIA` (codigo-fonte executavel).  
+> **Legenda de Status:** `documentation` (governança e especificação) <---> `EvidencIA` (código-fonte executavel).  
 > *Gerado em 2026-10-02 sobre 81f2516/60ae479*
 
 ```mermaid
@@ -114,7 +114,7 @@ flowchart TD
 
 ---
 
-## 4. Linha do Tempo e Governanca das Sprints Scrum
+## 4. Linha do Tempo e Governança das Sprints Scrum
 
 > **Legenda de Status:** Sprint 1 = Concluida com Review/Retrospectiva; Sprint 2 = Em andamento / Planejamento.  
 > *Gerado em 2026-10-02 sobre 81f2516/60ae479*

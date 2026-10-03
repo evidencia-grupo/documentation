@@ -57,7 +57,7 @@ Conforme o registro formal em `backend/ml/datasets/sources.yaml` [EV: EvidencIA:
 A integridade dos arquivos e dos modelos de teste é garantida via SHA-256 canônicos:
 
 - **Manifesto de Datasets:** O arquivo [`backend/data/manifest.json`](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/data/manifest.json) (@`27c53e8`) armazena a tabela de hashes dos arquivos baixados pelo pipeline de dados.
-- **Governança de Dados Brutos (DATA-03):** Por política estrita de versionamento, nenhum arquivo de dados brutos (`backend/data/bronze/` ou `silver/`) superior a 5 MB é rastreado no Git [EV: EvidencIA:backend/data/README.md#governanca-de-dados@27c53e8].
+- **Governança de Dados Brutos (DATA-03):** Por política estrita de versionamento, nenhum arquivo de dados brutos (`backend/data/bronze/` ou `silver/`) superior a 5 MB é rastreado no Git [EV: EvidencIA:backend/data/README.md#governança-de-dados@27c53e8].
 - **Sumário de Validação Experimental:** O hash oficial do arquivo de métricas de teste `analysis/act/out/summary.json` será calculado pelo script de auditoria e registrado na entrega final. Em fase SCAFFOLD: `PENDENTE — depende de: docs/cbl/act/results.md`.
 
 ---
@@ -89,7 +89,7 @@ O notebook de análise exploratória [`notebooks/eda_datasets.ipynb`](https://gi
 
 ## 5. Benchmarks de Retrieval (Information Retrieval)
 
-Conforme pré-registrado na definição metodológica [EV: documentation:docs/visao/guiding-questions.md#gq09-metricas-de-recuperacao-e-avaliacao@9e95b68]:
+Conforme pré-registrado na definição metodológica [EV: documentation:docs/visão/guiding-questions.md#gq09-métricas-de-recuperação-e-avaliação@9e95b68]:
 
 | Métrica | Linha de Base Prevista | Resultado da EDA | Status |
 |:---|:---:|:---:|:---|

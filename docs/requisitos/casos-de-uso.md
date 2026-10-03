@@ -1,5 +1,7 @@
 # Casos de Uso
 
+> **O que você vai encontrar aqui:** Mapeamento formal dos casos de uso (UC-01 a UC-06) da extensão EvidencIA, com atores, pré-condições, fluxos principais, fluxos de exceção e rastreabilidade para requisitos e histórias.
+
 ## Nesta página
 
 - [Diagrama de Casos de Uso](#diagrama-de-casos-de-uso)
@@ -55,7 +57,8 @@ flowchart LR
     style UC05 fill:#eee,stroke:#999,stroke-dasharray: 5 5
 ```
 
-> O nó `UC-05` aparece tracejado por estar classificado como **Fora do MVP** (RF-05 | Could Have | OUT), mantido no diagrama apenas para rastreabilidade completa do escopo original.
+> [!NOTE]
+> **Evolução Arquitetural (ADR-006):** No planejamento inicial, o retorno reflexivo era classificado como *Could Have* (Fora do MVP). Com a homologação da arquitetura Evidence-First ([ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)), as perguntas reflexivas ([RF-05](catalogo-requisitos.md#rf-05) / [HU11](backlog-e-historias.md#hu11)) foram **promovidas para Must Have (MVP)**, permanecendo fora do MVP apenas o canal voluntário de avaliação de precisão ([RF-10](catalogo-requisitos.md#rf-10) / [HU12](backlog-e-historias.md#hu12)).
 
 ---
 

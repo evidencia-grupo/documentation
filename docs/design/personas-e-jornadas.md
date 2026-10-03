@@ -86,7 +86,7 @@ A definição formal de antipersonas orienta os limites de escopo do produto e i
 
 ### Jornada AS-IS (Sem a Extensão) — Dona Lurdes {: #as-is-jornada-atual-sem-a-extensao }
 
-A jornada atual evidencia a vulnerabilidade do usuário comum diante de vídeos apelativos de saúde ou notícias falsas, resultando em sobrecarga cognitiva, abandono da checagem e eventual compartilhamento de boatos por cautela mal orientada.
+A jornada atual evidência a vulnerabilidade do usuário comum diante de vídeos apelativos de saúde ou notícias falsas, resultando em sobrecarga cognitiva, abandono da checagem e eventual compartilhamento de boatos por cautela mal orientada.
 
 ```mermaid
 journey

@@ -1,5 +1,5 @@
 <!-- nav:start -->
-[Voltar ao Indice CBL](../README.md) · [Voltar ao Indice Mestre](../../index.md)
+[Voltar ao Índice CBL](../README.md) · [Voltar ao Índice Mestre](../../index.md)
 <!-- nav:end -->
 
 # CBL — Reflect & Share
