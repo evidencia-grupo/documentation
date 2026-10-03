@@ -1,3 +1,35 @@
+<!-- nav:start -->
+# EvidencIA — Documentacao do Projeto
+
+> **Extensao de Fact-Checking para YouTube (Manifest V3 + Evidence-First)**  
+> Sistema de apoio ao discernimento critico que extrai alegacoes de videos, recupera evidencias factuais em bases jornalisticas auditadas e organiza a investigacao para o usuario sem emitir vereditos algoritmicos.
+
+### Essential Question (CBL)
+> *"Como sistemas de IA podem ajudar as pessoas a avaliar a confiabilidade de informacoes sem substituir seu pensamento critico?"*
+
+- **Status Geral do Projeto:** Consulte o painel consolidado em [docs/STATUS.md](docs/STATUS.md).
+- **Repositorio de Codigo-Fonte:** [evidencia-grupo/EvidencIA](https://github.com/evidencia-grupo/EvidencIA)
+
+---
+
+### Comece por Aqui (5 Links Essenciais)
+1. **Visao e Proposito:** [Alinhamento Estrategico](docs/visao/alinhamento-estrategico.md) e [Guiding Questions (CBL)](docs/visao/guiding-questions.md)
+2. **Decisao Arquitetural Central:** [ADR-001 (Manifest V3)](docs/tecnico/decisoes/ADR-001-manifest-v3.md) e [ADR-006 (Arquitetura Evidence-First)](docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md)
+3. **Engenharia de Requisitos:** [Catalogo de Requisitos (RF/RNF)](docs/requisitos/catalogo-requisitos.md) e [Matriz de Rastreabilidade](docs/requisitos/matriz-rastreabilidade.md)
+4. **Governanca Scrum:** [Product Backlog](docs/scrum/product-backlog.md) e [Definition of Done](docs/scrum/definition-of-done.md)
+5. **Painel de Resultados e Status:** [Painel de Status (STATUS.md)](docs/STATUS.md) e [Relatorio de Completude CBL](docs/cbl/reflect-share/CBL_COMPLETENESS_REPORT.md)
+
+---
+
+### Jornada Metodologica Challenge Based Learning (CBL)
+- **1. Engage:** [Visao do Projeto](docs/visao/README.md) · [12 Guiding Questions](docs/visao/guiding-questions.md) · [Essential Question](docs/visao/essential-question-alignment.md) · [Log de Decisoes](docs/visao/decision-log.md)
+- **2. Investigate:** [Requisitos](docs/requisitos/README.md) · [Arquitetura C4](docs/tecnico/arquitetura.md) · [Decisoes Tecnicas (ADRs)](docs/tecnico/decisoes/README.md) · [Design System](docs/design/README.md)
+- **3. Act:** [Visao Geral do Experimento](docs/cbl/act/README.md) · [Plano Experimental](docs/cbl/act/experiment-plan.md) · [Telemetria e Metricas](docs/cbl/act/telemetry-spec.md)
+- **4. Reflect & Share:** [Sintese e Reflexao](docs/cbl/reflect-share/reflection.md) · [Portfolio de Pesquisa](docs/cbl/reflect-share/research-portfolio.md) · [Showcase Banca](docs/cbl/reflect-share/showcase-script.md) · [Go/No-Go Final](docs/cbl/reflect-share/go-no-go-final.md)
+
+---
+<!-- nav:end -->
+
 # Extensão de Fact-Checking para YouTube
 
 > Checagem de fatos integrada ao YouTube — transcrição automática, inteligência artificial e painel lateral acessível.
