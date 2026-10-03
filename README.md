@@ -7,7 +7,7 @@
 ### Essential Question (CBL)
 > *"Como sistemas de IA podem ajudar as pessoas a avaliar a confiabilidade de informacoes sem substituir seu pensamento critico?"*
 
-- **Status Geral do Projeto:** Consulte o painel consolidado em [docs/STATUS.md](docs/STATUS.md).
+- **Status Geral do Projeto:** Consulte o painel consolidado em [docs/STATUS.md](docs/visao-geral/status.md).
 - **Repositorio de Codigo-Fonte:** [evidencia-grupo/EvidencIA](https://github.com/evidencia-grupo/EvidencIA)
 
 ---
@@ -17,7 +17,7 @@
 2. **Decisao Arquitetural Central:** [ADR-001 (Manifest V3)](docs/tecnico/decisoes/ADR-001-manifest-v3.md) e [ADR-006 (Arquitetura Evidence-First)](docs/tecnico/decisoes/ADR-006-evidence-first-architecture.md)
 3. **Engenharia de Requisitos:** [Catalogo de Requisitos (RF/RNF)](docs/requisitos/catalogo-requisitos.md) e [Matriz de Rastreabilidade](docs/requisitos/matriz-rastreabilidade.md)
 4. **Governanca Scrum:** [Product Backlog](docs/scrum/product-backlog.md) e [Definition of Done](docs/scrum/definition-of-done.md)
-5. **Painel de Resultados e Status:** [Painel de Status (STATUS.md)](docs/STATUS.md) e [Relatorio de Completude CBL](docs/cbl/reflect-share/CBL_COMPLETENESS_REPORT.md)
+5. **Painel de Resultados e Status:** [Painel de Status (STATUS.md)](docs/visao-geral/status.md) e [Relatorio de Completude CBL](docs/cbl/reflect-share/CBL_COMPLETENESS_REPORT.md)
 
 ---
 

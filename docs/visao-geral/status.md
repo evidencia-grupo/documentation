@@ -3,7 +3,7 @@
 > **Auditoria e Monitoramento de Entregas Metodologicas e Tecnicas**  
 > **Data de Atualizacao:** 2026-10-02  
 > **Commits Auditados:** `documentation` @ `81f2516` · `EvidencIA` @ `60ae479`  
-> **Referencia Oficial de Auditoria Automatizada:** [CBL_COMPLETENESS_REPORT.md](cbl/reflect-share/CBL_COMPLETENESS_REPORT.md)  
+> **Referencia Oficial de Auditoria Automatizada:** [CBL_COMPLETENESS_REPORT.md](../cbl/reflect-share/CBL_COMPLETENESS_REPORT.md)  
 > **Veredito Oficial do Script de Auditoria:** **NO-GO (Fase SCAFFOLD)**  
 > *Motivo do NO-GO:* Bloqueio imediato pre-registrado ativado devido a ausencia de dados empiricos coletados com participantes reais (`results.md` ainda em template `results-template.md`).
 

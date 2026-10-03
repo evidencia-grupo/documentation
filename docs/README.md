@@ -72,4 +72,4 @@ flowchart TD
 ## 3. Guias Rapidos
 - **Para novos desenvolvedores:** Consulte [docs/tecnico/guia-contribuicao.md](tecnico/guia-contribuicao.md) e [docs/scrum/definition-of-done.md](scrum/definition-of-done.md).
 - **Para avaliadores academicos:** Inicie por [docs/cbl/reflect-share/showcase-script.md](cbl/reflect-share/showcase-script.md) e [docs/cbl/reflect-share/reflection.md](cbl/reflect-share/reflection.md).
-- **Para auditores de conformidade:** Verifique [docs/STATUS.md](STATUS.md) e [docs/meta/protected-paths.md](meta/protected-paths.md).
+- **Para auditores de conformidade:** Verifique [docs/STATUS.md](visao-geral/status.md) e [docs/meta/protected-paths.md](meta/protected-paths.md).
