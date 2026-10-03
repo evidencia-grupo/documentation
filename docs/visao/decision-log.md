@@ -11,7 +11,7 @@
 
 Este documento registra as decisões estratégicas e de produto do projeto EvidencIA, complementando os ADRs técnicos com o contexto de origem (Guiding Question ou evento externo) e o status atual.
 
-Para decisões técnicas detalhadas, consulte os ADRs em [`docs/tecnico/decisoes/`](../tecnico/decisoes/).
+Para decisões técnicas detalhadas, consulte as [Decisões Arquiteturais](../tecnico/decisoes/ADR-001-manifest-v3.md) e o [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md).
 
 ---
 
@@ -25,8 +25,8 @@ Para decisões técnicas detalhadas, consulte os ADRs em [`docs/tecnico/decisoes
 | **D-004** | 2026-10-02 | EDA obrigatória na Sprint 1 antes de continuar evolução da extensão | Gap de EDA identificado na auditoria CBL; hipóteses H01–H03 precisam de validação empírica (GQ09) | GQ09 | Aceito | [docs/scrum/sprint-01/sprint-goal.md](../scrum/sprint-01/sprint-goal.md) |
 | **D-005** | 2026-10-02 | HU11 (perguntas orientadoras de reflexão crítica) promovida de Could Have/Pós-MVP para Must Have do MVP | HU11 é o mecanismo que mais diretamente responde à Essential Question; deixá-la fora do MVP contradizia o objetivo central | GQ08, GQ11 | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
 | **D-006** | 2026-10-02 | Mock de provider de IA é explícito, ativado apenas em dev/testes via configuração, proibido em produção | Mock silencioso gerava risco de demonstrações com dados fabricados sem sinalização | GQ07 | Aceito | [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md) |
-| **D-007** | 2026-10-02 | Criar governança Scrum formal com product-backlog, definition-of-done e templates de sprint (sprint-goal, sprint-backlog, review, retrospective) | Auditoria CBL identificou ausência de evidência de processo Scrum no Kanban anterior | — | Aceito | [docs/scrum/](../scrum/) |
+| **D-007** | 2026-10-02 | Criar governança Scrum formal com product-backlog, definition-of-done e templates de sprint (sprint-goal, sprint-backlog, review, retrospective) | Auditoria CBL identificou ausência de evidência de processo Scrum no Kanban anterior | — | Aceito | [Product Backlog](../scrum/product-backlog.md) |
 
 ---
 
-**Ver também:** [Guiding Questions](guiding-questions.md) · [Essential Question Alignment](essential-question-alignment.md) · [ADRs](../tecnico/decisoes/)
+**Ver também:** [Guiding Questions](guiding-questions.md) · [Essential Question Alignment](essential-question-alignment.md) · [ADR-006](../tecnico/decisoes/ADR-006-evidence-first-architecture.md)

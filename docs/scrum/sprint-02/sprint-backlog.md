@@ -67,15 +67,15 @@
 
 | Item | Entregue | Não Entregue | Carry-over |
 |:---|:---|:---|:---|
-| S2-01 Provider Abstraction | ☐ | ☐ | ☐ |
-| S2-02 Evidence-First Schema | ☐ | ☐ | ☐ |
-| S2-03 Remoção do score global | ☐ | ☐ | ☐ |
-| S2-04 Evidence Cards | ☐ | ☐ | ☐ |
-| S2-05 Reflection Questions | ☐ | ☐ | ☐ |
-| S2-06 Failure/Timeout Handling | ☐ | ☐ | ☐ |
-| S2-07 Latency Tests | ☐ | ☐ | ☐ |
-| S2-08 E2E Atualizado | ☐ | ☐ | ☐ |
-| S2-09 Sprint Review Evidence | ☐ | ☐ | ☐ |
+| S2-01 Provider Abstraction | [ ] | [ ] | [ ] |
+| S2-02 Evidence-First Schema | [ ] | [ ] | [ ] |
+| S2-03 Remoção do score global | [ ] | [ ] | [ ] |
+| S2-04 Evidence Cards | [ ] | [ ] | [ ] |
+| S2-05 Reflection Questions | [ ] | [ ] | [ ] |
+| S2-06 Failure/Timeout Handling | [ ] | [ ] | [ ] |
+| S2-07 Latency Tests | [ ] | [ ] | [ ] |
+| S2-08 E2E Atualizado | [ ] | [ ] | [ ] |
+| S2-09 Sprint Review Evidence | [ ] | [ ] | [ ] |
 
 ---
 

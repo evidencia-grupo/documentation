@@ -126,17 +126,17 @@ O painel lateral da extensão passa a ter a seguinte estrutura de investigação
 ║                                                              ║
 ║  EVIDÊNCIAS ENCONTRADAS  [para Alegação 01]                  ║
 ║  ─────────────────────────────────────────────────────────   ║
-║  ✅ [Fonte que sustenta]  — Título · Data · [Abrir fonte]    ║
-║  ❌ [Fonte que contradiz] — Título · Data · [Abrir fonte]    ║
-║  🔍 [Fonte que contextualiza] — Título · Data · [Abrir]     ║
+║  [SUSTENTA]      [Fonte que sustenta]  — Título · Data       ║
+║  [CONTRADIZ]     [Fonte que contradiz] — Título · Data       ║
+║  [CONTEXTUALIZA] [Fonte que contextualiza] — Título · Data   ║
 ║                                                              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
 ║  O QUE AINDA NÃO SABEMOS                                     ║
 ║  ─────────────────────────────────────────────────────────   ║
-║  ⚠️  Evidência insuficiente para [alegação N]                ║
-║  📅  Informação antiga — verificar atualização               ║
-║  📌  Fonte primária ausente nos resultados                   ║
+║  [INSUFICIENTE] Evidência insuficiente para [alegação N]     ║
+║  [TEMPORAL]     Informação antiga — verificar atualização    ║
+║  [LACUNA]       Fonte primária ausente nos resultados        ║
 ║                                                              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║

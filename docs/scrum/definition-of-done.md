@@ -60,8 +60,18 @@ Uma entrega de documentação está **Done** quando:
 - [ ] **IDs de rastreabilidade atualizados** — HU, RF, RNF, GQ e ADR citados existem nos documentos de origem.
 - [ ] **Histórico de revisão** atualizado em toda HU ou requisito alterado (data, motivo, referência ao ADR).
 - [ ] **Sem `A preencher` bloqueante** — itens `A preencher` só são aceitáveis em campos que genuinamente dependem de informações futuras (ex.: datas de cerimônias ainda não agendadas).
-- [ ] **`mkdocs.yml` atualizado** se uma nova página foi criada (adicionada ao `nav:`).
 - [ ] **Linguagem consistente** — sem termos do modelo anterior (`score`, `veracidade`, `gauge`) em contexto não-histórico.
+
+---
+
+## DoD Específica — Requisito / HU {: #dod-requisito }
+
+Uma História de Usuário ou Requisito Funcional está **Done** quando:
+
+- [ ] **Critérios de Aceitação em Gherkin** definidos com no mínimo 3 cenários verificáveis (Dado/Quando/Então).
+- [ ] **Rastreabilidade bidirecional** mapeando Guiding Questions (GQ), ADR correspondente e personas relacionadas.
+- [ ] **Histórico de revisão** preenchido registrando data, motivo da modificação e referência ao ADR.
+- [ ] **Catálogo de Requisitos e Matriz de Rastreabilidade** sincronizados com os IDs, prioridades MoSCoW e status correspondentes.
 
 ---
 

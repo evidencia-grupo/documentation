@@ -60,15 +60,15 @@
 
 | Item | Entregue | Não Entregue | Carry-over |
 |:---|:---|:---|:---|
-| S1-01 Guiding Questions | ☐ | ☐ | ☐ |
-| S1-02 EQ Alignment | ☐ | ☐ | ☐ |
-| S1-03 Dataset Registry | ☐ | ☐ | ☐ |
-| S1-04 Ingestion Pipeline | ☐ | ☐ | ☐ |
-| S1-05 Canonical Schema | ☐ | ☐ | ☐ |
-| S1-06 Chroma Index | ☐ | ☐ | ☐ |
-| S1-07 EDA Notebook | ☐ | ☐ | ☐ |
-| S1-08 Retrieval Baseline | ☐ | ☐ | ☐ |
-| S1-09 Data Provenance | ☐ | ☐ | ☐ |
+| S1-01 Guiding Questions | [ ] | [ ] | [ ] |
+| S1-02 EQ Alignment | [ ] | [ ] | [ ] |
+| S1-03 Dataset Registry | [ ] | [ ] | [ ] |
+| S1-04 Ingestion Pipeline | [ ] | [ ] | [ ] |
+| S1-05 Canonical Schema | [ ] | [ ] | [ ] |
+| S1-06 Chroma Index | [ ] | [ ] | [ ] |
+| S1-07 EDA Notebook | [ ] | [ ] | [ ] |
+| S1-08 Retrieval Baseline | [ ] | [ ] | [ ] |
+| S1-09 Data Provenance | [ ] | [ ] | [ ] |
 
 ---
 
