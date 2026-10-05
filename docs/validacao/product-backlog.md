@@ -34,7 +34,7 @@ A rastreabilidade completa das HUs permanece em [`docs/requisitos/backlog-e-hist
 | **HU04** | [HU04 — Mapeamento Claim→Evidence](../requisitos/backlog-e-historias.md#hu04) | Mapeamento claim→evidence por alegação com relação explícita | Must Have | 5 | Sprint 2 | To Do |
 | **HU09** | [HU09 — Incerteza e Limitações](../requisitos/backlog-e-historias.md#hu09) | Estado `insufficient_evidence` distinto de false; seção "O que ainda não sabemos" | Must Have | 3 | Sprint 2 | To Do |
 | **HU03** | [HU03 — Checagem Rápida](../requisitos/backlog-e-historias.md#hu03) | SLA: primeiras evidências ≤ 5s P90; resultado completo ≤ 10s P90 | Must Have | 3 | Sprint 1 | To Do |
-| **HU10** | [HU10 — Ausência de Transcrição](../requisitos/backlog-e-historias.md#hu10) | Notificação imediata (≤ 1s) se vídeo sem legendas | Must Have | 3 | Sprint 1 | To Do |
+| **HU10** | [HU10 — Ausência de Transcrição](../requisitos/backlog-e-historias.md#hu10) | Notificação imediata (≤ 1s) se vídeo sem legendas | Must Have | 3 | Sprint 2 | Done |
 | **HU07** | [HU07 — Auditoria de Fontes](../requisitos/backlog-e-historias.md#hu07) | Fontes com título, URL, data, publisher e hash de provenance | Must Have | 3 | Sprint 2 | To Do |
 | **HU16** | [HU16 — Provider de IA Independente](../requisitos/backlog-e-historias.md#hu16) | Interface LLMProvider; troca por config; mock proibido em prod | Must Have | 5 | Sprint 2 | To Do |
 | **HU06** | [HU06 — Cache Local](../requisitos/backlog-e-historias.md#hu06) | Cache local `chrome.storage.local` (TTL 24h) com hit < 1s | Should Have | 5 | Sprint 2 | To Do |

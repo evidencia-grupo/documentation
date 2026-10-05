@@ -201,15 +201,22 @@ Funcionalidade: Ingestão e processamento de transcrição
 | Propriedade | Detalhamento |
 |:---|:---|
 | **Descrição** | Eu, como Mariana, pretendo ser notificada imediatamente caso o vídeo assistido não possua legendas para não perder tempo aguardando um resultado que não pode ser gerado. |
-| **Prioridade** | Must Have \| IN |
+| **Prioridade** | Must Have \| IN (Onda 1 - MVP) |
 | **Persona Relacionada** | [Mariana](personas-e-jornadas.md#mariana) |
-| **Rastreabilidade** | [Cenário 08](cenarios.md#cenario-08), [UC-02](casos-de-uso.md#uc-02), [RF-08](catalogo-requisitos.md#rf-08), [RNF-01](catalogo-requisitos.md#rnf-01), [RNF-06](catalogo-requisitos.md#rnf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Rastreabilidade** | [Cenário 08](cenarios.md#cenario-08), [UC-02](casos-de-uso.md#uc-02), [RF-02](catalogo-requisitos.md#rf-02), [RF-08](catalogo-requisitos.md#rf-08), [RNF-01](catalogo-requisitos.md#rnf-01), [RNF-06](catalogo-requisitos.md#rnf-06), [RNF-07](catalogo-requisitos.md#rnf-07) |
+| **Sprint / Entrega** | Sprint 2 (05/10/2026 a 09/10/2026) · Story Points: 3 |
+| **Responsáveis** | [@luizoryone](https://github.com/luizoryone), [@lipestile](https://github.com/lipestile) |
+
+**Declaração de Valor e Contexto:**
+
+Quando um vídeo no YouTube não possui faixas de legenda ou transcrição disponibilizadas pelo criador/plataforma, a checagem factual automatizada torna-se inviável. Esta funcionalidade valida a disponibilidade de faixas de transcrição em até 1,0 segundo no Content Script, emitindo o evento `NO_CAPTIONS` localmente e cancelando com segurança o fluxo de processamento, sem onerar o backend ou a rede externa, sem travar o player ou a aba do usuário, e fornecendo alertas acessíveis (WCAG AA) e opção de nova tentativa tanto no badge do player quanto dentro do painel lateral.
 
 **Critérios de Aceitação:**
 
 - O sistema deve validar a disponibilidade da transcrição em até 1 segundo após o acionamento da extensão.
 - Exibição de um alerta orientador informando a impossibilidade técnica de processar o vídeo sem legendas.
 - Interrupção segura do carregamento sem retenção de estado de espera ou bloqueio da aba.
+- Disponibilização de botão de nova tentativa caso ocorra erro temporário de rede ou da API do YouTube.
 
 ```gherkin
 Funcionalidade: Notificação rápida de ausência de transcrição
@@ -225,6 +232,38 @@ Funcionalidade: Notificação rápida de ausência de transcrição
     Quando o sistema detecta a falha
     Então um botão de nova tentativa deve ser disponibilizado no painel
 ```
+
+#### Matriz de Rastreabilidade e Evidências Técnicas
+
+| Critério de Aceite | Implementação Técnica | Evidência Automatizada | Resultado Obtido |
+|---|---|---|---|
+| **Detecção em até 1,0s (RNF-01, RNF-06)** | `caption-parser.ts` impõe timeout estrito de 1.000ms (`Promise.race`) na leitura de faixas (`GET_CAPTION_TRACKS`). | `caption-extraction.test.ts` (teste de timeout em 1s) e `hu10.spec.ts`. | **Aprovado**.<br>Detecção de ausência em $< 50\text{ms}$ (muito abaixo do limite de 1,0s). |
+| **Emissão local de `NO_CAPTIONS` sem rede externa** | Se `tracks.length === 0`, `extractCaptionsFromPage` retorna `null` sem disparar `fetch` ou `ANALYZE_VIDEO`. O content script emite `NO_CAPTIONS` via `postMessage`. | `content-script.test.ts` e `hu10.spec.ts` (0 chamadas a `timedtext`). | **Aprovado**.<br>Zero tráfego externo ou chamadas ao backend proxy. |
+| **Alerta acessível no painel (WCAG AA, RNF-07)** | `panel/index.tsx` renderiza `<section class="alert-box" role="alert">` com mensagem orientadora clara e contraste adequado. | `panel/index.test.tsx` e `AxeBuilder` no Playwright (`hu10.spec.ts`). | **Aprovado**.<br>Zero violações de acessibilidade no axe-core. |
+| **Interrupção segura sem bloquear aba/player** | Operações assíncronas com `AbortController`, sem long tasks ($< 50\text{ms}$), sem pausar `<video>`. | `hu10.spec.ts` (`pauses === 0` e `blocking <= 50ms`). | **Aprovado**.<br>Aba e reprodução de vídeo totalmente fluidas. |
+| **Botão de nova tentativa (Painel e Player)** | Painel renderiza `<button class="retry-btn">Tentar novamente</button>` que posta `RETRY_ANALYSIS` para o Content Script reiniciar a validação. | `panel/index.test.tsx`, `content-script.test.ts` e `hu10.spec.ts`. | **Aprovado**.<br>Tentativa rearmada com tratamento seguro de concorrência. |
+
+#### Arquitetura e Decisões de Engenharia
+
+1. **Validação Rápida em Duas Etapas (*Fast-Fail*):**
+    - **Etapa 1 (Detecção de Faixas):** O Service Worker consulta o player do YouTube no mundo MAIN (`readPlayerCaptions`). Se não houver faixas, retorna `[]` imediatamente.
+    - **Etapa 2 (Download e Higienização):** Só é iniciada se existirem faixas válidas. Vídeos sem legendas encerram imediatamente na Etapa 1, poupando processamento e banda.
+2. **Timeout de Detecção Estrito de 1,0s:**
+    - Para atender ao requisito de resposta rápida (Mariana não quer esperar), a consulta das faixas possui timeout estrito de 1.000ms.
+3. **Comunicação Segura de Retry via Mensagens:**
+    - O painel roda em um `iframe` sandbox isolado (`src/panel/index.html`).
+    - O botão de retry envia `{ type: "RETRY_ANALYSIS" }` com validação de origem (`https://www.youtube.com`).
+    - O content script consome a mensagem e aciona o clique do botão no Shadow DOM apenas se não estiver em execução (`aria-disabled !== "true"`).
+
+#### Definition of Done (DoD)
+
+- [x] Detecção de ausência de legendas em tempo inferior a 1,0s.
+- [x] Alerta orientador acessível via `role="alert"` no painel.
+- [x] Evento local `NO_CAPTIONS` sem chamadas externas ao backend.
+- [x] Botão de nova tentativa disponível no painel em caso de falha/ausência.
+- [x] Testes unitários e de integração adicionados com 100% de aprovação.
+- [x] Cobertura de testes mantida acima de 95% em todos os critérios.
+- [x] Conformidade de acessibilidade validada com axe-core.
 
 ---
 
