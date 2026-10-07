@@ -104,3 +104,13 @@ uv run mkdocs build --strict
 ```
 
 O portal de documentação ficará disponível em: [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+---
+
+## 6. Estado de Maturidade e Prontidão (Release Candidate)
+
+O projeto encontra-se no estado **PRÉ-RELEASE CANDIDATA** (`PRERELEASE_CANDIDATE`).
+
+- **Funcional (100% testado):** Extensão Manifest V3, painel lateral em Preact (WCAG 2.1 AA), extração de legendas, timestamps interativos sincronizados com o player, backend proxy FastAPI com rate limiting 429, tokens de sessão efêmeros, separação epistemológica estrita entre discurso do vídeo e checagem jornalística, e degradação graciosa Evidence-Only.
+- **Parcial (Preparado / Isolado):** Pipeline de dados e corpus de fact-checking pronto tecnicamente (`TECHNICALLY_READY`), aguardando aprovação jurídica de licença para distribuição pública (Portão **H2**). Framework de avaliação de IR pronto com rotulação humana pendente (`PENDING_HUMAN_ANNOTATION`, Portão **H3**).
+- **Pendente (Ações Humanas):** Homologação de infraestrutura de produção e credenciais (Portões **H1**, **H4**, **H5**), e validação empírica presencial com usuários voluntários (Portão **H6**). Consulte [`HUMAN-DECISIONS.md`](HUMAN-DECISIONS.md) e [`RELEASE-READINESS.md`](RELEASE-READINESS.md).
