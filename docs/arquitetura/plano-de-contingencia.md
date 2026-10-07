@@ -105,7 +105,7 @@ OLLAMA_MODEL=qwen2.5:3b
 ## 6. Verificação e Conformidade dos Gates
 
 Todos os cenários descritos neste plano de contingência são validados continuamente pela suíte automatizada de testes:
-- [`backend/tests/test_contingency_pipeline.py`](file:///Users/aluno1/Documents/challenge%20fake%20news/evidencia/backend/tests/test_contingency_pipeline.py)
-- [`backend/tests/test_provider_failure.py`](file:///Users/aluno1/Documents/challenge%20fake%20news/evidencia/backend/tests/test_provider_failure.py)
-- [`backend/tests/test_ml_classifier.py`](file:///Users/aluno1/Documents/challenge%20fake%20news/evidencia/backend/tests/test_ml_classifier.py)
-- [`backend/tests/test_health_probes.py`](file:///Users/aluno1/Documents/challenge%20fake%20news/evidencia/backend/tests/test_health_probes.py)
+- `backend/tests/test_contingency_pipeline.py`
+- `backend/tests/test_provider_failure.py`
+- `backend/tests/test_ml_classifier.py`
+- `backend/tests/test_health_probes.py`
