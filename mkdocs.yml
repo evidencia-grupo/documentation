@@ -102,6 +102,7 @@ nav:
           - Threat Model (STRIDE) e LGPD: arquitetura/modelagem-ameacas.md
           - Estratégia de Testes e CI/CD: arquitetura/estrategia-testes.md
           - Instrumentação e Telemetria: arquitetura/metricas-telemetria.md
+          - Plano de Contingência Multinível: arquitetura/plano-de-contingencia.md
           - Guia de Contribuição e Setup: arquitetura/guia-contribuicao.md
       - Decisões de Arquitetura (ADRs):
           - Log de Decisões Estratégicas: arquitetura/decisoes/registro-decisoes.md
