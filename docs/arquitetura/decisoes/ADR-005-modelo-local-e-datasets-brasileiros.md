@@ -123,7 +123,7 @@ flowchart TD
 ### Positivas
 
 - **Independência Operacional:** O backend funciona de forma autônoma em qualquer máquina local, inclusive offline para testes.
-- **Conformidade com a LGPD:** O tratamento de dados da transcrição permanece estritamente confinado ao ambiente de servidor seguro ([Threat Model](../threat-model.md)).
+- **Conformidade com a LGPD:** O tratamento de dados da transcrição permanece estritamente confinado ao ambiente de servidor seguro ([Threat Model](../modelagem-ameacas.md)).
 - **Aderência Cultural:** Checagens priorizam agências nacionais reconhecidas pela IFCN (Agência Lupa, Aos Fatos e Boatos.org).
 - **CI/CD Ultrarrápido:** A suíte de testes unitários roda em menos de 0.5 segundos sem depender de conexão de rede ou chaves secretas.
 

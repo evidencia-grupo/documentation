@@ -40,11 +40,11 @@
 
 ### Essential Question (EQ)
 - **Definição:** A pergunta fundamental de pesquisa e design que norteia todas as decisões do projeto: *"Como sistemas de IA podem ajudar as pessoas a avaliar a confiabilidade de informações sem substituir seu pensamento crítico?"*.
-- **Fonte Oficial:** [Alinhamento com a Essential Question](requisitos/essential-question-alignment.md).
+- **Fonte Oficial:** [Alinhamento com a Essential Question](requisitos/alinhamento-pergunta-fundamental.md).
 
 ### Guiding Questions (GQs)
 - **Definição:** As 12 questões orientadoras desdobradas na fase Engage do framework CBL (GQ01 a GQ12), responsáveis por direcionar o levantamento de requisitos, a exploração de dados (EDA) e a arquitetura técnica.
-- **Fonte Oficial:** [Guiding Questions (CBL)](validacao/guiding-questions.md).
+- **Fonte Oficial:** [Guiding Questions (CBL)](validacao/questoes-norteadoras.md).
 
 ### Fases do Ciclo CBL
 - **Engage:** Fase de imersão no problema, definição da *Big Idea*, da *Essential Question* e das 12 perguntas orientadoras.
@@ -57,7 +57,7 @@
 - **Definição:** Protocolo experimental comparativo entre grupos (*between-subjects*):
   - **Condição A (Controle):** Protótipo isolado contendo o velocímetro e veredito algorítmico fechado.
   - **Condição B (Tratamento):** Extensão oficial operando com arquitetura Evidence-First, exibindo cartões de alegações, evidências e perguntas reflexivas.
-- **Fonte Oficial:** [Plano do Experimento Act](validacao/experiment-plan.md) e [Definição de Métricas](validacao/metrics-definition.md).
+- **Fonte Oficial:** [Plano do Experimento Act](validacao/plano-experimento.md) e [Definição de Métricas](validacao/definicao-metricas.md).
 
 ---
 
@@ -97,7 +97,7 @@
 
 ### Definition of Done (DoD)
 - **Definição:** Critérios formais de qualidade e aceitação que autorizam a homologação e o encerramento de qualquer entrega no projeto, abrangendo cobertura de testes, validação estrita de linters e conformidade de documentação.
-- **Fonte Oficial:** [Definition of Done](validacao/definition-of-done.md).
+- **Fonte Oficial:** [Definition of Done](validacao/criterios-de-pronto.md).
 
 ### Gherkin
 - **Definição:** Linguagem estruturada no formato `Dado / Quando / Então` (*Given / When / Then*) empregada para formalizar os critérios de aceitação de cada História de Usuário.

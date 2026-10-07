@@ -28,7 +28,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 - **Arquitetura e Engenharia:**
   - `docs/tecnico/arquitetura.md`: expansão arquitetural com Modelo C4 (Nível 1 - Contexto; Nível 2 - Contêineres) e Diagrama de Sequência completo do fluxo crítico com demarcação exata dos SLAs e timeouts.
   - `docs/tecnico/contrato-api.md`: especificação formal da API REST entre extensão e Backend Proxy, schemas JSON, interfaces TypeScript e códigos de erro HTTP.
-  - `docs/tecnico/threat-model.md`: análise de segurança formal sob a metodologia STRIDE, prevenção contra abusos e avaliação de conformidade com a LGPD.
+  - `docs/tecnico/modelagem-ameacas.md`: análise de segurança formal sob a metodologia STRIDE, prevenção contra abusos e avaliação de conformidade com a LGPD.
   - `docs/tecnico/estrategia-testes.md`: pirâmide de testes, protocolos automatizados de medição para SLA de 10s (RNF-01) e TBT (RNF-02), e Definition of Done (DoD).
   - `docs/tecnico/decisoes/ADR-002-backend-proxy.md`: decisão arquitetural de intermediação via Backend Proxy dedicado.
   - `docs/tecnico/decisoes/ADR-003-estrategia-cache-local.md`: decisão técnica de cache local com `chrome.storage.local` e TTL de 24 horas.
@@ -56,6 +56,9 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
   - `docs/design/personas-e-jornadas.md`: otimização dos rótulos dos diagramas Mermaid Journey (AS-IS e TO-BE) para evitar truncamento e sobreposição de texto em resoluções padrão, complementados por tabelas estruturadas de Mapeamento Detalhado da Experiência.
 
 ### Changed
+
+- Padronização de nomenclatura de arquivos de documentação conforme Clean Code, Clean Architecture e normas de rastreabilidade: harmonização de arquivos em inglês para português brasileiro nos 4 pilares (`alinhamento-pergunta-fundamental.md`, `modelagem-ameacas.md`, `registro-decisoes.md`, `questoes-norteadoras.md`, `plano-experimento.md`, `protocolo-participante.md`, `definicao-metricas.md`, `especificacao-telemetria.md`, `limitacoes.md`, `criterios-de-pronto.md`, `backlog-produto.md` e `reflexao-critica.md`).
+- Atualização atômica de todos os links relativos, âncoras e menu de navegação do `mkdocs.yml`, eliminando referências a diretórios legados.
 
 - `docs/tecnico/arquitetura.md`: consolidação dos componentes do Modelo C4 e tabela de responsabilidades técnicas com a stack definitiva (Preact/Vite e FastAPI + Pydantic v2), inserção da topologia estrutural de Monorepo (`extension/`, `backend/`, `shared/`) e alinhamento do comentário da esteira `ci.yml`.
 - `docs/tecnico/guia-contribuicao.md`: atualização dos pré-requisitos, instruções operacionais e comandos de build/execução para os subsistemas da extensão (`npm run build`/`dev`) e backend proxy (`uvicorn app.main:app`), além da especificação da pipeline unificada de 4 estágios.

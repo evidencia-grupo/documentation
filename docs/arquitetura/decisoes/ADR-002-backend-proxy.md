@@ -75,4 +75,4 @@ Principais diretrizes da implementação:
 
 - [Catálogo Consolidado de Requisitos — RNF-04](../../requisitos/catalogo-requisitos.md#rnf-04)
 - [Contrato de Dados e API](../contrato-api.md)
-- [Threat Model e Segurança](../threat-model.md)
+- [Threat Model e Segurança](../modelagem-ameacas.md)

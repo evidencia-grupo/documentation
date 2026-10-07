@@ -63,9 +63,9 @@ flowchart TD
 ```mermaid
 flowchart LR
     CH["Challenge: Fact-Checking"] --> EQ["Essential Question"]
-    EQ --> GQs["Guiding Questions<br/>(docs/visao/guiding-questions.md)"]
+    EQ --> GQs["Guiding Questions<br/>(docs/visao/questoes-norteadoras.md)"]
     GQs --> EDA["EDA em Datasets PT-BR<br/>(notebooks/eda_datasets.ipynb)"]
-    EDA --> ADR["ADR-006: Evidence-First<br/>(tecnico/decisoes/ADR-006)"]
+    EDA --> ADR["ADR-006: Evidence-First<br/>(arquitetura/decisoes/ADR-006-evidence-first-architecture.md)"]
     ADR --> HU["HU11: Interface sem Score<br/>(requisitos/backlog-e-historias.md)"]
     HU --> API["Contrato API v1<br/>(backend/app/routers/check.py)"]
     API --> UI["Painel Evidence-First<br/>(extension/src/panel/) (planejado)"]
@@ -85,12 +85,10 @@ flowchart LR
 ```mermaid
 flowchart TD
     subgraph RepoDocs["Repositorio: evidencia-grupo/documentation"]
-        D_Visao["docs/visao/<br/>Alinhamento & GQs"]
-        D_Req["docs/requisitos/<br/>RF/RNF & Matriz"]
-        D_Tec["docs/tecnico/<br/>C4 & Contrato API"]
-        D_Scrum["docs/scrum/<br/>DoD & Cerimonias"]
-        D_Act["docs/cbl/act/<br/>Protocolo Experimental"]
-        D_Refl["docs/cbl/reflect-share/<br/>Portfolio & Auditoria"]
+        D_Visao["docs/visao/<br/>Visao Geral & Status"]
+        D_Req["docs/requisitos/<br/>RF/RNF, Casos de Uso & Matriz"]
+        D_Arq["docs/arquitetura/<br/>C4, Contrato API & ADRs"]
+        D_Val["docs/validacao/<br/>GQs, Experimento & DoD"]
     end
 
     subgraph RepoCode["Repositorio: evidencia-grupo/EvidencIA"]
@@ -102,13 +100,13 @@ flowchart TD
         C_Audit["scripts/audit/<br/>audit_project_completeness.py"]
     end
 
-    D_Tec -->|especifica contrato| C_Shared
+    D_Arq -->|especifica contrato| C_Shared
     D_Req -->|define backlog| C_Ext
     D_Req -->|define backlog| C_Back
-    D_Tec -->|restringe mocks| C_Back
-    D_Act -->|especifica telemetria| C_Ext
-    D_Act -->|define metricas| C_Act
-    C_Audit -->|audita conformidade| D_Refl
+    D_Arq -->|restringe mocks| C_Back
+    D_Val -->|especifica telemetria| C_Ext
+    D_Val -->|define metricas| C_Act
+    C_Audit -->|audita conformidade| D_Val
     C_ML -->|alimenta retrieval| C_Back
 ```
 

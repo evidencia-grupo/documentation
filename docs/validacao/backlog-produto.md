@@ -1,7 +1,7 @@
 # Product Backlog — EvidencIA
 
 !!! note "KANBAN.md"
-    e **BACKLOG.md** anteriores (em `EvidencIA/`) permanecem como histórico de planejamento inicial. Este arquivo é a fonte oficial do product backlog a partir da Sprint 1 (2026-10-02), seguindo a governança Scrum documentada em `docs/scrum/`.
+    e **BACKLOG.md** anteriores (em `EvidencIA/`) permanecem como histórico de planejamento inicial. Este arquivo é a fonte oficial do product backlog a partir da Sprint 1 (2026-10-02), seguindo a governança Scrum documentada em `docs/validacao/`.
 
 ## Nesta página
 
@@ -76,4 +76,4 @@ A rastreabilidade completa das HUs permanece em [`docs/requisitos/backlog-e-hist
 
 ---
 
-**Ver também:** [Definition of Done](definition-of-done.md) · [Catálogo de Requisitos](../requisitos/catalogo-requisitos.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md) · [Matriz de Rastreabilidade](../requisitos/matriz-rastreabilidade.md)
+**Ver também:** [Definition of Done](criterios-de-pronto.md) · [Catálogo de Requisitos](../requisitos/catalogo-requisitos.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md) · [Matriz de Rastreabilidade](../requisitos/matriz-rastreabilidade.md)

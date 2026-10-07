@@ -85,7 +85,7 @@ A existência de um mock implícito e não-documentado do provider de IA signifi
 | HU11 promovida para Must Have do MVP | `backlog-e-historias.md`, `catalogo-requisitos.md` (RF-05) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 | Provider de LLM desacoplado (`LLMProvider` interface) | `backend/app/providers/` (Planejado) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), HU16 |
 | Mock explícito apenas em dev/testes, proibido em produção | Config de ambiente, testes | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
-| EDA obrigatória antes de continuar evolução da extensão | `docs/scrum/sprint-01/` | Sprint 01 Goal |
+| EDA obrigatória antes de continuar evolução da extensão | `docs/validacao/` | Sprint 01 Goal |
 | `analysisMode` substituindo classificação única | `shared/schemas/api-schema.json` (Planejado) | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
 ---
@@ -185,4 +185,4 @@ O painel lateral da extensão passa a ter a seguinte estrutura de investigação
 
 ---
 
-**Ver também:** [Guiding Questions](../validacao/guiding-questions.md) · [ADR-006 — Evidence-First Architecture](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](backlog-e-historias.md)
+**Ver também:** [Guiding Questions](../validacao/questoes-norteadoras.md) · [ADR-006 — Evidence-First Architecture](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](backlog-e-historias.md)

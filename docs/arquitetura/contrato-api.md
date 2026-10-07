@@ -259,4 +259,4 @@ export interface ErrorResponse {
 ---
 
 **Próximo:** [Arquitetura do Sistema](arquitetura.md) — diagrama de contêineres e fluxo de dados.  
-**Ver também:** [Threat Model e Segurança](threat-model.md) — análise de riscos e conformidade LGPD.
+**Ver também:** [Threat Model e Segurança](modelagem-ameacas.md) — análise de riscos e conformidade LGPD.

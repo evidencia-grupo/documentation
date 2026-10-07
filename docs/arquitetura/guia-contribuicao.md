@@ -158,23 +158,19 @@ evidencia/
 ### Repositório de Documentação (`documentation`)
 ```
 documentation/
-├── .github/workflows/ci-docs.yml  → Esteira de lint sem emojis e build estrito
-├── pyproject.toml                 → Dependencias MkDocs Material via uv
-├── CHANGELOG.md                   → Historico cronologico de versoes
-├── mkdocs.yml                     → Configuracao estrutural de navegacao
-└── docs/                          → Portal completo de requisitos e arquitetura
-    ├── visao/
-    ├── design/
-    ├── requisitos/
-    ├── tecnico/
-    │   ├── arquitetura.md
-    │   ├── contrato-api.md
-    │   ├── threat-model.md
-    │   ├── estrategia-testes.md
-    │   ├── guia-contribuicao.md
-    │   └── decisoes/              → ADR-001 a ADR-004
-    ├── planejamento/
-    └── referencia/
+├── .github/workflows/
+│   ├── ci-docs.yml              → Esteira de lint sem emojis e build estrito
+│   └── docs-links.yml           → Validador de links relativos
+├── pyproject.toml               → Dependencias MkDocs Material via uv
+├── CHANGELOG.md                 → Historico cronologico de versoes
+├── mkdocs.yml                   → Configuracao estrutural de navegacao
+└── docs/                        → Portal completo de documentacao
+    ├── index.md                 → Portal de entrada
+    ├── glossario.md             → Vocabulario unificado do projeto
+    ├── visao/                   → Visao geral, topologia e painel de status
+    ├── requisitos/              → Requisitos RF/RNF, Casos de Uso, HU e Rastreabilidade
+    ├── arquitetura/             → C4, Contrato API, Seguranca e ADR-001 a ADR-006
+    └── validacao/               → Questoes norteadoras, experimento, metricas e DoD
 ```
 
 ---

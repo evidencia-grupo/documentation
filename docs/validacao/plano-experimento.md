@@ -8,7 +8,7 @@ O experimento se ancora diretamente na **Essential Question** do projeto:
 
 > *"Como sistemas de IA podem ajudar as pessoas a avaliar a confiabilidade de informações sem substituir seu pensamento crítico?"*
 
-E operacionaliza quatro **Guiding Questions** centrais documentadas em `docs/visao/guiding-questions.md`:
+E operacionaliza quatro **Guiding Questions** centrais documentadas em [Questões Norteadoras](questoes-norteadoras.md):
 
 - **GQ02 (Substituição de Julgamento)**: Como evitar que o usuário aceite passivamente uma classificação automatizada sem analisar os fatos? O experimento mede se a interface B induz a inspeção ativa de fontes e evidências antes de emitir um veredito pessoal.
 - **GQ05 (Incerteza e Evidência Insuficiente)**: O produto comunica adequadamente que "ausência de evidência confirmatória não equivale a falsidade"? O experimento avalia o tratamento dado a alegações com estado `insufficient_evidence` e `conflicting`.

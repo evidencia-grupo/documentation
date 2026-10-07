@@ -247,7 +247,7 @@ A priorização segue a metodologia **MoSCoW**, alinhada com as diretrizes do **
 | **Enunciado Padronizado** | A extensão deve solicitar apenas permissões estritamente essenciais no manifesto (activeTab e escopo restrito a https://www.youtube.com/*), sem coletar histórico geral de navegação, sem armazenar credenciais do usuário e sem reter dados analíticos por padrão. |
 | **Princípios LGPD** | Necessidade (Art. 6º, III), Finalidade (Art. 6º, I) e Segurança (Art. 6º, VII). Sem cookies de terceiros ou identificadores biométricos/persistentes. |
 | **Método de Validação** | Auditoria de segurança de permissões de manifesto e verificação de conformidade no Threat Model. |
-| **Rastreabilidade** | [Cenário 04, 07, 11](cenarios.md#cenario-04), [HU06, HU07, HU12](backlog-e-historias.md#hu06), [Threat Model](../arquitetura/threat-model.md). |
+| **Rastreabilidade** | [Cenário 04, 07, 11](cenarios.md#cenario-04), [HU06, HU07, HU12](backlog-e-historias.md#hu06), [Threat Model](../arquitetura/modelagem-ameacas.md). |
 
 ### RNF-06 [Resiliência e Degradação Graciosa] {: #rnf-06 }
 

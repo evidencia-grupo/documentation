@@ -82,7 +82,7 @@ nav:
   - Requisitos:
       - Visão de Produto & UX:
           - Alinhamento Estratégico: requisitos/alinhamento-estrategico.md
-          - Essential Question (CBL): requisitos/essential-question-alignment.md
+          - Essential Question (CBL): requisitos/alinhamento-pergunta-fundamental.md
           - Personas e Jornadas: requisitos/personas-e-jornadas.md
           - Design System e Interface: requisitos/design-system.md
       - Especificação de Requisitos:
@@ -99,12 +99,12 @@ nav:
           - Arquitetura do Sistema (C4): arquitetura/arquitetura.md
           - Pipeline de IA e Datasets: arquitetura/ia-e-datasets.md
           - Contrato de Dados e API: arquitetura/contrato-api.md
-          - Threat Model (STRIDE) e LGPD: arquitetura/threat-model.md
+          - Threat Model (STRIDE) e LGPD: arquitetura/modelagem-ameacas.md
           - Estratégia de Testes e CI/CD: arquitetura/estrategia-testes.md
           - Instrumentação e Telemetria: arquitetura/metricas-telemetria.md
           - Guia de Contribuição e Setup: arquitetura/guia-contribuicao.md
       - Decisões de Arquitetura (ADRs):
-          - Log de Decisões Estratégicas: arquitetura/decisoes/decision-log.md
+          - Log de Decisões Estratégicas: arquitetura/decisoes/registro-decisoes.md
           - ADR-001 — Manifest V3: arquitetura/decisoes/ADR-001-manifest-v3.md
           - ADR-002 — Backend Proxy Dedicado: arquitetura/decisoes/ADR-002-backend-proxy.md
           - ADR-003 — Estratégia de Cache Local: arquitetura/decisoes/ADR-003-estrategia-cache-local.md
@@ -113,16 +113,16 @@ nav:
           - ADR-006 — Arquitetura Evidence-First: arquitetura/decisoes/ADR-006-evidence-first-architecture.md
   - Validação:
       - Experimento com Usuários:
-          - Plano do Experimento: validacao/experiment-plan.md
-          - Protocolo do Participante: validacao/participant-protocol.md
-          - Métricas de Validação (M1 a M9): validacao/metrics-definition.md
-          - Especificação de Telemetria: validacao/telemetry-spec.md
-          - Limitações do Estudo: validacao/limitations.md
+          - Plano do Experimento: validacao/plano-experimento.md
+          - Protocolo do Participante: validacao/protocolo-participante.md
+          - Métricas de Validação (M1 a M9): validacao/definicao-metricas.md
+          - Especificação de Telemetria: validacao/especificacao-telemetria.md
+          - Limitações do Estudo: validacao/limitacoes.md
       - Qualidade & Metodologia:
-          - Critérios de Entrega (DoD): validacao/definition-of-done.md
-          - Backlog do Produto: validacao/product-backlog.md
-          - Questões Norteadoras: validacao/guiding-questions.md
-          - Avaliação e Reflexão Crítica: validacao/reflection.md
+          - Critérios de Entrega (DoD): validacao/criterios-de-pronto.md
+          - Backlog do Produto: validacao/backlog-produto.md
+          - Questões Norteadoras: validacao/questoes-norteadoras.md
+          - Avaliação e Reflexão Crítica: validacao/reflexao-critica.md
 
 
 

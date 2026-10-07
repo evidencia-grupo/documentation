@@ -73,4 +73,4 @@ A matriz de riscos é revisada semanalmente com base nas métricas operacionais 
 ---
 
 **Próximo:** [Instrumentação e Telemetria](../arquitetura/metricas-telemetria.md) — coleta ética de dados de uso e KPIs.  
-**Ver também:** [Threat Model e Segurança](../arquitetura/threat-model.md) — governança de segurança contra ameaças.
+**Ver também:** [Threat Model e Segurança](../arquitetura/modelagem-ameacas.md) — governança de segurança contra ameaças.

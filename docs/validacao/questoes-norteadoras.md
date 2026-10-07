@@ -118,7 +118,7 @@ O produto não determina "a verdade". Ao apresentar evidências com seus metadad
 | GQ08 | HU11 promovida de Pós-MVP para Must Have do MVP | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [HU11](../requisitos/backlog-e-historias.md#hu11) |
 | GQ09 | EDA inclui avaliação de retrieval com Recall@k, MRR, nDCG | Aceito | Sprint 01 |
 | GQ10 | Campo `TemporalContext` obrigatório no schema de alegações | Aceito | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
-| GQ11 | UX de investigação assistida; usuário é investigador final | Aceito | [essential-question-alignment.md](../requisitos/essential-question-alignment.md) |
+| GQ11 | UX de investigação assistida; usuário é investigador final | Aceito | [alinhamento-pergunta-fundamental.md](../requisitos/alinhamento-pergunta-fundamental.md) |
 
 ---
 
@@ -151,4 +151,4 @@ As GQs respondidas na Sprint 1 alimentam a Sprint 2 (fase **Act**), que converte
 
 ---
 
-**Ver também:** [Essential Question Alignment](../requisitos/essential-question-alignment.md) · [ADR-006 — Evidence-First Architecture](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md)
+**Ver também:** [Essential Question Alignment](../requisitos/alinhamento-pergunta-fundamental.md) · [ADR-006 — Evidence-First Architecture](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) · [Backlog e Histórias de Usuário](../requisitos/backlog-e-historias.md)

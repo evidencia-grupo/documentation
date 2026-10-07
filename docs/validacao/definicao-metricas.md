@@ -210,7 +210,7 @@ A tomada de decisão segue estritamente a ordem de precedência mais cautelosa (
 ---
 
 ## Documentos Relacionados
-- [Plano do Experimento](experiment-plan.md) — Desenho experimental between-subjects e hipóteses formais.
-- [Protocolo do Participante](participant-protocol.md) — Roteiro de aplicação para o facilitador.
-- [Especificação de Telemetria](telemetry-spec.md) — Eventos e payloads gerados pela extensão.
-- [Limitações do Estudo](limitations.md) — Ameaças conhecidas à validade interna e externa.
+- [Plano do Experimento](plano-experimento.md) — Desenho experimental between-subjects e hipóteses formais.
+- [Protocolo do Participante](protocolo-participante.md) — Roteiro de aplicação para o facilitador.
+- [Especificação de Telemetria](especificacao-telemetria.md) — Eventos e payloads gerados pela extensão.
+- [Limitações do Estudo](limitacoes.md) — Ameaças conhecidas à validade interna e externa.

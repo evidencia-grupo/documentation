@@ -230,7 +230,7 @@ Para satisfazer o requisito [RNF-06](../requisitos/catalogo-requisitos.md#rnf-06
 ## Segurança e Privacidade {: #seguranca-e-privacidade }
 
 - **Zero Trust Client-Side:** Chaves secretas de APIs de inteligência artificial nunca são empacotadas na extensão ([ADR-002](decisoes/ADR-002-backend-proxy.md)).
-- **Privacidade por Padrão (LGPD):** Não há coleta nem persistência de histórico de navegação. A extensão atua única e exclusivamente no vídeo onde o usuário acionou a análise ([Threat Model](threat-model.md)).
+- **Privacidade por Padrão (LGPD):** Não há coleta nem persistência de histórico de navegação. A extensão atua única e exclusivamente no vídeo onde o usuário acionou a análise ([Threat Model](modelagem-ameacas.md)).
 - **Isolamento de Estilos e Scripts:** O uso de Shadow DOM no botão injetado e de iFrame Sandbox no painel lateral impede que o YouTube capture eventos da extensão ou que estilos conflitantes causem deformações visuais.
 
 ---
@@ -248,4 +248,4 @@ Para satisfazer o requisito [RNF-06](../requisitos/catalogo-requisitos.md#rnf-06
 ---
 
 **Próximo:** [Pipeline de IA e Datasets](ia-e-datasets.md) — integração com Ollama e bases de checagem brasileiras.  
-**Ver também:** [Contrato de Dados e API](contrato-api.md) e [Threat Model](threat-model.md).
+**Ver também:** [Contrato de Dados e API](contrato-api.md) e [Threat Model](modelagem-ameacas.md).

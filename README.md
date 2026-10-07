@@ -51,14 +51,14 @@ flowchart TD
 1. Prepare o ambiente local: [Guia de Contribuição e Execução Local](docs/arquitetura/guia-contribuicao.md).
 2. Compreenda os componentes e a separação de responsabilidades: [Arquitetura do Sistema (Modelos C4)](docs/arquitetura/arquitetura.md).
 3. Consulte as decisões estruturais: [ADR-001 (Manifest V3)](docs/arquitetura/decisoes/ADR-001-manifest-v3.md) e [ADR-006 (Evidence-First)](docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md).
-4. Verifique os critérios de entrega e qualidade: [Definition of Done (DoD)](docs/validacao/definition-of-done.md) e [Product Backlog](docs/validacao/product-backlog.md).
+4. Verifique os critérios de entrega e qualidade: [Definition of Done (DoD)](docs/validacao/criterios-de-pronto.md) e [Product Backlog](docs/validacao/backlog-produto.md).
 5. Explore os endpoints e schemas: [Contrato de Dados e API](docs/arquitetura/contrato-api.md).
 
 ### Perfil 3 — Quem Quer Avaliar a Validação e Qualidade (Avaliadores e Pesquisadores)
 1. Acompanhe a situação atual das entregas: [Painel de Status Consolidado](docs/visao/status.md).
-2. Conheça a metodologia de teste empírico: [Plano do Experimento com Usuários](docs/validacao/experiment-plan.md).
-3. Inspecione os indicadores de eficácia e usabilidade: [Métricas de Validação (M1 a M9)](docs/validacao/metrics-definition.md).
-4. Analise os impactos cognitivos e de discernimento: [Síntese e Reflexão Crítica](docs/validacao/reflection.md).
+2. Conheça a metodologia de teste empírico: [Plano do Experimento com Usuários](docs/validacao/plano-experimento.md).
+3. Inspecione os indicadores de eficácia e usabilidade: [Métricas de Validação (M1 a M9)](docs/validacao/definicao-metricas.md).
+4. Analise os impactos cognitivos e de discernimento: [Síntese e Reflexão Crítica](docs/validacao/reflexao-critica.md).
 
 ---
 
@@ -68,8 +68,8 @@ flowchart TD
 |:---|:---|:---|
 | **1. Visão Geral** | [Visão em 1 Página](docs/visao/visao-geral-do-projeto.md) · [Mapa Visual](docs/visao/mapa-do-projeto.md) · [Status](docs/visao/status.md) · [Glossário](docs/glossario.md) | Panorama executivo do produto, topologia, painel de entregas e definições formais unificadas. |
 | **2. Requisitos & Produto** | [Elicitação](docs/requisitos/elicitacao.md) · [Catálogo RF/RNF](docs/requisitos/catalogo-requisitos.md) · [Casos de Uso](docs/requisitos/casos-de-uso.md) · [Personas & UX](docs/requisitos/personas-e-jornadas.md) · [Histórias Gherkin](docs/requisitos/backlog-e-historias.md) · [Matriz MoSCoW](docs/requisitos/matriz-rastreabilidade.md) | Levantamento empírico, catálogo RF-01 a RF-15, RNF-01 a RNF-07, casos de uso UC-01 a UC-06, personas e matriz de priorização. |
-| **3. Arquitetura & Engenharia** | [Arquitetura C4](docs/arquitetura/arquitetura.md) · [Pipeline RAG Local](docs/arquitetura/ia-e-datasets.md) · [Contrato de API](docs/arquitetura/contrato-api.md) · [Threat Model](docs/arquitetura/threat-model.md) · [ADRs 001–006](docs/arquitetura/decisoes/ADR-001-manifest-v3.md) · [Testes & CI/CD](docs/arquitetura/estrategia-testes.md) | Diagramas de contêineres e sequência, isolamento de segredos, schemas Pydantic, modelo STRIDE, decisões arquiteturais e setup. |
-| **4. Validação & Qualidade** | [Plano do Experimento](docs/validacao/experiment-plan.md) · [Protocolo de Teste](docs/validacao/participant-protocol.md) · [Métricas M1 a M9](docs/validacao/metrics-definition.md) · [Telemetria](docs/validacao/telemetry-spec.md) · [DoD](docs/validacao/definition-of-done.md) · [Reflexão Crítica](docs/validacao/reflection.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega. |
+| **3. Arquitetura & Engenharia** | [Arquitetura C4](docs/arquitetura/arquitetura.md) · [Pipeline RAG Local](docs/arquitetura/ia-e-datasets.md) · [Contrato de API](docs/arquitetura/contrato-api.md) · [Threat Model](docs/arquitetura/modelagem-ameacas.md) · [ADRs 001–006](docs/arquitetura/decisoes/ADR-001-manifest-v3.md) · [Testes & CI/CD](docs/arquitetura/estrategia-testes.md) | Diagramas de contêineres e sequência, isolamento de segredos, schemas Pydantic, modelo STRIDE, decisões arquiteturais e setup. |
+| **4. Validação & Qualidade** | [Plano do Experimento](docs/validacao/plano-experimento.md) · [Protocolo de Teste](docs/validacao/protocolo-participante.md) · [Métricas M1 a M9](docs/validacao/definicao-metricas.md) · [Telemetria](docs/validacao/especificacao-telemetria.md) · [DoD](docs/validacao/criterios-de-pronto.md) · [Reflexão Crítica](docs/validacao/reflexao-critica.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega. |
 
 ---
 

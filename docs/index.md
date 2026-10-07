@@ -59,7 +59,7 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
     <div class="doc-card__action"><span>Ver Arquitetura &rarr;</span></div>
   </a>
 
-  <a href="validacao/experiment-plan/" class="doc-card">
+  <a href="validacao/plano-experimento/" class="doc-card">
     <div>
       <div class="doc-card__header">
         <span class="doc-card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/><line x1="8" y1="15" x2="16" y2="15"/></svg></span>
@@ -75,8 +75,8 @@ A documentação está consolidada em quatro pilares objetivos para rápida loca
 |:---|:---|:---|:---:|
 | **1. Visão Geral** | [Visão em 1 Página](visao/visao-geral-do-projeto.md) · [Mapa Visual](visao/mapa-do-projeto.md) · [Painel de Status](visao/status.md) · [Glossário](glossario.md) | Síntese executiva (5-10 min), fluxo de telas, topologia dos repositórios e status das entregas | [Começar aqui](visao/visao-geral-do-projeto.md) |
 | **2. Requisitos & Produto** | [Elicitação ($100)](requisitos/elicitacao.md) · [Catálogo RF/RNF](requisitos/catalogo-requisitos.md) · [Personas & UX](requisitos/personas-e-jornadas.md) · [Histórias Gherkin](requisitos/backlog-e-historias.md) · [Matriz MoSCoW](requisitos/matriz-rastreabilidade.md) | Personas, requisitos funcionais/não funcionais, casos de uso, critérios Gherkin e priorização MoSCoW | [Ver Requisitos](requisitos/catalogo-requisitos.md) |
-| **3. Arquitetura & Engenharia** | [Arquitetura C4](arquitetura/arquitetura.md) · [Pipeline RAG Local](arquitetura/ia-e-datasets.md) · [Contrato de API](arquitetura/contrato-api.md) · [STRIDE & LGPD](arquitetura/threat-model.md) · [ADRs 001–006](arquitetura/decisoes/ADR-001-manifest-v3.md) · [CI/CD](arquitetura/estrategia-testes.md) | Modelo C4, sequência assíncrona, schemas OpenAPI/Pydantic, privacidade, decisões arquiteturais e setup | [Ver Arquitetura](arquitetura/arquitetura.md) |
-| **4. Validação & Qualidade** | [Plano do Experimento](validacao/experiment-plan.md) · [Protocolo de Teste](validacao/participant-protocol.md) · [Métricas M1 a M9](validacao/metrics-definition.md) · [Telemetria](validacao/telemetry-spec.md) · [DoD](validacao/definition-of-done.md) · [Reflexão Crítica](validacao/reflection.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega | [Ver Validação](validacao/experiment-plan.md) |
+| **3. Arquitetura & Engenharia** | [Arquitetura C4](arquitetura/arquitetura.md) · [Pipeline RAG Local](arquitetura/ia-e-datasets.md) · [Contrato de API](arquitetura/contrato-api.md) · [STRIDE & LGPD](arquitetura/modelagem-ameacas.md) · [ADRs 001–006](arquitetura/decisoes/ADR-001-manifest-v3.md) · [CI/CD](arquitetura/estrategia-testes.md) | Modelo C4, sequência assíncrona, schemas OpenAPI/Pydantic, privacidade, decisões arquiteturais e setup | [Ver Arquitetura](arquitetura/arquitetura.md) |
+| **4. Validação & Qualidade** | [Plano do Experimento](validacao/plano-experimento.md) · [Protocolo de Teste](validacao/protocolo-participante.md) · [Métricas M1 a M9](validacao/definicao-metricas.md) · [Telemetria](validacao/especificacao-telemetria.md) · [DoD](validacao/criterios-de-pronto.md) · [Reflexão Crítica](validacao/reflexao-critica.md) | Desenho experimental com usuários reais no YouTube, protocolo de teste, métricas objetivas de discernimento e critérios de entrega | [Ver Validação](validacao/plano-experimento.md) |
 
 ---
 
