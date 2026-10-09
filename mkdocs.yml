@@ -8,6 +8,8 @@ docs_dir: docs
 theme:
   name: material
   language: pt
+  logo: assets/logo-icon.svg
+  favicon: assets/favicon.svg
   palette:
     # Esquema Claro (detectado automaticamente quando o SO estiver no modo claro)
     - media: "(prefers-color-scheme: light)"
