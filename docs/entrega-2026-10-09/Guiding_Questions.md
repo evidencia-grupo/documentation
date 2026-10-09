@@ -1,0 +1,21 @@
+# Guiding Questions - EvidencIA
+
+Versão de entrega: 09/10/2026. Fonte: documentation/docs/validacao/questoes-norteadoras.md. Questões orientam decisões; respostas conceituais não substituem experimentos com usuários.
+
+| # | Guiding Question | Resposta Sintetizada | Decisão Derivada |
+|:---|:---|:---|:---|
+| **GQ01** | O que torna uma informação de vídeo difícil de avaliar? | Mistura de opinião, contexto temporal, linguagem emocional e múltiplas alegações simultâneas. | Decompor o conteúdo em alegações verificáveis antes de qualquer análise. |
+| **GQ02** | O usuário precisa de um "veredito" ou de evidências para investigar? | Evidências, contexto e incertezas preservam a autonomia crítica; um veredito único a elimina. | Remover o score global (0–100) e o gauge da UX principal. |
+| **GQ03** | O que a IA pode automatizar sem substituir o julgamento? | Extração de alegações, recuperação, agrupamento, comparação e síntese explicativa. | A LLM não é autoridade factual primária; serve como componente auxiliar de linguagem. |
+| **GQ04** | Que evidência é relevante para português brasileiro? | Registros de fact-checking e corpora brasileiros; bases genéricas não cobrem o contexto PT-BR adequadamente. | Usar FactChecks.br para evidências; Fake.br apenas como corpus de linguagem, sem tratá-lo como base factual. |
+| **GQ05** | O que significa "não encontramos evidência"? | Ausência de evidência não equivale a falsidade; é um estado epistêmico distinto. | Criar estado explícito `insufficient_evidence` distinto de `false`. |
+| **GQ06** | Como lidar com fontes conflitantes? | Expor a divergência com data e contexto das fontes; nunca reduzir conflito a uma nota arbitrária. | Painel apresenta ambos os lados de controvérsias legítimas sem arbitrar vencedor. |
+| **GQ07** | Como evitar que a LLM alucine uma checagem? | Toda conclusão factual depende de evidências recuperadas e rastreáveis; a LLM não deve inventar fatos. | RAG é o núcleo factual; a LLM é componente auxiliar de linguagem e formulação. |
+| **GQ08** | Como o usuário exerce pensamento crítico? | O painel apresenta perguntas reflexivas (fonte? data? o que foi omitido? que evidência contradiz?). | HU11 promovida de Pós-MVP para Must Have do MVP. |
+| **GQ09** | Como medir se a recuperação funciona? | Recall@k, MRR, nDCG e análise qualitativa dos top-k resultados. | A EDA inclui avaliação de retrieval com métricas objetivas. |
+| **GQ10** | Como lidar com conteúdo antigo? | A alegação deve ser interpretada no contexto temporal original de publicação. | Manter campo `TemporalContext` no schema de alegações. |
+| **GQ11** | Qual é o papel do usuário? | Investigador final, não receptor passivo de um veredito algorítmico. | UX orientada à investigação assistida; o usuário conclui, o sistema organiza. |
+| **GQ12** | Qual é o limite do produto? | Não determina "a verdade"; organiza evidências e explicita o grau de suporte disponível. | Revisar visão, requisitos e nomenclatura para eliminar termos como "veracidade" e "score". |
+
+
+Na remediação, GQ07 foi implementada com catálogo fechado de perguntas; GQ09 continua distinguindo métricas do classificador e métricas de recuperação, cuja anotação humana não está nos arquivos entregues.

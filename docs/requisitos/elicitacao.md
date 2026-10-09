@@ -28,7 +28,7 @@ A priorização dos requisitos não foi conduzida de forma isolada: a dinâmica 
 flowchart TD
     E1["Etapa 1: Entrevistas Qualitativas<br/>(Genecilda, Josélia, Jovens, Múltiplos Perfis)"]
     E2["Etapa 2: Análise de Concorrentes<br/>(NewsGuard, Fake News Detector, Agências, YouTube)"]
-    E3["Etapa 3: Prototipagem e Validação<br/>(Mockup do Painel no YouTube, Velocímetro, Cards)"]
+    E3["Etapa 3: Prototipagem e Validação<br/>(Protótipo anterior no YouTube, Cards)"]
     E4["Etapa 4: Técnica dos 100 Dólares ($)<br/>(Alocação Orçamentária Cumulativa em RFs e RNFs)"]
     E5["Etapa 5: Matriz MoSCoW e IN/OUT<br/>(Definição do Escopo da Release 1.0 - MVP)"]
 

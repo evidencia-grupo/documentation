@@ -124,6 +124,17 @@ nav:
           - Backlog do Produto: validacao/backlog-produto.md
           - Questões Norteadoras: validacao/questoes-norteadoras.md
           - Avaliação e Reflexão Crítica: validacao/reflexao-critica.md
+  - Entrega 09/10/2026:
+      - Remediação e GO: entrega-2026-10-09/Remediacao_e_GO.md
+      - Relatório técnico: entrega-2026-10-09/Relatorio_Tecnico.md
+      - Guiding Questions: entrega-2026-10-09/Guiding_Questions.md
+      - Requisitos: entrega-2026-10-09/Requisitos.md
+      - Scrum: entrega-2026-10-09/Scrum.md
+      - Datasets: entrega-2026-10-09/Datasets.md
+      - EDA: entrega-2026-10-09/EDA.md
+      - Catálogo de origem: entrega-2026-10-09/Catalogo_Requisitos_Origem.md
+      - Backlog de origem: entrega-2026-10-09/Backlog_Origem.md
 
-
-
+exclude_docs: |
+  auditorias/historico/**
+  desenvolvimento/referencia-original/**

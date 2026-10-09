@@ -43,7 +43,7 @@ A auditoria CBL identificou os seguintes conflitos entre a implementação anter
 
 ### Conflito 1 — Gauge Numérico Global
 
-O componente `Gauge.tsx` e o campo `score: number (0–100)` no contrato de API implementam um **veredito algorítmico único** para o vídeo inteiro. Isso é o oposto da investigação assistida: o usuário recebe uma resposta antes de examinar as evidências.
+No protótipo anterior, o componente `Gauge.tsx` e o campo `score: number (0–100)` no contrato de API implementavam um **veredito algorítmico único** para o vídeo inteiro. Isso é o oposto da investigação assistida: o usuário recebe uma resposta antes de examinar as evidências.
 
 **Problema com a Essential Question:** "sistemas de IA que ajudam a avaliar a confiabilidade" pressupõe que o usuário avalia — não que a IA avalia e comunica o resultado.
 
