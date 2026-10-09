@@ -72,7 +72,7 @@ Quando o modelo de linguagem generativo está fora do ar, o extrator estatístic
 4. Isola as alegações de maior densidade factual para auditoria.
 
 ### 4.2 Classificador Supervisionado Calibrado (`ClaimClassifier`)
-- **Arquitetura:** Naive Bayes Multinomial calibrado com TF-IDF (2500 n-gramas) e suavização de Laplace ($\alpha = 0.5$).
+- **Arquitetura:** Naive Bayes Multinomial com scores normalizados e TF-IDF (2500 n-gramas) e suavização de Laplace ($\alpha = 0.5$).
 - **Treinamento e Balanceamento:** 139 amostras rigorosamente pareadas por entidades (Saúde, Economia/Pix, Eleições/Urnas, Ciência, Legislação).
 - **Curva de Aceitação:** No limiar de contingência ($\tau = 0.60$), atinge **83.3% de precisão nos aceitos**; em $\tau = 0.65$, atinge **90.0%**.
 - **Diagnóstico Interpretável:** Identifica gatilhos de sensacionalismo, dogmatismo e apelos de autoridade, enriquecendo o contexto analítico sem substituir o julgamento humano.

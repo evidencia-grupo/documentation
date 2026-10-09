@@ -1,0 +1,19 @@
+﻿dimensao,categoria,quantidade
+labels,fake,70
+labels,true,69
+categories,saúde,61
+categories,ciência,24
+categories,economia,23
+categories,política,18
+categories,sociedade,11
+categories,educação,1
+categories,tecnologia,1
+sources_declared,FactChecks.br,89
+sources_declared,Fake.br,15
+sources_declared,Fake.br (NILC/USP),10
+sources_declared,FactChecks.br (Agência Lupa),6
+sources_declared,FactChecks.br (Aos Fatos),6
+sources_declared,FactChecks.br (G1 Fato ou Fake),6
+sources_declared,FactChecks.br (Boatos.org),3
+sources_declared,FactChecks.br (UOL Confere),2
+sources_declared,FactChecks.br (Ministério da Saúde / Fiocruz),2

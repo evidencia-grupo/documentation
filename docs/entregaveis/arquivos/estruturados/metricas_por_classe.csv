@@ -1,0 +1,3 @@
+﻿classe,precision,recall,f1
+fake,0.6471,0.7857,0.7097
+true,0.7,0.5385,0.6087

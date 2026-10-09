@@ -1,0 +1,13 @@
+source_commit: 0ffe395aeb5b3dd86914cd9532d78edbfbd6188f
+date: '2026-10-09'
+rows: 139
+train: 112
+test: 27
+split_seed: 42
+sha256: 379f725f5568bea2c42c8aeff3d0aa78908086ad5735828a29fe68d53d818246
+provenance: Corpus local versionado, fixtures e exemplos curados no código. Nomes
+  das fontes são declarações locais, não prova de download oficial ou anotação humana
+  independente.
+scope: Demonstração de padrões linguísticos, não modelo factual validado externamente.
+approval: Usuário informou aprovação das decisões pendentes em 2026-10-09; esta declaração
+  não substitui dados empíricos inexistentes.

@@ -1,0 +1,90 @@
+dataset_size: 27
+confusion_matrix:
+  tp: 11
+  fp: 6
+  tn: 7
+  fn: 3
+accuracy: 0.6667
+macro_f1: 0.6592
+classes:
+  fake:
+    precision: 0.6471
+    recall: 0.7857
+    f1: 0.7097
+  'true':
+    precision: 0.7
+    recall: 0.5385
+    f1: 0.6087
+acceptance_curve:
+- threshold: 0.5
+  accepted_count: 27
+  total_count: 27
+  acceptance_rate_pct: 100.0
+  abstention_rate_pct: 0.0
+  precision_on_accepted_pct: 66.7
+  error_rate_on_accepted_pct: 33.3
+- threshold: 0.55
+  accepted_count: 22
+  total_count: 27
+  acceptance_rate_pct: 81.5
+  abstention_rate_pct: 18.5
+  precision_on_accepted_pct: 72.7
+  error_rate_on_accepted_pct: 27.3
+- threshold: 0.6
+  accepted_count: 18
+  total_count: 27
+  acceptance_rate_pct: 66.7
+  abstention_rate_pct: 33.3
+  precision_on_accepted_pct: 83.3
+  error_rate_on_accepted_pct: 16.7
+- threshold: 0.65
+  accepted_count: 10
+  total_count: 27
+  acceptance_rate_pct: 37.0
+  abstention_rate_pct: 63.0
+  precision_on_accepted_pct: 90.0
+  error_rate_on_accepted_pct: 10.0
+- threshold: 0.7
+  accepted_count: 6
+  total_count: 27
+  acceptance_rate_pct: 22.2
+  abstention_rate_pct: 77.8
+  precision_on_accepted_pct: 83.3
+  error_rate_on_accepted_pct: 16.7
+- threshold: 0.75
+  accepted_count: 3
+  total_count: 27
+  acceptance_rate_pct: 11.1
+  abstention_rate_pct: 88.9
+  precision_on_accepted_pct: 100.0
+  error_rate_on_accepted_pct: 0.0
+- threshold: 0.8
+  accepted_count: 1
+  total_count: 27
+  acceptance_rate_pct: 3.7
+  abstention_rate_pct: 96.3
+  precision_on_accepted_pct: 100.0
+  error_rate_on_accepted_pct: 0.0
+- threshold: 0.85
+  accepted_count: 1
+  total_count: 27
+  acceptance_rate_pct: 3.7
+  abstention_rate_pct: 96.3
+  precision_on_accepted_pct: 100.0
+  error_rate_on_accepted_pct: 0.0
+- threshold: 0.9
+  accepted_count: 0
+  total_count: 27
+  acceptance_rate_pct: 0.0
+  abstention_rate_pct: 100.0
+  precision_on_accepted_pct: null
+  error_rate_on_accepted_pct: null
+majority_baseline:
+  label: fake
+  accuracy: 0.5185185185185185
+protocol:
+  split_seed: 42
+  train: 112
+  test: 27
+  tuning_on_test: false
+  scope: local linguistic corpus; no independent factual validation

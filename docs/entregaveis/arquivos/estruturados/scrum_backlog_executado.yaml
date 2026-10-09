@@ -1,0 +1,24 @@
+date: '2026-10-09'
+scope: desenvolvimento local
+records:
+- Pacote: Integridade de IA
+  Resultado de implementação: Catálogo neutro; grounding em trecho da transcrição;
+    fallback usa texto do vídeo; hits externos contextualizam
+- Pacote: Contratos
+  Resultado de implementação: Geração de JSON Schema e TypeScript a partir de Pydantic,
+    checada na CI
+- Pacote: Extensão
+  Resultado de implementação: Token renovável, segmentos reais, leitura de cache antecipada,
+    teste de sender fortalecido
+- Pacote: Backend
+  Resultado de implementação: Limite HTTP, Redis configurável, validação de segredos
+    e CORS, health corrigido, Docker non-root
+- Pacote: CI e supply chain
+  Resultado de implementação: Actions por SHA, permissões reduzidas, Vitest/Vite atualizados,
+    lock de runtime
+- Pacote: Documentação
+  Resultado de implementação: Narrativas migradas com origem; READMEs enxutos; referências
+    históricas preservadas
+- Pacote: Entrega acadêmica
+  Resultado de implementação: Notebook executado, modelo JSON, EDA, resultados por
+    amostra, requisitos e Guiding Questions

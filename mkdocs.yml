@@ -73,8 +73,16 @@ markdown_extensions:
   - pymdownx.keys
 
 nav:
+  - Começar:
+      - Portal: index.md
+      - Desenvolvimento local: inicio/desenvolvimento-local.md
+      - Transcrição e validação: operacao/transcricao-e-validacao.md
+      - Configuração e evidências: operacao/configuracao-e-evidencias.md
+      - Entregáveis e downloads: entregaveis/index.md
+      - Prontidão atual: governanca/prontidao.md
+      - Revisão do relatório de IA: governanca/revisao-relatorio-ia.md
+      - Decisões aprovadas: governanca/decisoes-aprovadas.md
   - Visão Geral:
-      - Apresentação: index.md
       - Síntese Executiva (1 Página): visao/visao-geral-do-projeto.md
       - Topologia & Mapa Visual: visao/mapa-do-projeto.md
       - Painel de Status Consolidado: visao/status.md

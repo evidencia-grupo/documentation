@@ -1,0 +1,35 @@
+rows: 139
+train: 112
+test: 27
+labels:
+  fake: 70
+  'true': 69
+categories:
+  saúde: 61
+  ciência: 24
+  economia: 23
+  política: 18
+  sociedade: 11
+  educação: 1
+  tecnologia: 1
+sources_declared:
+  FactChecks.br: 89
+  Fake.br: 15
+  Fake.br (NILC/USP): 10
+  FactChecks.br (Agência Lupa): 6
+  FactChecks.br (Aos Fatos): 6
+  FactChecks.br (G1 Fato ou Fake): 6
+  FactChecks.br (Boatos.org): 3
+  FactChecks.br (UOL Confere): 2
+  FactChecks.br (Ministério da Saúde / Fiocruz): 2
+duplicate_texts: 0
+train_test_literal_overlap: 0
+word_count:
+  count: 139.0
+  mean: 15.251798561151078
+  std: 2.675962579567265
+  min: 9.0
+  25%: 14.0
+  50%: 15.0
+  75%: 17.0
+  max: 22.0
