@@ -1,0 +1,216 @@
+stories:
+- id: HU01
+  titulo: HU01 — Acesso Rápido à Investigação de Vídeo
+  Descrição: Eu, como Dona Lurdes, pretendo iniciar a investigação das alegações de
+    um vídeo com apenas um clique para que eu possa examinar as evidências sobre as
+    receitas e dicas caseiras de saúde antes de decidir seguir ou repassar a familiares.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Dona Lurdes (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#dona-lurdes)
+  Rastreabilidade: GQ02, GQ11, ADR-006 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    Cenário 01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-01),
+    UC-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-01),
+    RF-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-01),
+    RF-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-03),
+    RNF-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-01),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU03
+  titulo: HU03 — Checagem Rápida e Factual no Player
+  Descrição: Eu, como Amanda, pretendo ver a primeira evidência útil sobre afirmações
+    de vídeos de divulgação científica em até 5 segundos para validar premissas sem
+    interromper o fluxo dos meus estudos.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Amanda (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#amanda)
+  Rastreabilidade: GQ09, ADR-006 Decisão 8 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    Cenário 01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-01),
+    Cenário 03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-03),
+    UC-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-01),
+    UC-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-03),
+    RF-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-01),
+    RF-09 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-09),
+    RNF-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-01)
+  origem: história de origem; status de execução não inferido
+- id: HU05
+  titulo: HU05 — Ingestão e Processamento de Transcrição
+  Descrição: Eu, como Carlos Augusto, pretendo que o sistema obtenha e processe automaticamente
+    a transcrição do vídeo para que a verificação de factualidade ocorra a partir
+    do áudio exato do conteúdo.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Carlos Augusto (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#carlos-augusto)
+  Rastreabilidade: Cenário 02 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-02),
+    UC-02 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-02),
+    RF-02 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-02),
+    RF-08 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-08),
+    RNF-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-03),
+    RNF-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-06)
+  origem: história de origem; status de execução não inferido
+- id: HU10
+  titulo: HU10 — Notificação Rápida de Ausência de Transcrição
+  Descrição: Eu, como Mariana, pretendo ser notificada imediatamente caso o vídeo
+    assistido não possua legendas para não perder tempo aguardando um resultado que
+    não pode ser gerado.
+  Prioridade: Must Have | IN (Onda 1 - MVP)
+  Persona Relacionada: Mariana (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#mariana)
+  Rastreabilidade: Cenário 08 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-08),
+    UC-02 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-02),
+    RF-02 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-02),
+    RF-08 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-08),
+    RNF-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-01),
+    RNF-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-06),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  Sprint / Entrega: 'Sprint 2 (05/10/2026 a 09/10/2026) · Story Points: 3'
+  Responsáveis: '@luizoryone (https://github.com/luizoryone), @lipestile (https://github.com/lipestile)'
+  origem: história de origem; status de execução não inferido
+- id: HU02
+  titulo: HU02 — Síntese Explicativa Baseada em Evidências
+  Descrição: Eu, como Dona Lurdes, pretendo visualizar uma síntese explicativa acessível
+    de cada alegação, baseada nas evidências recuperadas, para compreender o que as
+    fontes encontradas dizem sem que a IA me diga o que é verdade.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Dona Lurdes (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#dona-lurdes)
+  Rastreabilidade: GQ02, GQ03, GQ11, ADR-006 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    Cenário 10 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-10),
+    UC-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-01),
+    UC-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-03),
+    RF-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-03),
+    RF-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-06),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU04
+  titulo: HU04 — Mapeamento Estruturado de Alegações e Evidências
+  Descrição: Eu, como Amanda, pretendo visualizar as principais alegações do vídeo
+    mapeadas individualmente para evidências que sustentam, contradizem ou contextualizam
+    cada fala para facilitar meus fichamentos acadêmicos sem aceitar uma classificação
+    simplista.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Amanda (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#amanda)
+  Rastreabilidade: GQ01, GQ02, GQ03, ADR-006 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    Cenário 03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-03),
+    UC-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-03),
+    RF-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-03),
+    RF-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-06),
+    RNF-02 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-02)
+  origem: história de origem; status de execução não inferido
+- id: HU09
+  titulo: HU09 — Alerta de Incerteza e Limitações Analíticas
+  Descrição: Eu, como Mariana, pretendo ser alertada visualmente quando uma alegação
+    não possuir evidência suficiente no corpus ou apresentar divergência entre fontes
+    para não repassar informações sem comprovação factual nem assumir falsidade automática.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Mariana (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#mariana)
+  Rastreabilidade: GQ05, GQ06, ADR-006 Decisão 3 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    Cenário 06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-06),
+    UC-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-06),
+    RF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-07),
+    RNF-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-06),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU07
+  titulo: HU07 — Auditoria Direta e Provenance de Fontes
+  Descrição: Eu, como Mayara, pretendo auditar a origem primária das evidências acessando
+    suas fontes com metadados de provenance (origem do dataset, data, publisher e
+    hash de integridade) e hiperligações diretas de forma autônoma.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Mayara (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#mayara)
+  Rastreabilidade: GQ04, GQ07, ADR-006 Decisão 2 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    Cenário 04 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-04),
+    UC-04 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-04),
+    RF-04 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-04),
+    RNF-05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-05),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU08
+  titulo: HU08 — Contextualização Temporal e Autoria do Vídeo
+  Descrição: Eu, como Mayara, pretendo visualizar a data original de publicação do
+    vídeo e as informações do canal para avaliar se as afirmações analisadas estão
+    anacrônicas ou fora de época.
+  Prioridade: Should Have | IN
+  Persona Relacionada: Mayara (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#mayara)
+  Rastreabilidade: Cenário 09 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-09),
+    UC-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-01),
+    UC-03 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-03),
+    RF-11 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-11),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU06
+  titulo: HU06 — Consulta Imediata via Cache Local
+  Descrição: Eu, como Carlos Augusto, pretendo recuperar checagens recentes salvas
+    no cache local para não desperdiçar tráfego de rede nem consumir processamento
+    em vídeos já auditados.
+  Prioridade: Should Have | IN
+  Persona Relacionada: Carlos Augusto (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#carlos-augusto)
+  Rastreabilidade: Cenário 07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-07),
+    UC-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-01),
+    RF-09 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-09),
+    RNF-01 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-01),
+    RNF-05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-05)
+  origem: história de origem; status de execução não inferido
+- id: HU11
+  titulo: HU11 — Perguntas Orientadoras para Reflexão Crítica
+  Descrição: Eu, como Helena, pretendo receber perguntas reflexivas neutras sobre
+    as alegações do vídeo para orientar a minha própria avaliação crítica e investigar
+    lacunas sem que o sistema imponha conclusões fechadas.
+  Prioridade: Must Have | IN (Promovida de Pós-MVP para MVP)
+  Persona Relacionada: Helena (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#helena)
+  Rastreabilidade: GQ08, GQ11, ADR-006 Decisão 7 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    Cenário 05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-05),
+    UC-05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/casos-de-uso.md#uc-05),
+    RF-05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-05),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU12
+  titulo: HU12 — Avaliação de Relevância e Precisão da Análise
+  Descrição: Eu, como Helena, pretendo classificar a utilidade das evidências e perguntas
+    recebidas para colaborar com a melhoria contínua das respostas analíticas do sistema.
+  Prioridade: Could Have | OUT (Pós-MVP)
+  Persona Relacionada: Helena (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#helena)
+  Rastreabilidade: Cenário 11 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/cenarios.md#cenario-11),
+    RF-10 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-10),
+    RNF-05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-05)
+  origem: história de origem; status de execução não inferido
+- id: HU13
+  titulo: HU13 — Investigação Orientada por Alegações
+  Descrição: Eu, como usuária, pretendo visualizar as principais alegações verificáveis
+    do vídeo separadamente para investigar cada uma delas sem aceitar uma classificação
+    global ou veredito automático.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Amanda (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#amanda)
+  Rastreabilidade: GQ01, GQ02, GQ11, ADR-006 Decisão 1 e 2 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    RF-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-06),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU14
+  titulo: HU14 — Evidência Rastreável
+  Descrição: Eu, como usuária, pretendo ver quais fontes sustentam, contradizem ou
+    contextualizam cada alegação para poder verificar a origem das informações de
+    forma autônoma.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Mayara (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#mayara)
+  Rastreabilidade: GQ02, GQ04, GQ06, ADR-006 Decisão 2 e 5 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    RF-04 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-04),
+    RF-13 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-13),
+    RNF-05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-05)
+  origem: história de origem; status de execução não inferido
+- id: HU15
+  titulo: HU15 — Reflexão Crítica na UX
+  Descrição: Eu, como usuária, pretendo receber perguntas que me ajudem a avaliar
+    a alegação por conta própria antes de formar uma conclusão definitiva sobre o
+    conteúdo assistido.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Helena (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/personas-e-jornadas.md#helena)
+  Rastreabilidade: GQ08, GQ11, ADR-006 Decisão 7 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    RF-05 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-05),
+    RNF-07 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-07)
+  origem: história de origem; status de execução não inferido
+- id: HU16
+  titulo: HU16 — Provedor de IA Independente
+  Descrição: Eu, como sistema, pretendo utilizar diferentes provedores de LLM por
+    meio de uma interface comum para não depender estruturalmente do Ollama local
+    e operar com flexibilidade de infraestrutura.
+  Prioridade: Must Have | IN
+  Persona Relacionada: Equipe de Engenharia / Sistema
+  Rastreabilidade: GQ03, GQ07, ADR-006 Decisão 6 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md),
+    RF-14 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-14),
+    RF-15 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rf-15),
+    RNF-06 (https://github.com/evidencia-grupo/documentation/blob/30995991ee264535b3814d40687dbd893a01214a/docs/requisitos/catalogo-requisitos.md#rnf-06)
+  origem: história de origem; status de execução não inferido

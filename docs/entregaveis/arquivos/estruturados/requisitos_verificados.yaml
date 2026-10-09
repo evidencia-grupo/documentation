@@ -1,0 +1,51 @@
+date: '2026-10-09'
+scope: desenvolvimento local
+records:
+- Requisito: Investigação por alegação
+  Critério verificável: Sem score global do vídeo; cada alegação com fontes e incerteza
+  Evidência: Atomic investigation e testes do painel
+- Requisito: Fidelidade ao vídeo
+  Critério verificável: Texto de Claim deve existir na transcrição; revisão recuperada
+    fica na fonte
+  Evidência: Regressão contra Claim inventada e fallback vetorial
+- Requisito: Referências factuais
+  Critério verificável: Perguntas só pertencem ao catálogo neutro; URLs/datas livres
+    do provedor não são exibidas
+  Evidência: Resposta adversarial controlada
+- Requisito: Ausência de evidência
+  Critério verificável: Estado insufficient_evidence, sem tratar ausência como falsidade
+  Evidência: Teste sem fonte e mutação negativa
+- Requisito: Contexto temporal
+  Critério verificável: Data ausente permanece desconhecida; timestamp só de segmento
+    real
+  Evidência: Legenda após silêncio, sem segmentos e fonte sem data
+- Requisito: Evidence-Only
+  Critério verificável: analysisMode=evidence_only não instancia nem chama provedor
+  Evidência: Sonda com factory mockada, zero chamadas
+- Requisito: Mensagens MV3
+  Critério verificável: sender.id próprio e origem YouTube; callback assíncrono não
+    burla teste
+  Evidência: Mutação de sender deve falhar
+- Requisito: Cache
+  Critério verificável: TTL 24h; expirado/corrompido descartado; sem extração/rede
+    no cache válido
+  Evidência: Unitários e E2E; leitura antecipada em paralelo
+- Requisito: Autenticação
+  Critério verificável: Emissão/renovação após 401/403, uma nova tentativa
+  Evidência: Testes de instalação/renovação/erro
+- Requisito: Transporte
+  Critério verificável: Limite de bytes antes de parse, inclusive sem Content-Length
+  Evidência: Regressões 413 declaradas e streaming
+- Requisito: Produção
+  Critério verificável: Segredo próprio, autenticação, Redis compartilhado e CORS
+    exato
+  Evidência: Validação de configuração; exige provisionamento real
+- Requisito: Menor privilégio
+  Critério verificável: Manifesto gerado só YouTube e origem backend explícita
+  Evidência: Build prod exige HTTPS configurado
+- Requisito: Acessibilidade
+  Critério verificável: Foco, teclado e estados avaliados no browser
+  Evidência: E2E axe e navegação; sem certificação universal
+- Requisito: CI
+  Critério verificável: Actions por SHA, contents:read, dependências e contratos verificáveis
+  Evidência: CI revisada e checks locais

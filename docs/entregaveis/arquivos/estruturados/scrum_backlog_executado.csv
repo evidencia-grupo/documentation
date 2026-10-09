@@ -1,0 +1,8 @@
+﻿Pacote,Resultado de implementação
+Integridade de IA,Catálogo neutro; grounding em trecho da transcrição; fallback usa texto do vídeo; hits externos contextualizam
+Contratos,"Geração de JSON Schema e TypeScript a partir de Pydantic, checada na CI"
+Extensão,"Token renovável, segmentos reais, leitura de cache antecipada, teste de sender fortalecido"
+Backend,"Limite HTTP, Redis configurável, validação de segredos e CORS, health corrigido, Docker non-root"
+CI e supply chain,"Actions por SHA, permissões reduzidas, Vitest/Vite atualizados, lock de runtime"
+Documentação,Narrativas migradas com origem; READMEs enxutos; referências históricas preservadas
+Entrega acadêmica,"Notebook executado, modelo JSON, EDA, resultados por amostra, requisitos e Guiding Questions"
