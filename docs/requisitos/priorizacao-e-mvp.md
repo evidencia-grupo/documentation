@@ -119,7 +119,7 @@ Fast-Track (28/09/2026 a 09/10/2026)
 
 | Sprint | Período | Foco de Entrega | Histórias Mapeadas | Critério de Aceitação da Sprint |
 |:---|:---|:---|:---|:---|
-| **Sprint 1** | 28/09 a 02/10 | Integração ponta a ponta funcional (Happy Path) | HU01, HU02, HU04, HU05, HU10 | Usuário clica no botão injetado, o sistema extrai a legenda, submete ao backend FastAPI e exibe o velocímetro com o score inicial. |
+| **Sprint 1** | 28/09 a 02/10 | Integração ponta a ponta funcional (Happy Path) | HU01, HU02, HU04, HU05, HU10 | Usuário clica no botão injetado, o sistema extrai a legenda, submete ao backend FastAPI e exibe cartões por alegação com fontes e incerteza. |
 | **Sprint 2** | 05/10 a 09/10 | Robustez, cache local, acessibilidade e validação de SLAs | HU03, HU06, HU07, HU08, HU09 | Cache local com entrega instantânea (< 100ms) em reincidência, painel 100% navegável por teclado, fontes auditadas e esteira de CI validada. |
 
 ---
