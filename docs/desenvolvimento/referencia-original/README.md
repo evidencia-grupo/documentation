@@ -80,7 +80,7 @@ flowchart TD
 
 Este repositório encontra-se no estado **PRÉ-RELEASE CANDIDATA** (`PRERELEASE_CANDIDATE`). Abaixo declaramos com transparência factual o que está funcional, o que é parcial e o que permanece pendente de ações humanas:
 
-### 🟢 O Que Funciona (Pronto e Testado com Evidências)
+### [OK] O Que Funciona (Pronto e Testado com Evidências)
 - **Extensão Manifest V3:** Injeção Shadow DOM no YouTube (`youtube.com/watch*`), extração de legendas oficiais (*timed text*) e renderização acessível (WCAG 2.1 AA).
 - **Análise & Decomposição Factual:** Endpoint `POST /api/v1/analyze` extraindo alegações atômicas e perguntas reflexivas socráticas sem score global.
 - **Separação Epistemológica:** `ClaimCard` exibe estritamente o discurso do vídeo; `EvidenceCard` exibe a checagem da agência jornalística com link original e justificativa transparente (`matchReason`).
@@ -91,12 +91,12 @@ Este repositório encontra-se no estado **PRÉ-RELEASE CANDIDATA** (`PRERELEASE_
 - **Degradação Graciosa Evidence-Only:** Operação preservada em caso de lentidão ou timeout de IA, exibindo evidências curadas sem quebrar o fluxo.
 - **Hardening de Segurança:** Rate limiting real (retornando HTTP 429 sob excesso), CORS bloqueando wildcard `*` em produção, e tokens efêmeros de sessão (`/api/v1/auth/token`).
 
-### 🟡 O Que É Parcial (Preparado Tecnicamente / Portões Isolados)
+### [ALERTA] O Que É Parcial (Preparado Tecnicamente / Portões Isolados)
 - **Corpus Completo de Fact-Checking:** O pipeline de ingestão e indexação está tecnicamente pronto (`TECHNICALLY_READY`), mas a ingestão de bases completas de terceiros aguarda aprovação jurídica de licença de redistribuição comercial/hospedada (Portão Humano **H2**).
 - **Framework de Avaliação Científica:** A estrutura de avaliação (`evaluation/claims.jsonl`, `candidates.jsonl`, `annotation-guide.md` e `scripts/evaluate_retrieval.py`) está 100% implementada. O status de rotulação humana encontra-se como `PENDING_HUMAN_ANNOTATION` (Portão Humano **H3**) para evitar fabricação de métricas por IA.
 - **Feedback dos Usuários:** Endpoint `/api/v1/feedback` validado com privacidade e minimização LGPD (descarte de IP/User-Agent). Persistência de telemetria analítica aguarda homologação de infraestrutura.
 
-### 🔴 O Que É Pendente (Dependências Genuinamente Humanas para o GO de Produção)
+### [FALHA] O Que É Pendente (Dependências Genuinamente Humanas para o GO de Produção)
 - **Validação com Usuários Finais:** Condução dos experimentos práticos com pessoas voluntárias assistindo a vídeos no YouTube (Portão Humano **H6**).
 - **Decisão e Homologação de Produção:** Definição do provedor cloud (Google Cloud Run / Render) e injeção de credenciais finais (`JWT_SECRET`, `GOOGLE_FACT_CHECK_API_KEY`) via Secret Manager (Portões **H1**, **H4** e **H5**).
 - **Submissão à Chrome Web Store:** Publicação manual do `.zip` gerado na loja de extensões da Google após revisão humana final.

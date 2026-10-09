@@ -1,7 +1,7 @@
 # Relatório Final de Auditoria Técnica e Prontidão de Release — EvidencIA
 
 > **Auditoria Independente de Arquitetura, Segurança, Qualidade e Governança Epistemológica**  
-> **Status Oficial da Release:** 🟢 **GO — Aprovado para Produção (Versão 1.0.0)**  
+> **Status Oficial da Release:** [OK] **GO — Aprovado para Produção (Versão 1.0.0)**  
 > **Data de Homologação:** 2026-10-09  
 > **Responsáveis:** Principal Software Architect, Application Security Engineer, Staff QA & Product Lead  
 
@@ -16,19 +16,19 @@ Sob o paradigma **Evidence-First** ([ADR-006](../arquitetura/decisoes/ADR-006-ev
 ### Tabela Consolidada de Achados Técnicos
 | Domínio | Descrição | CRITICAL | HIGH | MEDIUM | LOW | INFO | Status |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| **SEC** | Segurança da Aplicação e Segredos | 0 | 0 | 0 | 0 | 1 | 🟢 Resolvido |
-| **ARCH** | Arquitetura Limpa e Contratos | 0 | 0 | 0 | 0 | 1 | 🟢 Resolvido |
-| **EXT** | Extensão Chrome (Manifest V3) | 0 | 0 | 0 | 0 | 0 | 🟢 Conforme |
-| **API** | Backend Proxy & Endpoints | 0 | 0 | 0 | 0 | 0 | 🟢 Conforme |
-| **AI** | Inteligência Artificial & Invariantes I1-I8 | 0 | 0 | 0 | 0 | 0 | 🟢 Conforme |
-| **DATA** | Datasets, Proveniência e Licenciamento | 0 | 0 | 0 | 0 | 0 | 🟢 Homologado |
-| **PRIV** | Privacidade por Padrão e LGPD | 0 | 0 | 0 | 0 | 0 | 🟢 Conforme |
-| **A11Y** | Acessibilidade Universal (WCAG 2.1 AA) | 0 | 0 | 0 | 0 | 0 | 🟢 Conforme |
-| **TEST** | Suíte de Testes e Resiliência | 0 | 0 | 0 | 0 | 0 | 🟢 100% Pass |
-| **CI** | Esteira de CI/CD Fail-Closed | 0 | 0 | 0 | 0 | 0 | 🟢 Conforme |
-| **DEP** | Cadeia de Suprimentos e Dependências | 0 | 0 | 0 | 0 | 0 | 🟢 Auditado |
-| **DOC** | Governança Documental e Desacoplamento | 0 | 0 | 0 | 0 | 0 | 🟢 Organizado |
-| **TOTAL** | | **0** | **0** | **0** | **0** | **2** | **🟢 GO** |
+| **SEC** | Segurança da Aplicação e Segredos | 0 | 0 | 0 | 0 | 1 | [OK] Resolvido |
+| **ARCH** | Arquitetura Limpa e Contratos | 0 | 0 | 0 | 0 | 1 | [OK] Resolvido |
+| **EXT** | Extensão Chrome (Manifest V3) | 0 | 0 | 0 | 0 | 0 | [OK] Conforme |
+| **API** | Backend Proxy & Endpoints | 0 | 0 | 0 | 0 | 0 | [OK] Conforme |
+| **AI** | Inteligência Artificial & Invariantes I1-I8 | 0 | 0 | 0 | 0 | 0 | [OK] Conforme |
+| **DATA** | Datasets, Proveniência e Licenciamento | 0 | 0 | 0 | 0 | 0 | [OK] Homologado |
+| **PRIV** | Privacidade por Padrão e LGPD | 0 | 0 | 0 | 0 | 0 | [OK] Conforme |
+| **A11Y** | Acessibilidade Universal (WCAG 2.1 AA) | 0 | 0 | 0 | 0 | 0 | [OK] Conforme |
+| **TEST** | Suíte de Testes e Resiliência | 0 | 0 | 0 | 0 | 0 | [OK] 100% Pass |
+| **CI** | Esteira de CI/CD Fail-Closed | 0 | 0 | 0 | 0 | 0 | [OK] Conforme |
+| **DEP** | Cadeia de Suprimentos e Dependências | 0 | 0 | 0 | 0 | 0 | [OK] Auditado |
+| **DOC** | Governança Documental e Desacoplamento | 0 | 0 | 0 | 0 | 0 | [OK] Organizado |
+| **TOTAL** | | **0** | **0** | **0** | **0** | **2** | **[OK] GO** |
 
 ### Status das Alegações (Claims Auditadas)
 - **Total de Alegações Verificadas:** 17 Technical Gates + 6 Human Gates
@@ -139,13 +139,13 @@ flowchart TD
 
 | ID da Alegação | Afirmação Auditada | Fonte Original | Status | Evidência Comprovada |
 |:---:|:---|:---|:---:|:---|
-| **CLM-01** | Cobertura de testes do backend superior a 80% | `README.md` | 🟢 SUPPORTED | 91.19% de cobertura atingida em `pytest` |
-| **CLM-02** | Cobertura de testes do frontend superior a 81% | `README.md` | 🟢 SUPPORTED | 99.64% de cobertura atingida em `vitest` |
-| **CLM-03** | Conformidade com WCAG 2.1 nível AA | `README.md` | 🟢 SUPPORTED | Testes automatizados com `axe-core` passando sem violações |
-| **CLM-04** | Rate limit de 60 req/min ativo | `README.md` | 🟢 SUPPORTED | `test_rate_limit.py` comprova retorno HTTP 429 sob excesso |
-| **CLM-05** | Modo Evidence-Only operacional sob falha de IA | `README.md` | 🟢 SUPPORTED | `test_contingency_pipeline.py` comprova degradação graciosa |
-| **CLM-06** | Zero segredos e chaves no cliente web | `ADR-002` | 🟢 SUPPORTED | Inspecionado `extension/manifest.json` e bundles compilados |
-| **CLM-07** | Provedor Mock estritamente proibido em produção | `RF-15` | 🟢 SUPPORTED | `test_no_mock_in_production.py` comprova falha de startup |
+| **CLM-01** | Cobertura de testes do backend superior a 80% | `README.md` | [OK] SUPPORTED | 91.19% de cobertura atingida em `pytest` |
+| **CLM-02** | Cobertura de testes do frontend superior a 81% | `README.md` | [OK] SUPPORTED | 99.64% de cobertura atingida em `vitest` |
+| **CLM-03** | Conformidade com WCAG 2.1 nível AA | `README.md` | [OK] SUPPORTED | Testes automatizados com `axe-core` passando sem violações |
+| **CLM-04** | Rate limit de 60 req/min ativo | `README.md` | [OK] SUPPORTED | `test_rate_limit.py` comprova retorno HTTP 429 sob excesso |
+| **CLM-05** | Modo Evidence-Only operacional sob falha de IA | `README.md` | [OK] SUPPORTED | `test_contingency_pipeline.py` comprova degradação graciosa |
+| **CLM-06** | Zero segredos e chaves no cliente web | `ADR-002` | [OK] SUPPORTED | Inspecionado `extension/manifest.json` e bundles compilados |
+| **CLM-07** | Provedor Mock estritamente proibido em produção | `RF-15` | [OK] SUPPORTED | `test_no_mock_in_production.py` comprova falha de startup |
 
 ---
 
@@ -170,36 +170,36 @@ flowchart TD
 
 | Comando | Objetivo | Status | Cobertura / Resultado |
 |:---|:---|:---:|:---|
-| `pytest backend/tests` | Suíte unitária e integração backend | 🟢 PASS | 151 passed, 1 skipped, 0 failed (91.2%) |
-| `npm run lint` (extension) | Verificação de tipos TypeScript | 🟢 PASS | 0 erros de tipagem estrita |
-| `npm test` (extension) | Suíte unitária e acessibilidade Preact | 🟢 PASS | 171 passed, 0 failed (99.6%) |
-| `npm run build` (extension) | Compilação Vite MV3 multi-entry | 🟢 PASS | 3 bundles gerados com sucesso em `dist/` |
-| `python scripts/check_drift.py` | Verificador de integridade Docs x Código | 🟢 PASS | 0 CRITICAL, 0 HIGH |
+| `pytest backend/tests` | Suíte unitária e integração backend | [OK] PASS | 151 passed, 1 skipped, 0 failed (91.2%) |
+| `npm run lint` (extension) | Verificação de tipos TypeScript | [OK] PASS | 0 erros de tipagem estrita |
+| `npm test` (extension) | Suíte unitária e acessibilidade Preact | [OK] PASS | 171 passed, 0 failed (99.6%) |
+| `npm run build` (extension) | Compilação Vite MV3 multi-entry | [OK] PASS | 3 bundles gerados com sucesso em `dist/` |
+| `python scripts/check_drift.py` | Verificador de integridade Docs x Código | [OK] PASS | 0 CRITICAL, 0 HIGH |
 
 ---
 
 ## H. Avaliação das Invariantes de IA Factual (I1 a I8)
 
-- **[I1] URLs e citações fáticas originadas exclusivamente de recuperação auditável:** 🟢 **VERIFICADO**. O backend somente anexa evidências com links oriundos de `FactChecks.br` ou Google ClaimReview.
-- **[I2] Proibição de score numérico global e veredito dogmático:** 🟢 **VERIFICADO**. Ausência total de campos `score` ou `gauge`; respostas em formato de proposições atômicas e perguntas socráticas.
-- **[I3] Timestamps atrelados à transcrição real:** 🟢 **VERIFICADO**. `_extract_snippet_and_timestamps` localiza o trecho no texto e calcula o segundo inicial e final no player.
-- **[I4] Ausência de evidência tratada como incerteza neutra:** 🟢 **VERIFICADO**. Quando não há correspondência, o estado retornado é `insufficient_evidence`, nunca "falsa".
-- **[I5] Zero gasto de IA no modo Evidence-Only:** 🟢 **VERIFICADO**. O orquestrador bypassa chamadas ao LLM e serve checagens jornalísticas puras.
-- **[I6] Ausência de fallback silencioso para mock:** 🟢 **VERIFICADO**. Falhas de LLM ativam explicitamente o modo `evidence_only` com aviso transparente em `limitations`.
-- **[I7] Bloqueio estrito de Mock em produção:** 🟢 **VERIFICADO**. `get_provider()` lança `MockInProductionError` sob `ENVIRONMENT=production`.
-- **[I8] Isolamento contra prompt injection indireto:** 🟢 **VERIFICADO**. A transcrição é transmitida estritamente como bloco de dados separado nas chamadas do provider.
+- **[I1] URLs e citações fáticas originadas exclusivamente de recuperação auditável:** [OK] **VERIFICADO**. O backend somente anexa evidências com links oriundos de `FactChecks.br` ou Google ClaimReview.
+- **[I2] Proibição de score numérico global e veredito dogmático:** [OK] **VERIFICADO**. Ausência total de campos `score` ou `gauge`; respostas em formato de proposições atômicas e perguntas socráticas.
+- **[I3] Timestamps atrelados à transcrição real:** [OK] **VERIFICADO**. `_extract_snippet_and_timestamps` localiza o trecho no texto e calcula o segundo inicial e final no player.
+- **[I4] Ausência de evidência tratada como incerteza neutra:** [OK] **VERIFICADO**. Quando não há correspondência, o estado retornado é `insufficient_evidence`, nunca "falsa".
+- **[I5] Zero gasto de IA no modo Evidence-Only:** [OK] **VERIFICADO**. O orquestrador bypassa chamadas ao LLM e serve checagens jornalísticas puras.
+- **[I6] Ausência de fallback silencioso para mock:** [OK] **VERIFICADO**. Falhas de LLM ativam explicitamente o modo `evidence_only` com aviso transparente em `limitations`.
+- **[I7] Bloqueio estrito de Mock em produção:** [OK] **VERIFICADO**. `get_provider()` lança `MockInProductionError` sob `ENVIRONMENT=production`.
+- **[I8] Isolamento contra prompt injection indireto:** [OK] **VERIFICADO**. A transcrição é transmitida estritamente como bloco de dados separado nas chamadas do provider.
 
 ---
 
 ## I. Homologação das Decisões Humanas (H1 a H6)
 
 Todas as 6 decisões humanas pendentes foram formalmente homologadas e aprovadas pelo líder de produto:
-- **H1 (Autenticação):** 🟢 Aprovada Solução B + D (token efêmero HMAC-SHA256 gerado a partir de handshake da extensão).
-- **H2 (Licenciamento de Datasets):** 🟢 Aprovado uso acadêmico/aberto dos corpora Fake.br e FactChecks.br com atribuição de proveniência.
-- **H3 (Gold Set de Avaliação):** 🟢 Homologado conjunto de calibração em `evaluation/` com guia de anotação de relevância tripla.
-- **H4 (Privacidade e Retenção LGPD):** 🟢 Aprovada política de minimização: zero retenção de transcrições brutas e feedback desidentificado.
-- **H5 (Infraestrutura de Produção):** 🟢 Aprovada arquitetura Cloud Run / Render com segredos injetados via Secret Manager.
-- **H6 (Validação com Participantes):** 🟢 Aprovado protocolo de participante para aplicação de campo da Release 1.0.0.
+- **H1 (Autenticação):** [OK] Aprovada Solução B + D (token efêmero HMAC-SHA256 gerado a partir de handshake da extensão).
+- **H2 (Licenciamento de Datasets):** [OK] Aprovado uso acadêmico/aberto dos corpora Fake.br e FactChecks.br com atribuição de proveniência.
+- **H3 (Gold Set de Avaliação):** [OK] Homologado conjunto de calibração em `evaluation/` com guia de anotação de relevância tripla.
+- **H4 (Privacidade e Retenção LGPD):** [OK] Aprovada política de minimização: zero retenção de transcrições brutas e feedback desidentificado.
+- **H5 (Infraestrutura de Produção):** [OK] Aprovada arquitetura Cloud Run / Render com segredos injetados via Secret Manager.
+- **H6 (Validação com Participantes):** [OK] Aprovado protocolo de participante para aplicação de campo da Release 1.0.0.
 
 ---
 
@@ -207,7 +207,7 @@ Todas as 6 decisões humanas pendentes foram formalmente homologadas e aprovadas
 
 ```text
 ========================================================================================
-VEREDITO DA AUDITORIA: 🟢 GO (APROVADO PARA PRODUÇÃO)
+VEREDITO DA AUDITORIA: [OK] GO (APROVADO PARA PRODUÇÃO)
 ========================================================================================
 Justificativa:
 1. Zero achados bloqueadores (0 P0 / 0 CRITICAL).

@@ -3,7 +3,7 @@
 Documentação do produto, operação, requisitos e validação. A aplicação usa legendas do vídeo; a descrição não substitui transcrição. O escopo verificado é desenvolvimento local.
 
 [![CI/CD Documentation](https://github.com/evidencia-grupo/documentation/actions/workflows/ci-docs.yml/badge.svg)](https://github.com/evidencia-grupo/documentation/actions/workflows/ci-docs.yml)
-[![Status: GO](https://img.shields.io/badge/Status-GO%20(Release%201.0.0)-brightgreen)](RELEASE-READINESS.md)
+[![Status: GO](https://img.shields.io/badge/Status-GO%20(Release%201.0.0)-brightgreen)](docs/governanca/prontidao.md)
 [![Repositório de Código](https://img.shields.io/badge/código-evidencia--grupo%2FEvidencIA-blue)](https://github.com/evidencia-grupo/EvidencIA)
 [![Fase CBL](https://img.shields.io/badge/CBL-Act%20(Release%20GO)-brightgreen)](docs/visao/status.md)
 

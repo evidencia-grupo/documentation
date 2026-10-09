@@ -9,7 +9,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ### Added
 - **Homologação Completa de Release (Veredito GO):**
-  - Aprovação formal dos 6 Portões Humanos (H1 a H6 em `HUMAN-DECISIONS.md`): autenticação efêmera, licenciamento e proveniência de dados, gold set de avaliação, privacidade LGPD, infraestrutura serverless e desenho experimental com participantes.
+  - Aprovação formal dos 6 Portões Humanos (H1 a H6 em `docs/governanca/decisoes-aprovadas.md`): autenticação efêmera, licenciamento e proveniência de dados, gold set de avaliação, privacidade LGPD, infraestrutura serverless e desenho experimental com participantes.
   - Relatório Final de Auditoria Técnica e Prontidão de Release em `docs/auditoria/relatorio-final.md`.
   - Página de avaliação e calibração de limiares do classificador de ML em `docs/arquitetura/avaliacao-classificador-ml.md`.
 - **Governança Documental Estrita (Fase 1 / ADR-006):**

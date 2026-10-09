@@ -3,8 +3,8 @@
 **Data de Conclusão:** 2026-10-07  
 **Branch de Trabalho:** `codex/go-phase-01-hardening`  
 **Estado Final Atingido:** `PRÉ-RELEASE CANDIDATA`  
-**Status dos Gates Técnicos:** 🟢 100% PASS (17 de 17 gates aprovados com evidências)  
-**Status dos Gates Humanos:** 🟡 ISOLADOS E DOCUMENTADOS (H1 a H6 em `HUMAN-DECISIONS.md`)  
+**Status dos Gates Técnicos:** [OK] 100% PASS (17 de 17 gates aprovados com evidências)  
+**Status dos Gates Humanos:** [ALERTA] ISOLADOS E DOCUMENTADOS (H1 a H6 em `HUMAN-DECISIONS.md`)  
 
 ---
 
@@ -13,15 +13,15 @@
 ```text
 ========================================================================================
 ESTADO FINAL:           PRÉ-RELEASE CANDIDATA (PRERELEASE_CANDIDATE)
-TECHNICAL GATES:        🟢 100% PASS (17 de 17 gates com evidência executável)
-BACKEND TESTS:          🟢 151 PASSED / 1 SKIPPED / 0 FAILED
-FRONTEND TESTS:         🟢 171 PASSED / 0 FAILED (Vitest + axe-core WCAG 2.1 AA)
-BUILD & TYPECHECK:      🟢 0 ERROS (TypeScript estrito + Vite MV3)
-DRIFT DOCS X CÓDIGO:    🟢 PASS (0 CRITICAL, 0 HIGH)
-EPISTEMOLOGIA:          🟢 VALIDAÇÃO ADVERSARIAL COMPROVADA (6 Cenários Anti-Falso Positivo)
-DATASETS:               🟡 TECHNICALLY READY / LICENSE PENDING HUMAN APPROVAL (H2)
-EVALUATION:             🟡 0 MÉTRICAS FORJADAS / PENDING HUMAN ANNOTATION (H3)
-GATES HUMANOS:          🟡 EXPLICITAMENTE ISOLADOS EM HUMAN-DECISIONS.md
+TECHNICAL GATES:        [OK] 100% PASS (17 de 17 gates com evidência executável)
+BACKEND TESTS:          [OK] 151 PASSED / 1 SKIPPED / 0 FAILED
+FRONTEND TESTS:         [OK] 171 PASSED / 0 FAILED (Vitest + axe-core WCAG 2.1 AA)
+BUILD & TYPECHECK:      [OK] 0 ERROS (TypeScript estrito + Vite MV3)
+DRIFT DOCS X CÓDIGO:    [OK] PASS (0 CRITICAL, 0 HIGH)
+EPISTEMOLOGIA:          [OK] VALIDAÇÃO ADVERSARIAL COMPROVADA (6 Cenários Anti-Falso Positivo)
+DATASETS:               [ALERTA] TECHNICALLY READY / LICENSE PENDING HUMAN APPROVAL (H2)
+EVALUATION:             [ALERTA] 0 MÉTRICAS FORJADAS / PENDING HUMAN ANNOTATION (H3)
+GATES HUMANOS:          [ALERTA] EXPLICITAMENTE ISOLADOS EM HUMAN-DECISIONS.md
 ========================================================================================
 ```
 
@@ -33,23 +33,23 @@ Todos os critérios de engenharia, arquitetura, segurança, epistemologia e gove
 
 | # | Gate Técnico | Status | Comando de Verificação | Evidência Comprovada |
 | :-: | :--- | :---: | :--- | :--- |
-| **01** | **Build Frontend (MV3)** | 🟢 PASS | `npm run build` | Compilação TypeScript e Vite dos 3 bundles (`background.js`, `content.js`, `panel.js`) em `extension/dist/` com 0 erros. |
-| **02** | **Testes Frontend & A11y** | 🟢 PASS | `npm test` | 171 testes aprovados em 10 arquivos no Vitest (incluindo testes de acessibilidade axe-core WCAG 2.1 AA). |
-| **03** | **Testes Backend (Pytest)** | 🟢 PASS | `pytest backend/tests` | 151 testes aprovados, 1 skipped (0 falhas) cobrindo API, serviços, ML, testes adversariais e fluxos de exceção. |
-| **04** | **Paridade Root vs Subdir** | 🟢 PASS | `pytest backend/tests` vs `pytest tests` | Ambas as execuções passam identicamente sem falhas de importação ou conflitos de `PYTHONPATH`. |
-| **05** | **Rate Limiting Real (429)** | 🟢 PASS | `pytest tests/test_rate_limit.py` | Rate limiter `slowapi` retorna HTTP 200 nas primeiras requisições e HTTP 429 Too Many Requests ao exceder o limite. |
-| **06** | **CORS Restrito em Produção** | 🟢 PASS | `pytest tests/test_cors.py` | Bloqueio em tempo de inicialização de wildcard `*` caso `ENVIRONMENT=production`, com validação de origens autorizadas. |
-| **07** | **Tokens Efêmeros de Sessão** | 🟢 PASS | `pytest tests/test_auth_service.py` | Endpoint `/auth/token`, rotação, expiração (HTTP 403) e bloqueio 401 sob `REQUIRE_AUTH=True`. Zero segredos no cliente. |
-| **08** | **Health Probes Dinâmicos** | 🟢 PASS | `pytest tests/test_health_probes.py` | `/health/live` (alive) e `/health/ready` (ready). Comprovado que `/health/ready` retorna HTTP 503 quando um subsistema falha. |
-| **09** | **Mock Bloqueado em Prod** | 🟢 PASS | `pytest tests/test_no_mock_in_production.py` | Falha imediata de inicialização do backend se `MockLLMProvider` for referenciado sob `ENVIRONMENT=production`. |
-| **10** | **Auditoria de Dependências** | 🟢 PASS | `uv.lock` & `package-lock.json` | Dependências fixadas e auditadas; ausência de pacotes vulneráveis ou desconhecidos. |
-| **11** | **Separação Epistemológica** | 🟢 PASS | `pytest tests/test_fact_checker.py` | O texto de `Claim` reflete fielmente o vídeo (`request.videoTitle` / fala do vídeo) e nunca o texto do fact-check externo. |
-| **12** | **Relação Semântica (Stance)** | 🟢 PASS | `pytest tests/test_semantic_relation.py` | Bateria adversarial com 12 testes passando: similaridade de recuperação não infere veredito; degrada para `contextualizes` se polaridade divergir ou predicado diferir; negação em vídeo de desmentido não emite `contradicts`. |
-| **13** | **Timestamps Clicáveis no Player** | 🟢 PASS | `vitest run src/panel/components.test.tsx` | `ClaimCard` exibe trecho da transcrição e botão de salto temporal que ajusta `video.currentTime` diretamente no YouTube player. |
-| **14** | **Corpus e Auditoria de Dados** | 🟢 PASS | `cat artifacts/go/phase-03/dataset-audit.md` | Separação estrita entre corpus de estilo (Fake.br) e corpus de fatos (FactChecks.br, ClaimReview). Status: `TECHNICALLY READY / LICENSE PENDING HUMAN APPROVAL`. |
-| **15** | **Framework de Avaliação** | 🟢 PASS | `python scripts/evaluate_retrieval.py` | Script automatizado pronto para calcular Recall@5, Recall@10, MRR, nDCG@5, False Match Rate e Insufficient Evidence Rate; reporta formalmente `PENDING_HUMAN_ANNOTATION`. |
-| **16** | **Detector de Drift (Docs x Código)** | 🟢 PASS | `python scripts/check_drift.py` | **0 CRITICAL, 0 HIGH**. Endpoints, schemas Pydantic, tipos TypeScript e termos do manifesto validados contra a documentação. |
-| **17** | **CI/CD Fail-Closed** | 🟢 PASS | `.github/workflows/ci.yml` | Inclusão do job `check-drift` no GitHub Actions; ausência total de diretivas `continue-on-error: true`. |
+| **01** | **Build Frontend (MV3)** | [OK] PASS | `npm run build` | Compilação TypeScript e Vite dos 3 bundles (`background.js`, `content.js`, `panel.js`) em `extension/dist/` com 0 erros. |
+| **02** | **Testes Frontend & A11y** | [OK] PASS | `npm test` | 171 testes aprovados em 10 arquivos no Vitest (incluindo testes de acessibilidade axe-core WCAG 2.1 AA). |
+| **03** | **Testes Backend (Pytest)** | [OK] PASS | `pytest backend/tests` | 151 testes aprovados, 1 skipped (0 falhas) cobrindo API, serviços, ML, testes adversariais e fluxos de exceção. |
+| **04** | **Paridade Root vs Subdir** | [OK] PASS | `pytest backend/tests` vs `pytest tests` | Ambas as execuções passam identicamente sem falhas de importação ou conflitos de `PYTHONPATH`. |
+| **05** | **Rate Limiting Real (429)** | [OK] PASS | `pytest tests/test_rate_limit.py` | Rate limiter `slowapi` retorna HTTP 200 nas primeiras requisições e HTTP 429 Too Many Requests ao exceder o limite. |
+| **06** | **CORS Restrito em Produção** | [OK] PASS | `pytest tests/test_cors.py` | Bloqueio em tempo de inicialização de wildcard `*` caso `ENVIRONMENT=production`, com validação de origens autorizadas. |
+| **07** | **Tokens Efêmeros de Sessão** | [OK] PASS | `pytest tests/test_auth_service.py` | Endpoint `/auth/token`, rotação, expiração (HTTP 403) e bloqueio 401 sob `REQUIRE_AUTH=True`. Zero segredos no cliente. |
+| **08** | **Health Probes Dinâmicos** | [OK] PASS | `pytest tests/test_health_probes.py` | `/health/live` (alive) e `/health/ready` (ready). Comprovado que `/health/ready` retorna HTTP 503 quando um subsistema falha. |
+| **09** | **Mock Bloqueado em Prod** | [OK] PASS | `pytest tests/test_no_mock_in_production.py` | Falha imediata de inicialização do backend se `MockLLMProvider` for referenciado sob `ENVIRONMENT=production`. |
+| **10** | **Auditoria de Dependências** | [OK] PASS | `uv.lock` & `package-lock.json` | Dependências fixadas e auditadas; ausência de pacotes vulneráveis ou desconhecidos. |
+| **11** | **Separação Epistemológica** | [OK] PASS | `pytest tests/test_fact_checker.py` | O texto de `Claim` reflete fielmente o vídeo (`request.videoTitle` / fala do vídeo) e nunca o texto do fact-check externo. |
+| **12** | **Relação Semântica (Stance)** | [OK] PASS | `pytest tests/test_semantic_relation.py` | Bateria adversarial com 12 testes passando: similaridade de recuperação não infere veredito; degrada para `contextualizes` se polaridade divergir ou predicado diferir; negação em vídeo de desmentido não emite `contradicts`. |
+| **13** | **Timestamps Clicáveis no Player** | [OK] PASS | `vitest run src/panel/components.test.tsx` | `ClaimCard` exibe trecho da transcrição e botão de salto temporal que ajusta `video.currentTime` diretamente no YouTube player. |
+| **14** | **Corpus e Auditoria de Dados** | [OK] PASS | `cat artifacts/go/phase-03/dataset-audit.md` | Separação estrita entre corpus de estilo (Fake.br) e corpus de fatos (FactChecks.br, ClaimReview). Status: `TECHNICALLY READY / LICENSE PENDING HUMAN APPROVAL`. |
+| **15** | **Framework de Avaliação** | [OK] PASS | `python scripts/evaluate_retrieval.py` | Script automatizado pronto para calcular Recall@5, Recall@10, MRR, nDCG@5, False Match Rate e Insufficient Evidence Rate; reporta formalmente `PENDING_HUMAN_ANNOTATION`. |
+| **16** | **Detector de Drift (Docs x Código)** | [OK] PASS | `python scripts/check_drift.py` | **0 CRITICAL, 0 HIGH**. Endpoints, schemas Pydantic, tipos TypeScript e termos do manifesto validados contra a documentação. |
+| **17** | **CI/CD Fail-Closed** | [OK] PASS | `.github/workflows/ci.yml` | Inclusão do job `check-drift` no GitHub Actions; ausência total de diretivas `continue-on-error: true`. |
 
 ---
 

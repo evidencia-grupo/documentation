@@ -78,7 +78,9 @@ nav:
       - Desenvolvimento local: inicio/desenvolvimento-local.md
       - Transcrição e validação: operacao/transcricao-e-validacao.md
       - Configuração e evidências: operacao/configuracao-e-evidencias.md
-      - Entregáveis e downloads: entregaveis/index.md
+      - Entregáveis e downloads:
+          - Índice de Entregáveis: entregaveis/index.md
+          - Relatório Técnico de IA: entregaveis/arquivos/relatorio_tecnico_ia.md
       - Prontidão atual: governanca/prontidao.md
       - Revisão do relatório de IA: governanca/revisao-relatorio-ia.md
       - Decisões aprovadas: governanca/decisoes-aprovadas.md

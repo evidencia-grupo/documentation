@@ -52,6 +52,6 @@ O status atribuído a cada documento ou componente de software reflete o estado 
 
 A suíte completa de verificações fail-closed atesta a conformidade de 100% dos critérios para liberação do produto:
 - **Total de verificações de arquitetura e drift:** 0 falhas CRITICAL / 0 falhas HIGH
-- **Technical Gates (01 a 17):** 🟢 100% PASS
-- **Human Gates (H1 a H6):** 🟢 100% HOMOLOGADOS E APROVADOS (deliberação formal registrada em `HUMAN-DECISIONS.md`)
-- **Veredito Oficial:** 🟢 **GO** (Produto homologado e pronto para lançamento da Release 1.0.0).
+- **Technical Gates (01 a 17):** [OK] 100% PASS
+- **Human Gates (H1 a H6):** [OK] 100% HOMOLOGADOS E APROVADOS (deliberação formal registrada em `docs/governanca/decisoes-aprovadas.md`)
+- **Veredito Oficial:** [OK] **GO** (Produto homologado e pronto para lançamento da Release 1.0.0).
