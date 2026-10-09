@@ -1,12 +1,10 @@
 # Relatório Central de Prontidão de Release — EvidencIA
 
-Registro adicional mantido em [docs/governanca/prontidao.md](docs/governanca/prontidao.md).
-
-**Data de Conclusão e Homologação:** 2026-10-09  
-**Versão Oficial:** `1.0.0`  
-**Estado Final Atingido:** 🟢 `GO — PRONTO PARA PRODUÇÃO`  
+**Data de Conclusão:** 2026-10-07  
+**Branch de Trabalho:** `codex/go-phase-01-hardening`  
+**Estado Final Atingido:** `PRÉ-RELEASE CANDIDATA`  
 **Status dos Gates Técnicos:** 🟢 100% PASS (17 de 17 gates aprovados com evidências)  
-**Status dos Gates Humanos:** 🟢 100% HOMOLOGADOS E APROVADOS (H1 a H6 em `HUMAN-DECISIONS.md`)  
+**Status dos Gates Humanos:** 🟡 ISOLADOS E DOCUMENTADOS (H1 a H6 em `HUMAN-DECISIONS.md`)  
 
 ---
 
@@ -14,20 +12,20 @@ Registro adicional mantido em [docs/governanca/prontidao.md](docs/governanca/pro
 
 ```text
 ========================================================================================
-ESTADO FINAL:           🟢 GO — PRONTO PARA PRODUÇÃO (RELEASE 1.0.0)
+ESTADO FINAL:           PRÉ-RELEASE CANDIDATA (PRERELEASE_CANDIDATE)
 TECHNICAL GATES:        🟢 100% PASS (17 de 17 gates com evidência executável)
-BACKEND TESTS:          🟢 151 PASSED / 1 SKIPPED / 0 FAILED (Pytest)
+BACKEND TESTS:          🟢 151 PASSED / 1 SKIPPED / 0 FAILED
 FRONTEND TESTS:         🟢 171 PASSED / 0 FAILED (Vitest + axe-core WCAG 2.1 AA)
 BUILD & TYPECHECK:      🟢 0 ERROS (TypeScript estrito + Vite MV3)
 DRIFT DOCS X CÓDIGO:    🟢 PASS (0 CRITICAL, 0 HIGH)
 EPISTEMOLOGIA:          🟢 VALIDAÇÃO ADVERSARIAL COMPROVADA (6 Cenários Anti-Falso Positivo)
-DATASETS:               🟢 HOMOLOGADOS PARA USO ACADÊMICO / FACT-CHECKING ABERTO (H2)
-EVALUATION:             🟢 PROTOCOLO GOLD SET HOMOLOGADO / 0 MÉTRICAS FORJADAS (H3)
-GATES HUMANOS:          🟢 100% HOMOLOGADOS E APROVADOS EM HUMAN-DECISIONS.md (H1 a H6)
+DATASETS:               🟡 TECHNICALLY READY / LICENSE PENDING HUMAN APPROVAL (H2)
+EVALUATION:             🟡 0 MÉTRICAS FORJADAS / PENDING HUMAN ANNOTATION (H3)
+GATES HUMANOS:          🟡 EXPLICITAMENTE ISOLADOS EM HUMAN-DECISIONS.md
 ========================================================================================
 ```
 
-Todos os critérios de engenharia, arquitetura, segurança, epistemologia e governança do Plano Mestre de Fechamento foram rigorosamente atendidos e homologados. Com a deliberação formal e aprovação das decisões humanas H1 a H6, o produto EvidencIA atinge o veredito oficial **GO** para lançamento da versão 1.0.0.
+Todos os critérios de engenharia, arquitetura, segurança, epistemologia e governança do Plano Mestre de Fechamento foram rigorosamente atendidos. Nenhuma decisão que exija deliberação humana ou credenciais de produção foi assumida silenciosamente por agentes autônomos.
 
 ---
 
@@ -48,27 +46,57 @@ Todos os critérios de engenharia, arquitetura, segurança, epistemologia e gove
 | **11** | **Separação Epistemológica** | 🟢 PASS | `pytest tests/test_fact_checker.py` | O texto de `Claim` reflete fielmente o vídeo (`request.videoTitle` / fala do vídeo) e nunca o texto do fact-check externo. |
 | **12** | **Relação Semântica (Stance)** | 🟢 PASS | `pytest tests/test_semantic_relation.py` | Bateria adversarial com 12 testes passando: similaridade de recuperação não infere veredito; degrada para `contextualizes` se polaridade divergir ou predicado diferir; negação em vídeo de desmentido não emite `contradicts`. |
 | **13** | **Timestamps Clicáveis no Player** | 🟢 PASS | `vitest run src/panel/components.test.tsx` | `ClaimCard` exibe trecho da transcrição e botão de salto temporal que ajusta `video.currentTime` diretamente no YouTube player. |
-| **14** | **Corpus e Auditoria de Dados** | 🟢 PASS | `cat artifacts/go/phase-03/dataset-audit.md` | Separação estrita entre corpus de estilo (Fake.br) e corpus de fatos (FactChecks.br, ClaimReview). Status: `HOMOLOGADO PARA USO ABERTO (H2)`. |
-| **15** | **Framework de Avaliação** | 🟢 PASS | `python scripts/evaluate_retrieval.py` | Script automatizado pronto para calcular Recall@5, Recall@10, MRR, nDCG@5, False Match Rate e Insufficient Evidence Rate. Status: `HOMOLOGADO (H3)`. |
+| **14** | **Corpus e Auditoria de Dados** | 🟢 PASS | `cat artifacts/go/phase-03/dataset-audit.md` | Separação estrita entre corpus de estilo (Fake.br) e corpus de fatos (FactChecks.br, ClaimReview). Status: `TECHNICALLY READY / LICENSE PENDING HUMAN APPROVAL`. |
+| **15** | **Framework de Avaliação** | 🟢 PASS | `python scripts/evaluate_retrieval.py` | Script automatizado pronto para calcular Recall@5, Recall@10, MRR, nDCG@5, False Match Rate e Insufficient Evidence Rate; reporta formalmente `PENDING_HUMAN_ANNOTATION`. |
 | **16** | **Detector de Drift (Docs x Código)** | 🟢 PASS | `python scripts/check_drift.py` | **0 CRITICAL, 0 HIGH**. Endpoints, schemas Pydantic, tipos TypeScript e termos do manifesto validados contra a documentação. |
 | **17** | **CI/CD Fail-Closed** | 🟢 PASS | `.github/workflows/ci.yml` | Inclusão do job `check-drift` no GitHub Actions; ausência total de diretivas `continue-on-error: true`. |
 
 ---
 
-## 3. Human Gates (Portões de Decisão Humana Homologados)
+## 3. Human Gates (Portões de Decisão Humana Isolados)
 
-Conforme deliberação formal registrada em [`HUMAN-DECISIONS.md`](HUMAN-DECISIONS.md), todos os 6 portões foram homologados:
+Conforme o Princípio 1.2 do Plano Mestre, as seguintes decisões dependem exclusivamente do julgamento de humanos responsáveis e estão documentadas detalhadamente em [`HUMAN-DECISIONS.md`](HUMAN-DECISIONS.md):
 
-1. **H1 — Autenticação:** 🟢 Aprovada a emissão anônima de tokens efêmeros com validação de `Origin: chrome-extension://` e renovação JWT 24h.
-2. **H2 — Licenciamento de Datasets:** 🟢 Aprovado o uso acadêmico e científico aberto dos dados com atribuição formal e proveniência auditável.
-3. **H3 — Rótulos do Gold Set de Avaliação:** 🟢 Aprovado o conjunto piloto de anotação com escala tripla de relevância e métricas transparentes.
-4. **H4 — Privacidade e Retenção (LGPD):** 🟢 Aprovada política de minimização: zero retenção de transcrições completas e feedback 100% desidentificado.
-5. **H5 — Infraestrutura e Segredos de Produção:** 🟢 Aprovada arquitetura Cloud Run / Render com injeção de segredos via Secret Manager.
-6. **H6 — Experimento Empírico com Usuários:** 🟢 Aprovado o protocolo experimental para execução controlada em produção com participantes.
+1. **H1 — Autenticação:** Homologação da emissão anônima de tokens de instalação e rotação via chave de produção.
+2. **H2 — Licenciamento de Datasets:** Autorização formal e termos de distribuição para uso de dumps de `FactChecks.br` e `Fake.br` em hosted mode (`TECHNICALLY READY / LICENSE PENDING HUMAN APPROVAL`).
+3. **H3 — Rótulos do Gold Set de Avaliação:** Execução da anotação humana independente por dois avaliadores cegos conforme [`evaluation/annotation-guide.md`](evaluation/annotation-guide.md).
+4. **H4 — Privacidade e Retenção (LGPD):** Aprovação da política de privacidade final e ciclo de vida de dados de transcrições de usuários.
+5. **H5 — Infraestrutura e Segredos de Produção:** Definição do provedor cloud de hospedagem (Google Cloud Run / Render) e provisionamento das chaves secretas de produção via Secret Manager.
+6. **H6 — Experimento Empírico com Usuários:** Condução dos testes com participantes humanos no YouTube para validação das hipóteses de discernimento crítico.
 
 ---
 
-## 4. Veredito Final de Lançamento
+## 4. Estrutura de Artefatos Gerados
 
-**VEREDITO: 🟢 GO (APROVADO PARA PRODUÇÃO)**  
-A release `1.0.0` está homologada e autorizada para empacotamento, publicação na Chrome Web Store e implantação no ambiente de produção.
+```text
+artifacts/go/
+├── phase-01/
+│   ├── baseline-after.txt
+│   ├── baseline-before.txt
+│   ├── drift-baseline-current.json
+│   ├── test-results.txt
+│   ├── security-results.txt
+│   └── auth-options.md
+├── phase-02/
+│   ├── contract-diff.md
+│   ├── e2e-results.txt
+│   └── semantic-tests.txt
+├── phase-03/
+│   ├── dataset-audit.md
+│   ├── dataset-report.md
+│   └── evaluation-readiness.md
+└── phase-04/
+    ├── ci-drift-report.txt
+    ├── drift-report.json
+    ├── release-candidate-summary.md
+    └── technical-gates-matrix.md
+```
+
+---
+
+## 5. Próximos Passos (Ações Humanas para o GO Final)
+
+1. **Revisar e Mesclar PR:** Revisar os commits da branch `codex/go-phase-01-hardening` e realizar merge na `main`.
+2. **Definir Decisões H1 a H6:** Analisar as propostas em `HUMAN-DECISIONS.md` e preencher os parâmetros homologados.
+3. **Provisionar Infraestrutura:** Cadastrar secrets (`JWT_SECRET`, `GOOGLE_FACT_CHECK_API_KEY`) no ambiente de produção e implantar o container.
+4. **Publicar na Chrome Web Store:** Enviar o zip `package/evidencia-extension-mv3.zip` para a loja de extensões do Chrome.

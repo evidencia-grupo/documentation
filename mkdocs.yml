@@ -110,6 +110,7 @@ nav:
           - Threat Model (STRIDE) e LGPD: arquitetura/modelagem-ameacas.md
           - Estratégia de Testes e CI/CD: arquitetura/estrategia-testes.md
           - Instrumentação e Telemetria: arquitetura/metricas-telemetria.md
+          - Avaliação do Classificador (ML): arquitetura/avaliacao-classificador-ml.md
           - Plano de Contingência Multinível: arquitetura/plano-de-contingencia.md
           - Guia de Contribuição e Setup: arquitetura/guia-contribuicao.md
       - Decisões de Arquitetura (ADRs):
@@ -142,6 +143,9 @@ nav:
       - EDA: entrega-2026-10-09/EDA.md
       - Catálogo de origem: entrega-2026-10-09/Catalogo_Requisitos_Origem.md
       - Backlog de origem: entrega-2026-10-09/Backlog_Origem.md
+  - Auditoria & Release:
+      - Relatório Final de Auditoria (GO): auditoria/relatorio-final.md
+      - Relatório Histórico (05/10/2026): auditoria/relatorio-20261005.md
 
 exclude_docs: |
   auditorias/historico/**

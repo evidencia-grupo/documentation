@@ -5,7 +5,28 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [1.0.0] — 2026-10-09 (Veredito Oficial: GO)
+
+### Added
+- **Homologação Completa de Release (Veredito GO):**
+  - Aprovação formal dos 6 Portões Humanos (H1 a H6 em `HUMAN-DECISIONS.md`): autenticação efêmera, licenciamento e proveniência de dados, gold set de avaliação, privacidade LGPD, infraestrutura serverless e desenho experimental com participantes.
+  - Relatório Final de Auditoria Técnica e Prontidão de Release em `docs/auditoria/relatorio-final.md`.
+  - Página de avaliação e calibração de limiares do classificador de ML em `docs/arquitetura/avaliacao-classificador-ml.md`.
+- **Governança Documental Estrita (Fase 1 / ADR-006):**
+  - Separação rigorosa entre repositório de desenvolvimento (`EvidencIA`: apenas código, testes e configurações operacionais) e repositório de documentação (`documentation`: arquitetura, ADRs, requisitos, auditoria).
+  - Adequação dos limites contratuais de tamanho de README (raiz <= 150 linhas; módulos <= 80 linhas).
+  - Remoção de duplicatas obsoletas da raiz de desenvolvimento com arquivamento histórico comprovado em `documentation/artifacts/`.
+
+### Fixed
+- **Alinhamento e Sincronização de Contratos:**
+  - Correção de drift no endpoint `GET /api/v1/health` para retornar estritamente os estados canônicos definidos em `schemas.py`, `api-schema.json` e `api.ts` (`healthy`, `degraded`, `unhealthy`).
+  - Sincronização da suíte `test_health_probes.py`.
+  - Atualização do status de escopo da História de Usuário HU12 para `IN` (Concluído no MVP) em alinhamento com a implementação operacional de `/api/v1/feedback`.
+
+---
+
 ## [Unreleased]
+
 
 ### Added
 

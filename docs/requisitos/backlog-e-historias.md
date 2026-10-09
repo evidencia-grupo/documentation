@@ -33,7 +33,7 @@
 | **E3 — Análise e Checagem via IA** | Pipeline de IA e síntese | HU02, HU04, HU09 | Must Have \| IN | [Cenário 03](cenarios.md#cenario-03), [Cenário 06](cenarios.md#cenario-06), [Cenário 10](cenarios.md#cenario-10) |
 | **E4 — Confiança e Fontes** | Credibilidade e contexto | HU07, HU08 | Must Have (HU07) / Should Have (HU08) \| IN | [Cenário 04](cenarios.md#cenario-04), [Cenário 09](cenarios.md#cenario-09) |
 | **E5 — Performance e Cache** | Otimização e reuso local | HU06 | Should Have \| IN | [Cenário 07](cenarios.md#cenario-07) |
-| **E6 — Engajamento Reflexivo e Avaliação** | Pensamento crítico e feedback | HU11, HU12 | Must Have (HU11) \| IN / Could Have (HU12) \| OUT | [Cenário 05](cenarios.md#cenario-05), [Cenário 11](cenarios.md#cenario-11) |
+| **E6 — Engajamento Reflexivo e Avaliação** | Pensamento crítico e feedback | HU11, HU12 | Must Have (HU11) \| IN / Could Have (HU12) \| IN | [Cenário 05](cenarios.md#cenario-05), [Cenário 11](cenarios.md#cenario-11) |
 | **E7 — Investigação e Evidências** | UX Evidence-First e Alegações | HU13, HU14, HU15 | Must Have \| IN | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md), [Cenário 03](cenarios.md#cenario-03), [Cenário 05](cenarios.md#cenario-05) |
 | **E8 — Infraestrutura de IA** | Desacoplamento de Providers | HU16 | Must Have \| IN | [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) |
 
@@ -54,7 +54,7 @@ Para facilitar a consulta direta e auditoria técnica, a tabela abaixo consolida
 | [HU09](#hu09) | Detecção Fina de Factualidade e Síntese Neutra | [Épico 3](#epico-3-analise-e-checagem-via-ia) | Mariana | Must Have | IN |
 | [HU10](#hu10) | Notificação Rápida de Ausência de Transcrição | [Épico 2](#epico-2-extracao-de-transcricao) | Mariana | Must Have | IN |
 | [HU11](#hu11) | Transparência Metodológica e Limitações da IA | [Épico 6](#epico-6-engajamento-reflexivo-e-avaliacao) | Helena | Must Have | IN |
-| [HU12](#hu12) | Feedback do Usuário sobre Utilidade das Evidências | [Épico 6](#epico-6-engajamento-reflexivo-e-avaliacao) | Helena | Could Have | OUT |
+| [HU12](#hu12) | Feedback do Usuário sobre Utilidade das Evidências | [Épico 6](#epico-6-engajamento-reflexivo-e-avaliacao) | Helena | Could Have | IN |
 | [HU13](#hu13) | Extração Atômica de Alegações Verificáveis | [Épico 7](#epico-7-investigacao-orientada-por-alegacoes-e-evidencias) | Dona Lurdes | Must Have | IN |
 | [HU14](#hu14) | Consulta Multi-Fonte com Busca Semântica Neutra | [Épico 7](#epico-7-investigacao-orientada-por-alegacoes-e-evidencias) | Mayara | Must Have | IN |
 | [HU15](#hu15) | Reflexão Crítica na UX | [Épico 7](#epico-7-investigacao-orientada-por-alegacoes-e-evidencias) | Helena | Must Have | IN |
@@ -576,7 +576,7 @@ Funcionalidade: Perguntas orientadoras para reflexão crítica
 | Propriedade | Detalhamento |
 |:---|:---|
 | **Descrição** | Eu, como Helena, pretendo classificar a utilidade das evidências e perguntas recebidas para colaborar com a melhoria contínua das respostas analíticas do sistema. |
-| **Prioridade** | Could Have \| OUT (Pós-MVP) |
+| **Prioridade** | Could Have \| IN (Concluído no MVP) |
 | **Persona Relacionada** | [Helena](personas-e-jornadas.md#helena) |
 | **Rastreabilidade** | [Cenário 11](cenarios.md#cenario-11), [RF-10](catalogo-requisitos.md#rf-10), [RNF-05](catalogo-requisitos.md#rnf-05) |
 
