@@ -86,6 +86,7 @@ nav:
       - Prontidão atual: governanca/prontidao.md
       - Revisão do relatório de IA: governanca/revisao-relatorio-ia.md
       - Decisões aprovadas: governanca/decisoes-aprovadas.md
+      - Governança dos repositórios: governanca/governanca-repositorios.md
   - Visão Geral:
       - Síntese Executiva (1 Página): visao/visao-geral-do-projeto.md
       - Topologia & Mapa Visual: visao/mapa-do-projeto.md

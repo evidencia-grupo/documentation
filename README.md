@@ -37,3 +37,10 @@ uv run mkdocs build --strict
 - `docs/auditorias/historico/`: registros anteriores preservados com origem.
 
 Código, notebooks e modelo: [EvidencIA](https://github.com/evidencia-grupo/EvidencIA). Histórico e documentos de origem ficam separados da navegação ativa.
+
+## Governança e Comunidade
+
+- [Guia de Contribuição](CONTRIBUTING.md): diretrizes editoriais e validação de build estrito.
+- [Política de Segurança](SECURITY.md): relato responsável de vulnerabilidades e integridade documental.
+- [Código de Conduta](CODE_OF_CONDUCT.md): padrões de respeito e inclusão na comunidade.
+- [Licença MIT](LICENSE): termos de uso aberto do projeto.
