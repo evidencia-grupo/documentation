@@ -127,7 +127,7 @@ sequenceDiagram
             Note over CS: [SLA RNF-02: Impacto na thread principal TBT <= 50ms]
             CS->>SW: Transmite transcricao higienizada
             SW->>API: POST /api/v1/analyze (HTTPS)
-            Note over API: Timeout do servidor configurado para 8,0s
+            Note over API: Etapas de LLM limitadas a 15 s; sem resposta, degrada para evidence_only
             API->>AI: Segmenta alegacoes e busca referencias
             AI-->>API: Retorna alegacoes, evidencias recuperadas e perguntas
             API-->>SW: Retorna payload AnalyzeResponse (HTTP 200)

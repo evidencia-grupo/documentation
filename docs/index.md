@@ -1,6 +1,6 @@
 # EvidencIA Portal de documentação
 
-O EvidencIA organiza a investigação de alegações presentes nas legendas de vídeos do YouTube. O usuário examina fontes e incertezas. O classificador descreve padrões linguísticos; suas métricas não comprovam veracidade factual.
+A EvidencIA é uma extensão para Google Chrome que organiza a investigação das alegações feitas em vídeos do YouTube: lê a legenda, separa as afirmações verificáveis e mostra, para cada uma, as checagens publicadas e perguntas para reflexão. Ela não dá veredito ao vídeo; quem conclui é a pessoa. Código-fonte: [github.com/evidencia-grupo/EvidencIA](https://github.com/evidencia-grupo/EvidencIA).
 
 ## Comece pelo seu objetivo
 
@@ -10,7 +10,8 @@ O EvidencIA organiza a investigação de alegações presentes nas legendas de v
 | Entender o produto | [Visão geral](visao/visao-geral-do-projeto.md) | [Catálogo de requisitos](requisitos/catalogo-requisitos.md) |
 | Revisar engenharia | [Arquitetura](arquitetura/arquitetura.md) | [Contrato da API](arquitetura/contrato-api.md) e [testes](arquitetura/estrategia-testes.md) |
 | Avaliar os resultados | [Prontidão](governanca/prontidao.md) | [Métricas](validacao/definicao-metricas.md) e [limitações](validacao/limitacoes.md) |
-| Baixar os entregáveis | [Índice de arquivos](entregaveis/index.md) | Notebooks, modelo, DOCX, YAML e CSV |
+| Entender a IA e os dados | [Datasets](arquitetura/ia-e-datasets.md) e [EDA](arquitetura/eda.md) | [Modelo de IA](arquitetura/modelo-ia.md) |
+| Publicar a extensão | [Publicação na Chrome Web Store](operacao/publicacao-chrome-web-store.md) | [Política de privacidade](legal/politica-de-privacidade.md) |
 
 ## Regra de integridade
 

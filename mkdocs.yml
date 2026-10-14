@@ -82,13 +82,6 @@ nav:
       - Configuração e evidências: operacao/configuracao-e-evidencias.md
       - Publicação na Chrome Web Store: operacao/publicacao-chrome-web-store.md
       - Política de Privacidade: legal/politica-de-privacidade.md
-      - Entregáveis e downloads:
-          - Índice de Entregáveis: entregaveis/index.md
-          - Relatório Técnico de IA: entregaveis/arquivos/relatorio_tecnico_ia.md
-      - Prontidão atual: governanca/prontidao.md
-      - Revisão do relatório de IA: governanca/revisao-relatorio-ia.md
-      - Decisões aprovadas: governanca/decisoes-aprovadas.md
-      - Governança dos repositórios: governanca/governanca-repositorios.md
   - Visão Geral:
       - Síntese Executiva (1 Página): visao/visao-geral-do-projeto.md
       - Topologia & Mapa Visual: visao/mapa-do-projeto.md
@@ -112,14 +105,17 @@ nav:
   - Arquitetura:
       - Sistema & Engenharia:
           - Arquitetura do Sistema (C4): arquitetura/arquitetura.md
-          - Pipeline de IA e Datasets: arquitetura/ia-e-datasets.md
           - Contrato de Dados e API: arquitetura/contrato-api.md
           - Threat Model (STRIDE) e LGPD: arquitetura/modelagem-ameacas.md
           - Estratégia de Testes e CI/CD: arquitetura/estrategia-testes.md
           - Instrumentação e Telemetria: arquitetura/metricas-telemetria.md
-          - Avaliação do Classificador (ML): arquitetura/avaliacao-classificador-ml.md
           - Plano de Contingência Multinível: arquitetura/plano-de-contingencia.md
           - Guia de Contribuição e Setup: arquitetura/guia-contribuicao.md
+      - IA e Dados:
+          - Pipeline de IA e Datasets: arquitetura/ia-e-datasets.md
+          - Análise Exploratória (EDA): arquitetura/eda.md
+          - Modelo de IA (Fake.br): arquitetura/modelo-ia.md
+          - Classificador de Contingência: arquitetura/avaliacao-classificador-ml.md
       - Decisões de Arquitetura (ADRs):
           - Log de Decisões Estratégicas: arquitetura/decisoes/registro-decisoes.md
           - ADR-001 — Manifest V3: arquitetura/decisoes/ADR-001-manifest-v3.md
@@ -140,16 +136,11 @@ nav:
           - Backlog do Produto: validacao/backlog-produto.md
           - Questões Norteadoras: validacao/questoes-norteadoras.md
           - Avaliação e Reflexão Crítica: validacao/reflexao-critica.md
-  - Entrega 09/10/2026:
-      - Remediação e GO: entrega-2026-10-09/Remediacao_e_GO.md
-      - Relatório técnico: entrega-2026-10-09/Relatorio_Tecnico.md
-      - Guiding Questions: entrega-2026-10-09/Guiding_Questions.md
-      - Requisitos: entrega-2026-10-09/Requisitos.md
-      - Scrum: entrega-2026-10-09/Scrum.md
-      - Datasets: entrega-2026-10-09/Datasets.md
-      - EDA: entrega-2026-10-09/EDA.md
-      - Catálogo de origem: entrega-2026-10-09/Catalogo_Requisitos_Origem.md
-      - Backlog de origem: entrega-2026-10-09/Backlog_Origem.md
+  - Governança:
+      - Prontidão atual: governanca/prontidao.md
+      - Revisão do relatório de IA: governanca/revisao-relatorio-ia.md
+      - Decisões aprovadas: governanca/decisoes-aprovadas.md
+      - Governança dos repositórios: governanca/governanca-repositorios.md
   - Auditoria & Release:
       - Relatório Final de Auditoria (GO): auditoria/relatorio-final.md
       - Relatório Histórico (05/10/2026): auditoria/relatorio-20261005.md
