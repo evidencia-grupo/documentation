@@ -17,7 +17,7 @@ Documentação do produto, operação, requisitos e validação. A aplicação u
 
 ## Visualizar a documentação
 
-Python 3.13 ou superior e uv:
+Python 3.12 ou superior e uv:
 
 ```bash
 uv sync --frozen
