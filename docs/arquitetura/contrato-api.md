@@ -5,6 +5,7 @@
 - [Visão Geral da Integração](#visao-geral-da-integracao)
 - [Padrões de Comunicação e Segurança](#padroes-de-comunicacao-e-seguranca)
 - [Endpoints da API](#endpoints-da-api)
+  - [Resumo das rotas](#resumo-das-rotas)
   - [POST /api/v1/analyze](#post-apiv1analyze)
   - [GET /api/v1/health](#get-apiv1health)
 - [Modelos de Dados (TypeScript e JSON)](#modelos-de-dados-json-schema-e-typescript)
@@ -20,14 +21,28 @@ A extensão atua exclusivamente como cliente consumidor da API fornecida pelo **
 
 ## Padrões de Comunicação e Segurança {: #padroes-de-comunicacao-e-seguranca }
 
-- **Protocolo:** HTTPS obrigatório com TLS 1.3.
-- **Formato:** Cargas de entrada e saída codificadas estritamente em JSON (`Content-Type: application/json; charset=utf-8`).
-- **Autenticação:** Requisições originadas da extensão incluem cabeçalho de assinatura de aplicação (`X-App-Client-Id` e token de sessão temporário emitido na instalação).
-- **Timeouts:** O backend impõe tempo limite interno de **8,0 segundos** para comunicação com os provedores de inteligência artificial e serviços de busca externa, garantindo margem para o SLA de **10 segundos** no navegador do usuário ([RNF-01](../requisitos/catalogo-requisitos.md#rnf-01)).
+- **Protocolo:** HTTPS obrigatório fora do ambiente local; o build de produção da extensão recusa backend sem `https:` e restringe `host_permissions` à origem configurada.
+- **Formato:** Cargas de entrada e saída codificadas estritamente em JSON (`Content-Type: application/json; charset=utf-8`). Corpos acima de `MAX_REQUEST_BODY_BYTES` (padrão 512 KiB) são recusados antes do parsing.
+- **Autenticação:** A extensão obtém em `POST /api/v1/auth/token` um token efêmero assinado com HMAC-SHA256 (validade de 24 horas), a partir de um identificador anônimo de instalação, e o envia como `Authorization: Bearer <token>`. Em produção e staging, `REQUIRE_AUTH=true` e um `AUTH_SECRET` próprio (mínimo de 32 caracteres) são exigidos no startup; em desenvolvimento, chamadas anônimas são aceitas.
+- **Timeouts:** As etapas de LLM compartilham o orçamento `LLM_TIMEOUT_SECONDS` (padrão e teto de **15 segundos**). Esgotado o orçamento, a resposta degrada para o modo `evidence_only` em vez de falhar. A extensão aborta a requisição após **30 segundos**; a meta de latência do [RNF-01](../requisitos/catalogo-requisitos.md#rnf-01) é verificada nos testes E2E.
 
 ---
 
 ## Endpoints da API {: #endpoints-da-api }
+
+### Resumo das rotas {: #resumo-das-rotas }
+
+| Método e rota | Autenticação | Limite | Finalidade |
+|:---|:---:|:---:|:---|
+| `POST /api/v1/auth/token` | Não | 30/min | Emite token Bearer efêmero para um `installationId` anônimo (8 a 128 caracteres `[A-Za-z0-9_-]`). |
+| `POST /api/v1/analyze` | Sim* | `RATE_LIMIT_MAX_PER_MINUTE` | Extração de alegações, evidências e perguntas de reflexão (Evidence-First). |
+| `POST /api/v1/feedback` | Sim* | `RATE_LIMIT_MAX_PER_MINUTE` | Avaliação anônima de utilidade (sem dado pessoal persistido). |
+| `POST /api/v1/classify` | Sim* | `RATE_LIMIT_MAX_PER_MINUTE` | Classe linguística supervisionada com abstenção; não é prova factual. |
+| `GET /api/v1/health` | Não | Padrão | Estado agregado (`healthy`, `degraded` com provedor mock, `unhealthy`). |
+| `GET /api/v1/health/live` | Não | Padrão | Liveness probe. |
+| `GET /api/v1/health/ready` | Não | Padrão | Readiness probe; HTTP 503 enquanto provedor ou classificador não estiverem prontos. |
+
+\* Obrigatória quando `REQUIRE_AUTH=true` (sempre em produção e staging). Os esquemas de cada corpo estão no [contrato YAML](../entregaveis/arquivos/estruturados/contrato_api.yaml), gerado dos modelos Pydantic.
 
 ### POST /api/v1/analyze {: #post-apiv1analyze }
 
@@ -38,7 +53,8 @@ Submete a transcrição capturada de um vídeo para extração de alegações, r
 | Cabeçalho | Tipo | Obrigatório | Descrição |
 |:---|:---|:---:|:---|
 | `Content-Type` | string | Sim | `application/json` |
-| `X-Client-Version` | string | Sim | Versão da extensão cliente (ex.: `1.0.0`) |
+| `Authorization` | string | Sim* | `Bearer <token>` emitido por `POST /api/v1/auth/token` |
+| `X-Client-Version` | string | Não | Versão da extensão cliente (ex.: `1.0.0`); sempre enviada pela extensão |
 
 #### Exemplo de Payload de Requisição
 
@@ -148,7 +164,8 @@ Verifica a integridade operacional do backend proxy e dos conectores de intelig�
   "services": {
     "llmConnector": "operational",
     "searchConnector": "operational",
-    "cacheStore": "operational"
+    "cacheStore": "operational",
+    "classifier": "operational"
   },
   "timestamp": "2026-09-26T12:00:00Z"
 }
@@ -250,11 +267,14 @@ export interface ErrorResponse {
 | Código HTTP | Significado | Causa e Comportamento da Extensão |
 |:---|:---|:---|
 | **200 OK** | Sucesso | Análise concluída; cliente renderiza o painel e salva no cache local. |
-| **400 Bad Request** | Requisição Inválida | Campos obrigatórios ausentes (`videoId` ou `transcript`). Extensão registra log e sinaliza falha de formato. |
-| **422 Unprocessable Entity** | Conteúdo Inelegível | Transcrição contém menos de 50 caracteres úteis ou apenas ruído. Extensão exibe aviso de texto insuficiente para inferência. |
-| **429 Too Many Requests** | Limite Excedido | Taxa de requisições excedeu os limites de proteção (*Rate Limit*). Extensão instrui o usuário a aguardar 60 segundos. |
-| **503 Service Unavailable** | Provedor Indisponível | Falha momentânea nas APIs upstream de IA ou busca. Extensão informa indisponibilidade e disponibiliza botão de repetição. |
-| **504 Gateway Timeout** | Tempo Limite Esgotado | O pipeline de checagem excedeu o teto de 8 segundos no servidor. Extensão cancela o carregamento e notifica o usuário graciosamente. |
+| **400 Bad Request** | Cabeçalho Inválido | `Content-Length` malformado ou negativo, recusado antes do parsing. |
+| **401 Unauthorized** | Credencial Ausente | Com autenticação obrigatória, cabeçalho `Authorization: Bearer` ausente ou mal formatado. |
+| **403 Forbidden** | Credencial Inválida | Token com assinatura inválida ou expirado. A extensão renova o token uma única vez e repete a chamada. |
+| **413 Content Too Large** | Corpo Excedido | Corpo declarado ou transmitido acima de `MAX_REQUEST_BODY_BYTES`. |
+| **422 Unprocessable Entity** | Conteúdo Inválido | Violação do esquema (campo obrigatório ausente, campo extra, tamanho fora do limite) ou transcrição com menos de 50 caracteres úteis. Extensão exibe a falha e permite nova tentativa. |
+| **429 Too Many Requests** | Limite Excedido | Taxa de requisições excedeu os limites de proteção (*Rate Limit*, janela de um minuto por endereço). Extensão exibe aviso amigável para tentar de novo em instantes. |
+| **503 Service Unavailable** | Serviço Indisponível | Falha inesperada no pipeline de análise ou readiness ainda não pronto. Extensão informa indisponibilidade e disponibiliza botão de repetição. Timeout do LLM não gera 503: a resposta degrada para `evidence_only`. |
+| **504 Gateway Timeout** | Tempo Limite Esgotado | Tempo limite da análise excedido fora das etapas de LLM. Extensão cancela o carregamento e notifica o usuário. |
 
 ---
 
