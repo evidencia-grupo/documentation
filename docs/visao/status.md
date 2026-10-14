@@ -40,7 +40,7 @@ O status atribuído a cada documento ou componente de software reflete o estado 
 | **G1** | Rastreabilidade Epistemológica | Big Idea -> EQ -> 12 GQs formalizadas | `EVIDENCIADO` | `docs/validacao/questoes-norteadoras.md` |
 | **G2** | Investigação & Datasets | EDA documentada em datasets PT-BR | `EVIDENCIADO` | `docs/arquitetura/ia-e-datasets.md` |
 | **G3** | Ruptura Arquitetural | Eliminação de scores e adoção Evidence-First | `EVIDENCIADO` | `docs/arquitetura/decisoes/ADR-006-evidence-first-architecture.md` |
-| **G4** | Qualidade de Engenharia | Suítes de testes passando no backend e extensão | `IMPLEMENTADO` | 151 testes backend + 171 testes frontend passando no CI |
+| **G4** | Qualidade de Engenharia | Suítes de testes passando no backend e extensão | `IMPLEMENTADO` | 194 testes backend (cobertura 92,51%), 213 testes da extensão e 16 E2E aprovados em 14/10/2026 |
 | **G5** | Governança Scrum | DoD, Product Backlog e cerimônias documentadas | `EVIDENCIADO` | `docs/validacao/` (DoD e Product Backlog) |
 | **G6** | Protocolo Experimental Act | Desenho between-subjects e métricas formalizadas | `HOMOLOGADO` | `docs/validacao/plano-experimento.md` (Aprovado H6) |
 | **G7** | Privacidade & Segurança | Zero PII, telemetria sem rede e threat model | `IMPLEMENTADO` | Testes de isolamento e validação LGPD |

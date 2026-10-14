@@ -49,7 +49,7 @@ Pelo GitHub Actions: defina a variável de repositório `EVIDENCIA_API_BASE_URL`
 ### Listagem
 
 - **Nome:** EvidencIA — Fact-Checking para YouTube
-- **Resumo (até 132 caracteres):** Extensão de checagem de fatos e veracidade de afirmações em vídeos do YouTube com IA e painel lateral.
+- **Resumo (até 132 caracteres):** Investiga alegações de vídeos do YouTube com evidências de checagens publicadas e perguntas para reflexão.
 - **Categoria:** Ferramentas (Tools). **Idioma:** Português (Brasil).
 - **Descrição:**
 

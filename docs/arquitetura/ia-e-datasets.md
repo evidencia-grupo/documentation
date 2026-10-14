@@ -55,22 +55,28 @@ flowchart TD
     D2 --> P3
 ```
 
+!!! info "Situação atual das fontes"
+    - **Evidências em produção:** Google Fact Check Tools API (ClaimReview), consultada por alegação no backend. É a única fonte de evidência fora do desenvolvimento.
+    - **FactChecks.br:** adaptador pronto, índice local pendente.
+    - **`sample_facts.json`:** corpus de demonstração para desenvolvimento, bloqueado em produção. Das 28 URLs que ele atribui a agências reais, 25 retornavam 404 em 14/10/2026; não o use em demonstrações públicas nem como evidência.
+    - **Fake.br:** só corpus de linguagem (experimento e EDA).
+
 ### 1. FactChecks.br (UFG / Agências IFCN) {: #factchecks-br }
 
 * **Origem:** Universidade Federal de Goiás (UFG) em parceria com agências certificadas pelo *International Fact-Checking Network* (IFCN).
 * **Conteúdo:** Milhares de pares contendo afirmações checadas, links originais, metadados dos checadores e vereditos categorizados (*Falso, Verdadeiro, Distorcido, Sem Contexto*).
-* **Papel no EvidencIA:** Base de verdade factual para o serviço `brazilian_fact_matcher.py` e amostra de ouro (`sample_facts.json`), viabilizando checagens instantâneas sem consumo de quota externa.
+* **Papel no EvidencIA:** fonte planejada de evidências para o índice vetorial local. O adaptador de ingestão existe (`backend/ml/datasets/adapters/factchecksbr.py`), mas o índice ainda não foi construído.
 
 ### 2. Fake.br Corpus (NILC - USP São Carlos) {: #fake-br-corpus }
 
 * **Origem:** Núcleo Interinstitucional de Linguística Computacional (NILC) do ICMC-USP São Carlos.
 * **Conteúdo:** 7.200 notícias completas (3.600 falsas e 3.600 verdadeiras pareadas por tamanho e tópico).
-* **Papel no EvidencIA:** Avaliação e calibração de classificadores de estilo textual, identificação de manchetes clickbait e métricas de emotividade/sensacionalismo.
+* **Papel no EvidencIA:** corpus de linguagem para o [modelo de IA](modelo-ia.md) e a [EDA](eda.md). Não é fonte de evidência sobre alegações.
 
 ### 3. ClaimPT {: #claimpt }
 
 * **Origem:** Dataset de referência acadêmica em Português para *Check-worthiness*.
-* **Conteúdo:** Textos anotados no nível de sentença para distinguir proposições verificáveis de opiniões, saudações ou comentários casuais.
+* **Conteúdo:** Textos anotados no nível de sentença para distinguir proposições verificáveis de opiniões, saudações ou comentários casuais. Está em português europeu (PT-PT) e não é importado como dado.
 * **Papel no EvidencIA:** Guia a heurística de segmentação atômica e os prompts para descartar introduções de YouTubers e isolar apenas alegações verificáveis ([HU04](../requisitos/backlog-e-historias.md#hu04); ver papel de ClaimPT no [ADR-006](decisoes/ADR-006-evidence-first-architecture.md#decisao-5-papeis-dos-datasets)).
 
 ---

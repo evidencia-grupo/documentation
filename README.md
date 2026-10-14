@@ -1,18 +1,19 @@
-# EvidencIA Documentação
+# EvidencIA — Documentação
 
-Documentação do produto, operação, requisitos e validação. A aplicação usa legendas do vídeo; a descrição não substitui transcrição. O escopo verificado é desenvolvimento local.
+Documentação do produto, da arquitetura, dos dados e modelo de IA, da operação e da validação da extensão EvidencIA.
+
+- **Site publicado:** https://evidencia-grupo.github.io/documentation/
+- **Código:** https://github.com/evidencia-grupo/EvidencIA
 
 [![CI/CD Documentation](https://github.com/evidencia-grupo/documentation/actions/workflows/ci-docs.yml/badge.svg)](https://github.com/evidencia-grupo/documentation/actions/workflows/ci-docs.yml)
-[![Status: GO](https://img.shields.io/badge/Status-GO%20(Release%201.0.0)-brightgreen)](docs/governanca/prontidao.md)
 [![Repositório de Código](https://img.shields.io/badge/código-evidencia--grupo%2FEvidencIA-blue)](https://github.com/evidencia-grupo/EvidencIA)
-[![Fase CBL](https://img.shields.io/badge/CBL-Act%20(Release%20GO)-brightgreen)](docs/visao/status.md)
 
 ## Começar
 
 - [Portal e mapa de leitura](docs/index.md)
 - [Desenvolvimento local](docs/inicio/desenvolvimento-local.md)
-- [Transcrição e validação](docs/operacao/transcricao-e-validacao.md)
-- [Entregáveis em formatos editáveis e executáveis](docs/entregaveis/index.md)
+- [Datasets](docs/arquitetura/ia-e-datasets.md), [EDA](docs/arquitetura/eda.md) e [Modelo de IA](docs/arquitetura/modelo-ia.md)
+- [Publicação na Chrome Web Store](docs/operacao/publicacao-chrome-web-store.md) e [Política de privacidade](docs/legal/politica-de-privacidade.md)
 - [Prontidão e evidências](docs/governanca/prontidao.md)
 
 ## Visualizar a documentação
@@ -28,15 +29,14 @@ uv run mkdocs build --strict
 ## Organização
 
 - `docs/inicio/`: entrada e execução local.
-- `docs/requisitos/`: catálogo, personas, cenários e rastreabilidade.
-- `docs/arquitetura/`: contratos, segurança, decisões e infraestrutura.
-- `docs/operacao/`: captura de legendas e verificações do fluxo.
+- `docs/visao/`: visão geral, mapa e status do projeto.
+- `docs/requisitos/`: catálogo, personas, cenários, backlog e rastreabilidade.
+- `docs/arquitetura/`: arquitetura, contratos, segurança, IA e dados, decisões (ADRs).
+- `docs/operacao/`: captura de legendas, configuração e publicação.
+- `docs/legal/`: política de privacidade.
 - `docs/validacao/`: protocolos e métricas; planos não equivalem a experimentos concluídos.
-- `docs/entregaveis/`: downloads DOCX, YAML e CSV.
-- `docs/governanca/`: aprovação e prontidão atual.
-- `docs/auditorias/historico/`: registros anteriores preservados com origem.
-
-Código, notebooks e modelo: [EvidencIA](https://github.com/evidencia-grupo/EvidencIA). Histórico e documentos de origem ficam separados da navegação ativa.
+- `docs/governanca/`: decisões aprovadas e prontidão atual.
+- `docs/auditorias/historico/`: registros anteriores preservados com origem, fora da navegação.
 
 ## Governança e Comunidade
 

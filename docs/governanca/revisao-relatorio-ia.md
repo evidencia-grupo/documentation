@@ -21,4 +21,4 @@ O baseline local de 139 exemplos permanece identificado: teste de 27 exemplos, a
 
 Infraestrutura real, disponibilidade da busca externa, LLM real, corpus humano de alegações e estudo de usuários continuam exigindo execução e coleta de evidências. O GO desta entrega é para desenvolvimento local; aprovação autoriza o trabalho e não comprova essas etapas.
 
-[Experimento e reprodução](https://github.com/evidencia-grupo/EvidencIA/tree/main/experiments/fakebr) e [relatório revisado](../entregaveis/arquivos/relatorio_tecnico_ia.md).
+[Experimento e reprodução](https://github.com/evidencia-grupo/EvidencIA/tree/main/experiments/fakebr) e [relatório revisado](https://github.com/evidencia-grupo/EvidencIA/blob/main/experiments/fakebr/relatorio_tecnico.md) (resumo em [Modelo de IA](../arquitetura/modelo-ia.md)).

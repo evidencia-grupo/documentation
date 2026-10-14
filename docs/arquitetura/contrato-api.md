@@ -42,7 +42,7 @@ A extensão atua exclusivamente como cliente consumidor da API fornecida pelo **
 | `GET /api/v1/health/live` | Não | Padrão | Liveness probe. |
 | `GET /api/v1/health/ready` | Não | Padrão | Readiness probe; HTTP 503 enquanto provedor ou classificador não estiverem prontos. |
 
-\* Obrigatória quando `REQUIRE_AUTH=true` (sempre em produção e staging). Os esquemas de cada corpo estão no [contrato YAML](../entregaveis/arquivos/estruturados/contrato_api.yaml), gerado dos modelos Pydantic.
+\* Obrigatória quando `REQUIRE_AUTH=true` (sempre em produção e staging). Os esquemas de cada corpo estão no [JSON Schema canônico](https://github.com/evidencia-grupo/EvidencIA/blob/main/shared/schemas/api-schema.json), gerado dos modelos Pydantic.
 
 ### POST /api/v1/analyze {: #post-apiv1analyze }
 

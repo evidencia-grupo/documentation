@@ -33,6 +33,8 @@ Adotar a seguinte composição tecnológica e arquitetural:
    - **Pydantic v2:** Validação determinística de contratos em tempo de execução com núcleo em Rust, assegurando conformidade estrita com o payload da API.
    - **SlowAPI:** Middleware de controle de vazão (*Rate Limiting*) configurado para 60 requisições por minuto por cliente.
    - **Controle de Timeout:** Timeout global assíncrono de 8,0 segundos por requisição de análise, garantindo margem para o SLA de 10 segundos no cliente ([RNF-01](../../requisitos/catalogo-requisitos.md#rnf-01)).
+
+   > **Atualização (14/10/2026):** a implementação passou a usar `LLM_TIMEOUT_SECONDS` (padrão e teto de 15 s) para as etapas de LLM, com degradação para o modo `evidence_only`; a extensão aborta a requisição após 30 s. Ver [Contrato da API](../contrato-api.md).
 3. **Contratos e Topologia do Repositório:** **Monorepo com Contratos Compartilhados**
    - Repositório único contendo `extension/`, `backend/` e `shared/`.
    - `shared/schemas/api-schema.json` e `shared/types/api.ts` atuam como fonte única da verdade para tipagem e validação entre cliente TypeScript e servidor Python.
