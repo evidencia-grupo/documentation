@@ -777,6 +777,25 @@ Funcionalidade: Provedor de IA independente
 
 ---
 
+## Issues Técnicas Priorizadas do Roadmap {: #issues-tecnicas-priorizadas }
+
+Os testes em vídeos reais do YouTube e com modelos de linguagem gratuitos geraram 4 issues técnicas. Todas foram auditadas contra o código e os testes em 14/10/2026 e estão concluídas:
+
+| Issue | Título | Módulos | Entregue | Status |
+|:---:|:---|:---|:---|:---:|
+| **[#66](https://github.com/evidencia-grupo/EvidencIA/issues/66)** | Paralelismo das perguntas de reflexão | `fact_checker.py` | Até 3 reflexões simultâneas, com prazo compartilhado; uma falha só troca as perguntas daquela alegação pelo catálogo; ordem das alegações preservada | Concluída |
+| **[#67](https://github.com/evidencia-grupo/EvidencIA/issues/67)** | Segmentação de legendas ASR | `claim_extractor.py`, `caption-parser.ts` | Frases de até 35 palavras, quebradas por pausas da fala (≥ 0,8 s), conectivos e limite de palavras; tempos vêm dos segmentos reais | Concluída |
+| **[#68](https://github.com/evidencia-grupo/EvidencIA/issues/68)** | Filtro de saudações e aberturas de TV | `claim_saliency.py`, `claim_extractor.py` | Aberturas de telejornal, pedidos de like e inscrição têm saliência zero; alegação factual após saudação é mantida | Concluída |
+| **[#69](https://github.com/evidencia-grupo/EvidencIA/issues/69)** | Calibração do matcher e prompts para modelos gratuitos | `brazilian_fact_matcher.py`, `prompts.py` | Tema genérico não casa; números divergentes só contextualizam; "três" e "3" são equivalentes; o modelo não introduz fontes nem vereditos | Concluída |
+
+---:|:---|:---:|:---|:---|
+| **[#66](https://github.com/evidencia-grupo/EvidencIA/issues/66)** | Pipeline de Paralelismo Assíncrono e Otimização de Latência das Perguntas de Reflexão | Performance / LLM | Backend (`fact_checker.py`, `remote.py`) | Redução da latência total para < 4s com `asyncio.gather` e eliminação de timeouts de 15s. |
+| **[#67](https://github.com/evidencia-grupo/EvidencIA/issues/67)** | Segmentação Robusta de Legendas ASR e Preservação de Frases da Transcrição Completa | Feature / NLP | Backend (`claim_extractor.py`), Extensão (`caption-parser.ts`) | Divisão de transcrições ASR contínuas em frases concisas (8–25 palavras) sem blocos corridos. |
+| **[#68](https://github.com/evidencia-grupo/EvidencIA/issues/68)** | Filtragem de Ruído Conversacional / Saudações de TV e Aumento da Precisão do Extrator | Bug / Acurácia | Backend (`claim_extractor.py`, `mock.py`) | Descarte estrito de aberturas de TV e saudações ("Tá começando o programa..."). |
+| **[#69](https://github.com/evidencia-grupo/EvidencIA/issues/69)** | Calibração Semântica do Matcher e Contexto Anti-Alucinação para Modelos Gratuitos | Feature / RAG | Backend (`brazilian_fact_matcher.py`, `prompts.py`) | Exigência de sobreposição semântica mínima e prevenção de falsos positivos em termos isolados. |
+
+---
+
 **Próximo:** [Casos de Uso](casos-de-uso.md) — fluxos detalhados de cada funcionalidade.  
 **Ver também:** [Priorização e MVP](priorizacao-e-mvp.md) — sequência de entrega e decisões técnicas.
 

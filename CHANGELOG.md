@@ -27,6 +27,15 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed — 2026-10-14 (auditoria de fechamento das issues #66–#69)
+
+- **Vídeos reais do YouTube:** as correções de legenda vazia (token do player), botão em cópia oculta da página e segmento além da duração do vídeo foram reaplicadas; não tinham chegado à main.
+- **#67:** a extração offline usa as pausas da fala (≥ 0,8 s) entre eventos de legenda para fechar frases.
+- **#68:** "começa agora", "está no ar", "fique conosco", "hoje vamos falar" e variações de like e inscrição deixam de virar alegação.
+- **#69:** o matcher compara números (algarismos e por extenso); números divergentes reduzem a pontuação e nunca herdam o veredito da checagem.
+- **Extensão:** o validador rejeita campos de texto corrompidos que o painel exibe; testes de acessibilidade sem ruído do jsdom.
+- **Higiene:** removido `backend/ml/classifier/model.plk`, que não era lido; `evaluate_retrieval.py` funciona de qualquer diretório.
+
 
 ### Added
 
