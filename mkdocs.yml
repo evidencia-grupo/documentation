@@ -80,6 +80,8 @@ nav:
       - Desenvolvimento local: inicio/desenvolvimento-local.md
       - Transcrição e validação: operacao/transcricao-e-validacao.md
       - Configuração e evidências: operacao/configuracao-e-evidencias.md
+      - Publicação na Chrome Web Store: operacao/publicacao-chrome-web-store.md
+      - Política de Privacidade: legal/politica-de-privacidade.md
       - Entregáveis e downloads:
           - Índice de Entregáveis: entregaveis/index.md
           - Relatório Técnico de IA: entregaveis/arquivos/relatorio_tecnico_ia.md
