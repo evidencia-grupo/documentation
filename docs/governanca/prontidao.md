@@ -6,7 +6,7 @@ As correções da auditoria inicial foram incorporadas à main. A nova revisão 
 
 ## Evidências
 
-- Backend: 194 testes aprovados e 1 integração opcional ignorada; cobertura de 92,51% (mínimo obrigatório 80%); ruff sem apontamentos.
+- Backend: 198 testes aprovados e 1 integração opcional ignorada; cobertura de 92,70% (mínimo obrigatório 80%); ruff sem apontamentos.
 - Extensão: 213 testes aprovados; typecheck, build e verificação do pacote da Chrome Web Store passaram.
 - Notebooks: treinamento/avaliação e EDA executados sem erros; JSON e pickle equivalentes nas 139 amostras.
 - Documentos: sete DOCX renderizados e conferidos; YAML/CSV estruturados validados.

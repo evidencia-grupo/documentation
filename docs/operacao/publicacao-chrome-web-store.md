@@ -13,7 +13,7 @@ Roteiro para colocar o backend em produção e publicar a extensão. Os passos m
 
 Pré-requisitos (**responsável humano**):
 
-- Chave de API de um provedor compatível com a API OpenAI (padrão: [OpenRouter](https://openrouter.ai/)). Confira se o modelo definido em `REMOTE_LLM_MODEL` continua disponível.
+- Chave de API do [OpenRouter](https://openrouter.ai/) (ou de outro provedor compatível com `/chat/completions`). O Blueprint usa `google/gemma-4-31b-it:free`, verificado em 14/10/2026. Modelos gratuitos têm limite diário de requisições e podem ser retirados; se a análise passar a cair sempre no modo de contingência, troque `REMOTE_LLM_MODEL` no Render por outro modelo com suporte a `response_format`.
 - Chave da [Google Fact Check Tools API](https://developers.google.com/fact-check/tools/api) no Google Cloud. **Sem ela, a produção não tem fonte de evidências**: o corpus de demonstração é bloqueado fora do desenvolvimento e todas as alegações aparecem como "sem evidência suficiente".
 
 Passos:
