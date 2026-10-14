@@ -77,7 +77,7 @@ flowchart LR
 
 | Ameaça Mapeada | Impacto | Medida Mitigatória Implementada |
 |:---|:---|:---|
-| Extensão capturar histórico geral de navegação em outros domínios ou ler cookies da conta do usuário | **Crítico** (violação grave de privacidade e LGPD) | O arquivo `manifest.json` restringe estritamente `host_permissions` a `https://www.youtube.com/*` e exige `activeTab`. Nenhuma permissão para `cookies`, `history`, `webNavigation` ou acesso indiscriminado a abas é solicitada. |
+| Extensão capturar histórico geral de navegação em outros domínios ou ler cookies da conta do usuário | **Crítico** (violação grave de privacidade e LGPD) | O arquivo `manifest.json` restringe estritamente `host_permissions` a `https://www.youtube.com/*` e à origem HTTPS do backend, com permissões limitadas a `storage` e `scripting`. Nenhuma permissão para `cookies`, `history`, `webNavigation` ou acesso indiscriminado a abas é solicitada. |
 | Vazamento de chaves secretas de APIs de IA no código do cliente | **Crítico** (furto de credenciais) | Nenhuma chave reside no pacote da extensão. Todas as chamadas a provedores externos ocorrem exclusivamente via Backend Proxy ([ADR-002](decisoes/ADR-002-backend-proxy.md)). |
 
 ### 5. Denial of Service (Negação de Serviço e Abuso) {: #denial-of-service }

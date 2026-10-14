@@ -30,6 +30,8 @@ Principais implicações técnicas:
 - A lógica de fundo reside em um **Service Worker** (não em `background.js` persistente)
 - As permissões são declaradas em `host_permissions` com escopo restrito: `"https://www.youtube.com/*"`
 - A injeção de UI usa `chrome.scripting.executeScript` com `activeTab` (sem `all_urls`)
+
+> **Atualização (14/10/2026):** `activeTab` foi removida antes da publicação na Chrome Web Store por não ser usada. O botão e o painel vêm do content script declarado para `https://www.youtube.com/*`, e `scripting.executeScript` atua na aba do vídeo graças a essa host permission. Permissões atuais: `storage` e `scripting`.
 - Comunicação entre content script e Service Worker via `chrome.runtime.sendMessage`
 
 ---

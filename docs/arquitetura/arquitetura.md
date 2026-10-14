@@ -162,7 +162,7 @@ Conforme deliberado no [ADR-004](decisoes/ADR-004-stack-tecnologica.md), o proje
 ```
 evidencia/
 ├── extension/             # Extensao de navegador (Manifest V3)
-│   ├── manifest.json      # Declaracao de permissoes minimas (activeTab, storage)
+│   ├── manifest.json      # Declaracao de permissoes minimas (storage, scripting)
 │   ├── package.json       # Dependencias Preact, TypeScript e Vite
 │   ├── vite.config.ts     # Build multi-entry (service-worker, content-script, panel)
 │   └── src/
