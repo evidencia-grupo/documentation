@@ -31,7 +31,7 @@ jobs:
           enable-cache: true
 
       - name: Configurar Python
-        run: uv python install 3.13
+        run: uv python install 3.12
 
       - name: Validar Ausência de Emojis e Padrão Corporativo
         run: |
@@ -75,7 +75,7 @@ jobs:
           enable-cache: true
 
       - name: Configurar Python
-        run: uv python install 3.13
+        run: uv python install 3.12
 
       - name: Instalar Dependências
         run: uv sync --frozen
@@ -101,7 +101,7 @@ jobs:
           enable-cache: true
 
       - name: Configurar Python
-        run: uv python install 3.13
+        run: uv python install 3.12
 
       - name: Instalar Dependências
         run: uv sync --frozen

@@ -4,10 +4,10 @@ Os arquivos abaixo são entregáveis reais, não apenas descrições em Markdown
 
 ## Notebooks modelo e código
 
-- [Notebook de treinamento e avaliação](https://github.com/evidencia-grupo/EvidencIA/blob/codex/transcricao-entregaveis/backend/ml/notebooks/model_training_evaluation.ipynb)
-- [Notebook de EDA](https://github.com/evidencia-grupo/EvidencIA/blob/codex/transcricao-entregaveis/backend/ml/notebooks/eda.ipynb)
-- [Modelo JSON](https://github.com/evidencia-grupo/EvidencIA/blob/codex/transcricao-entregaveis/backend/ml/classifier/model.json) e [modelo pickle PLK](https://github.com/evidencia-grupo/EvidencIA/blob/codex/transcricao-entregaveis/backend/ml/classifier/model.plk)
-- [Código Python](https://github.com/evidencia-grupo/EvidencIA/tree/codex/transcricao-entregaveis/backend) e [TypeScript](https://github.com/evidencia-grupo/EvidencIA/tree/codex/transcricao-entregaveis/extension/src)
+- [Notebook de treinamento e avaliação](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/notebooks/model_training_evaluation.ipynb)
+- [Notebook de EDA](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/notebooks/eda.ipynb)
+- [Modelo JSON](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/classifier/model.json) e [modelo pickle PLK](https://github.com/evidencia-grupo/EvidencIA/blob/main/backend/ml/classifier/model.plk)
+- [Código Python](https://github.com/evidencia-grupo/EvidencIA/tree/main/backend) e [TypeScript](https://github.com/evidencia-grupo/EvidencIA/tree/main/extension/src)
 
 ## Downloads
 
@@ -46,4 +46,4 @@ Os YAML/CSV de catálogo e backlog preservam 22 requisitos e 16 histórias de or
 
 ## Experimento Fake.br reproduzido
 
-[Notebook e código](https://github.com/evidencia-grupo/EvidencIA/tree/codex/transcricao-entregaveis/experiments/fakebr), [relatório revisado](arquivos/relatorio_tecnico_ia.md), [métricas YAML](arquivos/estruturados/fakebr_modelo_avaliacao.yaml) e [1.088 predições CSV](arquivos/estruturados/fakebr_predicoes_teste.csv). A avaliação de notícias tem escopo distinto do baseline local e dos testes do produto.
+[Notebook e código](https://github.com/evidencia-grupo/EvidencIA/tree/main/experiments/fakebr), [relatório revisado](arquivos/relatorio_tecnico_ia.md), [métricas YAML](arquivos/estruturados/fakebr_modelo_avaliacao.yaml) e [1.088 predições CSV](arquivos/estruturados/fakebr_predicoes_teste.csv). A avaliação de notícias tem escopo distinto do baseline local e dos testes do produto.

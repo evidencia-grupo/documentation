@@ -1,6 +1,6 @@
 # Desenvolvimento local
 
-Use Node 24, Python 3.12 para a aplicação e Python 3.13 ou superior para este site. Mantenha os repositórios EvidencIA e documentation lado a lado. O modo mock permite verificar o fluxo sem chaves ou servidor de IA.
+Use Node 24 e Python 3.12 ou superior, tanto para a aplicação quanto para este site. Mantenha os repositórios EvidencIA e documentation lado a lado. O modo mock permite verificar o fluxo sem chaves ou servidor de IA.
 
 ## Backend
 
