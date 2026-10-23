@@ -17,8 +17,8 @@
 
 A classificação MoSCoW foi consolidada a partir da alocação de recursos da [Técnica dos 100 Dólares](elicitacao.md#etapa-4-100-dolares), estabelecendo os limites estritos do produto mínimo viável:
 
-![Matriz MoSCoW da Votação](../assets/matriz-moscow-votacao.png)
-*Figura: Matriz MoSCoW validada após a dinâmica da Técnica dos 100 Dólares com os participantes.*
+![Quadro MoSCoW da oficina com notas adesivas de requisitos distribuídas em Must Have, Should Have, Could Have e Won't Have, na numeração original da oficina](../assets/matriz-moscow-votacao.png)
+*Figura: Matriz MoSCoW validada após a dinâmica da Técnica dos 100 Dólares com os participantes. O quadro usa a numeração original da oficina, que não coincide com a do [catálogo de requisitos](catalogo-requisitos.md); a classificação vigente é a da tabela abaixo. Ver a divergência registrada em [Elicitação](elicitacao.md#etapa-4-100-dolares).*
 
 !!! note "Revisão Evidence-First (2026-10-02 — ADR-006):"
     O requisito **RF-05 (Retorno Reflexivo / HU11)** foi promovido para **Must Have (MVP)** para cumprir a Essential Question ("estimular pensamento crítico sem substituí-lo"). Foram incorporados ao MVP os requisitos **RF-12 a RF-15** (estado `insufficient_evidence`, provenance, desacoplamento de provider e bloqueio de mock em produção).
@@ -37,7 +37,7 @@ A classificação MoSCoW foi consolidada a partir da alocação de recursos da [
 
 A estruturação das ondas de entrega e a priorização executiva foram definidas diretamente no Sequenciador Lean Inception, demarcando as fronteiras entre a linha de corte do MVP e os incrementos seguintes:
 
-![Sequenciador de Features Lean Inception](../assets/sequenciador-lean-inception.png)
+![Sequenciador Lean Inception em quatro linhas: onda 1 com F2.1, F1.1 e F1.2; onda 2 com F2.3 e F2.2, marcada como MVP; onda 3 com F1.3, F3.1 e F3.2; onda 4 com F3.3, marcada como incremento](../assets/sequenciador-lean-inception.png)
 *Figura: Sequenciador de Features estruturado em ondas contínuas de entrega (Lean Inception), com a demarcação explícita da linha de corte do MVP.*
 
 | Onda | Features Contempladas | Esforço Técnico | Valor de Negócio |
@@ -52,7 +52,7 @@ A estruturação das ondas de entrega e a priorização executiva foram definida
 
 A passagem do escopo conceitual para a cadência operacional de engenharia adota o modelo de funil progressivo (Now, Next, Soon, Later), assegurando foco absoluto no valor prioritário e mitigando o risco de sobrecarga:
 
-![Funil de Priorização do Backlog](../assets/funil-backlog.png)
+![Funil horizontal de backlog dividido em Later, Soon, Next e Now, com a linha do MVP entre Next e Now; as faixas estão descritas na lista abaixo](../assets/funil-backlog.png)
 *Figura: Funil estratégico de refinamento contínuo do Backlog — organizando a esteira de desenvolvimento de Now (MVP) até horizontes futuros (Later).*
 
 - **Now (Linha do MVP):** Foco imediato na entrega dos Épicos E1, E2, E3 e E4 (disparo, transcrição, checagem e síntese categorizada).
@@ -66,7 +66,7 @@ A passagem do escopo conceitual para a cadência operacional de engenharia adota
 
 A eficácia do produto depende da delimitação do que deliberadamente **não** será implementado no estágio atual. Os critérios de exclusão atuam como salvaguardas contra desvios de esforço, sobrecarga de usuário e riscos de segurança:
 
-![Painel de Critérios de Exclusão](../assets/criterios-exclusao.png)
+![Quadro de notas adesivas 'Critérios de Exclusão' com salvaguardas contra mau uso, antipersonas e limites de escopo para mobile; as diretrizes estão na tabela abaixo](../assets/criterios-exclusao.png)
 *Figura: Mapeamento visual dos critérios de exclusão, diretrizes de antipersonas e salvaguardas de integridade do produto.*
 
 | Categoria | Diretriz Aplicada | Justificativa Técnica e de Produto |
@@ -92,7 +92,7 @@ A eficácia do produto depende da delimitação do que deliberadamente **não** 
 | **RF-11 — Metadados temporais** *(Onda 2)* | Data de publicação e canal exibidos no cabeçalho | Consumo da YouTube Data API (ou scraping controlado da página) no momento da extração da transcrição, cacheado junto ao resultado |
 | **RNF-03 — Manifest V3 / multi-browser** | Compatibilidade Chrome, Edge, Brave | Service Worker para lógica de fundo (sem `background page` persistente); `host_permissions` restritos a `https://www.youtube.com/*` · [ADR-001](../arquitetura/decisoes/ADR-001-manifest-v3.md) |
 | **RNF-04 — Segurança de credenciais** | Nenhuma chave exposta no client | Todas as chamadas de IA/busca passam por um backend proxy autenticado em Python FastAPI ([ADR-004](../arquitetura/decisoes/ADR-004-stack-tecnologica.md)); a extensão nunca armazena segredos |
-| **RNF-05 — Privacidade (LGPD)** | Sem coleta de histórico geral | Apenas permissão `activeTab` + escopo `youtube.com`; nenhuma persistência de dados analíticos por padrão, cache local restrito ao escopo da extensão |
+| **RNF-05 — Privacidade (LGPD)** | Sem coleta de histórico geral | Apenas permissões `storage` e `scripting` (a `activeTab` prevista foi removida em 14/10/2026 por não ser usada) + hosts `https://www.youtube.com/*` e origem do backend; nenhuma persistência de dados analíticos por padrão, cache local restrito ao escopo da extensão |
 | **RNF-01 / RNF-02 — Performance** | Resposta em até 10s, TBT +50ms, RAM +80MB | Chamadas assíncronas com indicador de progresso desde o primeiro clique; lazy-loading do painel; monitoramento de bundle size do content script |
 | **RNF-07 — Acessibilidade (WCAG AA)** | Interface hierarquizada e navegável por teclado | Uso de HTML semântico, contraste validado (ferramenta tipo axe-core em CI), foco gerenciado via `tabindex` no painel |
 

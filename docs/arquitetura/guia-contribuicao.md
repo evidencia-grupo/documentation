@@ -2,175 +2,93 @@
 
 ## Nesta página
 
-- [Pré-requisitos](#pre-requisitos)
-- [Rodar a Documentação Localmente](#rodar-a-documentacao-localmente)
-- [Ambiente de Desenvolvimento da Extensão](#desenvolvimento-extensao)
-- [Ambiente de Desenvolvimento do Backend Proxy](#desenvolvimento-backend)
-- [Estrutura Consolidada do Repositório](#estrutura-de-arquivos)
+- [Onde está cada instrução](#fontes-canonicas)
+- [Verificações da CI deste repositório](#verificacoes-da-ci)
+- [Estrutura Consolidada dos Repositórios](#estrutura-de-arquivos)
 - [Convenções e Padrões de Engenharia](#convencoes-de-documentacao)
 - [Checklist Obrigatório de Pré-Commit](#checklist-antes-de-commitar)
 
 ---
 
-## Pré-requisitos {: #pre-requisitos }
+## Onde está cada instrução {: #fontes-canonicas }
 
-| Ferramenta | Versão Mínima | Finalidade |
+Esta página reúne convenções e a estrutura dos repositórios. Para não manter instruções duplicadas, os procedimentos ficam em uma única fonte:
+
+| Assunto | Fonte canônica |
+|:---|:---|
+| Instalar e executar backend, extensão e este site; rodar testes | [Desenvolvimento local](../inicio/desenvolvimento-local.md) |
+| Variáveis de ambiente do backend | `backend/.env.example` e `backend/app/config.py` no [repositório EvidencIA](https://github.com/evidencia-grupo/EvidencIA); uso em [Configuração e evidências](../operacao/configuracao-e-evidencias.md) |
+| Fluxo de branch, commits e pull requests deste repositório | `CONTRIBUTING.md` na raiz do repositório `documentation` |
+| Fluxo de contribuição do código | `CONTRIBUTING.md` do repositório EvidencIA |
+
+Versões anteriores desta página traziam variáveis que não existem no backend (`CORS_ORIGINS`, `RATE_LIMIT_PER_MINUTE`, `AI_ANALYSIS_TIMEOUT_SECONDS`, `GEMINI_API_KEY`), timeout de 8 s e `pip install -r requirements.txt` para este site. Os nomes vigentes são, entre outros, `CORS_ALLOWED_ORIGINS`, `RATE_LIMIT_MAX_PER_MINUTE`, `LLM_TIMEOUT_SECONDS` (padrão e teto de 15 s), `LLM_PROVIDER` e `REMOTE_LLM_API_KEY`.
+
+---
+
+## Verificações da CI deste repositório {: #verificacoes-da-ci }
+
+| Workflow | Quando roda | O que bloqueia |
 |:---|:---|:---|
-| **Python** | >= 3.12 | Backend Proxy (FastAPI + Pydantic v2) e ferramentas de documentação |
-| **Node.js** | >= 20 LTS | Build da extensão (Preact + Vite + TypeScript) com npm >= 10 |
-| **uv** | Mais recente | Gerenciador determinístico opcional para ferramentas Python e MkDocs |
-| **Git** | >= 2.40 | Controle de versões |
-| **Navegador Chromium** | Google Chrome, Edge ou Brave | Execução e validação da extensão em modo desenvolvedor |
+| `.github/workflows/ci-docs.yml` | Push e PR para `main`; manual | Emojis em páginas ativas; `uv sync --frozen`; `uv run mkdocs build --strict`. Publica no GitHub Pages só em push para `main`. |
+| `.github/workflows/docs-links.yml` | PR para `main` que altere `docs/**`, `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `mkdocs.yml` ou o próprio workflow; manual | Links e imagens relativos inexistentes, URIs `file://` e imagens sem texto alternativo nas páginas ativas. |
 
----
+Links externos (`http://`, `https://`) não são verificados por nenhum workflow, pois dependem de rede e de limites de taxa de terceiros; confira-os manualmente quando alterá-los.
 
-## Rodar a Documentação Localmente {: #rodar-a-documentacao-localmente }
-
-No repositório `documentation/`, o ambiente e as dependências são gerenciados via **uv** ou `pip`:
+Para reproduzir localmente, na raiz de `documentation/`:
 
 ```bash
-# 1. Iniciar o servidor de desenvolvimento com hot-reload via uv:
-uv run mkdocs serve
-
-# Ou alternativamente via python venv:
-# python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
-# mkdocs serve
-
-# O site estara disponivel em: http://127.0.0.1:8000
-```
-
-```bash
-# 2. Executar o build estático com validação estrita (CI/CD):
+uv sync --frozen
 uv run mkdocs build --strict
-
-# A flag --strict assegura que avisos e links quebrados bloqueiem a esteira
 ```
 
----
-
-## Ambiente de Desenvolvimento da Extensão {: #desenvolvimento-extensao }
-
-No repositório de código `evidencia/`, a extensão localiza-se no diretório `extension/`:
-
-1. **Instalar Dependências e Compilar:**
-   ```bash
-   cd extension
-   npm install
-   npm run build
-   # Gera a pasta de distribuicao extension/dist/ com manifest.json, service-worker.js, content-script.js e panel
-   ```
-
-2. **Desenvolvimento Contínuo com Watch:**
-   ```bash
-   npm run dev
-   # Compila em modo incremental ao salvar alteracoes
-   ```
-
-3. **Carregar no Navegador Chromium:**
-   - Acesse `chrome://extensions/` (ou `edge://extensions/` ou `brave://extensions/`).
-   - Ative a opção **Modo do desenvolvedor** no canto superior direito.
-   - Clique no botão **Carregar sem compactação** (*Load unpacked*).
-   - Selecione o diretório `extension/dist/`.
-
-4. **Testar no YouTube:**
-   - Abra qualquer vídeo em `https://www.youtube.com/watch?v=...`.
-   - Localize o botão de acionamento da investigação injetado via Shadow DOM abaixo do player do vídeo.
-
----
-
-## Ambiente de Desenvolvimento do Backend Proxy {: #desenvolvimento-backend }
-
-O Backend Proxy em FastAPI reside no diretório `backend/` do repositório `evidencia/`:
-
-```bash
-# Opção A (Recomendada via uv):
-cd backend
-uv sync                     # Cria venv e instala dependencias e ferramentas dev
-cp .env.example .env        # Configura variaveis locais
-uv run uvicorn app.main:app --reload --port 8000  # Inicia servidor local
-uv run pytest               # Executa testes automatizados
-uv run ruff check .         # Executa linter
-
-# Opção B (Tradicional via pip):
-cd backend
-python3 -m venv .venv
-source .venv/bin/activate   # No Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env
-uvicorn app.main:app --reload --port 8000
-pytest
-ruff check .
-```
-
-Variáveis mínimas requeridas no arquivo `.env`:
-```ini
-PORT=8000
-ENVIRONMENT=development
-CORS_ORIGINS=["chrome-extension://*"]
-RATE_LIMIT_PER_MINUTE=60
-AI_ANALYSIS_TIMEOUT_SECONDS=8.0
-GEMINI_API_KEY=sua_chave_de_teste_aqui
-```
+O script de links é o bloco `python -c` de `docs-links.yml`; execute-o a partir da raiz do repositório com o Python 3.12 do ambiente (`uv run python -c "..."`).
 
 ---
 
 ## Estrutura Consolidada dos Repositórios {: #estrutura-de-arquivos }
 
-O ecossistema do projeto divide-se em dois repositórios complementares:
+O ecossistema do projeto divide-se em dois repositórios complementares.
 
-### Repositório de Código (`evidencia`)
+### Repositório de Código (`EvidencIA`)
 ```
-evidencia/
-├── .github/
-│   ├── workflows/ci.yml     → Pipeline unificada (4 estágios: lint, build, test, deploy para front e back)
-│   ├── CODEOWNERS           → Definicao de responsaveis tecnicos por modulo
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   └── ISSUE_TEMPLATE/      → Templates de bug, feature e user story
-├── extension/               → Extensao Chromium Manifest V3 (Preact + TypeScript + Vite)
-│   ├── manifest.json
-│   ├── package.json
-│   ├── tsconfig.json
-│   ├── vite.config.ts
+EvidencIA/
+├── .github/workflows/       → ci.yml (lint, build, testes e E2E) e release-extension.yml
+├── extension/               → Extensão Chromium Manifest V3 (Preact + TypeScript + Vite)
+│   ├── manifest.json        → Permissões storage e scripting; hosts YouTube e backend
+│   ├── e2e/                 → Testes Playwright
 │   └── src/
-│       ├── background/      → Service Worker (cache e requisicoes)
-│       ├── content/         → Content Script (Shadow DOM no player)
-│       └── panel/           → Painel Lateral Preact (ClaimCard, EvidenceCard, ReflectionQuestions)
-├── backend/                 → Backend Proxy seguro (Python 3.12+ FastAPI)
-│   ├── pyproject.toml
-│   ├── requirements.txt
-│   ├── .python-version
-│   ├── .env.example
+│       ├── background/      → Service Worker (cache, captura de legendas, chamadas ao backend)
+│       ├── content/         → Content Script (botão em Shadow DOM, parser de legendas)
+│       └── panel/           → Painel Preact (ClaimCard, EvidenceCard, ReflectionQuestions)
+├── backend/                 → Backend Proxy (Python 3.12, FastAPI)
 │   ├── app/
-│   │   ├── main.py          → Ponto de entrada FastAPI, CORS e Rate Limiting
-│   │   ├── config.py        → Carregamento e validacao de ambiente
-│   │   ├── schemas.py       → Modelos Pydantic v2 sincronizados com o contrato
-│   │   ├── api/v1/          → Endpoints /analyze e /health
-│   │   └── services/        → Orquestrador de IA com timeout de 8,0s
-│   └── tests/               → Testes de integracao com pytest e TestClient
-├── shared/                  → Contratos compartilhados (Single Source of Truth)
-│   ├── schemas/api-schema.json
-│   └── types/api.ts
-├── CONTRIBUTING.md          → Normas corporativas e fluxo de branch
-├── SECURITY.md              → Politica de reporte de vulnerabilidades
-└── README.md
+│   │   ├── api/v1/          → /auth/token, /analyze, /feedback, /classify, /health, /health/live, /health/ready
+│   │   ├── providers/       → ollama, remote, mock
+│   │   └── services/        → orquestração, busca de evidências, classificador e autenticação
+│   ├── ml/                  → classificador de contingência, datasets e recuperação
+│   └── tests/               → Pytest
+├── shared/                  → Contratos gerados (schemas/api-schema.json, types/api.ts)
+├── scripts/                 → generate_contracts.py, check_drift.py, check_readiness.py, evaluate_retrieval.py
+├── evaluation/              → Gold set de recuperação (sem anotação humana)
+├── experiments/fakebr/      → Experimento acadêmico Fake.br
+└── render.yaml              → Blueprint de hospedagem no Render
 ```
 
 ### Repositório de Documentação (`documentation`)
 ```
 documentation/
 ├── .github/workflows/
-│   ├── ci-docs.yml              → Esteira de lint sem emojis e build estrito
-│   └── docs-links.yml           → Validador de links relativos
-├── pyproject.toml               → Dependencias MkDocs Material via uv
-├── CHANGELOG.md                 → Historico cronologico de versoes
-├── mkdocs.yml                   → Configuracao estrutural de navegacao
-└── docs/                        → Portal completo de documentacao
-    ├── index.md                 → Portal de entrada
-    ├── glossario.md             → Vocabulario unificado do projeto
-    ├── visao/                   → Visao geral, topologia e painel de status
-    ├── requisitos/              → Requisitos RF/RNF, Casos de Uso, HU e Rastreabilidade
-    ├── arquitetura/             → C4, Contrato API, Seguranca e ADR-001 a ADR-006
-    └── validacao/               → Questoes norteadoras, experimento, metricas e DoD
+│   ├── ci-docs.yml              → Lint sem emojis, build estrito e publicação
+│   └── docs-links.yml           → Validador de links e imagens relativos
+├── pyproject.toml / uv.lock     → Dependências MkDocs Material via uv
+├── mkdocs.yml                   → Navegação e exclusões
+└── docs/
+    ├── index.md, glossario.md
+    ├── inicio/, operacao/, legal/
+    ├── visao/, requisitos/, arquitetura/, validacao/, governanca/
+    ├── auditoria/                → Relatórios datados (na navegação)
+    ├── auditorias/historico/     → Snapshot congelado (fora da navegação)
+    └── desenvolvimento/referencia-original/ → READMEs originais (fora da navegação)
 ```
 
 ---
@@ -181,6 +99,8 @@ documentation/
 - Estilo estritamente técnico e profissional, **sem utilização de emojis**.
 - Uso de identificadores explícitos (`{: #id }`) em cabeçalhos para manter âncoras estáveis.
 - Referências cruzadas baseadas em caminhos relativos para garantir portabilidade em builds locais e servidores de CI.
+- Imagens informativas com texto alternativo descritivo e, quando contêm dados, o conteúdo essencial também em texto ou tabela.
+- Estado explícito de cada afirmação: planejado, implementado, testado localmente ou verificado no ambiente publicado.
 
 ### Admonitions Oficiais
 Utilize os blocos nativos do Material for MkDocs:
@@ -199,11 +119,12 @@ Utilize os blocos nativos do Material for MkDocs:
 
 ## Checklist Obrigatório de Pré-Commit {: #checklist-antes-de-commitar }
 
-- [ ] Todos os novos arquivos e seções foram mapeados no menu `nav` do `mkdocs.yml`.
+- [ ] Todos os novos arquivos e seções foram mapeados no menu `nav` do `mkdocs.yml` ou excluídos intencionalmente em `exclude_docs`.
 - [ ] Links cruzados utilizam caminhos relativos e âncoras normalizadas.
 - [ ] O comando de validação estrita `uv run mkdocs build --strict` executa com **zero avisos e zero erros**.
 - [ ] O arquivo `CHANGELOG.md` registra as alterações na seção `[Unreleased]`.
 - [ ] Nenhum segredo ou chave de API foi inserido em arquivos versionados.
+- [ ] Nenhum arquivo em `docs/auditorias/historico/` ou `docs/desenvolvimento/referencia-original/` foi alterado (exceto `PROVENIENCIA.md`).
 
 ---
 

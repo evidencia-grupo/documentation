@@ -5,6 +5,23 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
 
 ---
 
+## [Unreleased]
+
+### Fixed
+- Contrato da API alinhado a `backend/app/schemas.py` (`EvidencIA@6ec6c70`): `segments`, `analysisMode`, `matchReason`, tempos por alegação e formato real dos erros (`detail`).
+- Threat model corrigido quanto a limite de taxa, limites de corpo, `sandbox` do painel e risco residual da emissão de tokens; ressalva de que a análise de LGPD não é parecer jurídico.
+- Status, DoD e backlog deixam de marcar como concluídos itens sem evidência (telemetria, métricas de recuperação, TBT/memória, secret scan, Gherkin).
+- Permissões da extensão (`storage` e `scripting`) atualizadas em glossário, matriz de rastreabilidade e priorização; limiar efetivo do classificador de contingência (0,60) documentado.
+- Guias de desenvolvimento local e de contribuição sem variáveis inexistentes e com comandos separados por repositório.
+- Tabelas largas deixam de ser cortadas em telas estreitas (`overflow: auto`).
+
+### Changed
+- Verificador de links da CI cobre imagens, `alt` vazio, `CONTRIBUTING.md`, `SECURITY.md` e `mkdocs.yml`; concorrência do Pages restrita ao job de deploy; timeouts por job.
+- Textos alternativos descritivos e tabelas equivalentes para gráficos de IA e quadros de requisitos; divergência entre quadros da oficina de votação e tabelas consolidadas registrada.
+- Fontes canônicas declaradas para telemetria, backlog, decisões, status e IA; diretórios de auditoria e snapshots históricos explicados.
+
+---
+
 ## [1.0.0] — 2026-10-09 (Veredito Oficial: GO)
 
 ### Added

@@ -36,7 +36,11 @@ uv run mkdocs build --strict
 - `docs/legal/`: política de privacidade.
 - `docs/validacao/`: protocolos e métricas; planos não equivalem a experimentos concluídos.
 - `docs/governanca/`: decisões aprovadas e prontidão atual.
-- `docs/auditorias/historico/`: registros anteriores preservados com origem, fora da navegação.
+- `docs/auditoria/`: relatórios de auditoria datados, publicados na navegação.
+- `docs/auditorias/historico/`: snapshot congelado da auditoria anterior, fora da navegação e sem edição.
+- `docs/desenvolvimento/referencia-original/`: READMEs originais preservados com proveniência, fora da navegação.
+
+A diferença entre os diretórios de auditoria está em [Mapa do projeto](docs/visao/mapa-do-projeto.md#auditorias).
 
 ## Governança e Comunidade
 

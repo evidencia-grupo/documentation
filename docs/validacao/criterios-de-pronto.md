@@ -10,6 +10,9 @@
 
 ---
 
+!!! note "Como ler as marcações"
+    `[x]` indica critério com evidência verificável; `[ ]` indica critério sem evidência localizada na revisão de 23/10/2026 contra `EvidencIA@6ec6c70`. Contagens e cobertura vigentes estão em [Prontidão atual](../governanca/prontidao.md#evidencias); os números entre parênteses abaixo eram os da auditoria de 09/10/2026.
+
 ## DoD Geral (todas as entregas) {: #dod-geral }
 
 Uma entrega está **Done** quando todos os itens abaixo estiverem verificados:
@@ -29,11 +32,11 @@ Além da DoD Geral, código de produção satisfaz:
 
 - [x] **Lint e typecheck limpos** — zero erros de `ruff`, `tsc` e linters no CI.
 - [x] **Cobertura de testes ≥ 80%** para o módulo entregue (backend 91.2%, frontend 99.6%).
-- [x] **Nenhum secret ou credencial** no código, logs ou artefatos (verificado por secret scan).
+- [ ] **Nenhum secret ou credencial** no código, logs ou artefatos (verificado por secret scan). *Pendente: a CI do EvidencIA não executa secret scan automatizado.*
 - [x] **Mock de IA desativado** — `LLM_PROVIDER=mock` estritamente bloqueado em builds de produção (`MockInProductionError`).
-- [x] **Critérios de aceitação Gherkin** executáveis passando para todas as HUs correspondentes.
+- [ ] **Critérios de aceitação Gherkin** executáveis passando para todas as HUs correspondentes. *Pendente: não há arquivos `.feature` nem executor Gherkin; os critérios são cobertos indiretamente por testes Pytest, Vitest e Playwright.*
 - [x] **Sem console.log / print de debug** não intencionais no código commitado.
-- [x] **TBT ≤ 50 ms** e **memória adicional ≤ 80 MB** verificados na extensão.
+- [ ] **TBT ≤ 50 ms** e **memória adicional ≤ 80 MB** verificados na extensão. *Pendente: nenhuma medição de TBT ou memória foi localizada nos testes.*
 - [x] **Auditoria de acessibilidade** com `axe-core` sem erros de nível AA (WCAG 2.1 AA compliant).
 
 ---
@@ -45,8 +48,8 @@ Um notebook de EDA está **Done** quando:
 - [x] **Executa do zero** (Kernel → Restart & Run All) sem erros em ambiente limpo.
 - [x] **Seeds fixas** declaradas e documentadas para reprodutibilidade estrita.
 - [x] **Sem dados brutos commitados** — dados originais obtidos via script de download ou referência a artefato externo.
-- [x] **Métricas calculadas** (Recall@k, MRR, nDCG) documentadas na célula de resultados.
-- [x] **Interpretação qualitativa** dos top-k resultados documentada no notebook.
+- [ ] **Métricas calculadas** (Recall@k, MRR, nDCG) documentadas na célula de resultados. *Pendente: `scripts/evaluate_retrieval.py` responde `PENDING_HUMAN_ANNOTATION`; o gold set não tem rótulos humanos (H3).*
+- [ ] **Interpretação qualitativa** dos top-k resultados documentada no notebook. *Pendente pela mesma ausência de anotação humana.*
 - [x] **Conclusão** com resposta explícita às Guiding Questions abordadas.
 - [x] **Versionamento** — notebook commitado em pasta documentada com saídas limpas.
 

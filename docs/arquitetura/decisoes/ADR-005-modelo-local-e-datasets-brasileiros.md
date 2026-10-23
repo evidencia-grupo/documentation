@@ -9,6 +9,8 @@
 
 ---
 
+> **Atualização (23/10/2026):** Esta decisão permanece como registrada. O backend publicado no Render opera com `LLM_PROVIDER=remote` via OpenRouter ([Publicação na Chrome Web Store](../../operacao/publicacao-chrome-web-store.md)); Ollama com Qwen 2.5-3B segue disponível como provedor local. A revisão formal do status deste ADR diante dessa escolha operacional cabe aos responsáveis pela arquitetura.
+
 ## Contexto
 
 O pipeline de verificação do **EvidencIA** necessita processar transcrições em português brasileiro, extrair alegações atômicas checáveis e redigir sínteses analíticas compreensíveis para públicos leigos (Dona Lurdes — [HU02](../../requisitos/backlog-e-historias.md#hu02)) e pesquisadores (Amanda — [HU04](../../requisitos/backlog-e-historias.md#hu04)), operando sob um teto estrito de latência no servidor de 8,0 segundos ([RNF-01](../../requisitos/catalogo-requisitos.md#rnf-01)).

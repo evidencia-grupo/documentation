@@ -94,7 +94,7 @@ Uma bateria com profissionais, estudantes e servidores públicos (Entrevistados 
 
 Com as necessidades e rejeições dos usuários mapeadas, a equipe conduziu um benchmarking competitivo formal das alternativas existentes no mercado, contrastando seus modelos com a visão do produto.
 
-![Visão do Produto e Diferenciação](../assets/visao-do-produto-concorrentes.png)
+![Quadro manuscrito da visão do produto: para pessoas que se informam sobre saúde pelo YouTube; diferente de NewsGuard e Fake News Detector, conduz o processo investigativo junto com o usuário](../assets/visao-do-produto-concorrentes.png)
 
 | Solução Analisada | Categoria | Pontos Fortes | Limitações e Lacunas Identificadas | Diferencial da Extensão |
 |:---|:---|:---|:---|:---|
@@ -111,7 +111,8 @@ Com as necessidades e rejeições dos usuários mapeadas, a equipe conduziu um b
 
 A partir das dores dos usuários e das lacunas dos concorrentes, a equipe desenvolveu wireframes e protótipos navegáveis, culminando no mockup de alta fidelidade integrado à interface do YouTube:
 
-![Mockup do Painel Lateral Integrado ao YouTube](../assets/mockup-painel-youtube.png)
+![Mockup inicial: página de vídeo do YouTube com selo 'Veracidade do vídeo: 68%' e painel lateral com velocímetro de 68% marcado como verdadeiro, explicação da nota e lista de quatro fontes com links](../assets/mockup-painel-youtube.png)
+*Figura: protótipo da fase de elicitação. O velocímetro e a nota percentual foram descontinuados pelo [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md) e não existem na extensão.*
 
 ### Decisões de Design Validadas no Protótipo:
 
@@ -133,7 +134,7 @@ Cada participante recebeu um orçamento virtual fixo de **$100 (cem dólares)** 
 
 ### Alocação Orçamentária em Requisitos Funcionais ($) {: #alocacao-rf }
 
-![Alocação dos 100 Dólares nos Requisitos Funcionais](../assets/votacao-requisitos-funcionais.png)
+![Quadro da votação dos 100 dólares com 15 requisitos funcionais candidatos na numeração original da oficina, cada um com fichas de voto e total; transcrição na nota abaixo](../assets/votacao-requisitos-funcionais.png)
 
 *Quadro de Investimento nos Requisitos Funcionais (ordenado por ID):*
 
@@ -155,9 +156,9 @@ Cada participante recebeu um orçamento virtual fixo de **$100 (cem dólares)** 
 
 ### Alocação Orçamentária em Requisitos Não Funcionais ($) {: #alocacao-rnf }
 
-![Alocação dos 100 Dólares nos Requisitos Não Funcionais — Painel 1](../assets/votacao-requisitos-nao-funcionais-1.png)
+![Primeiro painel da votação dos 100 dólares com os requisitos não funcionais RNF-01 a RNF-10 na numeração original da oficina; transcrição na nota abaixo](../assets/votacao-requisitos-nao-funcionais-1.png)
 
-![Alocação dos 100 Dólares nos Requisitos Não Funcionais — Painel 2](../assets/votacao-requisitos-nao-funcionais-2.png)
+![Segundo painel da votação dos 100 dólares com os requisitos não funcionais RNF-11 a RNF-17 na numeração original da oficina; transcrição na nota abaixo](../assets/votacao-requisitos-nao-funcionais-2.png)
 
 *Quadro de Investimento nos Requisitos Não Funcionais (ordenado por ID):*
 
@@ -171,15 +172,60 @@ Cada participante recebeu um orçamento virtual fixo de **$100 (cem dólares)** 
 | **RNF-06** | Resiliência e Tolerância a Falhas | **$22** | Degradação graciosa com indicação visual sem travamentos do navegador | **Must Have \| IN** |
 | **RNF-07** | Acessibilidade e Usabilidade Digital | **$40** | Conformidade com WCAG 2.1 AA, contraste ≥ 4,5:1 e suporte integral a teclado | **Must Have \| IN** |
 
+!!! note "Meta de permissões superada"
+    A meta "permissão restrita a `activeTab`" registra o que foi elicitado. A implementação atual dispensou a `activeTab` (removida em 14/10/2026) e declara `storage` e `scripting`; a redação vigente está no [RNF-05 do catálogo](catalogo-requisitos.md#rnf-05).
+
+!!! warning "Quadros da oficina e tabelas consolidadas não coincidem"
+    Os quadros fotografados acima usam a numeração original da oficina (15 RF e 17 RNF) e totais diferentes dos das tabelas consolidadas desta página (11 RF e 7 RNF). Exemplos: no quadro, RF-06 é "perguntas para estimular o pensamento crítico" com 12 votos, enquanto na tabela RF-06 é "síntese estruturada" com $42; o quadro de RNF não tem um item de $40 dedicado a latência. A correspondência entre os dois conjuntos não está documentada. As tabelas foram mantidas como estavam, e a transcrição abaixo preserva os quadros; a reconciliação depende de revisão por quem conduziu a oficina.
+
+??? note "Transcrição dos quadros de votação (numeração original da oficina)"
+    | ID no quadro | Requisito funcional (resumo) | Total |
+    |:---|:---|:---:|
+    | RF-01 | Ativar a análise de um vídeo do YouTube pela extensão | 55 |
+    | RF-02 | Obter e analisar a transcrição do vídeo quando disponível | 61 |
+    | RF-03 | Apresentar evidências relacionadas à afirmação em linguagem acessível | 71 |
+    | RF-04 | Apresentar as fontes utilizadas e suas referências | 48 |
+    | RF-05 | Dar feedback sobre o processo de investigação, incentivando o pensamento crítico | 46 |
+    | RF-06 | IA fornecer perguntas e orientações para estimular o pensamento crítico | 12 |
+    | RF-07 | Apresentar síntese dos resultados, indicando evidências que apoiam ou contradizem | 2 |
+    | RF-08 | Informar quando não houver evidências suficientes | 26 |
+    | RF-09 | Associar cada alegação ao seu timestamp no player | 46 |
+    | RF-10 | Alertar quando o vídeo não tiver legendas ou transcrição | 0 |
+    | RF-11 | Armazenar em cache local os resultados recentes | 0 |
+    | RF-12 (escrito "F-12") | Copiar ou exportar a síntese com evidências e referências | 10 |
+    | RF-13 | Avaliar a relevância e a precisão das evidências | 25 |
+    | RF-14 | Apresentar data original de postagem e dados do canal | 15 |
+    | RF-15 | Validar o idioma da transcrição e avisar se não for suportado | 26 |
+
+    | ID no quadro | Requisito não funcional (resumo) | Total |
+    |:---|:---|:---:|
+    | RNF-01 | Usabilidade: interface intuitiva, sem treinamento prévio | 40 |
+    | RNF-02 | Usabilidade: evitar sobrecarga cognitiva | 40 |
+    | RNF-03 | Transparência: referenciar as fontes de cada análise | 40 |
+    | RNF-04 | Transparência: permitir checagem autônoma por links e metadados | 18 |
+    | RNF-05 | Confiabilidade: comunicar incerteza e contradições | 52 |
+    | RNF-06 | Desempenho: confirmação em 1 s e primeiro resultado em até 10 s | 25 |
+    | RNF-07 | Privacidade e LGPD | 26 |
+    | RNF-08 | Resiliência: degradar graciosamente diante de falhas externas | 8 |
+    | RNF-09 | Confiabilidade: sínteses fundamentadas em evidências externas | 20 |
+    | RNF-10 | Acessibilidade (WCAG) | 30 |
+    | RNF-11 | Confiabilidade: alertar quando as fontes forem insuficientes | 26 |
+    | RNF-12 | Arquitetura e compatibilidade com Manifest V3 | 2 |
+    | RNF-13 | Segurança: nenhuma credencial no cliente, proxy autenticado | 26 |
+    | RNF-14 | Disponibilidade: limite de taxa (10 checagens por hora no MVP) | 12 |
+    | RNF-15 | Segurança: permissões mínimas (`activeTab`, origem do YouTube) | 20 |
+    | RNF-16 | Desempenho: TBT até +50 ms e até 80 MB de memória | 1 |
+    | RNF-17 | Resiliência: tratar desconexões e timeouts sem travar | 14 |
+
 ---
 
 ## Etapa 5: Matriz MoSCoW e Classificação IN/OUT do MVP {: #etapa-5-moscow-in-out }
 
 O resultado quantitativo do investimento na dinâmica dos 100 Dólares foi consolidado na **Matriz MoSCoW** e na **Matriz IN/OUT** de produto, segregando o que compõe o núcleo da primeira versão em produção (MVP) do que fica programado para evoluções:
 
-![Matriz MoSCoW](../assets/matriz-moscow-votacao.png)
+![Quadro MoSCoW da oficina com notas adesivas de requisitos distribuídas em quatro quadrantes: Must Have, Should Have, Could Have e Won't Have, na numeração original da oficina](../assets/matriz-moscow-votacao.png)
 
-![Matriz IN e OUT do MVP](../assets/matriz-in-out-votacao.png)
+![Quadro IN e OUT da oficina com notas adesivas de requisitos separadas por uma linha vertical entre o que entra e o que fica fora do MVP, na numeração original da oficina](../assets/matriz-in-out-votacao.png)
 
 - **Must Have (MVP Onda 1 - IN):** RF-01, RF-02, RF-03, RF-04, RF-06, RF-07, RF-08 e a totalidade dos requisitos não funcionais (RNF-01 a RNF-07).
 - **Should Have (Onda 2 - IN):** RF-09 (cache local persistente) e RF-11 (contextualização temporal por data de upload e canal).

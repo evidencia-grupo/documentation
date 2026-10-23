@@ -64,7 +64,8 @@
 ## 3. Termos Técnicos de Extensões e Arquitetura Web
 
 ### activeTab
-- **Definição:** Permissão de segurança do Manifest V3 que concede acesso temporário apenas à aba atualmente em foco quando a extensão é ativada explicitamente pelo usuário, garantindo privacidade e princípio do menor privilégio.
+- **Definição:** Permissão do Manifest V3 que concede acesso temporário apenas à aba em foco quando a extensão é ativada explicitamente pelo usuário.
+- **Situação no EvidencIA:** Prevista no ADR-001 e removida em 14/10/2026 por não ser usada. As permissões atuais são `storage` e `scripting`, com `host_permissions` restritas a `https://www.youtube.com/*` e à origem do backend.
 - **Fonte Oficial:** [ADR-001](arquitetura/decisoes/ADR-001-manifest-v3.md) e [RNF-05](requisitos/catalogo-requisitos.md#rnf-05).
 
 ### Backend Proxy
@@ -72,7 +73,7 @@
 - **Fonte Oficial:** [ADR-002](arquitetura/decisoes/ADR-002-backend-proxy.md) e [Contrato de API](arquitetura/contrato-api.md).
 
 ### Content Script
-- **Definição:** Módulo JavaScript injetado na página do YouTube (`youtube.com/watch*`) responsável por capturar o `videoId`, extrair as legendas do player e injetar o botão e o painel lateral em uma árvore de DOM isolada.
+- **Definição:** Módulo JavaScript declarado para as páginas `https://www.youtube.com/*` e ativo nas páginas de vídeo responsável por capturar o `videoId`, extrair as legendas do player e injetar o botão e o painel lateral em uma árvore de DOM isolada.
 - **Fonte Oficial:** [Arquitetura do Sistema](arquitetura/arquitetura.md).
 
 ### Manifest V3 (MV3)

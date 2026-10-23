@@ -22,13 +22,45 @@ O corpus não é republicado (o snapshot não tem licença explícita); só esta
 
 ## Distribuições
 
-![Documentos por categoria e rótulo](../assets/ia/eda_categorias.png)
+Os gráficos usam vermelho para `fake` e verde para `true`; os valores estão também nas tabelas, extraídas de `experiments/fakebr/results/eda_summary.json`.
 
-![Tamanho dos textos por rótulo](../assets/ia/eda_tamanho.png)
+![Gráfico de barras de documentos por categoria e rótulo no Fake.br: política tem cerca de 2.090 documentos por rótulo, TV e celebridades 771, sociedade e cotidiano 638, e as demais categorias menos de 60; as barras falsas e verdadeiras têm a mesma altura em cada categoria](../assets/ia/eda_categorias.png)
 
-![Domínios de origem por rótulo](../assets/ia/eda_dominios.png)
+| Categoria | `fake` | `true` |
+|:---|:---:|:---:|
+| política | 2.089 | 2.088 |
+| tv_celebridades | 771 | 771 |
+| sociedade_cotidiano | 638 | 638 |
+| ciencia_tecnologia | 56 | 56 |
+| economia | 22 | 22 |
+| religiao | 22 | 22 |
+| não informado | 2 | 2 |
 
-![Marcadores estilísticos por rótulo](../assets/ia/eda_estilo.png)
+![Dois diagramas de caixa do tamanho em palavras: nos textos integrais, as notícias verdadeiras são muito mais longas (mediana 923) que as falsas (mediana 157); nos textos normalizados usados no modelo, as duas distribuições se sobrepõem](../assets/ia/eda_tamanho.png)
+
+| Versão do texto | Rótulo | Média | Mediana | P10 | P90 |
+|:---|:---|:---:|:---:|:---:|:---:|
+| Integral | `fake` | 185,9 | 157 | 84 | 312 |
+| Integral | `true` | 1.107,2 | 923 | 448 | 1.993 |
+| Normalizado (usado no modelo) | `fake` | 182,7 | 157 | 84 | 309 |
+| Normalizado (usado no modelo) | `true` | 186,0 | 160 | 87 | 312 |
+
+![Dois gráficos de barras horizontais com os domínios de origem: as falsas vêm quase todas de diariodobrasil.org; as verdadeiras vêm principalmente de g1.globo.com e de subdomínios do Estadão](../assets/ia/eda_dominios.png)
+
+| Rótulo | Principais domínios (documentos) |
+|:---|:---|
+| `fake` (6 domínios) | diariodobrasil.org (3.335), afolhabrasil.com.br (174), thejornalbrasil.com.br (66), ceticismopolitico.com (16), topfivetv.com (7), não informado (2) |
+| `true` (25 domínios; 10 maiores) | g1.globo.com (2.297), politica.estadao.com.br (753), internacional.estadao.com.br (114), cultura.estadao.com.br (95), www1.folha.uol.com.br (91), economia.estadao.com.br (51), brasil.estadao.com.br (46), esportes.estadao.com.br (30), alias.estadao.com.br (29), sao-paulo.estadao.com.br (16) |
+
+![Gráfico de barras de marcadores estilísticos por mil palavras: as falsas têm mais exclamações, interrogações, palavras em maiúsculas e aspas; as verdadeiras têm mais dígitos](../assets/ia/eda_estilo.png)
+
+| Marcador (por 1.000 palavras) | `fake` | `true` |
+|:---|:---:|:---:|
+| Exclamações | 3,39 | 0,41 |
+| Interrogações | 2,75 | 1,05 |
+| Palavras em maiúsculas | 11,78 | 10,34 |
+| Dígitos | 16,59 | 21,24 |
+| Aspas | 31,17 | 12,80 |
 
 ## Termos característicos
 

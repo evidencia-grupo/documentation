@@ -16,10 +16,13 @@
 
 ## Visão Geral do Pipeline de IA {: #visao-geral }
 
+!!! note "Estado atual dos provedores (verificado em `EvidencIA@6ec6c70`)"
+    O backend aceita três provedores por configuração (`LLM_PROVIDER`): `ollama` (local), `remote` (qualquer API compatível com `/chat/completions`) e `mock` (só desenvolvimento e testes; bloqueado em produção). O backend publicado no Render usa `remote` via OpenRouter, com o modelo e os modelos de reserva descritos em [Publicação na Chrome Web Store](../operacao/publicacao-chrome-web-store.md). O Ollama com Qwen 2.5-3B descrito abaixo e no [ADR-005](decisoes/ADR-005-modelo-local-e-datasets-brasileiros.md) é a opção local, não o motor do ambiente publicado. Valores de latência citados nesta página são metas de projeto, não medições.
+
 O projeto **EvidencIA** adota uma estratégia de inteligência artificial soberana e alinhada ao contexto sociolinguístico brasileiro. Em vez de depender exclusivamente de modelos de nuvem pagos com latência imprevisível ou classificadores genéricos em língua inglesa, a solução combina três pilares:
 
 1. **Inferência Local via Ollama com Qwen 2.5-3B-Instruct:**  
-   Execução de modelo *open-weights* local com latência mínima (< 100ms/token), sem custos recorrentes de nuvem e com geração de JSON estruturado nativa.
+   Execução de modelo *open-weights* local (meta de projeto: < 100ms/token, não medida), sem custos recorrentes de nuvem e com geração de JSON estruturado nativa.
 
 2. **Prioridade Absoluta a Datasets Brasileiros:**  
    Bases de dados curadas por agências de checagem do IFCN no Brasil (Agência Lupa, Aos Fatos, Boatos.org, UOL Confere) e universidades públicas (USP, UFG).

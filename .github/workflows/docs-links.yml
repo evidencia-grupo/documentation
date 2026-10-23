@@ -6,6 +6,10 @@ on:
     paths:
       - "docs/**"
       - "README.md"
+      - "CONTRIBUTING.md"
+      - "SECURITY.md"
+      - "mkdocs.yml"
+      - ".github/workflows/docs-links.yml"
   workflow_dispatch:
 
 permissions:
@@ -15,6 +19,7 @@ jobs:
   check-links:
     name: Validate Markdown Links
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -24,43 +29,55 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check Relative Links
+      # Verifica apenas destinos locais. Links externos não são verificados aqui
+      # porque dependem de rede e de limites de taxa de terceiros.
+      - name: Check Relative Links and Images
         run: |
           python -c "
-          import os, re, sys
+          import re, sys
           from pathlib import Path
 
+          frozen = ('auditorias/historico', 'desenvolvimento/referencia-original')
           docs_dir = Path('docs')
-          md_files = [p for p in docs_dir.rglob('*.md') if not any(part in p.parts for part in ('historico', 'referencia-original'))] + [Path('README.md')]
-          link_pattern = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+          md_files = [p for p in docs_dir.rglob('*.md') if not any(f in p.as_posix() for f in frozen)]
+          md_files += [Path(name) for name in ('README.md', 'CONTRIBUTING.md', 'SECURITY.md')]
+          link_pattern = re.compile(r'(!?)\[([^\]]*)\]\(\s*<?([^)\s>]+)>?(?:\s+\"[^\"]*\")?\s*\)')
+          img_tag = re.compile(r'<img\b[^>]*>', re.IGNORECASE)
+          fence = re.compile(r'^\s*(\`\`\`|~~~)')
 
           broken = []
           for md_path in md_files:
               if not md_path.exists():
                   continue
-              try:
-                  content = md_path.read_text(encoding='utf-8')
-              except Exception:
-                  continue
-              for lno, line in enumerate(content.splitlines(), start=1):
+              in_fence = False
+              for lno, line in enumerate(md_path.read_text(encoding='utf-8').splitlines(), start=1):
+                  if fence.match(line):
+                      in_fence = not in_fence
+                      continue
+                  if in_fence:
+                      continue
+                  for tag in img_tag.findall(line):
+                      if not re.search(r'\balt\s*=\s*\"[^\"]+\"', tag):
+                          broken.append((str(md_path), lno, tag[:60], 'img sem alt'))
                   for match in link_pattern.finditer(line):
-                      text, target = match.group(1), match.group(2).strip()
+                      is_image, text, target = match.group(1), match.group(2), match.group(3)
+                      if is_image and not text.strip():
+                          broken.append((str(md_path), lno, target, 'imagem sem texto alternativo'))
                       if target.startswith(('http://', 'https://', 'mailto:', '#')):
                           continue
-                      if target.startswith('file:///'):
+                      if target.startswith('file:'):
                           broken.append((str(md_path), lno, target, 'file:// URI proibida'))
                           continue
                       rel_path = target.split('#')[0]
                       if not rel_path:
                           continue
-                      resolved = (md_path.parent / rel_path).resolve()
-                      if not resolved.exists():
+                      if not (md_path.parent / rel_path).resolve().exists():
                           broken.append((str(md_path), lno, target, 'Arquivo inexistente'))
 
           if broken:
-              print(f'Encontrados {len(broken)} links quebrados:')
+              print(f'Encontrados {len(broken)} problemas:')
               for b in broken:
                   print(f'  {b[0]}:{b[1]} -> {b[2]} ({b[3]})')
               sys.exit(1)
-          print('Todos os links relativos foram validados com sucesso!')
+          print(f'{len(md_files)} arquivos verificados: links e imagens relativos válidos.')
           "

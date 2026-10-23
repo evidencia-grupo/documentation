@@ -1,5 +1,8 @@
 # Especificação do Contrato de Telemetria — Fase CBL Act
 
+!!! note "Escopo e estado"
+    Fonte canônica do contrato de telemetria do **experimento com participantes**. Estado em 23/10/2026: **especificado, não implementado** — `EvidencIA@6ec6c70` não contém `EXPERIMENT_MODE`, `grantConsent()` nem exportação JSONL, e o estudo com participantes não foi executado. A proposta de telemetria operacional de produto em [Instrumentação e Telemetria](../arquitetura/metricas-telemetria.md) é distinta e também não está implementada.
+
 ## 1. Princípios de Governança e Privacidade por Design
 
 O módulo de telemetria da fase Act foi concebido sob princípios rigorosos de minimização de dados, soberania do participante e ética científica:

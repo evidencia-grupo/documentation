@@ -12,3 +12,5 @@ Data: 09/10/2026. O usuário declarou "tudo já foi aprovado" e autorizou a reme
 | H6 - usuários | Aprovado pelo usuário | Testes de interface automatizados; não foram fabricados resultados de experimento com participantes |
 
 O registro anterior está preservado em docs/auditorias/historico/0ffe395/HUMAN-DECISIONS.md. Aprovação não é convertida em dado que não foi coletado.
+
+Escopo: esta página é a fonte canônica dos portões humanos H1 a H6. Decisões de produto e arquitetura (D-001 a D-009) estão no [Log de Decisões](../arquitetura/decisoes/registro-decisoes.md) e nos ADRs.

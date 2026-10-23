@@ -5,6 +5,9 @@
 > **Data de Homologação:** 2026-10-09  
 > **Responsáveis:** Principal Software Architect, Application Security Engineer, Staff QA & Product Lead  
 
+!!! warning "Registro datado — não é o estado atual"
+    Este relatório descreve a auditoria de 09/10/2026 e é mantido como registro. Contagens de testes, cobertura e veredito refletem aquela data. O estado vigente e as validações ainda pendentes (análise de ponta a ponta contra o backend publicado, anotação humana do gold set de recuperação, estudo com usuários, Docker e Redis multi-instância) estão em [Prontidão atual](../governanca/prontidao.md). "Aprovado" nos portões humanos H1 a H6 significa autorização registrada, não execução comprovada; ver [Decisões aprovadas](../governanca/decisoes-aprovadas.md). Os artefatos brutos da auditoria anterior ficam congelados em `docs/auditorias/historico/0ffe395/`, fora da navegação.
+
 ---
 
 ## A. Resumo Executivo
@@ -115,7 +118,7 @@ flowchart TD
 - **Repudiation:** Logs estruturados no backend com identificadores anônimos de instalação, sem gravação de PII.
 - **Information Disclosure:** **Zero segredos no cliente web** ([ADR-002](../arquitetura/decisoes/ADR-002-backend-proxy.md)); CORS bloqueando wildcard `*` em produção; respostas de erro 500 higienizadas.
 - **Denial of Service:** Rate limiting ativo (`SlowAPI`, 60 req/min); timeout rígido de 15s para IA com degradação graciosa para modo `Evidence-Only`; validação de payload mínimo (50 caracteres).
-- **Elevation of Privilege:** Extensão com permissões mínimas (`activeTab`, `storage`, `scripting`), sem `unsafe-eval` na CSP. Container Docker multi-stage executando como usuário não-root.
+- **Elevation of Privilege:** Extensão com permissões mínimas (`activeTab`, `storage`, `scripting` na data desta auditoria; `activeTab` foi removida em 14/10/2026 e o manifesto atual declara apenas `storage` e `scripting`), sem `unsafe-eval` na CSP. Container Docker multi-stage executando como usuário não-root.
 
 ---
 

@@ -12,14 +12,11 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   lint:
     name: Lint & Validação Estática
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout do Repositório
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -63,6 +60,7 @@ jobs:
   test:
     name: Testes e Validação de Links
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: lint
     steps:
       - name: Checkout do Repositório
@@ -86,9 +84,11 @@ jobs:
   build:
     permissions:
       contents: read
-      pages: write
+      # configure-pages sem enablement só lê o site (GET /pages); escrita fica no deploy.
+      pages: read
     name: Build para GitHub Pages
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: test
     steps:
       - name: Checkout do Repositório
@@ -125,8 +125,13 @@ jobs:
       id-token: write
     name: Deploy no GitHub Pages
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    # Serializa só as publicações; PRs não esperam na fila do Pages.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

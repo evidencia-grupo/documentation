@@ -16,6 +16,7 @@ As issues #66 a #69 foram conferidas contra o código e os testes, não só cont
 - Backend publicado: `/api/v1/health` respondeu `healthy`, com LLM, busca, cache e classificador operacionais. O plano gratuito leva cerca de 24 s para acordar.
 - Runtime sem pickle: o backend carrega só `model.json`; o `.plk` acadêmico fica em `experiments/fakebr/models/`.
 - CI desta branch: verificar os checks dos PRs; os resultados acima são de execução local.
+- Reexecução em 23/10/2026 sobre `EvidencIA@6ec6c70` (cópia limpa do commit, Windows, Python 3.12, Node 24): backend com 331 testes aprovados e 1 ignorado, cobertura de 91,90%, ruff sem apontamentos; `generate_contracts.py --check`, `check_drift.py` (0 crítico, 0 alto) e `check_readiness.py` sem falhas; extensão com typecheck, build e 235 testes Vitest aprovados (95,6% das instruções, 91,55% dos ramos). E2E com 16 testes Playwright aprovados.
 
 ## Limites
 

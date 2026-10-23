@@ -16,7 +16,7 @@
 
 ## Diagrama de Casos de Uso
 
-![Diagrama de Casos de Uso do Sistema](../assets/diagrama-casos-de-uso.png)
+![Diagrama UML de casos de uso: o ator Cliente inicia UC-01 Analisar Vídeo e UC-04 Inspecionar Fontes Originais; UC-01 inclui UC-02 Obter Transcrição, ligado ao YouTube Player, e UC-03 Extrair Alegações e Evidências, ligado ao Backend de IA e Busca; UC-05 Recuperar Análise do Cache e UC-06 Alertar Incerteza Analítica estendem UC-01](../assets/diagrama-casos-de-uso.png)
 *Figura: Diagrama UML formal de Casos de Uso da extensão, detalhando os atores, limites do sistema e integrações com o Player do YouTube e o Backend de IA.*
 
 ### Mapeamento Estrutural e Atores

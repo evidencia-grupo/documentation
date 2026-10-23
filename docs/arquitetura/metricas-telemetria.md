@@ -8,6 +8,12 @@
 - [Estrutura dos Payloads de Telemetria](#estrutura-dos-payloads)
 - [Arquitetura de Ingestão e Agregação](#arquitetura-de-ingestao)
 
+!!! warning "Proposta não implementada"
+    Esta página registra uma proposta de telemetria operacional de produto. Ela **não está implementada**: em `EvidencIA@6ec6c70` não há rota `/api/v1/telemetry`, envio de eventos pela extensão nem agregador, e a [Política de Privacidade](../legal/politica-de-privacidade.md) não prevê telemetria. A proposta também conflita com a [Especificação de Telemetria](../validacao/especificacao-telemetria.md) da fase Act, que exige telemetria desligada por padrão e sem chamadas de rede. Divisão de escopo:
+
+    - **Telemetria do experimento com participantes:** fonte canônica é a [Especificação de Telemetria](../validacao/especificacao-telemetria.md); métricas M1 a M9 em [Definição de Métricas](../validacao/definicao-metricas.md).
+    - **Telemetria operacional de produto (esta página):** proposta em aberto. Adotá-la exige decisão humana, atualização da política de privacidade e revisão jurídica antes de qualquer implementação.
+
 ---
 
 ## Princípios da Telemetria Ética e Privacidade {: #principios-da-telemetria }

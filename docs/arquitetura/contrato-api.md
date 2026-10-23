@@ -175,21 +175,25 @@ Verifica a integridade operacional do backend proxy e dos conectores de intelig�
 
 ## Modelos de Dados (JSON Schema e TypeScript) {: #modelos-de-dados-json-schema-e-typescript }
 
-Para manter a consistência entre o cliente JavaScript no navegador e o servidor, as seguintes definições TypeScript representam os tipos contratuais:
+A fonte canônica dos tipos é `backend/app/schemas.py`; dela são gerados [`shared/schemas/api-schema.json`](https://github.com/evidencia-grupo/EvidencIA/blob/main/shared/schemas/api-schema.json) e [`shared/types/api.ts`](https://github.com/evidencia-grupo/EvidencIA/blob/main/shared/types/api.ts) por `scripts/generate_contracts.py`. O resumo abaixo foi conferido contra `EvidencIA@6ec6c70` em 23/10/2026; em caso de divergência, prevalecem os arquivos gerados. Todos os modelos recusam campos extras (`extra="forbid"`).
 
 ```typescript
-export type VerificationClassification = "verdadeiro" | "moderado" | "falso" | "inconclusivo";
-
-export type ClaimVerificationStatus = "apoiada" | "contraditada" | "inconclusiva";
+export interface TranscriptSegment {
+  text: string;      // 1 a 100.000 caracteres
+  start: number;     // segundos, >= 0
+  duration: number;  // segundos, >= 0
+}
 
 export interface AnalyzeRequest {
-  videoId: string;
-  videoTitle: string;
-  channelName: string;
-  uploadDate?: string;
-  durationSeconds?: number;
-  transcript: string;
-  language?: string;
+  videoId: string;          // 1 a 128 caracteres
+  videoTitle: string;       // 1 a 500 caracteres
+  channelName: string;      // 1 a 500 caracteres
+  uploadDate?: string | null;
+  durationSeconds?: number | null;
+  transcript: string;       // 50 a 100.000 caracteres
+  language?: string | null; // padrão "pt-BR"
+  segments?: TranscriptSegment[];                      // até 5.000 segmentos
+  analysisMode?: "evidence_first" | "evidence_only";   // padrão "evidence_first"
 }
 
 export type EvidenceRelation = "supports" | "contradicts" | "contextualizes";
@@ -220,45 +224,41 @@ export interface Evidence {
   url: string;
   publishedAt: string;
   publisher: string;
-  snippet?: string;
+  snippet?: string | null;
+  matchReason?: string | null;
   provenance: EvidenceProvenance;
 }
 
 export interface Claim {
   id: string;
   text: string;
+  transcriptSnippet?: string | null;
+  timestampStart?: number | null;
+  timestampEnd?: number | null;
   temporalContext: TemporalContext;
-  evidence: Evidence[];
+  evidence?: Evidence[];
   uncertainty: UncertaintyState;
-  reflectionQuestions: string[];
+  reflectionQuestions?: string[] | null;
 }
 
 export interface AnalyzeResponse {
   videoId: string;
-  analysisMode: "evidence_first";
+  analysisMode: "evidence_first" | "evidence_only";
   videoTitle: string;
   channelName: string;
   publishedAt: string;
   processingTimeMs: number;
   claims: Claim[];
-  limitations: string[];
-}
-
-export interface ApiErrorDetail {
-  code: string;
-  message: string;
-  field?: string;
-}
-
-export interface ErrorResponse {
-  error: {
-    code: string;
-    message: string;
-    details?: ApiErrorDetail[];
-    timestamp: string;
-  };
+  limitations?: string[];
 }
 ```
+
+Os corpos de `POST /api/v1/auth/token`, `POST /api/v1/feedback`, `POST /api/v1/classify` e das sondas de saúde estão no JSON Schema canônico. Em resumo: `feedback` aceita `rating` (`positive` ou `negative`) e `reason` opcional (`outdated_sources`, `insufficient_evidence`, `inaccurate`, `other`); `classify` aceita `text` (3 a 10.000 caracteres) e `threshold` opcional (sem valor, aplica o `acceptance_threshold` de `model.json`, hoje 0,60, embora a descrição do campo no esquema cite 0,65) e devolve uma classe linguística, não um veredito factual.
+
+!!! note "Formato real dos erros"
+    O backend usa o formato padrão do FastAPI: `{"detail": "<mensagem>"}` para erros de negócio, corpo e autenticação, e `{"detail": [ ... ]}` com a lista de violações para HTTP 422 de validação de esquema. A readiness não pronta devolve `{"detail": {"status": "not_ready", "components": {...}}}`. A exceção é o HTTP 429, gerado pelo tratador padrão do SlowAPI no formato `{"error": "Rate limit exceeded: <limite>"}`. A interface `ErrorResponse` (`{ "error": { "code", "message", ... } }`) existe em `shared/types/api.ts`, mas nenhuma rota a emite; não a use para interpretar respostas.
+
+    Os rótulos em português `apoiada`, `contraditada` e `inconclusiva` (`ClaimVerificationStatus`) são internos ao cliente da Google Fact Check Tools API no backend e não fazem parte do contrato HTTP. O tipo `VerificationClassification` citado em versões anteriores desta página não existe no código.
 
 ---
 
@@ -272,7 +272,7 @@ export interface ErrorResponse {
 | **403 Forbidden** | Credencial Inválida | Token com assinatura inválida ou expirado. A extensão renova o token uma única vez e repete a chamada. |
 | **413 Content Too Large** | Corpo Excedido | Corpo declarado ou transmitido acima de `MAX_REQUEST_BODY_BYTES`. |
 | **422 Unprocessable Entity** | Conteúdo Inválido | Violação do esquema (campo obrigatório ausente, campo extra, tamanho fora do limite) ou transcrição com menos de 50 caracteres úteis. Extensão exibe a falha e permite nova tentativa. |
-| **429 Too Many Requests** | Limite Excedido | Taxa de requisições excedeu os limites de proteção (*Rate Limit*, janela de um minuto por endereço). Extensão exibe aviso amigável para tentar de novo em instantes. |
+| **429 Too Many Requests** | Limite Excedido | Taxa de requisições excedeu os limites de proteção (*Rate Limit*, janela de um minuto por endereço de cliente; 30/min em `/auth/token` e `RATE_LIMIT_MAX_PER_MINUTE`, padrão 60, nas demais rotas protegidas). Extensão exibe aviso amigável para tentar de novo em instantes. |
 | **503 Service Unavailable** | Serviço Indisponível | Falha inesperada no pipeline de análise ou readiness ainda não pronto. Extensão informa indisponibilidade e disponibiliza botão de repetição. Timeout do LLM não gera 503: a resposta degrada para `evidence_only`. |
 | **504 Gateway Timeout** | Tempo Limite Esgotado | Tempo limite da análise excedido fora das etapas de LLM. Extensão cancela o carregamento e notifica o usuário. |
 

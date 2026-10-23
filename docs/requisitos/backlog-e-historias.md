@@ -23,7 +23,7 @@
 
 ## Backlog do Produto por Épico {: #backlog-do-produto-por-epico }
 
-![Mapeamento Visual de Épicos, Features e Histórias de Usuário](../assets/epicos-e-features.png)
+![Quadro de notas adesivas em quatro colunas ligando épicos (azul), features F1.1 a F3.3 (verde) e histórias HU01 a HU12 com suas personas (amarelo); o detalhamento textual está nas tabelas de épicos e no índice de histórias desta página](../assets/epicos-e-features.png)
 *Figura: Mapeamento visual e estrutural entre Épicos, Features e Histórias de Usuário associadas às personas mapeadas.*
 
 | Épico | Módulo | Histórias | Prioridade MoSCoW | Rastreabilidade a Cenários |
@@ -64,7 +64,7 @@ Para facilitar a consulta direta e auditoria técnica, a tabela abaixo consolida
 
 A alocação de esforço e cadência de entrega de cada história segue o funil estratégico do produto:
 
-![Funil de Priorização do Backlog](../assets/funil-backlog.png)
+![Funil horizontal de backlog dividido em Later, Soon, Next e Now, com a linha do MVP entre Next e Now e notas adesivas ilegíveis nesta resolução em cada faixa](../assets/funil-backlog.png)
 *Figura: Funil de refinamento progressivo do backlog de produto (Now, Next, Soon, Later).*
 
 ---

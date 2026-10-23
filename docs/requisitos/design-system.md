@@ -23,7 +23,8 @@
 
 A interface da extensão foi projetada para se integrar de forma natural ao ecossistema visual do YouTube, operando sob o padrão de tema escuro (*Dark Theme*) nativo da plataforma. O objetivo central é fornecer **investigação assistida** com mínimo atrito cognitivo, permitindo ao usuário examinar evidências e formular suas próprias conclusões.
 
-![Interface do Painel Lateral da Extensão](../assets/mockup-painel-youtube.png)
+![Mockup inicial: página de vídeo do YouTube com selo 'Veracidade do vídeo: 68%' e painel lateral escuro com velocímetro de 68% marcado como verdadeiro, explicação da nota e lista de fontes com links](../assets/mockup-painel-youtube.png)
+*Figura: protótipo da fase de elicitação, mantido como referência de tema escuro e layout lateral. O velocímetro e a nota percentual foram descontinuados pelo [ADR-006](../arquitetura/decisoes/ADR-006-evidence-first-architecture.md); o painel implementado apresenta alegações, evidências e perguntas, sem nota global.*
 
 ---
 

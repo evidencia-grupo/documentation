@@ -34,7 +34,7 @@ uv run mkdocs serve
 uv run mkdocs build --strict
 ```
 
-O comando `uv run mkdocs build --strict` nao permite links quebrados ou erros de configuracao.
+O comando `uv run mkdocs build --strict` nao permite links quebrados ou erros de configuracao. Se o backend do EvidencIA estiver rodando na porta 8000, use `uv run mkdocs serve -a 127.0.0.1:8001`. A execucao da aplicacao e as verificacoes da CI estao em `docs/inicio/desenvolvimento-local.md` e `docs/arquitetura/guia-contribuicao.md`.
 
 ---
 
@@ -43,11 +43,13 @@ O comando `uv run mkdocs build --strict` nao permite links quebrados ou erros de
 - `docs/inicio/`: Guias de entrada e execucao local.
 - `docs/visao/`: Sintese executiva, mapa do projeto e topologia.
 - `docs/requisitos/`: Especificacao de requisitos (RF/RNF), personas e jornadas.
-- `docs/arquitetura/`: Documento de arquitetura (C4), contratos e ADRs.
-- `docs/operacao/`: Captura de legendas, verificacoes e operacao de pipeline.
-- `docs/validacao/`: Estrategia de testes e avaliacao de IR.
+- `docs/arquitetura/`: Documento de arquitetura (C4), contratos, seguranca, IA e ADRs.
+- `docs/operacao/`: Captura de legendas, configuracao e publicacao.
+- `docs/legal/`: Politica de privacidade.
+- `docs/validacao/`: Experimento, metricas, DoD e backlog do produto.
 - `docs/governanca/`: Prontidao, decisoes aprovadas e governanca de repositorios.
-- `docs/entregaveis/`: Downloads de artefatos tecnicos consolidados.
+- `docs/auditoria/`: Relatorios de auditoria datados, publicados na navegacao.
+- `docs/auditorias/historico/` e `docs/desenvolvimento/referencia-original/`: registros congelados fora da navegacao; nao edite (exceto `PROVENIENCIA.md`).
 
 ---
 

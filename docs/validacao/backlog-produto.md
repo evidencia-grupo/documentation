@@ -18,6 +18,8 @@
 
 A rastreabilidade completa das HUs permanece em [`docs/requisitos/backlog-e-historias.md`](../requisitos/backlog-e-historias.md).
 
+**Divisão de responsabilidades:** [Backlog e Histórias](../requisitos/backlog-e-historias.md) é a fonte canônica do enunciado, critérios de aceitação, épicos e prioridade MoSCoW de cada HU. Esta página é a fonte canônica da ordem de execução, estimativa (SP), sprint e status de entrega. Os títulos curtos usados aqui são rótulos de backlog; em caso de divergência de enunciado, prevalece a página de requisitos.
+
 ---
 
 ## Backlog Ordenado por Prioridade {: #backlog-priorizado }
@@ -49,8 +51,8 @@ A rastreabilidade completa das HUs permanece em [`docs/requisitos/backlog-e-hist
 | Ingestion Pipeline | Pipeline de ingestão e indexação no Chroma | 5 | Sprint 1 | Done |
 | Canonical Schema | Schema JSON `analysisMode: evidence_first` (ADR-006 Decisão 2) | 3 | Sprint 1 | Done |
 | Chroma Index | Índice vetorial FactChecks.br e busca híbrida | 5 | Sprint 1 | Concluído (BM25 / Jaccard ativo) |
-| EDA Notebook | Análise exploratória com Recall@k, MRR, nDCG, cobertura PT-BR | 8 | Sprint 1 | Done |
-| Retrieval Baseline | Baseline BM25 vs. embeddings com métricas objetivas | 5 | Sprint 1 | Done |
+| EDA Notebook | Análise exploratória com Recall@k, MRR, nDCG, cobertura PT-BR | 8 | Sprint 1 | Parcial: EDA entregue; Recall@k, MRR e nDCG pendentes de anotação humana do gold set (H3) |
+| Retrieval Baseline | Baseline BM25 vs. embeddings com métricas objetivas | 5 | Sprint 1 | Parcial: busca implementada; comparação com métricas objetivas pendente da mesma anotação |
 | Data Provenance | Documentação de origem, licença e hash dos datasets | 2 | Sprint 1 | Done |
 | Provider Abstraction | Implementação da interface LLMProvider (ADR-006 Decisão 6) | 5 | Sprint 2 | Done |
 | Failure/Timeout Handling | Modo Evidence-Only como fallback; hard timeout 15s | 3 | Sprint 2 | Done |

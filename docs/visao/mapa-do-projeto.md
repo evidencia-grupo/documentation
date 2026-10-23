@@ -141,3 +141,15 @@ flowchart LR
     style S2_Retro stroke-dasharray: 5 5,stroke:#888
 ```
 <!-- gen:mapa-cbl:end -->
+
+## Auditorias: relatórios ativos e registros congelados {: #auditorias }
+
+Há dois diretórios com nomes parecidos e papéis diferentes. Os caminhos foram mantidos para não quebrar URLs publicadas.
+
+| Diretório | Papel | Navegação do site |
+|:---|:---|:---|
+| `docs/auditoria/` | Relatórios consolidados mantidos como páginas da documentação: [Relatório Final (09/10/2026)](../auditoria/relatorio-final.md) e [Relatório Histórico (05/10/2026)](../auditoria/relatorio-20261005.md). São registros datados; o estado vigente está em [Prontidão atual](../governanca/prontidao.md). | Seção "Auditoria & Release" |
+| `docs/auditorias/historico/0ffe395/` | Snapshot congelado da auditoria anterior (relatórios, decisões humanas e artefatos brutos). Não é editado nem revalidado. | Excluído (`exclude_docs` em `mkdocs.yml`); consultar no repositório |
+| `docs/desenvolvimento/referencia-original/` | READMEs originais preservados com proveniência; ver `PROVENIENCIA.md` no repositório. | Excluído (`exclude_docs`) |
+
+No snapshot, `artifacts/go/phase-01/baseline-before.txt` e `baseline-after.txt` têm conteúdo idêntico (mesmo SHA-256 no checkout de 23/10/2026). Eles não documentam diferença entre um estado anterior e um posterior; nenhuma página ativa deve citá-los como evidência de mudança.

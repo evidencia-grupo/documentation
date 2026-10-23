@@ -13,6 +13,8 @@ Este documento registra as decisões estratégicas e de produto do projeto Evide
 
 Para decisões técnicas detalhadas, consulte as [Decisões Arquiteturais](ADR-001-manifest-v3.md) e o [ADR-006](ADR-006-evidence-first-architecture.md).
 
+**Escopo:** este log é a fonte canônica das decisões de produto e arquitetura (D-001 a D-009) e de sua origem nas Guiding Questions. Os portões humanos de liberação (H1 a H6), com a distinção entre aprovação e execução, ficam em [Decisões aprovadas](../../governanca/decisoes-aprovadas.md); o registro anterior desses portões está congelado em `docs/auditorias/historico/0ffe395/HUMAN-DECISIONS.md`. "Aceito" na coluna Status indica decisão tomada, não implementação concluída: a exceção D-008 (protótipo de controle em `experiments/control-gauge-prototype/`) não existe no repositório de código verificado em 23/10/2026.
+
 ---
 
 ## Tabela de Decisões {: #tabela-de-decisoes }

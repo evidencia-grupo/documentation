@@ -20,7 +20,10 @@
 
 Este documento estabelece a análise formal de segurança e privacidade da **Extensão de Fact-Checking para YouTube**, utilizando a metodologia **STRIDE** combinada com uma avaliação de conformidade sob os preceitos da **Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)**.
 
-A prioridade é assegurar que a extensão não exponha o usuário a riscos de espionagem ou sequestro de dados e que o backend proxy permaneça imune a abusos coordenados e custos descontrolados.
+A prioridade é assegurar que a extensão não exponha o usuário a riscos de espionagem ou sequestro de dados e que o backend proxy resista a abusos coordenados e custos descontrolados.
+
+!!! note "Base de verificação e limites desta análise"
+    As mitigações abaixo foram conferidas em 23/10/2026 contra `EvidencIA@6ec6c70` (`extension/manifest.json`, `extension/src/content/content-script.ts`, `backend/app/config.py`, `backend/app/schemas.py`, `backend/app/body_limit.py` e `backend/app/services/auth_service.py`). Valores configuráveis são citados pelo padrão do código; a configuração efetiva do ambiente publicado não foi inspecionada. A seção de LGPD é uma leitura técnica de engenharia, não um parecer jurídico: a adequação legal da [Política de Privacidade](../legal/politica-de-privacidade.md) e das bases legais depende de revisão por responsável jurídico.
 
 ---
 
@@ -46,7 +49,7 @@ flowchart LR
 
     YTPages -.->|Fronteira 1: Isolamento de DOM| CS
     CS <-->|Fronteira 2: Mensageria Interna| SW
-    SW <-->|Fronteira 3: HTTPS TLS 1.3 / Autenticado| Backend
+    SW <-->|Fronteira 3: HTTPS / Token Bearer| Backend
     Backend <-->|Fronteira 4: Acesso Seguro| Secrets
 ```
 
@@ -58,13 +61,13 @@ flowchart LR
 
 | Ameaça Mapeada | Impacto | Medida Mitigatória Implementada |
 |:---|:---|:---|
-| Requisições forjadas enviadas ao Backend Proxy por atacantes para consumir quotas de IA sem utilizar a extensão legítima | **Alto** (prejuízo financeiro e esgotamento de quota) | Validação do cabeçalho de origem (`chrome-extension://<id_oficial>`), emissão de tokens de sessão efêmeros e restrição de CORS no servidor. |
+| Requisições forjadas enviadas ao Backend Proxy por atacantes para consumir quotas de IA sem utilizar a extensão legítima | **Alto** (prejuízo financeiro e esgotamento de quota) | Tokens Bearer efêmeros assinados com HMAC-SHA256 (24 h), exigidos quando `REQUIRE_AUTH=true` (obrigatório em produção e staging); CORS restrito às origens configuradas em `CORS_ALLOWED_ORIGINS`; limite de taxa por cliente. **Risco residual:** `POST /api/v1/auth/token` emite token para qualquer `installationId` sintaticamente válido (limitado a 30/min por cliente), e CORS não impede chamadas fora do navegador; o token reduz abuso casual, mas não comprova que a chamada vem da extensão oficial (ver decisão H1 em [Decisões aprovadas](../governanca/decisoes-aprovadas.md)). |
 
 ### 2. Tampering (Adulteração de Dados e Injeção) {: #tampering }
 
 | Ameaça Mapeada | Impacto | Medida Mitigatória Implementada |
 |:---|:---|:---|
-| Injeção de scripts maliciosos (XSS) via transcrição manipulada ou metadados de fontes fraudulentas | **Crítico** (execução indevida de código na aba) | Renderização do painel em `iframe` com atributo `sandbox="allow-scripts"` (sem `allow-same-origin`); renderização do botão via Shadow DOM; escape automático de HTML pelo framework de UI. |
+| Injeção de scripts maliciosos (XSS) via transcrição manipulada ou metadados de fontes fraudulentas | **Crítico** (execução indevida de código na aba) | Painel renderizado em `iframe` de recurso da própria extensão, isolado da página do YouTube pela origem `chrome-extension://`; botão em Shadow DOM; escape automático de HTML pelo Preact. O `iframe` declara `sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"`; com `allow-scripts` e `allow-same-origin` juntos, o atributo `sandbox` não acrescenta isolamento relevante, e a proteção depende da separação de origens e do escape do framework. |
 | Tentativas de *Prompt Injection* inseridas no áudio do vídeo para burlar a análise da IA | **Médio** (geração de veredito incorreto) | O backend estrutura o prompt com separadores rígidos de contexto de sistema (*system instructions*) e instrui o modelo a tratar a transcrição estritamente como dado não executável. |
 
 ### 3. Repudiation (Repúdio) {: #repudiation }
@@ -84,8 +87,8 @@ flowchart LR
 
 | Ameaça Mapeada | Impacto | Medida Mitigatória Implementada |
 |:---|:---|:---|
-| Ataques volumétricos ou testes em lote automatizados (*scraping*) sobrecarregando o backend | **Alto** (indisponibilidade do serviço e custos elevados) | Aplicação de *Rate Limiting* rigoroso por endereço IP (máximo de 10 requisições por minuto) e bloqueio de padrões de chamada típicos de automação com respostas HTTP 429. |
-| Injeção de transcrições astronômicas para travar o analisador | **Médio** (sobrecarga de memória) | Limitação estrita do tamanho da carga de entrada no Backend Proxy (máximo de 150.000 caracteres por transcrição; rejeição com HTTP 413 em excessos). |
+| Ataques volumétricos ou testes em lote automatizados (*scraping*) sobrecarregando o backend | **Alto** (indisponibilidade do serviço e custos elevados) | *Rate limiting* por endereço de cliente com SlowAPI e resposta HTTP 429: `RATE_LIMIT_MAX_PER_MINUTE` (padrão 60/min) em `/analyze`, `/feedback` e `/classify`, e 30/min em `/auth/token`. O endereço considera `TRUSTED_PROXY_HOPS` atrás de proxy reverso; o armazenamento padrão `memory://` não é compartilhado entre instâncias, e o Blueprint do Render (`render.yaml`) configura `RATE_LIMIT_STORAGE_URI` para uma instância Key Value compartilhada. Não há detecção de padrões de automação além do limite de taxa. |
+| Injeção de transcrições astronômicas para travar o analisador | **Médio** (sobrecarga de memória) | Corpo acima de `MAX_REQUEST_BODY_BYTES` (padrão 512 KiB) é recusado com HTTP 413 antes do parsing; `transcript` acima de 100.000 caracteres ou mais de 5.000 segmentos violam o esquema e retornam HTTP 422. |
 
 ### 6. Elevation of Privilege (Elevação de Privilégio) {: #elevation-of-privilege }
 
@@ -112,9 +115,9 @@ A extensão foi projetada sob o princípio de **Privacidade desde a Concepção 
 | Princípio Legal (Art. 6º da LGPD) | Aplicação Prática no Produto |
 |:---|:---|
 | **Finalidade** (Inciso I) | O processamento limita-se exclusivamente à checagem de fatos do vídeo em exibição solicitado pelo usuário. |
-| **Adequação e Necessidade** (Incisos II e III) | Minimização de dados: a extensão coleta unicamente o identificador (`videoId`) e o texto da legenda pública. Nenhum dado cadastral (nome, e-mail, telefone) é exigido ou armazenado. |
-| **Livre Acesso e Transparência** (Incisos IV e VI) | O usuário tem total clareza de quando a extensão está ativa através do botão visível; o código do cliente é auditável. |
-| **Segurança e Prevenção** (Incisos VII e VIII) | Toda a comunicação utiliza criptografia HTTPS TLS 1.3; o cache local expira em 24h e permanece retido no próprio dispositivo do usuário. |
+| **Adequação e Necessidade** (Incisos II e III) | Minimização de dados: por análise, a extensão envia legenda, título, canal, data de publicação, duração e identificador do vídeo; mantém um identificador aleatório de instalação e a credencial temporária; o backend recebe o endereço IP pela conexão. O inventário completo está na [Política de Privacidade](../legal/politica-de-privacidade.md#dados-tratados). Nenhum dado cadastral (nome, e-mail, telefone) é exigido ou armazenado. |
+| **Livre Acesso e Transparência** (Incisos IV e VI) | O usuário vê quando a extensão está ativa através do botão visível; o código do cliente é auditável. Os operadores terceiros (provedor de LLM via OpenRouter, Google Fact Check Tools API e hospedagem) estão listados na política. |
+| **Segurança e Prevenção** (Incisos VII e VIII) | A comunicação com o backend publicado usa HTTPS (a versão de TLS é definida pela hospedagem e não foi verificada nesta análise); o cache local expira em 24h e permanece no próprio dispositivo do usuário. |
 | **Não Discriminação** (Inciso IX) | A análise de alegações baseia-se em literatura científica e bases de checagem consolidadas, sem categorização de perfil ideológico ou comportamental do usuário. |
 
 ---

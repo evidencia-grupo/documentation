@@ -21,4 +21,4 @@ A captura busca uma faixa de legendas do vídeo atual e lê seu conteúdo em `/a
 
 A [prontidão atual](governanca/prontidao.md) distingue testes concluídos de validações pendentes. Protocolos de participantes e planos de sprints são planos; não constituem resultados observados. As [decisões aprovadas](governanca/decisoes-aprovadas.md) registram a autorização do usuário separadamente dos experimentos.
 
-A documentação anterior permanece em `auditorias/historico/` e `desenvolvimento/referencia-original/`, fora da navegação ativa. Consulte o [glossário](glossario.md) para os termos usados.
+A documentação anterior permanece em `auditorias/historico/` e `desenvolvimento/referencia-original/`, fora da navegação ativa e sem edição. Os relatórios de auditoria publicados em `auditoria/` são registros datados; a diferença entre esses diretórios está no [mapa do projeto](visao/mapa-do-projeto.md#auditorias). Consulte o [glossário](glossario.md) para os termos usados.

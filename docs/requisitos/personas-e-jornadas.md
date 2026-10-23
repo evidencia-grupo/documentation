@@ -64,7 +64,7 @@
 
 A definição formal de antipersonas orienta os limites de escopo do produto e impede o desvio para funcionalidades não prioritárias:
 
-![Painel de Critérios de Exclusão e Antipersonas](../assets/criterios-exclusao.png)
+![Quadro de notas adesivas 'Critérios de Exclusão' com salvaguardas (sem feedback de contorno, sem automação, defesa contra abuso), antipersonas (quem usa a ferramenta para disseminar desinformação, quem não tem familiaridade digital mínima, quem busca diagnóstico médico individual) e observações sobre Rodrigo, usuário de celular com pouco tempo](../assets/criterios-exclusao.png)
 *Figura: Mapeamento de critérios de exclusão, diretrizes de antipersonas e salvaguardas de integridade do produto.*
 
 ### Lucas Ferreira (38 anos, Criador de Conteúdo Sensacionalista)
